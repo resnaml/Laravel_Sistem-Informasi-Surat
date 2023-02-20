@@ -1,0 +1,152 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Pengarsipan;
+use Illuminate\Http\Request;
+use App\Models\Kategoriarsip;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+
+class PengarsipanController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $arsipBerguna = Pengarsipan::where('kategori_arsip_id', 1)->get()->count();
+        $arsipPenting = Pengarsipan::where('kategori_arsip_id', 2)->get()->count();
+        $arsipVital = Pengarsipan::where('kategori_arsip_id', 3)->get()->count();
+        $arsipDinamis = Pengarsipan::where('kategori_arsip_id', 4)->get()->count();
+        return view('dashboard.pengarsipan.index', compact('arsipBerguna','arsipPenting','arsipVital','arsipDinamis'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('dashboard.pengarsipan.create',[
+            'kategori' => Kategoriarsip::all()
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'author' => 'required',
+            'judul' => 'required|max:25|min:5',
+            'kategori_arsip_id' => 'required',
+            'file_arsip' => 'required|file|mimes:doc,docx,pdf,xls,xlsx,pdf,ppt,pptx',
+            'kodearsip' => 'nullable'
+        ]);
+        // $validatedData['author'] = auth()->user()->id;
+        if($request->file('file_arsip')) {
+            $validatedData['file_arsip'] = $request->file('file_arsip')->store('dokument');
+        }
+        // $file_arsip = $request->file('/dokument');
+        // $nama_dokument ='FT'.date('Ymdhis').'.'.$request->file('/dokument')->getClientOriginalExtension();
+        // $file_arsip->move('/dokument',$nama_dokument);
+
+        Pengarsipan::create($validatedData);
+        return redirect('/dashboard/pengarsipan')->with('success','Data Arsip Berhasil Dibuat !!! ');
+    }
+
+    /**
+     * Relativ Path File
+     * storage\app\public\dokument\u78rOpY059fgP9t1D6MojGKj3urnXo4IUT8BY4zo.pdf
+     */
+    public function download($id) // Download Data File
+    {
+        $data = DB::table('pengarsipans')->where('id',$id)->first();
+        $file_path = storage_path("app/public/{$data->file_arsip}"); 
+        return Response::download($file_path);
+    }
+
+    // View Arsip By Grup
+    public function arsipBerguna()
+    {
+        $arsipBerguna = Pengarsipan::where('kategori_arsip_id', 1)->get();
+        return view('dashboard.pengarsipan.arsipBerguna', compact('arsipBerguna'));
+    }
+
+    public function arsipPenting()
+    {
+        $arsipPenting = Pengarsipan::where('kategori_arsip_id', 2)->get();
+        return view('dashboard.pengarsipan.arsipPenting', compact('arsipPenting'));
+    }
+
+    public function arsipVital()
+    {
+        $arsipVital = Pengarsipan::where('kategori_arsip_id', 3)->get();
+        return view('dashboard.pengarsipan.arsipVital', compact('arsipVital'));
+    }
+
+    public function arsipDinamis()
+    {
+        $arsipDinamis = Pengarsipan::where('kategori_arsip_id', 4)->get();
+        return view('dashboard.pengarsipan.arsipDinamis', compact('arsipDinamis'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Pengarsipan  $pengarsipan
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Pengarsipan $pengarsipan)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Pengarsipan  $pengarsipan
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Pengarsipan $pengarsipan)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Pengarsipan  $pengarsipan
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Pengarsipan $pengarsipan)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Pengarsipan  $pengarsipan
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Pengarsipan $pengarsipan)
+    {
+        if($pengarsipan->file_arsip)
+        {
+            Storage::delete($pengarsipan->file_arsip);
+        }
+        Pengarsipan::destroy($pengarsipan->id);
+        return redirect('/dashboard/pengarsipan')->with('danger','Data Arsip Telah Dihapus!');
+    }
+}
