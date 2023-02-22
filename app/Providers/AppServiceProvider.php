@@ -29,11 +29,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // Schema::defaultStringLength(191);
-
         Paginator::useBootstrap();
 
-        // Gate::define('admin', function(User $user) {
-        //     return $user->username === 'ares';
+        // Gate::define('admin_is', function(User $user) {
+        //     return $user->is_admin;
         // });
     }
 }

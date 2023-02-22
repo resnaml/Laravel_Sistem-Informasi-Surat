@@ -21,19 +21,20 @@
     </div>
         
             <div class="row mt-2 m-1">
-                    <div class="col">    
-                    <input type="date" name="tglawal" id="tglawal" class="form-control">
+                    <div class="col">
+                        <input type="date" name="tglawal" id="tglawal" class="form-control">
+                        <label class="d-flex" for="Tgl Surat dari"><b>Tgl Surat dari </b></label>
                     </div>
                     <div class="col">
                         <i class="bi bi-chevron-double-right" style="font-size: 1.5rem;"></i>
                     </div>
                     <div class="col">
                     <input type="date" name="tglakhir" id="tglakhir" class="form-control">
+                    <label class="d-flex" for="sampai Tgl Surat"><b>sampai Tgl Surat</b></label>
                     </div>
             </div>
             <div class="row2">
                 <a target="_blank" class="d-flex btn btn-success me-3 mt-2" onclick="this.href='/dashboard/seluruhsurat/'+ document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"><i class="bi bi-printer"> Print Data</i></a>
-                
             </div>
             <div class="row2">
                 <a target="_blank" class="d-flex btn btn-primary mt-2" href="/dashboard/seluruhsurat/cetakseluruh"><i class="bi bi-printer"> Print Seluruh Data</i></a>
@@ -72,7 +73,7 @@
                 <td>{{ $surat->user->name }}</td>
                 <td>{{ $surat->penerima_surat }}</td>
                 <td>{{ $surat->status }}</td>
-                <td>{{ $surat->created_at->format('m/d/y') }}</td>
+                <td>{{ $surat->created_at->format('m-d-y') }}</td>
             <td>
                 <a href="#" class="btn btn-success m-lg-1"><i class="bi bi-safe"></i></a>
                 <a href="#" class="btn btn-danger m-lg-1"><i class="bi bi-trash3-fill"></i></a>

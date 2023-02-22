@@ -33,7 +33,7 @@ class jenissuratController extends Controller
     return redirect('/dashboard/jenissurat')->with('success','Kode Surat Telah Terbuat !');
     }
 
-        /* Hapus data Jenis Surat */
+    /* Hapus data Jenis Surat */
     public function destroy(jenissurat $jenis)
     {
         jenissurat::destroy($jenis->id);

@@ -76,48 +76,4 @@ class SuratMasukController extends Controller
     //     return view('dashboard.surat.seluruh', compact('query'));
     // }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Suratmasuk  $suratmasuk
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Suratmasuk $suratmasuk)
-    {
-        // 
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Surat_masuk  $suratmasuk
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Suratmasuk $suratmasuk)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Surat_masuk  $suratmasuk
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Suratmasuk $suratmasuk)
-    {
-        //
-    }
 }

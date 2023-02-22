@@ -13,7 +13,7 @@
             </a>
         </li>
 
-        {{-- @can('ares') --}}
+        {{-- @can('admin') --}}
         <li class="nav-item">
             <small class="nav-link h6 text-muted" aria-current="page">
                 <i class="bi bi-diagram-2"></i> -- Admin Access --

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Barryvdh\DomPDF\PDF;
 use App\Models\jenissurat;
 use App\Models\Sifatsurat;
 use App\Models\Suratkeluar;
+use App\Models\Disposisisurat; 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\PDF;
 use PhpOffice\PhpWord\TemplateProcessor;
 use PhpOffice\PhpWord\Writer\PDF as WriterPDF;
 
@@ -30,7 +31,7 @@ class SuratKeluarController extends Controller
     /** Cetak Surat / Cetak Laporan Surat **/
     public function cetakSurat()
     {
-        $suratkeluar = Suratkeluar::where('user_id', auth()->user()->id)->get();
+        $suratkeluar = Suratkeluar::where('user_id', auth()->user()->id)->with('jenissurat')->get();
         return view('dashboard.suratkeluar.cetak_surat', compact('suratkeluar'));
     }
 
@@ -98,14 +99,18 @@ class SuratKeluarController extends Controller
         return redirect('/dashboard/suratkeluar')->with('warning','Surat Keluar berhasil terbuat !!!');
     }
 
-    /** Hapus surat keluar **/
+    /* 
+    Hapus surat keluar 
+    */
     public function destroy(Suratkeluar $suratkeluar)
     {
         Suratkeluar::destroy($suratkeluar->id);
         return redirect('/dashboard/suratkeluar')->with('danger','Data surat keluar berhasil terhapus !!!');
     }
 
-    /** Export ke Word **/ 
+    /* 
+    Export ke Word 
+    */ 
     public function WordExport(Suratkeluar $suratkeluar)
     {
         // return view('dashboard.suratkeluar.pdf', [
@@ -113,18 +118,27 @@ class SuratKeluarController extends Controller
         // ]);
     }
 
-    /** Export surat ke PDF **/
-    public function pdfExport(Suratkeluar $suratkeluar)
+    /* 
+    Export surat ke PDF 
+    **/
+    public function pdfExport(Suratkeluar $suratkeluar, Disposisisurat $disposisisurat)
     {
-
         // return view('dashboard.suratkeluar.surat-pdf',[
-        //     'surat' => $suratkeluar
+        //     'surat' => $suratkeluar,
         // ]);
-
-        $suratkeluar = Suratkeluar::select("*")->get();
-
-        $data = $suratkeluar->toArray();
-        dd($data);
+        // $surat = $this->$suratkeluar->toArray();
+        // $pdf = PDF::loadView('dashboard.suratkeluar.surat-pdf', $surat);
+        // $pdf->save('suratku.pdf');
+        // return $pdf;
+        
+        $surat = Suratkeluar::find($suratkeluar)->first()->toArray();
+        return view('dashboard.suratkeluar.surat-pdf', compact('suratkeluar'));
+        
+        // $data = Suratkeluar::find($suratkeluar)->first();
+        // $surat = $this->$data->toArray();
+        // // dd($surat);
+        // $pdf = PDF::loadView('dashboard.suratkeluar.surat-pdf', compact('surat'));
+        // return $pdf->stream('surat.pdf');
     }
     
     // public function KodeSurat(Request $request)

@@ -111,7 +111,9 @@
                     <button class="container btn btn-primary me-2" type="submit"><i class="bi bi-filetype-doc"></i> Export Doc</button>
                         </form> --}}
 
-                    <a href="/dashboard/suratkeluar{{ $surat->id }}.pdf" class="container btn btn-danger me-2 mt-3 content-center" type="submit"><i class="bi bi-file-earmark-pdf"></i> Export PDF</a>
+                    <a href="/dashboard/suratkeluar{{ $surat->id }}.pdf" 
+                        {{-- target="_blank" --}}
+                        class="container btn btn-danger me-2 mt-3 content-center" type="submit"><i class="bi bi-file-earmark-pdf"></i> Export PDF</a>
                     
                     </div>
                 </div>

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Models\Disposisisurat;
 use App\Models\Suratkeluar;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Str;
@@ -21,7 +20,7 @@ class DisposisiController extends Controller
     }
 
     /* Store data / Disposisi Surat masuk/Admin */
-    public function store(Request $request, Suratkeluar $suratkeluar,User $user)
+    public function store(Request $request, Suratkeluar $suratkeluar)
     {   
         $array =[
             'status' => 'required',

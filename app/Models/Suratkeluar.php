@@ -19,7 +19,7 @@ class Suratkeluar extends Model
     
     protected $table = 'suratkeluars';
 
-    protected $with = ['sifatsurat','user','jenissurat'];
+    protected $with = ['sifatsurat','user','jenissurat','disposisi'];
 
     // Search untuk status surat
     public function scopeFilter($query, array $filters)
@@ -28,12 +28,11 @@ class Suratkeluar extends Model
                 return  $query
                 ->where('no_surat_keluar', 'like', '%'. $search. '%')
                 ->orWhere('tgl_surat_keluar', 'like', '%'. $search. '%');
-                // ->orWhere('perihal', 'like', '%'. $search. '%');
             });
 
             $query->when($filters['jenissurat'] ?? false, function($query, $jenissurat) {
                 return $query->whereHas(['jenissurat'], function($query) use($jenissurat) {
-                    $query->where('slug', $jenissurat);
+                    $query->where('jenissurat', $jenissurat);
                 });
             });
     }
@@ -54,7 +53,7 @@ class Suratkeluar extends Model
     }
     public function disposisi()
     {
-        return $this->hasOne(Disposisisurat::class,'disposisi_id','id');
+        return $this->hasOne(Disposisisurat::class,'disposisi_id');
     }
     
     // public function sluggable(): array

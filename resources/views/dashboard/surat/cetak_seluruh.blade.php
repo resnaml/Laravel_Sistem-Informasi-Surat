@@ -42,7 +42,7 @@
                 <td>{{ $surat->user->name }}</td>
                 <td>{{ $surat->penerima_surat }}</td>
                 <td>{{ $surat->status }}</td>
-                <td>{{ $surat->created_at->format('m/d/y') }}</td>
+                <td>{{ $surat->created_at->format('m-d-y') }}</td>
             </tr>
             @endforeach
             
