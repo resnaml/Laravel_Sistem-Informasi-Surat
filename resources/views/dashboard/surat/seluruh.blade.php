@@ -61,7 +61,7 @@
             <th scope="col">Pembuat Surat</th>
             <th scope="col">Tujuan Surat</th>
             <th scope="col">Status Surat</th>
-            <th scope="col">Tgl Dibuat</th>
+            {{-- <th scope="col">Tgl Dibuat</th> --}}
             <th scope="col"></th>
             <tbody>
                 @foreach ($surats as $surat)
@@ -73,10 +73,15 @@
                 <td>{{ $surat->user->name }}</td>
                 <td>{{ $surat->penerima_surat }}</td>
                 <td>{{ $surat->status }}</td>
-                <td>{{ $surat->created_at->format('m-d-y') }}</td>
+                {{-- <td>{{ $surat->created_at->format('m-d-y') }}</td> --}}
             <td>
-                <a href="#" class="btn btn-success m-lg-1"><i class="bi bi-safe"></i></a>
-                <a href="#" class="btn btn-danger m-lg-1"><i class="bi bi-trash3-fill"></i></a>
+                <a href="/dashboard/pengarsipan/create" class="btn btn-success m-lg-1"><i class="bi bi-safe"></i></a>
+                    
+                    <form action="/dashboard/suratkeluar/{{ $surat->id }}" method="post" class="d-inline">
+                        @method('delete')
+                        @csrf
+                        <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>
+                    </form>
             </td>
                 </tr>
             </tr>

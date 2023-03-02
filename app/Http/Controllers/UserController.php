@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-    /* Halaman tampil User */
+    /* 
+        Halaman tampil User 
+    */
     public function index()
     {
         return view('dashboard.user.index',[
@@ -37,7 +39,9 @@ class UserController extends Controller
         //
     }
 
-    /* Halaman Detail User => akun */
+    /* 
+        Halaman Detail User => akun 
+    */
     public function show(User $user)
     {
         return view('dashboard.user.show',[
@@ -45,7 +49,9 @@ class UserController extends Controller
         ]);
     }
 
-    /* Halaman Edit Akun User/Admin */
+    /* 
+        Halaman Edit Akun User (Admin) 
+    */
     public function edit(User $user)
     {
         return view('dashboard.user.edit',[
@@ -53,7 +59,9 @@ class UserController extends Controller
         ]);
     }
 
-    /* Halaman Update Akun User/Admin */
+    /* 
+        Halaman Update Akun User (Admin) 
+    */
     public function update(Request $request, User $user)
     {
         $rules =[
@@ -69,10 +77,13 @@ class UserController extends Controller
         return redirect('/dashboard/kelolaakun')->with('warning','Akun Berhasil di Update !!');
     }
 
-    /* Hapus Akun User/Admin */
+    /* 
+        Hapus Akun User (Admin) 
+    */
     public function destroy(User $user)
     {   
         User::delete($user->id);
         return redirect('/dashboard/kelolaakun')->with('danger','User berhasil terhapus !!!');
     }
+
 }

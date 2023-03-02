@@ -85,17 +85,14 @@
                                 <table class="table table-bordered">
                                     <tbody>
                             <tr>
-                                <th scope="row">Alasan Ditolak</th>
-                                <td class="form-control">
-                                        <textarea readonly class="form-control" style="height: 100px">
-                                            {{ $surat->disposisi['isi_ditolak'] }}
-                                        </textarea>
-                                </td>
+                                <th scope="row">Isi Ditolak</th>
+                            <td>
+                                    <textarea readonly class="form-control" style="height: 100px">{{ $surat->disposisi['isi_ditolak'] }}</textarea>
+                            </td>
                             </tr>
                                     </tbody>
                                 </table>
                             @endif
-
                         </tbody>
                     </table>
                 </div>
@@ -112,7 +109,7 @@
                         </form> --}}
 
                     <a href="/dashboard/suratkeluar{{ $surat->id }}.pdf" 
-                        {{-- target="_blank" --}}
+                        target="_blank"
                         class="container btn btn-danger me-2 mt-3 content-center" type="submit"><i class="bi bi-file-earmark-pdf"></i> Export PDF</a>
                     
                     </div>

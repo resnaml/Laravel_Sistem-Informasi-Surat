@@ -59,7 +59,6 @@
                 <td>
                     
                     
-
                     @if ($surat->disposisi_isi == true)
                     <a href="/dashboard/suratkeluar/{{ $surat->id }}" class="btn btn-info m-lg-1"><i class="bi bi-eye"></i></a>
                     

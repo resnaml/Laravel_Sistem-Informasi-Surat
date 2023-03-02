@@ -2,13 +2,14 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
-        <h2>Daftar Akun Staff Bp2mi</h2>
-        
+        <h2>Daftar Akun Staff Bp2mi</h2>    
     </div>
-    <form class="d-flex col-lg-3 pt-1 pb-3 mb-2 border-bottom border-dark" role="search" action="">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+
+    <div class="d-flex col-lg-3 pt-1 pb-3 mb-2 border-bottom border-dark"  action="">
+        <input class="form-control me-2" name="search" type="search" placeholder="Cari User..." 
+        value="">
+        <button class="btn btn-outline-primary" type="submit" >Search</button>
+    </div>
     
     @if(session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">

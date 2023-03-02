@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Suratmasuk;
 use App\Models\jenissurat;
 use App\Models\Sifatsurat;
 use App\Models\Suratkeluar;

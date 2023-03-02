@@ -6,7 +6,7 @@
         <h4 class="container">Disposisi Surat Masuk</h4>
     </div>
     
-            <div class="card mt-4 container-fluid col-7">
+<div class="card mt-4 container-fluid col-7">
                 <div class="card-header text-center">
                 <h3>Form Disposisi</h3>
                 </div>
@@ -17,7 +17,6 @@
                             <form method="post" action="/dashboard/surat{{ $surat->id }}/disposisi" class="mb-3">
                                 @method('post')
                                 @csrf
-                                
                                 
                                 <div id="example" class="mb-2 mt-2 container-fluid col-lg-8">
                                     <label for="status disposisi" class="form-label"><b>Status Disposisi</b></label>
@@ -34,9 +33,9 @@
                                     </select>
                                 </div>
 
-                                <div id="isi_ditolak" class="mb-3 mt-4 container-fluid text-center">
+                                <div id="isi_ditolak" class="mb-3 mt-4 container-fluid">
                                     <label for="no_surat_keluar" class="form-label"><b>Alasan Surat Ditolak</b></label>
-                                    <textarea class="form-control  text-center" id="exampleFormControlTextarea1" rows="4" name="isi_ditolak"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="isi_ditolak"></textarea>
                                 </div>
                                 
                                     <div class="mb-3 mt-4 container-fluid col-lg-8 me-2" id="checkbox">
@@ -57,7 +56,7 @@
                                 
                                 <div class="mb-3 mt-3 container-fluid col-lg-8" id="no_disposisi">
                                     <label for="no disposisi" class="form-label @error('no_disposisi') is-invalid @enderror"><b>No Surat</b></label>
-                                    <input type="text" value="{{ $surat->jenissurat['kodesurat'] ?? '' }}/{{ str_pad($surat->no_surat_keluar, 2, '0', STR_PAD_LEFT) }}/{{ substr($surat->sifatsurat['namesifat'], 0, 1) }}/{{ substr($surat->tgl_surat_keluar, 5, 2) }}/{{ substr($surat->tgl_surat_keluar, 2, 2) }}/" class="form-control"   name="no_disposisi">
+                                    <input type="text" value="{{ $surat->jenissurat['kodesurat'] ?? '' }}/{{ substr($surat->sifatsurat['namesifat'], 0, 1) }}/{{ substr($surat->tgl_surat_keluar, 5, 2) }}/{{ substr($surat->tgl_surat_keluar, 2, 2) }}/" class="form-control"   name="no_disposisi">
                                     @error('no_disposisi')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -102,7 +101,7 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
+</div>
 
 
     @endsection

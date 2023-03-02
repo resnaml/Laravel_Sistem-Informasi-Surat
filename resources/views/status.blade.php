@@ -8,7 +8,7 @@
         <h1 class="text-center mb-3">{{ $title }}</h1>
 
         <div class="row justify-content-center mb-4">
-            <div class="col-md-6 conten-ju">
+            <div class="col-md-6 conten-justify">
                 <form action="/status">
                     @if (request('jenissurat'))
                         <input type="hidden" name="jenissurat" value="{{ request('jenissurat') }}">

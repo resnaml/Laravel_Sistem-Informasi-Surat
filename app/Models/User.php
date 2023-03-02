@@ -30,6 +30,9 @@ class User extends Authenticatable
 
     protected $guarded = ['id'];
 
+    /*
+        Relation
+    **/
     public function suratkeluar()
     {
         return $this->hasMany(Suratkeluar::class);
@@ -39,16 +42,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Suratmasuk::class,'suratmasuk_id');
     }
-    // public function user()
-    // {
-    //     return $this->hasMany(Suratmasuk::class,'user_id');
-    // }
-
-    // public function Disposisi()
-    // {
-    //     return $this->hasMany(Disposisisurat::class, 'disposisi_oleh');
-    // }
     
+
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -12,19 +12,10 @@ class Disposisisurat extends Model
     protected $guarded = ['id'];
 
     protected $status = ['Diterima', 'Proses', 'Ditolak'];
-
-    // public const IS_STATUS = [
-    //     'Diterima' => 'yes',
-    //     'Ditolak' => 'no'
-    // ];
     
     public function suratkeluar()
     {
         return $this->belongsTo(Suratkeluar::class, 'disposisi_id');
     }
 
-    // public function user()
-    // {
-    //     return $this->belongsTo(User::class, 'disposisi_oleh');
-    // }
 }

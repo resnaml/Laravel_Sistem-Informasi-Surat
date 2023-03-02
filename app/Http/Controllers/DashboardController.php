@@ -12,7 +12,9 @@ use Dflydev\DotAccessData\Data;
 
 class DashboardController extends Controller
 {
-    /* Halaman Dashboard */
+    /* 
+        Halaman Dashboard 
+    */
     public function index(User $user)
     {
         $surat = Suratkeluar::get();
