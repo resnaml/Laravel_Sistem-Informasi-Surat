@@ -20,7 +20,9 @@ use function PHPUnit\Framework\returnSelf;
 class SuratKeluarController extends Controller
 {
 
-    /** Index show surat keluar **/
+    /*
+        Index Surat keluar
+    */
     public function index()
     {
         return view('dashboard.suratkeluar.index', [
@@ -28,14 +30,18 @@ class SuratKeluarController extends Controller
         ]);
     }
 
-    /** Cetak Surat / Cetak Laporan Surat **/
+    /* 
+        Cetak Surat / Cetak Laporan Surat
+    */
     public function cetakSurat()
     {
         $suratkeluar = Suratkeluar::where('user_id', auth()->user()->id)->with('jenissurat')->get();
         return view('dashboard.suratkeluar.cetak_surat', compact('suratkeluar'));
     }
 
-    /** Tampilkan view buat Surat keluar **/
+    /*
+        Tampilkan View Untuk Surat keluar
+    */
     public function create()
     {
         return view('dashboard.suratkeluar.create', [
@@ -44,7 +50,9 @@ class SuratKeluarController extends Controller
         ]);
     }
     
-    // !-- Buat Surat Keluar --!
+    /*
+        Store Data -> Surat Keluar 
+    */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -62,7 +70,9 @@ class SuratKeluarController extends Controller
         return redirect('/dashboard/suratkeluar')->with('success','Surat Keluar berhasil terbuat !!!');
     }
 
-    /** Show detail surat keluar **/
+    /*
+        Show detail surat keluar
+    */
     public function show(Suratkeluar $suratkeluar)
     {
         return view('dashboard.suratkeluar.show',[
@@ -70,7 +80,9 @@ class SuratKeluarController extends Controller
         ]);
     }
 
-    /** Edit surat controller **/  
+    /*
+        Edit surat controller
+    */  
     public function edit(Suratkeluar $suratkeluar)
     {
         return view('dashboard.suratkeluar.edit', [
@@ -80,7 +92,9 @@ class SuratKeluarController extends Controller
         ]);
     }
 
-    /** Update Surat Keluar **/
+    /*
+        Update Surat Keluar
+    */
     public function update(Request $request, Suratkeluar $suratkeluar)
     {
         $rules =[
@@ -100,7 +114,7 @@ class SuratKeluarController extends Controller
     }
 
     /* 
-    Hapus surat keluar 
+        Hapus surat keluar 
     */
     public function destroy(Suratkeluar $suratkeluar)
     {
@@ -109,7 +123,7 @@ class SuratKeluarController extends Controller
     }
 
     /* 
-    Export ke Word 
+        Export ke Word 
     */ 
     public function WordExport(Suratkeluar $suratkeluar)
     {
@@ -119,8 +133,8 @@ class SuratKeluarController extends Controller
     }
 
     /* 
-    Export surat ke PDF 
-    **/
+        Export surat ke PDF 
+    */
     public function pdfExport(Suratkeluar $suratkeluar, Disposisisurat $disposisisurat)
     {
         // return view('dashboard.suratkeluar.surat-pdf',[

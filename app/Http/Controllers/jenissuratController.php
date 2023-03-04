@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 class jenissuratController extends Controller
 {
-    /* Halaman Jenis Surat */
+    /* 
+        Halaman Jenis Surat
+    */
     public function index()
     {
         return view('dashboard.jenissurat.index',[
@@ -15,13 +17,17 @@ class jenissuratController extends Controller
         ]);
     }
 
-    /* Halaman Buat Jenis Surat */
+    /*
+        Halaman Buat Jenis Surat
+    */
     public function create()
     {
         return view('dashboard.jenissurat.create');
     }
 
-    /* Store data Jenis Surat */
+    /*
+        Store data -> Jenis Surat
+    */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -33,7 +39,9 @@ class jenissuratController extends Controller
     return redirect('/dashboard/jenissurat')->with('success','Kode Surat Telah Terbuat !');
     }
 
-    /* Hapus data Jenis Surat */
+    /*
+        Hapus Data -> Jenis Surat
+    */
     public function destroy(jenissurat $jenis)
     {
         jenissurat::destroy($jenis->id);

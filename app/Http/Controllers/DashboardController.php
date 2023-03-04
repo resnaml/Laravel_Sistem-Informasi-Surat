@@ -37,7 +37,9 @@ class DashboardController extends Controller
         return view('dashboard.index', compact('surat','suratKeluarCount','suratDisposisiCount','userCount','suratallCount', 'data', 'months','monthCount','pengarsipanCount'));
     }
 
-    /* Halaman Show akun */
+    /* 
+        Halaman Show Akun
+    */
     public function ShowAkun(User $user)
     {   
         $name = auth()->user()->name;
@@ -51,13 +53,17 @@ class DashboardController extends Controller
         return view('dashboard.viewakun',compact('name', 'username', 'email', 'jabatan','alamat','telepon','tgl_lahir'));
     }
 
-    /* Halaman Edit Akun */
+    /*
+        Halaman Edit Akun
+    */
     public function EditAkun(User $user)
     {
         return view('dashboard.editakun',compact('user'));
     }
 
-    /* Halaman Front End Status Surat */
+    /*
+        Halaman Front End Status Surat
+    */
     public function StatusSurat()
     {
         return view('status',[
@@ -66,7 +72,9 @@ class DashboardController extends Controller
         ]);
     }
 
-    /* Halaman Front End Home */
+    /*
+        Halaman Front End Home
+    */
     public function home()
     {
         return view('home',[
@@ -74,7 +82,9 @@ class DashboardController extends Controller
         ]);
     }
     
-    /* Halaman Front End About */
+    /*
+        Halaman Front End About
+    */
     public function about()
     {
         return view('about',[
@@ -82,7 +92,9 @@ class DashboardController extends Controller
         ]);
     }
     
-    /* Halaman Front End Panduan */
+    /*
+        Halaman Front End Panduan
+    */
     public function panduan()
     {
         return view('panduan',[

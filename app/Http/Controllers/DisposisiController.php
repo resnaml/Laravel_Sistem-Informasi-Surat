@@ -6,20 +6,23 @@ use App\Models\Suratkeluar;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Str;
-use Illuminate\Contracts\Validation\Rule;
 // use Illuminate\Support\Facades\Validator;
 // use Illuminate\Validation\Rule;
 
 class DisposisiController extends Controller
 {
-    /* Halaman Disposisi Surat Masuk */
+    /* 
+        Halaman Disposisi Surat Masuk
+    */
     public function index(Suratkeluar $suratkeluar){
         return view('dashboard.disposisi.create',[
             'surat' => $suratkeluar
         ]);
     }
 
-    /* Store data / Disposisi Surat masuk/Admin */
+    /*
+        Store Data -> Disposisi Surat Masuk By: Admin 
+    */
     public function store(Request $request, Suratkeluar $suratkeluar)
     {   
         $array =[

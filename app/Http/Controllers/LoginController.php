@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    /* Halaman Login */
+    /* 
+        View Halaman Login 
+    */
     public function index()
     {
         return view('login.index',[
@@ -14,7 +16,9 @@ class LoginController extends Controller
         ]);
     }
 
-    /* Authentifikasi User */
+    /* 
+        Authentifikasi Method User -> Login 
+    */
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
@@ -29,7 +33,9 @@ class LoginController extends Controller
         return back()->with('LoginError','Login gagal coba periksa lagi Username atau Password !!');
     }
 
-    /* Logout / session invalid */
+    /* 
+        Logout Session Method -> Invalid
+    */
     public function logout()
     {
         Auth::logout();

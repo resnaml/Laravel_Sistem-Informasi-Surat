@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 
 class SifatsuratController extends Controller
 {
-    /* Halaman Sifat Surat/Admin */
+    /*
+        Halaman Sifat Surat -> Admin 
+    */
     public function index()
     {
         return view('dashboard.sifatsurat.index',
@@ -16,13 +18,17 @@ class SifatsuratController extends Controller
         ]);
     }
 
-    /* Halaman Buat Sifat Surat/Admin */
+    /*
+        Halaman Buat Sifat Surat -> Admin
+    */
     public function create()
     {
         return view('dashboard.sifatsurat.create');
     }
 
-    /* Store Sifat Surat/Admin */
+    /*
+        Store Sifat Surat -> Admin 
+    */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -32,7 +38,9 @@ class SifatsuratController extends Controller
         return redirect('/dashboard/sifatsurat')->with('success','Sifat Surat Berhasil Terbuat !');
     }
 
-    /* Hapus Sifat Surat/Admin */
+    /*
+        Hapus Sifat Surat/Admin
+    */
     public function destroy(Sifatsurat $s)
     {
         Sifatsurat::destroy($s->id);

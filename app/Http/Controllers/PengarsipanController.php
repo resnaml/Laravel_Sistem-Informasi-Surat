@@ -11,11 +11,9 @@ use Illuminate\Support\Facades\Response;
 
 class PengarsipanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /*
+        Index View Pengarsipan
+    */
     public function index()
     {
         $arsipBerguna = Pengarsipan::where('kategori_arsip_id', 1)->get()->count();
@@ -25,11 +23,9 @@ class PengarsipanController extends Controller
         return view('dashboard.pengarsipan.index', compact('arsipBerguna','arsipPenting','arsipVital','arsipDinamis'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /*
+        View Halaman Kategori by: Kategori
+    */
     public function create()
     {
         return view('dashboard.pengarsipan.create',[
@@ -37,12 +33,9 @@ class PengarsipanController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    /*
+        Store Data Pengarsipan
+    */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -64,10 +57,10 @@ class PengarsipanController extends Controller
         return redirect('/dashboard/pengarsipan')->with('success','Data Arsip Berhasil Dibuat !!! ');
     }
 
-    /**
-     * Relativ Path File
-     * storage\app\public\dokument\u78rOpY059fgP9t1D6MojGKj3urnXo4IUT8BY4zo.pdf
-     */
+    /*
+        Relativ Path File
+        (storage\app\public\dokument\u78rOpY059fgP9t1D6MojGKj3urnXo4IUT8BY4zo.pdf)
+    */
     public function download($id) // Download Data File
     {
         $data = DB::table('pengarsipans')->where('id',$id)->first();
@@ -75,71 +68,33 @@ class PengarsipanController extends Controller
         return Response::download($file_path);
     }
 
-    // View Arsip By Grup
+    /* 
+        View Arsip By Kategori 
+    */
     public function arsipBerguna()
     {
         $arsipBerguna = Pengarsipan::where('kategori_arsip_id', 1)->get();
         return view('dashboard.pengarsipan.arsipBerguna', compact('arsipBerguna'));
     }
-
     public function arsipPenting()
     {
         $arsipPenting = Pengarsipan::where('kategori_arsip_id', 2)->get();
         return view('dashboard.pengarsipan.arsipPenting', compact('arsipPenting'));
     }
-
     public function arsipVital()
     {
         $arsipVital = Pengarsipan::where('kategori_arsip_id', 3)->get();
         return view('dashboard.pengarsipan.arsipVital', compact('arsipVital'));
     }
-
     public function arsipDinamis()
     {
         $arsipDinamis = Pengarsipan::where('kategori_arsip_id', 4)->get();
         return view('dashboard.pengarsipan.arsipDinamis', compact('arsipDinamis'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Pengarsipan  $pengarsipan
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Pengarsipan $pengarsipan)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Pengarsipan  $pengarsipan
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Pengarsipan $pengarsipan)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pengarsipan  $pengarsipan
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Pengarsipan $pengarsipan)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Pengarsipan  $pengarsipan
-     * @return \Illuminate\Http\Response
-     */
+    /*
+        Hapus Data Arsip
+    */
     public function destroy(Pengarsipan $pengarsipan)
     {
         if($pengarsipan->file_arsip)

@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\DB;
 
 class SuratMasukController extends Controller
 {
-    /* Halaman Disposisi Surat masuk */
+    /* 
+        Halaman Disposisi Surat Masuk
+    */
     public function index()
     {
         return view('dashboard.surat.index', [
@@ -18,6 +20,9 @@ class SuratMasukController extends Controller
         ]);
     }
 
+    /* 
+        Halaman Show Deatil Diposisi Surat Masuk
+    */
     public function edit(Suratkeluar $suratkeluar)
     {
         return view('dashboard.surat.disposisi', [
@@ -27,7 +32,9 @@ class SuratMasukController extends Controller
         ]);
     }
     
-    /* Halaman show detail Disposisi Surat Masuk */
+    /* 
+        Halaman Tampilkan Seluruh Surat 
+    */
     public function seluruhSurat()
     {
         return view('dashboard.surat.seluruh',[
@@ -35,20 +42,26 @@ class SuratMasukController extends Controller
         ]);
     }
 
-    /* Cetak Surat Keseluruhan */
+    /* 
+        Cetak Surat Keseluruhan
+    */
     public function cetakSeluruhSurat()
     {
         $suratkeluar = Suratkeluar::with('jenissurat')->get();
         return view('dashboard.surat.cetak_seluruh', compact('suratkeluar'));
     }
 
-    /* Cari Surat di Seluruh Surat */
+    /*
+        Cari Surat di Seluruh Surat
+    */
     public function search()
     {
         
     }
 
-     /* Cetak Surat per Bulan */
+    /* 
+        Cetak Surat per Bulan
+    */
     public function cetakPerBln($tglawal, $tglakhir)
     {
         // dd(["Tanggal Awal : ".$tglawal,"Tanggal Akhir :".$tglakhir]);

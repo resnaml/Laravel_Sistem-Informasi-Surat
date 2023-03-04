@@ -9,7 +9,9 @@ use Illuminate\Auth\Events\Login;
 
 class RegisterController extends Controller
 {
-    /* Halaman Register */
+    /*
+        Halaman View Register
+    */
     public function index()
     {
         return view('register.index',[
@@ -17,7 +19,9 @@ class RegisterController extends Controller
         ]);
     }
 
-    /* Buat Akun Baru / Register */
+    /* 
+        Store Data Akun Baru
+    */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
