@@ -32,7 +32,7 @@ class SuratMasukController extends Controller
         ]);
     }
     
-    /* 
+    /*
         Halaman Tampilkan Seluruh Surat 
     */
     public function seluruhSurat()

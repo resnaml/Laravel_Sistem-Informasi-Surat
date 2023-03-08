@@ -21,8 +21,6 @@ class CreateSuratkeluarsTable extends Migration
                 $table->date('tgl_surat_keluar');
                 $table->integer('lampiran')->nullable();
                 $table->text('perihal', 255);
-                // $table->string('perihal');
-                // $table->text('isi_surat');
                 $table->string('penerima_surat');
                 $table->enum('status', ['Diterima', 'Proses', 'Ditolak'])->default('Proses');
                 $table->boolean('disposisi_isi')->default(0);
@@ -34,7 +32,6 @@ class CreateSuratkeluarsTable extends Migration
                 $table->foreignId('user_id');
                 
             });
-
     }
 
     /**

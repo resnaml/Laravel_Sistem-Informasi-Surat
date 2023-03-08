@@ -14,6 +14,7 @@
         </li>
 
         {{-- @can('admin') --}}
+        @if(auth()->user()->is_admin == 1)
         <li class="nav-item">
             <small class="nav-link h6 text-muted" aria-current="page">
                 <i class="bi bi-diagram-2"></i> -- Admin Access --
@@ -51,7 +52,7 @@
             </ul>
         </li>
         </ul>
-        
+        @endif
+        {{-- @endcan --}}
     </div>
-    {{-- @endcan --}}
 </nav>

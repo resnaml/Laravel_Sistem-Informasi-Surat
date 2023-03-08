@@ -19,7 +19,6 @@ use function PHPUnit\Framework\returnSelf;
 
 class SuratKeluarController extends Controller
 {
-
     /*
         Index Surat keluar
     */
@@ -125,12 +124,12 @@ class SuratKeluarController extends Controller
     /* 
         Export ke Word 
     */ 
-    public function WordExport(Suratkeluar $suratkeluar)
-    {
-        // return view('dashboard.suratkeluar.pdf', [
-        //     'surat' => $suratkeluar
-        // ]);
-    }
+    // public function WordExport(Suratkeluar $suratkeluar)
+    // {
+    //     // return view('dashboard.suratkeluar.pdf', [
+    //     //     'surat' => $suratkeluar
+    //     // ]);
+    // }
 
     /* 
         Export surat ke PDF 
@@ -140,7 +139,7 @@ class SuratKeluarController extends Controller
         // return view('dashboard.suratkeluar.surat-pdf',[
         //     'surat' => $suratkeluar,
         // ]);
-        // $surat = $this->$suratkeluar->toArray();
+        // $surat = $this->$suratkeluar->$disposisisurat->toArray();
         // $pdf = PDF::loadView('dashboard.suratkeluar.surat-pdf', $surat);
         // $pdf->save('suratku.pdf');
         // return $pdf;

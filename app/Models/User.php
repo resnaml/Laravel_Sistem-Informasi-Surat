@@ -42,6 +42,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Suratmasuk::class,'suratmasuk_id');
     }
+
+    // public function pengarsipan()
+    // {
+    //     return $this->hasMany(Pengarsipan::class);
+    // }
     
 
     /**

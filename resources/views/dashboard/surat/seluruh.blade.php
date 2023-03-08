@@ -55,7 +55,7 @@
             <tr>
             <th scope="col">No</th>
             <th scope="col">Kode Surat</th>
-            <th scope="col">Tgl Surat Untuk</th>
+            <th scope="col">Tgl Surat</th>
             <th scope="col">Jenis Surat</th>
             <th scope="col">Sifat Surat</th>
             <th scope="col">Pembuat Surat</th>

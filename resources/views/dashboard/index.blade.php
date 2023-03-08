@@ -11,6 +11,7 @@
     </div>
     
     <div class="card-group mt-4">
+        
         <div class="card" style="max-width: 18rem;">
             <div class="card-header">Surat Disposisi  
             <div class="mt-2 h4 bold border">{{ $suratKeluarCount }}</div>
@@ -37,6 +38,7 @@
                 <i class="bi bi-mailbox" style="font-size: 4.0rem;"></i>
             </div>
         </div>
+        @if(auth()->user()->is_admin == 1)
         <div class="card" style="max-width: 18rem;">
             <div class="card-header">Jumlah Pengarsipan 
             <div class="h4 border mt-2">{{ $pengarsipanCount }}</div>
@@ -53,7 +55,7 @@
                 <i class="bi bi-people-fill" style="font-size: 4.0rem;"></i>
             </div>
         </div>
-        
+        @endif
     </div>
     
     <div class="card mt-3">

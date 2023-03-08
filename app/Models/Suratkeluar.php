@@ -64,13 +64,11 @@ class Suratkeluar extends Model
     //             'separator' => '_' + 1
     //         ]
     //     ];
-        
     // }
 
     public static function boot()
     {
         parent::boot();
-
         static::creating(function($model){
             $model->no_surat_keluar = Suratkeluar::where('jenissurat_id', $model->jenissurat_id)->max('no_surat_keluar') + 1;
         });

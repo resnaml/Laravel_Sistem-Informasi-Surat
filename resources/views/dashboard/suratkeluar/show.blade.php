@@ -19,7 +19,7 @@
                         <tbody>
                         <tr>
                             <th scope="row">Surat Dibuat Pada</th>
-                            <td>{{ $surat->created_at->format('m/d/y') }}</td>
+                            <td>{{ $surat->created_at->format('y-m-d') }}</td>
                         </tr>
                         <tr>
                             <th scope="row">Surat Untuk Tgl</th>
@@ -67,15 +67,15 @@
                                 <td colspan="2">
                                 @isset($surat->disposisi)
                                     {{ $surat->diposisi }}
-                                    <div>{{ $surat->disposisi['no_disposisi'] }}</div>
+                                    <div><b>{{ $surat->disposisi['no_disposisi'] }}</b></div>
                             </tr>
                             <tr>
                                 <th scope="row">Tgl Disposisi</th>
-                                <td colspan="2">{{ $surat->disposisi->created_at }}</td>
+                                <td colspan="2"><b>{{ $surat->disposisi->created_at }}</b></td>
                             </tr>
                             <tr>
                                 <th scope="row">Disposisi Oleh</th>
-                                <td colspan="2">{{ $surat->disposisi['disposisi_oleh'] }}</td>
+                                <td colspan="2"><b>{{ $surat->disposisi['disposisi_oleh'] }}</b></td>
                             </tr>
                             @endisset
                             @else

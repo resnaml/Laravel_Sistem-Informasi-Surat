@@ -100,7 +100,7 @@ Route::post('/dashboard/seluruhsurat/search', [SuratMasukController::class, 'sea
 
 
 
-/* 
+/*
     --Disposisi Route--
 */
 Route::get('/dashboard/surat{suratkeluar}/disposisi', [DisposisiController::class, 'index'])->middleware('admin');
