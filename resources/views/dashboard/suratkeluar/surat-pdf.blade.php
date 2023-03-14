@@ -29,7 +29,7 @@
         }
         div.footer{
             position: absolute;
-            top: 800px;
+            top: 1100px;
             right: 5px;
             font-size: 15px; 
         }
@@ -38,7 +38,7 @@
     </style>
 <body>
     <div style="text-align: center;">
-        <img src="/img/header.jpg" style="width: 800px; height: 200px">
+        <img src="/img/header.jpg" style="width: 1100px; height: 200px">
     </div>
 
     <div class="form-group border-bottom-5">
@@ -50,17 +50,21 @@
             </div>
             
         <div>
-        <table class="static" align="container"  style="width: 50%;">
+        <table class="static" align="container">
             {{ $suratkeluar->diposisi }}
             <thead>
             <td>No Surat <td>: {{ $suratkeluar->disposisi['no_disposisi'] }}</td></td>
         </table>
 
-        <table class="static" align="container"  style="width: 111%;">
+        <table class="static" align="container">
             <td>Hal   <span></span><td>: <b>{{ $suratkeluar->jenissurat['namejenis'] }}</b></td></td>
         </table>
 
-        <table class="static" align="container"  style="width: 37%;">
+        <table class="static" align="container">
+            <td>Sifat   <span></span><td>: {{ $suratkeluar->sifatsurat['namesifat'] }}</td></td>
+        </table>
+
+        <table class="static" align="container" >
             <td>Kepada   <span></span><td>: {{ $suratkeluar->penerima_surat }}</td></td>
         </table>
 

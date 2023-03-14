@@ -49,10 +49,7 @@ class PengarsipanController extends Controller
         if($request->file('file_arsip')) {
             $validatedData['file_arsip'] = $request->file('file_arsip')->store('dokument');
         }
-        // $file_arsip = $request->file('/dokument');
-        // $nama_dokument ='FT'.date('Ymdhis').'.'.$request->file('/dokument')->getClientOriginalExtension();
-        // $file_arsip->move('/dokument',$nama_dokument);
-
+        
         Pengarsipan::create($validatedData);
         return redirect('/dashboard/pengarsipan')->with('success','Data Arsip Berhasil Dibuat !!! ');
     }

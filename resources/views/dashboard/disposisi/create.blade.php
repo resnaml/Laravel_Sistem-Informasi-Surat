@@ -20,13 +20,13 @@
                                 
                                 <div id="example" class="mb-2 mt-2 container-fluid col-lg-8">
                                     <label for="status disposisi" class="form-label"><b>Status Disposisi</b></label>
-                                    <select autofocus required class="form-control text-center" name="status" id="status">
+                                    <select  required class="form-control text-center" name="status" id="status">
                                         @foreach(["Proses" => "Proses"] as $status => $status1)
-                                        {{-- <option value="{{ $status }}" {{ old("status", $surat->status) == $status ? "selected" : "" }} autofocus >{{ $status1 }}</option> --}}
+                                        {{-- <option value="{{ $status }}" {{ old("status", $surat->status) == $status ? "selected" : "" }} >{{ $status1 }}</option> --}}
                                         @foreach(["Diterima" => "Diterima"] as $status => $status2)
-                                        <option value="{{ $status2 }}">{{ $status2 }}</option>
+                                        <option id="status2" value="{{ $status2 }}">{{ $status2 }}</option>
                                         @foreach(["Ditolak" => "Ditolak"] as $status => $status3)
-                                        <option value="{{ $status3 }}">{{ $status3 }}</option>
+                                        <option id="status3" value="{{ $status3 }}">{{ $status3 }}</option>
                                         @endforeach
                                         @endforeach
                                         @endforeach
@@ -56,7 +56,7 @@
                                 
                                 <div class="mb-3 mt-3 container-fluid col-lg-8" id="no_disposisi">
                                     <label for="no disposisi" class="form-label @error('no_disposisi') is-invalid @enderror"><b>No Surat</b></label>
-                                    <input type="text" value="{{ $surat->jenissurat['kodesurat'] ?? '' }}/{{ substr($surat->sifatsurat['namesifat'], 0, 1) }}/{{ substr($surat->tgl_surat_keluar, 5, 2) }}/{{ substr($surat->tgl_surat_keluar, 2, 2) }}/" class="form-control"   name="no_disposisi">
+                                    <input type="text" value="{{ $surat->jenissurat['kodesurat'] ?? '' }}/{{ substr($surat->tgl_surat_keluar, 5, 2) }}/{{ substr($surat->tgl_surat_keluar, 2, 2) }}/" class="form-control"   name="no_disposisi">
                                     @error('no_disposisi')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -77,12 +77,9 @@
                                 </form>
                             </div>
 
-                            <script>
+                            <script type="text/javascript">
                                 $(function()
                                 {   
-                                    // $('#no_disposisi').hide();
-                                    // $('#isi_oleh').hide();
-                                    // $('#isi_disposisi').hide();
                                     $('#isi_ditolak').hide();
                                     $('#example').change(function()
                                     {
@@ -94,7 +91,6 @@
                                             $('#isi_ditolak').show();
                                         }
                                     });
-                                    
                                 });
                             </script>
 

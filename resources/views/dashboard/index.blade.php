@@ -62,7 +62,7 @@
         <div class="row mt-4 container">
             <div class="col-xl-6">
                 <div class="card-header">
-                    <i class="bi bi-graph-up-arrow"></i> Data Surat
+                    <i class="bi bi-graph-up-arrow"></i> Chart Surat
                 </div>
                 <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas>
                 </div>
@@ -70,7 +70,7 @@
 
             <div class="col-xl-6">
                 <div class="card-header">
-                    <i class="bi bi-reception-4"></i> Data Surat
+                    <i class="bi bi-reception-4"></i> Grafik Surat
                 </div>
                 <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas>
                 </div>

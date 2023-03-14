@@ -48,10 +48,7 @@
                             <th scope="row">No Telpon</th>
                             <td colspan="2">{{ $telepon }}</td>
                         </tr>
-                        <tr>
-                            <th scope="row">Role User</th>
-                            <td colspan="2">-</td>
-                        </tr>
+
                         </tbody>
                         
                     </table>

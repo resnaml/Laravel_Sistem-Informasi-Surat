@@ -29,7 +29,7 @@ class CreateSuratkeluarsTable extends Migration
                 // foreign key
                 $table->foreignId('sifat_id');
                 $table->foreignId('jenissurat_id');
-                $table->foreignId('user_id');
+                $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
                 
             });
     }

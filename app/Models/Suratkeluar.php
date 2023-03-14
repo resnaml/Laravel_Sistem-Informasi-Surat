@@ -26,13 +26,12 @@ class Suratkeluar extends Model
     {
             $query->when($filters['search'] ?? false, function($query, $search) {
                 return  $query
-                ->where('no_surat_keluar', 'like', '%'. $search. '%')
-                ->orWhere('tgl_surat_keluar', 'like', '%'. $search. '%');
+                ->where('no_surat_keluar', 'like', '%'. $search. '%');
             });
 
             $query->when($filters['jenissurat'] ?? false, function($query, $jenissurat) {
                 return $query->whereHas(['jenissurat'], function($query) use($jenissurat) {
-                    $query->where('jenissurat', $jenissurat);
+                    $query->where('no_surat_keluar', $jenissurat);
                 });
             });
     }
@@ -73,5 +72,4 @@ class Suratkeluar extends Model
             $model->no_surat_keluar = Suratkeluar::where('jenissurat_id', $model->jenissurat_id)->max('no_surat_keluar') + 1;
         });
     }
-
 }

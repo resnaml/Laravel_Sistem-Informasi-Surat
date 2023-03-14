@@ -72,6 +72,28 @@
                 </div>
         </div>
         <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1">Langkah Ketujuh</h2>
+                <p class="lead">Jika surat sudah di Acc(diterima), maka surat sudah bisa di Print</p>
+                </div>
+                <div class="col-md-5">
+                    <img src="/img/8.png" height="250" weight="250">
+                </div>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1">Hasil dari Surat yang diajukan</h2>
+                
+                </div>
+                <div class="col-md-5">
+                    <img src="/img/9.png" height="250" weight="250">
+                </div>
+        </div>
+        <hr class="featurette-divider">
         
 
     </div><!-- /.container -->
