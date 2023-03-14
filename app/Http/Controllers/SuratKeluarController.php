@@ -64,7 +64,7 @@ class SuratKeluarController extends Controller
             'status' => 'nullable'
         ]);
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['perihal'] = Str::limit(strip_tags($request->perihal), 225,);
+        $validatedData['perihal'] = (strip_tags($request->perihal));
         Suratkeluar::create($validatedData);
         return redirect('/dashboard/suratkeluar')->with('success','Surat Keluar berhasil terbuat !!!');
     }
@@ -106,7 +106,7 @@ class SuratKeluarController extends Controller
         ];
         $validatedData = $request->validate($rules);
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['perihal'] = Str::limit(strip_tags($request->perihal), 225);
+        $validatedData['perihal'] = (strip_tags($request->perihal));
         Suratkeluar::where('id', $suratkeluar->id)
                     ->update($validatedData);
         return redirect('/dashboard/suratkeluar')->with('warning','Surat Keluar berhasil terbuat !!!');

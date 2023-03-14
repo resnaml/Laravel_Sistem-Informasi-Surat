@@ -45,8 +45,8 @@ class UserController extends Controller
     {
         $rules =[
             'alamat' => 'required|min:5|max:30',
-            'jabatan' => 'required|max:15',
-            'telepon' => 'required|numeric',
+            'jabatan' => 'required|max:20',
+            'telepon' => 'required|max:13',
             'tgl_lahir' => 'required',
             'gambar' => 'nullable|image',
             'role_id' => 'nullable'
@@ -61,7 +61,7 @@ class UserController extends Controller
     */
     public function destroy(User $user)
     {   
-        User::delete($user->id);
+        User::destroy($user->id);
         return redirect('/dashboard/kelolaakun')->with('danger','User berhasil terhapus !!!');
     }
 

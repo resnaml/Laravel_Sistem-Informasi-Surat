@@ -27,8 +27,8 @@ class CreateSuratkeluarsTable extends Migration
                 $table->boolean('print_surat')->default(0);
                 
                 // foreign key
-                $table->foreignId('sifat_id');
-                $table->foreignId('jenissurat_id');
+                $table->foreignId('sifat_id')->constrained('sifatsurats')->onDelete('cascade');
+                $table->foreignId('jenissurat_id')->constrained('jenissurats')->onDelete('cascade');
                 $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
                 
             });

@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('jabatan')->nullable();
             $table->text('alamat')->nullable();
             $table->string('gambar')->nullable();
-            $table->integer('telepon')->nullable();
+            $table->string('telepon')->nullable();
             $table->date('tgl_lahir')->nullable();
             $table->boolean('is_admin')->default(false);
             

@@ -53,7 +53,7 @@
         <table class="static" align="container">
             {{ $suratkeluar->diposisi }}
             <thead>
-            <td>No Surat <td>: {{ $suratkeluar->disposisi['no_disposisi'] }}</td></td>
+            <td>No Surat <td>: <b>{{ $suratkeluar->disposisi['no_disposisi'] }}</b></td></td>
         </table>
 
         <table class="static" align="container">
