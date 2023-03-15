@@ -102,7 +102,6 @@ class SuratKeluarController extends Controller
             'lampiran' => 'nullable',
             'penerima_surat' => 'required',
             'sifat_id' => 'required',
-            'jenissurat_id' => 'required'
         ];
         $validatedData = $request->validate($rules);
         $validatedData['user_id'] = auth()->user()->id;

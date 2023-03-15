@@ -5,7 +5,6 @@
         <h1 class="h2">Buat Surat keluar</h1>
     </div>
 
-
     <div class="card mt-4 container-fluid col-7">
         <div class="card-header-">
     <form method="post" action="/dashboard/suratkeluar" class="mb-5" enctype="multipart/form-data">
@@ -71,10 +70,10 @@
                 </div>
                 @enderror
             </div>
-            <div class="mb-4 col-8 container">
+            {{-- <div class="mb-4 col-8 container">
                 <label for="lampiran" class="form-label"><b> Lampiran <span class="text-muted">(Opsional)</span></b></label>
                 <input type="file" class="form-control" id="lampiran" name="lampiran">
-            </div>
+            </div> --}}
 
             <div class="col-lg-6 container ">
                 <button type="submit" class="btn btn-primary m-right-3 me-3"><i class="bi bi-plus-square"></i> Buat Surat</button>

@@ -13,8 +13,8 @@
         <h3 class="mb-2 text-center mt-2">Form Edit Surat</h3>
         <hr class="featurette-divider mb-4">
 
-            <div class="mb-3 col-7 container">
-            <label for="tgl_surat_keluar" class="form-label"><b> Tgl Surat Keluar</b></label>
+            <div class="mb-3 col-7 container text-center">
+            <label for="tgl_surat_keluar" class="form-label container"><b> Tgl Surat Keluar</b></label>
             <div class="mb-3 col-10">
                 <i class="bi bi-calendar-week" style="font-size: 1.7rem; "> <input type="date" id="tgl_surat_keluar" name="tgl_surat_keluar" class="@error('tgl_surat_keluar') is-invalid @enderror" required value="{{ old('tgl_surat_keluar',$surat->tgl_surat_keluar) }}"></i> 
                 @error('tgl_surat_keluar')
@@ -24,7 +24,7 @@
                 @enderror
             </div>
             </div>
-            <div class="mb-3 col-7 container">
+            {{-- <div class="mb-3 col-7 container">
                 <label for="jenissurat" class="form-label"><b> Surat </b></label>
                 <select class="form-select mb-3" name="jenissurat_id">
                     @foreach ($jenissurats as $jenissurat)
@@ -35,10 +35,10 @@
                     @endif
                     @endforeach
                 </select>
-            </div>
-            <div class="mb-3 col-7 container">
+            </div> --}}
+            <div class="mb-3 col-7 text-center container">
                 <label for="jenissurat" class="form-label"><b>Sifat Surat </b></label>
-                <select class="form-select mb-3 col-7 container" name="sifat_id">
+                <select class="form-select mb-3 col-7 container text-center" name="sifat_id">
                     @foreach ($sifat as $sifats)
                     @if(old('sifat_id',$surat->sifat_id) == $sifats->id)    
                     <option value="{{ $sifats->id }}" selected>{{ $sifats->namesifat }}</option>
