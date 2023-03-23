@@ -121,38 +121,16 @@ class SuratKeluarController extends Controller
     }
 
     /* 
-        Export ke Word 
-    */ 
-    // public function WordExport(Suratkeluar $suratkeluar)
-    // {
-    //     // return view('dashboard.suratkeluar.pdf', [
-    //     //     'surat' => $suratkeluar
-    //     // ]);
-    // }
-
-    /* 
         Export surat ke PDF 
     */
     public function pdfExport(Suratkeluar $suratkeluar, Disposisisurat $disposisisurat)
     {
-        // return view('dashboard.suratkeluar.surat-pdf',[
-        //     'surat' => $suratkeluar,
-        // ]);
-        // $surat = $this->$suratkeluar->$disposisisurat->toArray();
-        // $pdf = PDF::loadView('dashboard.suratkeluar.surat-pdf', $surat);
-        // $pdf->save('suratku.pdf');
-        // return $pdf;
-        
         $surat = Suratkeluar::find($suratkeluar)->first()->toArray();
         return view('dashboard.suratkeluar.surat-pdf', compact('suratkeluar'));
         
-        // $data = Suratkeluar::find($suratkeluar)->first();
-        // $surat = $this->$data->toArray();
-        // // dd($surat);
-        // $pdf = PDF::loadView('dashboard.suratkeluar.surat-pdf', compact('surat'));
-        // return $pdf->stream('surat.pdf');
     }
     
+
     // public function KodeSurat(Request $request)
     // {
     //     $no_surat_keluar = SlugService::createSlug(Suratkeluar::class, 'no_surat_keluar', $request->jenissurat_id );

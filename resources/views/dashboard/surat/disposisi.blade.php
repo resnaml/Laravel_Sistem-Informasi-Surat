@@ -15,7 +15,7 @@
                             <div class="container-fluid col-lg-8">
                                 <div class="mb-3 container-fluid">
                                     <label for="no_surat_keluar" class="form-label"><b>Kode Surat Keluar</b></label>
-                                    <input type="text"  class="text-center form-control" readonly id="no_surat_keluar" name="no_surat_keluar" value="{{ old('no_surat_keluar', $surat->no_surat_keluar) }}">
+                                    <input type="text"  class="text-center form-control" readonly id="no_surat_keluar" name="no_surat_keluar" value="{{ $surat->jenissurat['kodesurat'] ?? '' }}-{{ str_pad($surat->no_surat_keluar, 4, '0', STR_PAD_LEFT) }}">
                                 </div>
 
                                 <div class="mb-3 container-fluid">

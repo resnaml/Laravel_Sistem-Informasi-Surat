@@ -2,12 +2,11 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2 border-bottom border-dark">
-        <h1 class="h2">Welcome back, {{ auth()->user()->name }}</h1>
+        <h1 class="h2">Selamat Datang, {{ auth()->user()->name }}</h1>
     </div>
 
     <div class="border-bottom border-dark">
         <a class="btn btn-primary mb-2 me-2" href="/dashboard/viewakun"><i class="bi bi-file-person"></i> My akun</a>
-        <a href="/dashboard/editakun" class="btn btn-warning mb-2"><i class="bi bi-file-earmark-person-fill"></i> Edit akun</a>
     </div>
     
     <div class="card-group mt-4">

@@ -51,14 +51,6 @@ class SuratMasukController extends Controller
         return view('dashboard.surat.cetak_seluruh', compact('suratkeluar'));
     }
 
-    /*
-        Cari Surat di Seluruh Surat
-    */
-    public function search()
-    {
-        
-    }
-
     /* 
         Cetak Surat per Bulan
     */

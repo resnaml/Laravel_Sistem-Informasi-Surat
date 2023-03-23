@@ -28,13 +28,9 @@
 
         <a class="d-flex btn btn-success me-3 mb-3 border-bottom" href="/dashboard/suratkeluarcetak" target="_blank"><i class="bi bi-printer"> Cetak Data</i></a>
 
-        <form class="d-flex col-lg-3 pt-1 pb-3" role="search" action="">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
     </div>
     
-    <h4 class="container border-top border-dark">Daftar Surat</h4>
+    <h4 class="border-top border-dark">Daftar Surat</h4>
     <div class="table-responsive d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1">
         <table class="table table-striped table-sm table-bordered text-center">
         <thead class="table table-primary">
@@ -57,7 +53,6 @@
                 <td>{{ $surat->user->name }}</td>
                 <td>{{ $surat->status }}</td>
                 <td>
-                    
                     
                     @if ($surat->disposisi_isi == true)
                     <a href="/dashboard/suratkeluar/{{ $surat->id }}" class="btn btn-info m-lg-1"><i class="bi bi-eye"></i></a>

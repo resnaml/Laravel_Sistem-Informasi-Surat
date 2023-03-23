@@ -11,6 +11,8 @@ use App\Http\Controllers\PengarsipanController;
 use App\Http\Controllers\SifatsuratController;
 use App\Http\Controllers\SuratKeluarController;
 use App\Http\Controllers\jenissuratController;
+use App\Models\Suratkeluar;
+use App\Models\Suratmasuk;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,7 +98,7 @@ Route::get('/dashboard/seluruhsurat/cetakseluruh', [SuratMasukController::class,
 
 
 
-Route::post('/dashboard/seluruhsurat/search', [SuratMasukController::class, 'search2'])->middleware('admin');
+// Route::post('/dashboard/seluruhsurat/search', [SuratMasukController::class, 'search2'])->middleware('admin');
 
 
 
@@ -112,5 +114,6 @@ Route::post('/dashboard/surat{suratkeluar}/disposisi', [DisposisiController::cla
 Route::resource('/dashboard/suratkeluar', SuratKeluarController::class)->middleware('auth');
 Route::get('/dashboard/suratkeluarcetak', [SuratKeluarController::class, 'cetakSurat'])->middleware('auth');
 Route::get('/dashboard/suratkeluar{suratkeluar}.pdf', [SuratKeluarController::class, 'pdfExport']);
+
 
 // Route::get('/dashboard/suratkeluar/KodeSurat', [Suratkeluar::class, 'KodeSurat']);

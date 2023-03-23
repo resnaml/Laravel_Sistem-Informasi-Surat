@@ -32,12 +32,8 @@
 
         <div class="container mb-3 col-8">
             <label for="nama" class="form-label"><b>Author</b></label>
-            <input type="text" class="form-control text-center @error('author') is-invalid @enderror" name="author" required>
-            @error('author')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-            @enderror
+            <input type="text" class="form-control text-center" name="author" readonly value="{{ auth()->user()->name }}">
+            
         </div>
 
             <div class="container col-8">
@@ -62,9 +58,7 @@
         function previewImage(){
             const image = document.querySelector('#file_arsip');
             const imgPreview = document.querySelector('.img-preview');
-
             imgPreview.style.display = 'block';
-
             const blob = URL.createObjectURL(image.files[0]);
             imgPreview.src = blob
         }

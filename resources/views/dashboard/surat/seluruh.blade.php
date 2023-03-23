@@ -12,10 +12,9 @@
     @endif
 
     <div class="d-flex border-bottom border-dark">
-        <form action="" method="POST" role="search">
+        <form action=""  role="search">
         <div class="d-flex btn">
-                @csrf
-            <input class="d-flex mb-3 form-control me-3" type="search" placeholder="Search" aria-label="Search">
+            <input class="d-flex mb-3 form-control me-3" type="search">
         <button class="d-flex btn mb-3 btn-outline-success" type="submit">Search</button>
     </form>
     </div>
@@ -41,13 +40,13 @@
             </div>
     </div>
 
-    <div class="d-flex mt-2">
+    {{-- <div class="d-flex mt-2">
         <div class="d-flex mt-1">
             <div class="d-flex">
                 {{ $surats->links() }}
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="table-responsive text-center d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1">
         <table class="table table-striped table-bordered mb-3">

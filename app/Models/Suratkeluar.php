@@ -30,8 +30,8 @@ class Suratkeluar extends Model
             });
 
             $query->when($filters['jenissurat'] ?? false, function($query, $jenissurat) {
-                return $query->whereHas(['jenissurat'], function($query) use($jenissurat) {
-                    $query->where('no_surat_keluar', $jenissurat);
+                return $query->whereHas('jenissurat', function($query) use($jenissurat) {
+                    $query->where('kodesurat', $jenissurat);
                 });
             });
     }
