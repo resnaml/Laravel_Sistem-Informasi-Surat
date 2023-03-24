@@ -18,7 +18,7 @@
             </div>
 
             <div class="carousel-item">
-                <img class="container" src="/img/kepala-badan-perlindungan-pekerja-migran-indonesia-bp2mi-benny-rhamdani_220606231725-509.jpg" height="500" weight="500">
+                <img class="container" src="/img/Beri_Pelayanan_Prima,_BP3MI_Jabar_Laksanakan_Verifikasi_Dokumen_CPMI_G_to_G_Korea_Selatan_WhatsApp_Image_2023-01-16_at_07.26.18_-_UPT_BP2MI_JABAR.jpeg" height="500" weight="500">
         
                 <div class="container">
                 <div class="carousel-caption">
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="container" src="/img/BP2MI_logo.png" height="500" weight="500">
+                <img class="container" src="/img/kepala-badan-perlindungan-pekerja-migran-indonesia-bp2mi-benny-rhamdani_220606231725-509.jpg" height="500" weight="500">
         
                 <div class="container">
                 <div class="carousel-caption text-end">
@@ -94,7 +94,7 @@
                 <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis reiciendis neque iste! Ad, eveniet molestiae?</p>
             </div>
             <div class="col-md-5">
-                <img src="/img/5e1e772d26146.jpg" height="430" weight="430">
+                <img src="/img/peta_bp3mi.png" height="300" weight="250">
             </div>
             </div>
         
@@ -106,7 +106,7 @@
         <!-- FOOTER -->
         <footer class="container">
             <p class="float-end"><a href="#">Back to top</a></p>
-            <p>&copy; 2022 Aresss.
+            <p>&copy; 2023 Aresss.
         </footer>
         </main>
 

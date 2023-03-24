@@ -26,7 +26,7 @@ class Suratkeluar extends Model
     {
             $query->when($filters['search'] ?? false, function($query, $search) {
                 return  $query
-                ->where('no_surat_keluar', 'like', '%'. $search. '%');
+                ->where('no_surat_keluar', 'like', '%'. $search. '%')->orwhere('penerima_surat', 'like', '%'. $search. '%');
             });
 
             $query->when($filters['jenissurat'] ?? false, function($query, $jenissurat) {

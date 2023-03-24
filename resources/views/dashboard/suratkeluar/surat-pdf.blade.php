@@ -38,7 +38,7 @@
     </style>
 <body>
     <div style="text-align: center;">
-        <img src="/img/header.jpg" style="width: 1100px; height: 200px">
+        <img src="/img/header_jelas.jpg" style="width: 1100px; height: 200px">
     </div>
 
     <div class="form-group border-bottom-5">
@@ -88,8 +88,8 @@
 
 <footer>
     <div class="footer" style="text-align: right;">
-        <img src="/img/footer.jpg" style="width: 300px; height: 150px">
-    <h4 class="mr-5">Kepala Sub.Bag, Tu</h4>
+        <img src="/img/ttd1.jpg" style="width: 350px; height: 200px">
+    <h4 class="mr-5">Kepala Sub.Bag, Tata Usaha</h4>
     </div>
 </footer>
 
