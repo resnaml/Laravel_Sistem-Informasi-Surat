@@ -11,8 +11,6 @@ use App\Http\Controllers\PengarsipanController;
 use App\Http\Controllers\SifatsuratController;
 use App\Http\Controllers\SuratKeluarController;
 use App\Http\Controllers\jenissuratController;
-use App\Models\Suratkeluar;
-use App\Models\Suratmasuk;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,11 +94,7 @@ Route::get('/dashboard/surat/{suratkeluar}', [SuratMasukController::class, 'edit
 Route::get('/dashboard/seluruhsurat/{tglawal}/{tglakhir}', [SuratMasukController::class, 'cetakPerBln'])->middleware('admin');
 Route::get('/dashboard/seluruhsurat/cetakseluruh', [SuratMasukController::class, 'cetakSeluruhSurat'])->middleware('admin');
 
-
-
 // Route::post('/dashboard/seluruhsurat/search', [SuratMasukController::class, 'search2'])->middleware('admin');
-
-
 
 /*
     --Disposisi Route--
