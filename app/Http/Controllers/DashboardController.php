@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Pengarsipan;
 use App\Models\User;
 use App\Models\Suratkeluar;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 use Dflydev\DotAccessData\Data;
 
 class DashboardController extends Controller
@@ -51,6 +51,13 @@ class DashboardController extends Controller
         $jabatan = auth()->user()->jabatan;
         
         return view('dashboard.viewakun',compact('name', 'username', 'email', 'jabatan','alamat','telepon','tgl_lahir'));
+    }
+
+    /*
+        Surat Saya
+    */ 
+    public function suratSaya(){
+        return view('dashboard.surat-saya');
     }
 
     /*

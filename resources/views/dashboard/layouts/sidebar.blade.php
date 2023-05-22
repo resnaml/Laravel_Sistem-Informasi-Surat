@@ -8,8 +8,13 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link mb-2 {{ Request::is('dashboard/suratkeluar*') ? 'active' : '' }}" aria-current="page" href="/dashboard/suratkeluar">
+            <a class="nav-link {{ Request::is('dashboard/suratkeluar*') ? 'active' : '' }}" aria-current="page" href="/dashboard/suratkeluar">
                 <i class="bi bi-envelope-plus"></i> Surat Keluar
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ Request::is('dashboard/suratsaya') ? 'active' : '' }}" aria-current="page" href="/dashboard/suratsaya">
+                <i class="bi bi-envelope-open"></i> Surat Saya
             </a>
         </li>
 

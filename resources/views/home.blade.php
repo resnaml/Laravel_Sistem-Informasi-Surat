@@ -66,11 +66,11 @@
         
             <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">First featurette heading.</h2>
-                <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat, eius! In rem sint maxime consectetur dolores cumque deserunt? Consequatur distinctio maiores repellendus laboriosam nemo aut beatae quibusdam, accusamus, rem perferendis quam. Eaque, quisquam amet inventore corporis quam velit temporibus optio eum, asperiores veniam maxime, nisi aspernatur laboriosam! Quam blanditiis assumenda repellat, numquam debitis, sunt, adipisci ipsum similique voluptates sapiente magnam.</p>
+                <h2 class="featurette-heading fw-normal lh-1 mb-3">Sejarah Pengarsipan</h2>
+                <p class="lead">Pengarsipan adalah sebuah proses dan cara dimana informasi dalam bentuk dokumen disimpan dengan aman dalam jangka waktu tertentu yang ditentukan oleh hukum. Dokumen dapat diarsipkan dalam berbagai format dan di berbagai perangkat. Meskipun suatu dokumen berstatus tidak aktif, namun dokumen itu dapat diaktifkan kembali.</p>
             </div>
-            <div class="col-md-5">
-                <img src="/img/sejarah1.jpg" height="440" weight="440">
+            <div class="col-md-5 mt-5">
+                <img src="/img/arsip1.jpg" height="250" weight="400">
             </div>
             </div>
         
@@ -78,11 +78,11 @@
         
             <div class="row featurette">
             <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good.</h2>
-                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, voluptatibus quidem officia voluptatum, odit laborum aperiam suscipit unde dolore, nesciunt voluptas quasi atque facilis inventore et blanditiis consequatur repellendus totam voluptates animi temporibus nisi ut alias? Mollitia sunt facilis hic?</p>
+                <h2 class="featurette-heading fw-normal lh-1 mb-3">Mengapa Pengarsipan itu Penting ?</h2>
+                <p class="lead mb-5">Dengan adanya arsip, diharapkan semua lapisan masyarakat akan lebih memudahkan dalam mengurus dan mengakses berbagai hal ketika berurusan dengan perangkat pemerintahan, dimana arsip memegang peranan penting. Begitu juga bagi instansi/lembaga pemerintahan dan swasta dalam menjalankan kegiatannya, melihat pentingnya arsip dalam seluruh urusan yang berkaitan dengan pengambilan keputusan, sumber informasi dalam rangka administrasi maupun birokrasi.</p>
             </div>
-            <div class="col-md-5 order-md-1">
-                <img src="/img/bp2mi_jerman1.jpg" height="430" weight="430">
+            <div class="col-md-5 order-md-1 mt-5">
+                <img src="/img/arsip2.jpg" height="230" weight="400">
             </div>
             </div>
         
@@ -90,11 +90,11 @@
         
             <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">And lastly, this one.</h2>
-                <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis reiciendis neque iste! Ad, eveniet molestiae?</p>
+                <h2 class="featurette-heading fw-normal lh-1 mb-3">Peran Arsip dalam Kehidupan</h2>
+                <p class="lead">Dengan adanya arsip, diharapkan semua lapisan masyarakat akan lebih memudahkan dalam mengurus dan mengakses berbagai hal ketika berurusan dengan perangkat pemerintahan, dimana arsip memegang peranan penting. Begitu juga bagi instansi/lembaga pemerintahan dan swasta dalam menjalankan kegiatannya, melihat pentingnya arsip dalam seluruh urusan yang berkaitan dengan kegiatan, rencana, pengambilan keputusan, sumber informasi dalam rangka administrasi maupun birokrasi.</p>
             </div>
-            <div class="col-md-5">
-                <img src="/img/peta_bp3mi.png" height="300" weight="250">
+            <div class="col-md-5 mt-5">
+                <img src="/img/arsip3.jpg" height="230" weight="500">
             </div>
             </div>
         

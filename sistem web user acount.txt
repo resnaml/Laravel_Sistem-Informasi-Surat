@@ -1,0 +1,7 @@
+Nama Web : Sistem-Informasi-By-Arsss
+Pass Web : i@PfRNPEsc3XKkp&rqyN
+
+DB name : id20593683_db_skripsi
+DB username : id20593683_dbskripsi
+DB host : localhost
+DB Pass : vYG\%P=tyr6ckFtP

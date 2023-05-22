@@ -11,22 +11,23 @@
     
     <div class="card-group mt-4">
         
+        
+        <div class="card container" style="max-width: 18rem;">
+            <div class="card-header">Surat Keluar Saya
+                <div class="h4 border mt-2">  {{ $suratDisposisiCount }} </div>
+            </div>
+            <div class="card-body">
+                <i class="bi bi-envelope-paper" style="font-size: 4.0rem;"></i>
+            </div>
+        </div>
+
+        @if(auth()->user()->is_admin == 1)
         <div class="card" style="max-width: 18rem;">
             <div class="card-header">Surat Disposisi  
             <div class="mt-2 h4 bold border">{{ $suratKeluarCount }}</div>
             </div>
             <div class="card-body">
                 <i class="bi bi-envelope-exclamation" style="font-size: 4.0rem;"></i>
-            </div>
-        </div>
-
-
-        <div class="card" style="max-width: 18rem;">
-            <div class="card-header">Surat Keluar Saya
-                <div class="h4 border mt-2">  {{ $suratDisposisiCount }} </div>
-            </div>
-            <div class="card-body">
-                <i class="bi bi-envelope-paper" style="font-size: 4.0rem;"></i>
             </div>
         </div>
         <div class="card" style="max-width: 18rem;">
@@ -37,9 +38,8 @@
                 <i class="bi bi-mailbox" style="font-size: 4.0rem;"></i>
             </div>
         </div>
-        @if(auth()->user()->is_admin == 1)
         <div class="card" style="max-width: 18rem;">
-            <div class="card-header">Jumlah Pengarsipan 
+            <div class="card-header">Pengarsipan 
             <div class="h4 border mt-2">{{ $pengarsipanCount }}</div>
             </div>
             <div class="card-body">
