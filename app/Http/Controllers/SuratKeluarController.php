@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\jenissurat;
 use App\Models\Sifatsurat;
 use App\Models\Suratkeluar;
-use App\Models\Disposisisurat; 
+use App\Models\Disposisisurat;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\PDF;
@@ -44,6 +45,7 @@ class SuratKeluarController extends Controller
     public function create()
     {
         return view('dashboard.suratkeluar.create', [
+            'users' => User::all(),
             'jenissurats' => jenissurat::all(),
             'sifat' => Sifatsurat::all()
         ]);
@@ -61,7 +63,8 @@ class SuratKeluarController extends Controller
             'sifat_id' => 'required',
             'jenissurat_id' => 'required',
             'lampiran' => 'nullable',
-            'status' => 'nullable'
+            'status' => 'nullable',
+            'kepada' => 'required'
         ]);
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['perihal'] = (strip_tags($request->perihal));

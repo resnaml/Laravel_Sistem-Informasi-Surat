@@ -38,14 +38,11 @@
                 
                 <div class="form-floating mt-2 mb-2">
                     <div class="col-12">
-                        <select  required class="form-control text-center" name="status" id="status" aria-placeholder="Jabatan">
-                            @foreach(["Proses" => "Proses"] as $status => $status1)
-                            {{-- <option value="{{ $status }}" {{ old("status", $surat->status) == $status ? "selected" : "" }} >{{ $status1 }}</option> --}}
-                            @foreach(["Kepala" => "Kepala"] as $status => $status2)
-                            <option id="status2" value="{{ $status2 }}">{{ $status2 }}</option>
-                            @foreach(["Karyawan" => "Karyawan"] as $status => $status3)
-                            <option id="status3" value="{{ $status3 }}">{{ $status3 }}</option>
-                            @endforeach
+                        <select  required class="form-control text-center" name="level" aria-placeholder="Jabatan">
+                            @foreach(["Kepala" => "Kepala"] as $status => $status)
+                            <option value="{{ $status }}">{{ $status }}</option>
+                            @foreach(["Karyawan" => "Karyawan"] as $status => $status2)
+                            <option value="{{ $status2 }}">{{ $status2 }}</option>
                             @endforeach
                             @endforeach
                         </select>

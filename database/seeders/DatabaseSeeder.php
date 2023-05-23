@@ -85,6 +85,9 @@ class DatabaseSeeder extends Seeder
             'name' => 'Ares',
             'username' => 'ares',
             'email' => 'ares@gmail.com',
+            'nip' => '199205142023052001',
+            'jabatan' => 'Karyawan',
+            'level' => 'Kepala',
             'password' => bcrypt('password')
         ]);
 
@@ -92,6 +95,9 @@ class DatabaseSeeder extends Seeder
             'name' => 'Emul',
             'username' => 'emul',
             'email' => 'emul@gmail.com',
+            'nip' => '199205142023052002',
+            'jabatan' => 'Karyawan',
+            'level' => 'Kepala',
             'password' => bcrypt('password')
         ]);
 
@@ -99,6 +105,9 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'username' => 'admin',
             'email' => 'admin@gmail.com',
+            'nip' => '199205142023052003',
+            'jabatan' => 'Admin',
+            'level' => 'Kepala',
             'password' => bcrypt('password'),
             'is_admin' => 1
         ]);

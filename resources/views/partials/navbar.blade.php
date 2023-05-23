@@ -5,18 +5,18 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <ul class="navbar-nav me-auto mb-2 mt-1 mb-lg-0">
         <li class="nav-item">
-            <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
+            <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/"><i class="bi bi-house-door" ></i> Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{ Request::is('status') ? 'active' : '' }}" href="/status">Surat</a>
+            <a class="nav-link {{ Request::is('status') ? 'active' : '' }}" href="/status"><i class="bi bi-card-list"></i> Surat</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{ Request::is('panduan') ? 'active' : '' }}" href="/panduan">Panduan</a>
+            <a class="nav-link {{ Request::is('panduan') ? 'active' : '' }}" href="/panduan"><i class="bi bi-clipboard"></i> Panduan</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="/about">About</a>
+            <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="/about"><i class="bi bi-info-circle"></i> About</a>
         </li>
     </ul>
     

@@ -29,7 +29,7 @@
             
             <div class="mb-3 col-7 container">
                 <label for="jenissurat" class="form-label"><b>Sifat Surat </b></label>
-                <select class="form-select mb-3" name="sifat_id">
+                <select class="form-select mb-3" name="kepada">
                     <option selected disabled>-- Pilih Sifat Surat --</option>
                     @foreach ($sifat as $sifats)
                     @if(old('sifat_id') == $sifats->id)    
@@ -37,6 +37,7 @@
                     @else
                     <option value="{{ $sifats->id }}">{{ $sifats->namesifat }}</option>
                     @endif
+                    
                     @endforeach
                 </select>
             </div>
@@ -53,6 +54,20 @@
                 </div>
                 </div>
 
+                <div class="mb-3 col-7 container">
+                    <label for="User" class="form-label"><b>Penerima Surat</b></label>
+                    <select class="form-select mb-3" name="users_id">
+                        <option selected disabled>-- Pilih Users --</option>
+                        @foreach ($users as $users)
+                        @if(old('users_id') == $users->id)    
+                        <option value="{{ $users->id }}">{{ $users->name }}</option>
+                        @else
+                        <option value="{{ $users->id }}">{{ $users->name }}</option>
+                        @endif
+                        @endforeach
+                    </select>
+                </div>
+
             <div class="mb-3">
                 <label for="perihal" class="form-label"><b> Isi Surat </b></label>
                 <input id="perihal" type="hidden" name="perihal" value="{{ old('perihal') }}" required>
@@ -61,15 +76,9 @@
                 @enderror
                 <trix-editor class="text-right bg-white" input="perihal"></trix-editor>
             </div>
-            <div class="mb-3 col-8 container">
-                <label for="penerimasurat" class="form-label"><b> Penerima Surat </b></label>
-                <input type="text" class="form-control @error('penerima_surat') is-invalid @enderror" id="penerima_surat" name="penerima_surat" required value="{{ old('penerima_surat') }}">
-                @error('penerima_surat')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div>
+
+           
+
             {{-- <div class="mb-4 col-8 container">
                 <label for="lampiran" class="form-label"><b> Lampiran <span class="text-muted">(Opsional)</span></b></label>
                 <input type="file" class="form-control" id="lampiran" name="lampiran">

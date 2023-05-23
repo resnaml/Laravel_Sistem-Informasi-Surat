@@ -32,8 +32,6 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item h4 border border-primary">{{ $surat->jenissurat['kodesurat'] ?? '' }}-{{ str_pad($surat->no_surat_keluar, 4, '0', STR_PAD_LEFT) }}</li>
                             <li class="list-group-item"><p class="card-text mt-0">Surat Keluar Oleh :<b> {{ $surat->user['name'] }}</b></p></li>
-                            <li class="list-group-item"><p class="card-text mt-0">Sifat Surat :<b> {{ $surat->sifatsurat['namesifat'] }}</b></p>
-                            </li>
                             <small href="#" class="btn btn-info col-5 mt-3 container">{{ $surat->status }}</small>
                         </ul>
                         </div>
