@@ -57,7 +57,7 @@ class Suratkeluar extends Model
 
     public function kepada_id()
     {
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class,'kepada');
     }
     
     // public function sluggable(): array

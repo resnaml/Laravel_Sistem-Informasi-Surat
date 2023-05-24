@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
-        <h2>Surat Keluar oleh : {{ auth()->user()->name }}</h1>
+        <h2>Surat Keluar oleh : {{ auth()->user()->name }}</h2>
     </div>
     
     @if(session()->has('success'))
@@ -27,7 +27,6 @@
         <a class="d-flex btn btn-primary me-3 mb-3 border-bottom" href="/dashboard/suratkeluar/create"><i class="bi bi-envelope-plus"> Buat Surat</i></a>
 
         <a class="d-flex btn btn-success me-3 mb-3 border-bottom" href="/dashboard/suratkeluarcetak" target="_blank"><i class="bi bi-printer"> Cetak Data</i></a>
-
     </div>
     
     <h4 class="border-top border-dark">Daftar Surat</h4>
@@ -49,7 +48,7 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $surat->jenissurat['kodesurat'] ?? '' }}-{{ str_pad($surat->no_surat_keluar, 4, '0', STR_PAD_LEFT) }}</td>
                 <td>{{ $surat->tgl_surat_keluar }}</td>
-                <td>{{ $surat->penerima_surat }}</td>
+                <td>{{ $surat->kepada_id['name'] }}</td>
                 <td>{{ $surat->user->name }}</td>
                 <td>{{ $surat->status }}</td>
                 <td>

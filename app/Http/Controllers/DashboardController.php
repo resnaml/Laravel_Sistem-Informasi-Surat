@@ -56,8 +56,20 @@ class DashboardController extends Controller
     /*
         Surat Saya
     */ 
-    public function suratSaya(){
-        return view('dashboard.surat-saya');
+    public function suratSaya()
+    {
+        
+        return view('dashboard.surat-saya',[
+            'suratkeluar' => Suratkeluar::where('kepada', auth()->user()->id)->get()
+        ]);
+    }
+
+    /*
+        Buka Surat
+    */
+    public function bukaSurat()
+    {
+        
     }
 
     /*

@@ -38,12 +38,12 @@ class User extends Authenticatable
         return $this->hasMany(Suratkeluar::class);
     }
 
-    public function suratmasuk()
-    {
-        return $this->hasMany(Suratmasuk::class,'suratmasuk_id');
-    }
+    // public function suratmasuk()
+    // {
+    //     return $this->hasMany(Suratmasuk::class,'suratmasuk_id');
+    // }
 
-    public function kepada()
+    public function kepada_surat()
     {
         return $this->hasOne(Suratkeluar::class,'kepada');
     }

@@ -57,13 +57,12 @@
                 <div class="mb-3 col-7 container">
                     <label for="User" class="form-label"><b>Penerima Surat</b></label>
                     <select class="form-select mb-3" name="kepada">
-                        <option selected disabled>-- Pilih Users --</option>
                         @foreach ($users as $users)
-                        {{-- @if(old('users_id') == $users->id)     --}}
+                        @if ($users === auth()->user()->id)
+                        <option selected disabled>{{ $users->id }}</option>
+                        @else
                         <option value="{{ $users->id }}">{{ $users->name }}</option>
-                        {{-- @else --}}
-                        {{-- <option value="{{ $users->id }}">{{ $users->name }}</option>
-                        @endif --}}
+                        @endif
                         @endforeach
                     </select>
                 </div>
