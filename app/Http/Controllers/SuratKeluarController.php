@@ -59,17 +59,20 @@ class SuratKeluarController extends Controller
         $validatedData = $request->validate([
             'no_surat_keluar' => 'nullable',
             'tgl_surat_keluar' => 'required|date',
-            'penerima_surat' => 'required|max:12|min:3',
             'sifat_id' => 'required',
             'jenissurat_id' => 'required',
             'lampiran' => 'nullable',
             'status' => 'nullable',
-            'kepada' => 'required'
+            'kepada' => 'nullable'
         ]);
+        // $validatedData['kepada'] = ($user_id);
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['perihal'] = (strip_tags($request->perihal));
+        $validatedData['perihal'] = ($request->perihal);
+        // $validatedData['perihal'] = (strip_tags($request->perihal));
         Suratkeluar::create($validatedData);
-        return redirect('/dashboard/suratkeluar')->with('success','Surat Keluar berhasil terbuat !!!');
+
+        dd($validatedData);
+        // return redirect('/dashboard/suratkeluar')->with('success','Surat Keluar berhasil terbuat !!!');
     }
 
     /*

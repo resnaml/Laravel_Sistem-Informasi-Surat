@@ -29,7 +29,7 @@
             
             <div class="mb-3 col-7 container">
                 <label for="jenissurat" class="form-label"><b>Sifat Surat </b></label>
-                <select class="form-select mb-3" name="kepada">
+                <select class="form-select mb-3" name="sifat_id">
                     <option selected disabled>-- Pilih Sifat Surat --</option>
                     @foreach ($sifat as $sifats)
                     @if(old('sifat_id') == $sifats->id)    
@@ -56,14 +56,14 @@
 
                 <div class="mb-3 col-7 container">
                     <label for="User" class="form-label"><b>Penerima Surat</b></label>
-                    <select class="form-select mb-3" name="users_id">
+                    <select class="form-select mb-3" name="kepada">
                         <option selected disabled>-- Pilih Users --</option>
                         @foreach ($users as $users)
-                        @if(old('users_id') == $users->id)    
+                        {{-- @if(old('users_id') == $users->id)     --}}
                         <option value="{{ $users->id }}">{{ $users->name }}</option>
-                        @else
-                        <option value="{{ $users->id }}">{{ $users->name }}</option>
-                        @endif
+                        {{-- @else --}}
+                        {{-- <option value="{{ $users->id }}">{{ $users->name }}</option>
+                        @endif --}}
                         @endforeach
                     </select>
                 </div>
@@ -76,8 +76,6 @@
                 @enderror
                 <trix-editor class="text-right bg-white" input="perihal"></trix-editor>
             </div>
-
-           
 
             {{-- <div class="mb-4 col-8 container">
                 <label for="lampiran" class="form-label"><b> Lampiran <span class="text-muted">(Opsional)</span></b></label>

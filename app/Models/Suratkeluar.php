@@ -54,6 +54,11 @@ class Suratkeluar extends Model
     {
         return $this->hasOne(Disposisisurat::class,'disposisi_id');
     }
+
+    public function kepada_id()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
     
     // public function sluggable(): array
     // {
