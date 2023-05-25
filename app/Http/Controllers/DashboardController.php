@@ -49,7 +49,6 @@ class DashboardController extends Controller
         $telepon = auth()->user()->telepon;
         $tgl_lahir = auth()->user()->tgl_lahir;
         $jabatan = auth()->user()->jabatan;
-        
         return view('dashboard.viewakun',compact('name', 'username', 'email', 'jabatan','alamat','telepon','tgl_lahir'));
     }
 

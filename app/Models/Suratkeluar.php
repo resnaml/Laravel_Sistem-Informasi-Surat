@@ -21,7 +21,7 @@ class Suratkeluar extends Model
 
     protected $with = ['sifatsurat','user','jenissurat','disposisi'];
 
-    // Search untuk status surat
+    /* Search untuk status surat */
     public function scopeFilter($query, array $filters)
     {
             $query->when($filters['search'] ?? false, function($query, $search) {
@@ -75,6 +75,7 @@ class Suratkeluar extends Model
         parent::boot();
         static::creating(function($model){
             $model->no_surat_keluar = Suratkeluar::where('jenissurat_id', $model->jenissurat_id)->max('no_surat_keluar') + 1;
+            // $model->full_number = $model->jenissurat['kodesurat'] . '-' . str_pad($model->no_surat_keluar, 4, '0', STR_PAD_LEFT);
         });
     }
 }

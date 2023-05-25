@@ -71,8 +71,7 @@ class SuratKeluarController extends Controller
         // $validatedData['perihal'] = (strip_tags($request->perihal));
         Suratkeluar::create($validatedData);
 
-        dd($validatedData);
-        // return redirect('/dashboard/suratkeluar')->with('success','Surat Keluar berhasil terbuat !!!');
+        return redirect('/dashboard/suratkeluar')->with('success','Surat Keluar berhasil terbuat !!!');
     }
 
     /*

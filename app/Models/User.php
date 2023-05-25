@@ -48,12 +48,6 @@ class User extends Authenticatable
         return $this->hasOne(Suratkeluar::class,'kepada');
     }
 
-    // public function pengarsipan()
-    // {
-    //     return $this->hasMany(Pengarsipan::class);
-    // }
-    
-
     /**
      * The attributes that should be hidden for serialization.
      *
