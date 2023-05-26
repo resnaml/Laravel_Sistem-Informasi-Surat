@@ -27,30 +27,26 @@
         </li>
         <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/surat') ? 'active' : '' }}" aria-current="page" href="/dashboard/surat">
-                <i class="bi bi-envelope-paper"></i>
-            - Surat masuk
+                <i class="bi bi-envelope-paper"></i> Surat masuk
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/seluruhsurat') ? 'active' : '' }}" aria-current="page" href="/dashboard/seluruhsurat">
-                <i class="bi bi-mailbox"></i>
-            - Seluruh Surat
+                <i class="bi bi-mailbox"></i> Seluruh Surat
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/pengarsipan') ? 'active' : '' }}" aria-current="page" href="/dashboard/pengarsipan">
-                <i class="bi bi-safe2"></i>
-            - Pengarsipan
+                <i class="bi bi-safe2"></i> Pengarsipan
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/kelolaakun*') ? 'active' : '' }}" aria-current="page" href="/dashboard/kelolaakun">
-                <i class="bi bi-person-lines-fill"></i>
-            - Kelola User
+                <i class="bi bi-person-lines-fill"></i> Kelola User
             </a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle {{ Request::is('dashboard/jenissurat*') ? 'active' : '' }} {{ Request::is('dashboard/sifatsurat*') ? 'active' : '' }}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="bi bi-envelope-at"></i>Tambah Data Surat</a>
+            <a class="nav-link dropdown-toggle {{ Request::is('dashboard/jenissurat*') ? 'active' : '' }} {{ Request::is('dashboard/sifatsurat*') ? 'active' : '' }}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="bi bi-envelope-at"></i> Tambah Data Surat</a>
             <ul class="dropdown-menu">
             <li><a class="dropdown-item nav-item" href="/dashboard/jenissurat">Jenis Surat</a></li>
             <li><a class="dropdown-item nav-item" href="/dashboard/sifatsurat">Sifat Surat</a></li>

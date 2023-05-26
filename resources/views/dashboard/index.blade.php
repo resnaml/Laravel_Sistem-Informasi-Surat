@@ -56,7 +56,7 @@
         </div>
         @endif
     </div>
-    
+    @if(auth()->user()->is_admin == 1)
     <div class="card mt-3">
         <div class="row mt-4 container">
             <div class="col-xl-6">
@@ -76,11 +76,12 @@
             </div>
             </div>
         </div>
+        @endif
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        
         <script type="text/javascript">
-            var _ydata=JSON.parse('{!! json_encode($months) !!}');
-            var _xdata=JSON.parse('{!! json_encode($monthCount) !!}');
+            var _ydata=JSON.parse( '{!! json_encode($months) !!}' );
+            var _xdata=JSON.parse( '{!! json_encode($monthCount) !!}' );
         </script>
 
 <script>
@@ -135,7 +136,7 @@
 <script>
     // Set new default font family and font color to mimic Bootstrap's default styling
     Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-    Chart.defaults.global.defaultFontColor = '#292b2c';
+    Chart.defaults.global.defaultFontColor = '#0a0a0a';
 
         // Area Chart Example
         var ctx = document.getElementById("myAreaChart");
@@ -152,7 +153,7 @@
             pointBackgroundColor: "rgba(2,117,216,1)",
             pointBorderColor: "rgba(255,255,255,0.8)",
             pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(2,117,216,1)",
+            pointHoverBackgroundColor: "rgba(7, 237, 157, 1)",
             pointHitRadius: 50,
             pointBorderWidth: 2,
             data: _xdata,
