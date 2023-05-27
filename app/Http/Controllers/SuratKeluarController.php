@@ -7,16 +7,14 @@ use App\Models\Sifatsurat;
 use App\Models\Suratkeluar;
 use App\Models\Disposisisurat;
 use App\Models\User;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Barryvdh\DomPDF\PDF;
 use PhpOffice\PhpWord\TemplateProcessor;
 use PhpOffice\PhpWord\Writer\PDF as WriterPDF;
-
 use function PHPUnit\Framework\returnSelf;
-
-// use Cviebrock\EloquentSluggable\Services\SlugService;
-// use Illuminate\Validation\Rules\Enum;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Validation\Rules\Enum;
 
 class SuratKeluarController extends Controller
 {

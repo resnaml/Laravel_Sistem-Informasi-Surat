@@ -13,10 +13,10 @@ class Disposisisurat extends Model
     protected $guarded = ['id'];
 
     protected $status = ['Diterima', 'Proses', 'Ditolak'];
-    
-    public function suratkeluar()
+
+    public function disposisi()
     {
-        return $this->belongsTo(Suratkeluar::class, 'disposisi_id');
+        return $this->belongsTo(Suratkeluar::class);
     }
 
 }

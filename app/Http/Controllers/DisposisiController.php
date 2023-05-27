@@ -30,18 +30,15 @@ class DisposisiController extends Controller
             'disposisi_isi' => 'nullable',
             'print_surat' => 'nullable'
         ];
-
         $validatedData = $request->validate($array);
         Suratkeluar::where('id', $suratkeluar->id)->update($validatedData);
 
         $validatedData = $request->validate([
-            'no_disposisi' => 'nullable',
             'disposisi_oleh' => 'nullable',
             'isi_ditolak' => 'nullable'
-            
         ]);
         $validatedData['disposisi_id'] = ($suratkeluar->id);
-        // $validatedData['disposisi_oleh'] = ($user->id);
+        $validatedData['no_disposisi'] = ($suratkeluar->jenissurat['kodesurat'] . substr($suratkeluar->tgl_surat_keluar, 5, 2));
         Disposisisurat::create($validatedData);
         return redirect('/dashboard/surat')->with('success','Surat Masuk, Berhasil di Disposisi !!!');
     }

@@ -30,6 +30,7 @@
                 <i class="bi bi-envelope-exclamation" style="font-size: 4.0rem;"></i>
             </div>
         </div>
+
         <div class="card" style="max-width: 18rem;">
             <div class="card-header">Seluruh Surat
                 <div class="h4 border mt-2">  {{ $suratallCount }} </div>
@@ -56,11 +57,12 @@
         </div>
         @endif
     </div>
+
     @if(auth()->user()->is_admin == 1)
-    <div class="card mt-3">
+    <div class="card mt-4 mb-3 border-dark">
         <div class="row mt-4 container">
             <div class="col-xl-6">
-                <div class="card-header">
+                <div class="card-header text-bg-dark">
                     <i class="bi bi-graph-up-arrow"></i> Chart Surat
                 </div>
                 <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas>
@@ -68,7 +70,7 @@
             </div>
 
             <div class="col-xl-6">
-                <div class="card-header">
+                <div class="card-header text-bg-dark">
                     <i class="bi bi-reception-4"></i> Grafik Surat
                 </div>
                 <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas>

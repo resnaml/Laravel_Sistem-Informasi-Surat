@@ -8,29 +8,32 @@
     <div class="container">
         <div class="row">
             @foreach ($suratkeluar as $surat)
-            <div class="row col-md-3 g-4">
-                <div class="col">
-                <div class="card h-100 text-center">
-                    <img src="https://source.unsplash.com/200x200/?letter" class="card-img-top" width="200" height="200">
-                    <div class="card-body">
-                        <h4 class="card-title mb-3"><b>{{ $surat->user->name }} <i class="bi bi-chat-quote"></i></b></h4>
-                        <div class="">
-                            <h6 class="card-title mt-2"><i class="bi bi-dash-lg"></i> {{ $surat->jenissurat['namejenis'] }} <i class="bi bi-dash-lg"></i></h6>
-                            <h6 class="card-title"><i class="bi bi-dash-lg"></i> {{ $surat->sifatsurat['namesifat'] }} <i class="bi bi-dash-lg"></i></h6>
+            {{--@empty($surat)
+             // $surat is "empty"...
+                @endempty --}}
+                @if ($surat->kepada == 0)
+                @continue
+                @endif
+                <div class="row col-md-3 g-3">
+                    <div class="col">
+                        <div class="card h-100 text-center border-dark">
+                            <img src="https://source.unsplash.com/200x200/?letter" class="card-img-top" width="200" height="200">
+                            <div class="card-body">
+                                <h4 class="card-title mb-3"><b>{{ $surat->user->name }} <i class="bi bi-chat-quote"></i></b></h4>
+                                <div class="">
+                                    <h6 class="card-title mt-2"><i class="bi bi-dash-lg"></i> {{ $surat->jenissurat['namejenis'] }} <i class="bi bi-dash-lg"></i></h6>
+                                    <h6 class="card-title"><i class="bi bi-dash-lg"></i> {{ $surat->sifatsurat['namesifat'] }} <i class="bi bi-dash-lg"></i></h6>
+                                </div>
+                                <a class="btn btn-primary mt-3" href="#">Buka Surat</a>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-body-secondary">Terakhir {{ $surat->created_at->diffForHumans() }}</small>
+                            </div>
                         </div>
-                        <a class="btn btn-primary mt-3" href="#">Buka Surat</a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Terakhir {{ $surat->created_at->diffForHumans() }}</small>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
-        @endforeach
-        </div>
-</div>
+    </div>
     
-    
-        
-        
 @endsection
