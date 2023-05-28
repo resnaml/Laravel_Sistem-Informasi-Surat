@@ -57,7 +57,7 @@
                                 <div class="mb-3 mt-3 container-fluid col-lg-8" id="no_disposisi">
                                     <label for="no disposisi" class="form-label @error('no_disposisi') is-invalid @enderror"><b>No Surat</b></label>
                                     <input type="text" 
-                                    {{-- value="{{ $surat->jenissurat['kodesurat'] ?? '' }}/{{ substr($surat->tgl_surat_keluar, 5, 2) }}/{{ substr($surat->tgl_surat_keluar, 2, 2) }}/" --}}
+                                    value="{{ $surat->jenissurat['kodesurat'] ?? '' }}/{{ substr($surat->tgl_surat_keluar, 5, 2) }}/{{ substr($surat->tgl_surat_keluar, 2, 2) }}/"
                                     class="form-control"
                                     name="no_disposisi">
                                     @error('no_disposisi')

@@ -22,7 +22,7 @@
     </div>
 
     <div class="card-group_s mt-4 row">
-        <div class="card" style="max-width: 13rem;">
+        <div class="card border border-dark" style="max-width: 13rem;">
             <div class="card-header h5 mt-2"><b>Arsip Berguna</b>  
             <div class="mt-2 h4 bold border"><a href="/dashboard/pengarsipan/arsipberguna">{{ $arsipBerguna }}</a></div>
             </div>
@@ -30,7 +30,7 @@
                 <i class="bi bi-safe" style="font-size: 4.0rem;"></i>
             </div>
         </div>
-        <div class="card" style="max-width: 13rem;">
+        <div class="card border border-dark" style="max-width: 13rem;">
             <div class="card-header h5 mt-2"><b>Arsip Penting</b>
                 <div class="h4 border mt-2"><a href="/dashboard/pengarsipan/arsippenting">{{ $arsipPenting }}</a></div>
             </div>
@@ -38,7 +38,7 @@
                 <i class="bi bi-safe-fill" style="font-size: 4.0rem;"></i>
             </div>
         </div>
-        <div class="card" style="max-width: 13rem;">
+        <div class="card border border-dark" style="max-width: 13rem;">
             <div class="card-header h5 mt-2"><b>Arsip Vital</b>
                 <div class="h4 border mt-2"><a href="/dashboard/pengarsipan/arsipvital">{{ $arsipVital }}</a></div>
             </div>
@@ -46,7 +46,7 @@
                 <i class="bi bi-safe2" style="font-size: 4.0rem;"></i>
             </div>
         </div>
-        <div class="card" style="max-width: 13rem;">
+        <div class="card border border-dark" style="max-width: 13rem;">
             <div class="card-header h5 mt-2"><b>Arsip Dinamis</b> 
             <div class="h4 border mt-2"><a href="/dashboard/pengarsipan/arsipdinamis">{{ $arsipDinamis }}</a></div>
             </div>

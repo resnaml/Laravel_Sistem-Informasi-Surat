@@ -33,10 +33,10 @@
                                     <input type="text"class="text-center form-control" readonly id="sifat_surat_masuk" name="sifat_surat_masuk" value="{{ old('sifat_id', $surat->sifatsurat['namesifat']) }}">
                                 </div>
 
-                                <div class="mb-3 container-fluid">
+                                {{-- <div class="mb-3 container-fluid">
                                     <label for="no_surat_keluar" class="form-label"><b>Perihal Surat Masuk</b></label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="4">{{ $surat->perihal }}</textarea>
-                                </div>
+                                </div> --}}
                                 
                                 <div class="mb-3 container-fluid">
                                     <label for="no_surat_keluar" class="form-label"><b>Penerima Surat Masuk</b></label>

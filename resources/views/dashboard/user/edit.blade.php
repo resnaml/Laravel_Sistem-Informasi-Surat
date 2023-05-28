@@ -5,11 +5,11 @@
         <h1 class="h2">Halaman edit</h1>
     </div>
 
-    <div class="card mt-3 container-fluid col-5">
+    <div class="card mt-3 container-fluid col-4 border mb-4">
         <div class="card-header text-center">
         <h3>Form Edit User</h3>
         </div>
-        <div class="card-body">
+        <div class="card-body text-center">
             <table class="table">
                 <tbody>
                     <form method="post" action="/dashboard/kelolaakun/{{ $akun->id }}/edit" class="mb-5">
@@ -64,12 +64,9 @@
                             {{ $message }}
                         </div>
                         @enderror
-
-                        <div class="col-lg-9 mt-4">
+                        
                             <button type="submit" class="btn btn-primary m-right-3 me-1"><i class="bi bi-plus-square"></i> Update akun</button>
-                
                             <a class="btn btn-warning" href="/dashboard/kelolaakun"><i class="bi bi-arrow-left-square"></i> Kembali</a>
-                        </div>
                     </form>
                 </tbody>
             </table>

@@ -9,10 +9,10 @@
         <a class="btn btn-primary mb-2" href="/dashboard"><i class="bi bi-caret-left"></i> Kembali</a>
     </div>
     
-            <div class="card mt-4 container-fluid col-6">
+            <div class="card mt-4 container-fluid border col-4 mb-5">
                 <div class="card-header text-center">
-                <i class="bi bi-file-earmark-person" style="font-size: 4.0rem;"></i>
-                <h3>Akun Saya</h3>   
+                <i class="bi bi-file-earmark-person" style="font-size: 3.0rem;"></i>
+                <h5>Akun Saya</h5>   
             </div>
 
                 <div class="card-body">
@@ -24,27 +24,27 @@
                         </tr>
                         <tr>
                             <th scope="row">Username</th>
-                            <td colspan="2">: {{ $username }}</td>
+                            <td>: {{ $username }}</td>
                         </tr>
                         <tr>
                             <th scope="row">Email</th>
-                            <td colspan="2">: {{ $email }}</td>
+                            <td>: {{ $email }}</td>
                         </tr>
                         <tr>
                             <th scope="row">Jabatan</th>
-                            <td colspan="2">: {{ $jabatan }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Alamat</th>
-                            <td colspan="2">: {{ $alamat }}</td>
+                            <td>: {{ $jabatan }}</td>
                         </tr>
                         <tr>
                             <th scope="row">Tgl Lahir</th>
-                            <td colspan="2">: {{ $tgl_lahir }}</td>
+                            <td>: {{ $tgl_lahir }}</td>
                         </tr>
                         <tr>
                             <th scope="row">No Telpon</th>
-                            <td colspan="2">: {{ $telepon }}</td>
+                            <td>: {{ $telepon }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Alamat</th>
+                            <td>: {{ $alamat }}</td>
                         </tr>
                         </tbody>
                         
