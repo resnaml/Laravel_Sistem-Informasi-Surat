@@ -35,7 +35,7 @@
                     @endif
                 <td>{{ $surat->jenissurat['kodesurat'] ?? '' }}-{{ str_pad($surat->no_surat_keluar, 4, '0', STR_PAD_LEFT) }}</td>
                 <td>{{ $surat->tgl_surat_keluar }}</td>
-                <td>{{ $surat->penerima_surat }}</td>
+                <td>{{ $surat->kepada_id['name'] }}</td>
                 <td>{{ $surat->user->name }}</td>
                 <td>{{ $surat->status }}</td>
                 <td>{{ $surat->created_at->diffForHumans() }}</td>

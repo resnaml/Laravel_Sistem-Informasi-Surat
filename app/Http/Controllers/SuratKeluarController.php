@@ -108,7 +108,7 @@ class SuratKeluarController extends Controller
         ];
         $validatedData = $request->validate($rules);
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['perihal'] = (strip_tags($request->perihal));
+        $validatedData['perihal'] = ($request->perihal);
         Suratkeluar::where('id', $suratkeluar->id)
                     ->update($validatedData);
         return redirect('/dashboard/suratkeluar')->with('warning','Surat Keluar berhasil terbuat !!!');

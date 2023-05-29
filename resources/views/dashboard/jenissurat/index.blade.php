@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-4 border-bottom border-dark">
         <h2>Form Jenis Surat</h1>
     </div>
 
@@ -19,7 +19,7 @@
     </div>
     @endif
     
-    <div class="card col-10 container-fluid text-center" style="width: 34rem;">
+    <div class="card col-10 container-fluid border text-center" style="width: 34rem;">
         <div class="container">
             <a class="btn btn-success mb-3 mt-3" href="/dashboard/jenissurat/create">Buat Kode Surat</a>    
         </div>

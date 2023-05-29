@@ -19,11 +19,11 @@ class CreatePengarsipansTable extends Migration
             $table->string('file_arsip');
             $table->string('author');
             $table->string('judul');
-            $table->string('kodearsip')->autoIncrement();
+            $table->integer('kodearsip');
 
             // Foregin ID
-            $table->foreignId('kategori_arsip_id');
-            // $table->foreignId('author');
+            $table->foreignId('kategori_arsip_id')->constrained('kategoriarsips')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('arsip_user')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

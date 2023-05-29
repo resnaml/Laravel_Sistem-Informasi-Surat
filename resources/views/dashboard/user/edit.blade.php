@@ -55,7 +55,7 @@
                             @enderror    
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label for="telepon" class="form-label"><b>No telepon</b></label>
                             <input type="number" name="telepon" class="form-control @error('telepon') is-invalid @enderror" value="{{ old('telepon') }}">
                         </div>

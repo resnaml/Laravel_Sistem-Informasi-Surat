@@ -11,10 +11,10 @@
 
         <a class="d-flex btn btn-success me-3 mb-3 border-bottom" href="/dashboard/suratkeluarcetak" target="_blank"><i class="bi bi-printer"> Cetak Data</i></a>
 
-        <form class="d-flex col-lg-3 pt-1 pb-3" role="search" action="">
+        {{-- <form class="d-flex col-lg-3 pt-1 pb-3" role="search" action="">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        </form> --}}
     </div>
     
     <div class="table-responsive d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1">

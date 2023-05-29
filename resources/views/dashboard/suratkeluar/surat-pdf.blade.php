@@ -74,7 +74,7 @@
                 Dengan hormat.
             </p>
         <table class="static mt-lg-5 justify-content-center" align="center"  style="width: 100%;">
-            <td>{{ $suratkeluar->perihal }}</td>
+            <td>{{ strip_tags($suratkeluar->perihal) }}</td>
         </table>
             <p align="container mt-5">
                 Atas perhatian dan kerjasamanya, kami sampaikan terima kasih.
