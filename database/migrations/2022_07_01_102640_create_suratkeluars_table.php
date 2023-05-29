@@ -17,13 +17,14 @@ class CreateSuratkeluarsTable extends Migration
             Schema::create('suratkeluars', function (Blueprint $table) {
                 $table->id();
                 $table->timestamps();
-                $table->string('no_surat_keluar')->autoIncrement();
+                $table->string('no_surat_keluar');
                 $table->date('tgl_surat_keluar');
                 $table->integer('lampiran')->nullable();
                 $table->text('perihal', 255);
                 $table->enum('status', ['Diterima', 'Proses', 'Ditolak'])->default('Proses');
                 $table->boolean('disposisi_isi')->default(0);
                 $table->boolean('print_surat')->default(0);
+                $table->string('full_number');
                 
                 // foreign key
                 $table->foreignId('sifat_id')->constrained('sifatsurats')->onDelete('cascade');

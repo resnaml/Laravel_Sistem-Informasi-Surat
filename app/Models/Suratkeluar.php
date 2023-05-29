@@ -8,8 +8,8 @@ use App\Models\User;
 use App\Models\Disposisisurat;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-// use Cviebrock\EloquentSluggable\Sluggable;
-// use Illuminate\Support\Facades\App;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Support\Facades\App;
 
 class Suratkeluar extends Model
 {
@@ -75,7 +75,7 @@ class Suratkeluar extends Model
         parent::boot();
         static::creating(function($model){
             $model->no_surat_keluar = Suratkeluar::where('jenissurat_id', $model->jenissurat_id)->max('no_surat_keluar') + 1;
-            // $model->full_number = $model->jenissurat['kodesurat'] . '-' . str_pad($model->no_surat_keluar, 4, '0', STR_PAD_LEFT);
+            $model->full_number = $model->jenissurat['kodesurat'] . '-' . str_pad($model->no_surat_keluar, 4, '0', STR_PAD_LEFT);
         });
     }
 }

@@ -27,7 +27,7 @@ use App\Http\Controllers\jenissuratController;
     --Dashboard Route-- 
 */
 Route::get('/', [DashboardController::class,'home']);
-Route::get('/status', [DashboardController::class,'StatusSurat']);
+Route::get('/status', [DashboardController::class, 'StatusSurat']);
 Route::get('/about', [DashboardController::class,'about']);
 Route::get('/panduan', [DashboardController::class,'panduan']);
 Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth');
