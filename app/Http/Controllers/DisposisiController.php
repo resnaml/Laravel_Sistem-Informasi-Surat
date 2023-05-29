@@ -38,7 +38,7 @@ class DisposisiController extends Controller
             'isi_ditolak' => 'nullable'
         ]);
         $validatedData['disposisi_id'] = ($suratkeluar->id);
-        $validatedData['no_disposisi'] = ($suratkeluar->jenissurat['kodesurat'] . "/" . substr($suratkeluar->tgl_surat_keluar, 5, 2) . "/" . substr($suratkeluar->tgl_surat_keluar, 2, 2) . "/");
+        $validatedData['no_disposisi'] = ($suratkeluar->jenissurat['kodesurat'] . "/" . substr($suratkeluar->tgl_surat_keluar, 5, 2) . "/" . substr($suratkeluar->tgl_surat_keluar, 2, 2) . "/" . $suratkeluar->no_surat_keluar);
         Disposisisurat::create($validatedData);
         return redirect('/dashboard/surat')->with('success','Surat Masuk, Berhasil di Disposisi !!!');
     }

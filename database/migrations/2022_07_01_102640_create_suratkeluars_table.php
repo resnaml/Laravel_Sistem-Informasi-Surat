@@ -17,7 +17,7 @@ class CreateSuratkeluarsTable extends Migration
             Schema::create('suratkeluars', function (Blueprint $table) {
                 $table->id();
                 $table->timestamps();
-                $table->string('no_surat_keluar');
+                $table->integer('no_surat_keluar');
                 $table->date('tgl_surat_keluar');
                 $table->integer('lampiran')->nullable();
                 $table->text('perihal', 255);
