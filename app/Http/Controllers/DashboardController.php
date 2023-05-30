@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengarsipan;
 use App\Models\User;
+use App\Models\Disposisisurat;
 use App\Models\Suratkeluar;
+use Barryvdh\DomPDF\Facade\PDF;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -63,12 +65,19 @@ class DashboardController extends Controller
     }
 
     /*
-        Buka Surat
+        Buka Surat Generate PDF
     */
-    public function bukaSurat()
+    public function bukaSuratPDF(Suratkeluar $suratkeluar, Disposisisurat $disposisisurat)
     {
+        $surat = Suratkeluar::find($suratkeluar)->first()->toArray();
+        dd($surat);
+        // $pdf = PDF::loadView('dashboard.mypdf', $surat);
         
+        // return $pdf->download('mypdf.pdf');
     }
+
+    /*
+    */
 
     /*
         Halaman Edit Akun

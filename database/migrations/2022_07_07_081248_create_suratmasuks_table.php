@@ -23,7 +23,6 @@ class CreateSuratmasuksTable extends Migration
                 $table->string('penerima_surat')->nullable();
                 $table->enum('status', ['Diterima', 'Proses', 'Ditolak'])->default('Proses');
                 
-
                 
                 // foreign id
                 $table->foreignId('sifat_id')->nullable();

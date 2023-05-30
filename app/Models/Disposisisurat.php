@@ -16,7 +16,7 @@ class Disposisisurat extends Model
 
     public function disposisi()
     {
-        return $this->belongsTo(Suratkeluar::class);
+        return $this->hasOne(Suratkeluar::class);
     }
 
 }

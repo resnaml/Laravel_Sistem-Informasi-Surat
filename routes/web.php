@@ -34,6 +34,8 @@ Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth
 Route::get('/dashboard/viewakun', [DashboardController::class,'ShowAkun'])->middleware('auth');
 Route::get('/dashboard/suratsaya', [DashboardController::class,'suratSaya'])->middleware('auth');
 
+Route::get('/dashboard/suratsaya/{suratkeluar}', [DashboardController::class, 'bukaSuratPDF']);
+
 /* 
     --Login Route-- 
 */ 

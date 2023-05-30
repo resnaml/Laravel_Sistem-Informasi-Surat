@@ -4,6 +4,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2 border-bottom">
         <h1 class="h2">Buat Surat keluar</h1>
     </div>
+    {{-- <link rel="stylesheet" href="/css/trix.css"> --}}
 
     <div class="card mt-4 container-fluid col-7">
         <div class="card-header-">
