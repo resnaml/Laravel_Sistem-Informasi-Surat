@@ -52,7 +52,7 @@ class Suratkeluar extends Model
     }
     public function disposisi()
     {
-        return $this->belongsTo(Disposisisurat::class,'disposisi_id');
+        return $this->hasOne(Disposisisurat::class,'disposisi_id');
     }
 
     public function kepada_id()

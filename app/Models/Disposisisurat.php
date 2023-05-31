@@ -14,9 +14,9 @@ class Disposisisurat extends Model
 
     protected $status = ['Diterima', 'Proses', 'Ditolak'];
 
-    public function disposisi()
+    public function disposisi_id()
     {
-        return $this->hasOne(Suratkeluar::class);
+        return $this->belongsTo(Suratkeluar::class);
     }
 
 }

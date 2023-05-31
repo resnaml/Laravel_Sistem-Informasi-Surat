@@ -5,13 +5,13 @@
         <h4 class="container">Form Surat Masuk</h4>
     </div>
 
-            <div class="card mt-4 container-fluid col-6">
+            <div class="card mt-4 container-fluid border mb-5 col-5">
                 <div class="card-header text-center">
                 <h3>Detail Surat Masuk</h3>
                 </div>
                 <div class="card-body text-center">
                     <table class="table">
-                        <tbody class="">
+                        <tbody>
                             <div class="container-fluid col-lg-8">
                                 <div class="mb-3 container-fluid">
                                     <label for="no_surat_keluar" class="form-label"><b>Kode Surat Keluar</b></label>
@@ -39,7 +39,7 @@
                                 </div>
 
                                 <div class="col-fluid container mt-4">
-                                        <a href="/dashboard/surat{{ $surat->id }}/disposisi" class="btn btn-primary me-1 m-right-3"><i class="bi bi-check-circle"></i> Disposisi Surat</a>
+                                        <a href="/dashboard/surat{{ $surat->id }}/disposisi" class="btn btn-primary mb-3"><i class="bi bi-check-circle"></i> Disposisi</a>
                                         
                                         <a class="btn btn-warning" href="/dashboard/surat"><i class="bi bi-arrow-left-square"></i> Kembali</a>
                                 </div>

@@ -15,7 +15,7 @@ class DisposisiController extends Controller
         Halaman Disposisi Surat Masuk
     */
     public function index(Suratkeluar $suratkeluar){
-        return view('dashboard.disposisi.create',[
+        return view('dashboard.disposisi.create', [
             'surat' => $suratkeluar
         ]);
     }
@@ -23,13 +23,14 @@ class DisposisiController extends Controller
     /*
         Store Data -> Disposisi Surat Masuk By: Admin 
     */
-    public function store(Request $request, Suratkeluar $suratkeluar)
+    public function store(Request $request, Suratkeluar $suratkeluar , Disposisisurat $diposisi)
     {   
         $array =[
             'status' => 'required',
             'disposisi_isi' => 'nullable',
             'print_surat' => 'nullable'
         ];
+        $validatedData['disposisi_id'] = ($diposisi->id);
         $validatedData = $request->validate($array);
         Suratkeluar::where('id', $suratkeluar->id)->update($validatedData);
 
@@ -40,6 +41,7 @@ class DisposisiController extends Controller
         $validatedData['disposisi_id'] = ($suratkeluar->id);
         $validatedData['no_disposisi'] = ($suratkeluar->jenissurat['kodesurat'] . "/" . substr($suratkeluar->tgl_surat_keluar, 5, 2) . "/" . substr($suratkeluar->tgl_surat_keluar, 2, 2) . "/" . $suratkeluar->no_surat_keluar);
         Disposisisurat::create($validatedData);
+
         return redirect('/dashboard/surat')->with('success','Surat Masuk, Berhasil di Disposisi !!!');
     }
 }

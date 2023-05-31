@@ -11,10 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Barryvdh\DomPDF\PDF;
 use PhpOffice\PhpWord\TemplateProcessor;
-use PhpOffice\PhpWord\Writer\PDF as WriterPDF;
 use function PHPUnit\Framework\returnSelf;
 use Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Validation\Rules\Enum;
 
 class SuratKeluarController extends Controller
 {
@@ -52,8 +50,9 @@ class SuratKeluarController extends Controller
     /*
         Store Data -> Surat Keluar 
     */
-    public function store(Request $request)
+    public function store(Request $request, Disposisisurat $disposisisurat)
     {
+
         $validatedData = $request->validate([
             'no_surat_keluar' => 'nullable',
             'tgl_surat_keluar' => 'required|date',
@@ -63,12 +62,12 @@ class SuratKeluarController extends Controller
             'status' => 'nullable',
             'kepada' => 'nullable'
         ]);
+        
         // $validatedData['kepada'] = ($user_id);
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['perihal'] = ($request->perihal);
         // $validatedData['perihal'] = (strip_tags($request->perihal));
         Suratkeluar::create($validatedData);
-
         return redirect('/dashboard/suratkeluar')->with('success','Surat Keluar berhasil terbuat !!!');
     }
 

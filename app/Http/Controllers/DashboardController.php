@@ -6,6 +6,7 @@ use App\Models\Pengarsipan;
 use App\Models\User;
 use App\Models\Disposisisurat;
 use App\Models\Suratkeluar;
+use App\Models\Suratmasuk;
 use Barryvdh\DomPDF\Facade\PDF;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -67,17 +68,22 @@ class DashboardController extends Controller
     /*
         Buka Surat Generate PDF
     */
-    public function bukaSuratPDF(Suratkeluar $suratkeluar, Disposisisurat $disposisisurat)
+    public function bukaSuratPDF(Suratkeluar $suratkeluar)
     {
-        $surat = Suratkeluar::find($suratkeluar)->first()->toArray();
-        dd($surat);
-        // $pdf = PDF::loadView('dashboard.mypdf', $surat);
-        
-        // return $pdf->download('mypdf.pdf');
+        $surats = [
+            'surat' => $suratkeluar
+        ];
+        $pdf = PDF::loadView('dashboard.mypdf', $surats);
+        return $pdf->download('mypdf.pdf');
     }
 
     /*
+        Hapus Surat Saya
     */
+    public function hapusSuratPDF(Suratkeluar $suratkeluar)
+    {
+        
+    }
 
     /*
         Halaman Edit Akun
