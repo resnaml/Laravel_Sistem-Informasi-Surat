@@ -8,12 +8,15 @@ use App\Models\User;
 use App\Models\Disposisisurat;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Te7aHoudini\LaravelTrix\Traits\HasTrixRichText;
+
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Facades\App;
 
 class Suratkeluar extends Model
 {
     use HasFactory;
+    // use HasTrixRichText;
 
     protected $guarded = ['id'];
     
@@ -26,7 +29,7 @@ class Suratkeluar extends Model
     {
             $query->when($filters['search'] ?? false, function($query, $search) {
                 return  $query
-                ->where('no_surat_keluar', 'like', '%'. $search. '%')->orwhere('penerima_surat', 'like', '%'. $search. '%');
+                ->where('no_surat_keluar', 'like', '%'. $search. '%')->orwhere('full_number', 'like', '%'. $search. '%');
             });
 
             $query->when($filters['jenissurat'] ?? false, function($query, $jenissurat) {
