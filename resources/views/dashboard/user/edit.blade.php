@@ -55,6 +55,23 @@
                             @enderror    
                         </div>
 
+                        <div class="mb-3">
+                            <label for="alamat" class="form-label"><b>Admin</b></label>
+                            
+                        </div>
+
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                            <label class="form-check-label" for="flexCheckIndeterminate">
+                            Indeterminate checkbox
+                            </label>
+                        </div>
+
                         <div class="mb-4">
                             <label for="telepon" class="form-label"><b>No telepon</b></label>
                             <input type="number" name="telepon" class="form-control @error('telepon') is-invalid @enderror" value="{{ old('telepon') }}">

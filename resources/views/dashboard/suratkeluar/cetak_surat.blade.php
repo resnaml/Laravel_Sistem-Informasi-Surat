@@ -13,14 +13,14 @@
             border: 1px solid rgb(84, 53, 53);
         }
     </style>
-    <title class="container">Cetak Surat</title>
+    <title class="container">LaporanSeluruh Surat</title>
 
 </head>
 
     <body>
         <div class="form-group">
             <p align="center"><b>Laporan Data Surat Pribadi</b></p>
-            <table class="static" align="center" rule="all" border="1px" style="width: 95%;">
+            <table class="static" align="center" rule="all" border="3px" style="width: 80%;">
             <tr>
                 <th>No</th>
                 <th>Kode Surat</th>
@@ -32,6 +32,7 @@
                 <th>Proses Surat</th>
                 <th>Waktu Pembuatan</th>
             </tr>
+
             @foreach ($suratkeluar as $surat)
             <tr>
                 <td>{{ $loop->iteration }}</td>
@@ -39,7 +40,7 @@
                 <td>{{ $surat->jenissurat['namejenis'] }}</td>
                 <td>{{ $surat->sifatsurat['namesifat'] }}</td>
                 <td>{{ $surat->tgl_surat_keluar }}</td>
-                <td>{{ $surat->penerima_surat }}</td>
+                <td>{{ $surat->kepada_id['name'] }}</td>
                 <td>{{ $surat->user->name }}</td>
                 <td>{{ $surat->status }}</td>
                 <td>{{ $surat->created_at->format('m-d-y') }}</td>
@@ -48,9 +49,8 @@
             
             </table>
         </div>
-        <script type="text/javascript">
-            window.print();
 
-        </script>
+        <script src="js/print.js"></script>
+
     </body>
 </html>
