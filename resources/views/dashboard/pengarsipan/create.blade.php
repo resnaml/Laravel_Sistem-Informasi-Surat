@@ -29,12 +29,12 @@
                 @endforeach
             </select>
         </div>
-
+{{-- 
         <div class="container mb-3 col-8">
             <label for="nama" class="form-label"><b>Author</b></label>
-            <input type="text" class="form-control text-center" name="author" readonly value="{{ auth()->user()->name }}">
+            <input type="text" class="form-control text-center" name="author" readonly value="{{ auth()->user()->id }}">
             
-        </div>
+        </div> --}}
 
             <div class="container col-8">
                 <label for="file" class="form-label"><b>Pilih File Arsip</b></label>
@@ -55,7 +55,8 @@
     </div>
 
     <script>
-        function previewImage(){
+        function previewImage()
+        {
             const image = document.querySelector('#file_arsip');
             const imgPreview = document.querySelector('.img-preview');
             imgPreview.style.display = 'block';

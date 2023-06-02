@@ -8,10 +8,9 @@ use App\Models\Suratkeluar;
 use App\Models\Disposisisurat;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\PDF;
 use Illuminate\Support\Str;
-use Barryvdh\DomPDF\PDF;
 use PhpOffice\PhpWord\TemplateProcessor;
-use function PHPUnit\Framework\returnSelf;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class SuratKeluarController extends Controller
@@ -60,7 +59,7 @@ class SuratKeluarController extends Controller
             'jenissurat_id' => 'required',
             'lampiran' => 'nullable',
             'status' => 'nullable',
-            'kepada' => 'nullable'
+            'kepada' => 'required'
         ]);
         
         // $validatedData['kepada'] = ($user_id);
@@ -125,11 +124,13 @@ class SuratKeluarController extends Controller
     /* 
         Export surat ke PDF 
     */
-    public function pdfExport(Suratkeluar $suratkeluar, Disposisisurat $disposisisurat)
+    public function pdfExport(Suratkeluar $suratkeluar)
     {
-        $surat = Suratkeluar::find($suratkeluar)->first()->toArray();
-        return view('dashboard.suratkeluar.surat-pdf', compact('suratkeluar'));
-        
+        $surats = [
+            'surat' => $suratkeluar
+        ];
+        $pdf = PDF::loadView('dashboard.mypdf', $surats);
+        return $pdf->download('mypdf.pdf');
     }
     
 

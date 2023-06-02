@@ -17,7 +17,6 @@ class CreatePengarsipansTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('file_arsip');
-            $table->string('author');
             $table->string('judul');
             $table->integer('kodearsip');
 

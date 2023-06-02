@@ -26,7 +26,6 @@
             <th scope="col">Kategori</th>
             <th scope="col">Judul</th>
             <th scope="col">Tgl Arsip</th>
-            <th scope="col">Author</th>
             <th scope="col">Nama file</th>
             <th scope="col"> </th>
             </tr>
@@ -37,8 +36,7 @@
                 <td>{{ $arsip->kategori['kode_arsip'] ?? '' }}-{{ str_pad($arsip->kodearsip, 4, '0', STR_PAD_LEFT) }}</td>
                 <td>{{ $arsip->kategori['arsip_kategori'] }}</td>
                 <td>{{ $arsip->judul }}</td>
-                <td>{{ $arsip->created_at->format('m/d/y') }}</td>
-                <td>{{ $arsip->author }}</td>
+                <td>{{ $arsip->created_at->format('d-m-y') }}</td>
                 <td>{{ $arsip->file_arsip }}</td>
                 <td>
                     <a href="/dashboard/pengarsipan/{{ $arsip->id }}" class="btn btn-info m-lg-1"><i class="bi bi-eye"></i></a>

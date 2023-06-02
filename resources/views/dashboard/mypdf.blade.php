@@ -44,17 +44,19 @@
             </tr>
         </table>
     </div>
+
+    <hr class="border border-dark border-2 opacity-100">
     
     <div class="justify px-2">
-        <p>{{ strip_tags($surat->perihal) }}</p>
+        <p>{!! $surat->perihal !!}</p>
     </div>
     
 </body>
 
 <footer>
-    <div class="footer" style="text-align: right;">
-        <img src="img/ttd1.jpg" style="width: 230px; height: 130px">
-    <h4 class="mr-5">Kepala Sub.Bag, Tata Usaha</h4>
+    <div class="position-absolute bottom-0 end-0" style="text-align: right;">
+        <img src="img/ttd1.jpg" style="width: 200px; height: 120px">
+    <h6>Kepala Sub.Bag, Tata Usaha</h6>
 </footer>
 
 </html>

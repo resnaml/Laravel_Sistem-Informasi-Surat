@@ -35,7 +35,7 @@
                 <a target="_blank" class="d-flex btn btn-outline-success me-3 mt-2" onclick="this.href='/dashboard/seluruhsurat/'+ document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"><i class="bi bi-printer"> Cari Data</i></a>
             </div>
             <div class="row2">
-                <a target="_blank" class="d-flex btn btn-outline-primary mt-2" href="/dashboard/seluruhsurat/cetakseluruh"><i class="bi bi-printer"> Print Data</i></a>
+                <a class="d-flex btn btn-outline-primary mt-2" href="/dashboard/seluruhsurat/cetakseluruh"><i class="bi bi-printer"> Print Data</i></a>
             </div>
     </div>
 

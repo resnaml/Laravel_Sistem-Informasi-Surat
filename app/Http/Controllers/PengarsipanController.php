@@ -58,11 +58,13 @@ class PengarsipanController extends Controller
         Relativ Path File
         (storage\app\public\dokument\u78rOpY059fgP9t1D6MojGKj3urnXo4IUT8BY4zo.pdf)
     */
-    public function download($id) // Download Data File
+    // Download Data File
+    public function download($id) 
+    
     {
         $data = DB::table('pengarsipans')->where('id',$id)->first();
         $file_path = storage_path("app/public/{$data->file_arsip}"); 
-        return Response::download($file_path);
+        return Response::download($file_path , $name = null);
     }
 
     /* 

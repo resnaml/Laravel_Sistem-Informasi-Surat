@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\jenissurat;
 use App\Models\Sifatsurat;
 use App\Models\Suratkeluar;
+use Barryvdh\DomPDF\Facade\PDF;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class SuratMasukController extends Controller
 {
@@ -48,7 +48,11 @@ class SuratMasukController extends Controller
     public function cetakSeluruhSurat()
     {
         $suratkeluar = Suratkeluar::with('jenissurat')->get();
-        return view('dashboard.surat.cetak_seluruh', compact('suratkeluar'));
+        $surats = [
+        'suratkeluar' => $suratkeluar 
+        ];
+        $pdf = PDF::loadView('dashboard.surat.cetak_seluruh', $surats);
+        return $pdf->download('Laporan Seluruh Surat.pdf');
     }
 
     /* 
@@ -56,7 +60,6 @@ class SuratMasukController extends Controller
     */
     public function cetakPerBln($tglawal, $tglakhir)
     {
-        // dd(["Tanggal Awal : ".$tglawal,"Tanggal Akhir :".$tglakhir]);
         $surat = Suratkeluar::with('jenissurat')->whereBetween('tgl_surat_keluar', [$tglawal, $tglakhir])->get();
         return view('dashboard.surat.cetak_surat_tgl', compact('surat'));
     }
