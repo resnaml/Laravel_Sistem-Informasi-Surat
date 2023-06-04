@@ -2,11 +2,10 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2 border-bottom">
-        <h1 class="h2">Buat Surat keluar</h1>
+        <h1 class="h2">Buat Surat keluar </h1>
     </div>
-    {{-- <link rel="stylesheet" href="/css/trix.css"> --}}
 
-    <div class="card mt-4 container-fluid col-7">
+    <div class="card mt-4 container-fluid col-7 mb-4">
         <div class="card-header-">
     <form method="post" action="/dashboard/suratkeluar" class="mb-5" enctype="multipart/form-data">
         @csrf
@@ -55,15 +54,12 @@
                 </div>
                 </div>
 
-                <div class="mb-3 col-7 container">
+                <div class="mb-4 col-7 container">
                     <label for="User" class="form-label"><b>Penerima Surat</b></label>
                     <select class="form-select mb-3" name="kepada">
+                        <option selected disabled>-- Pilih User --</option>
                         @foreach ($users as $users)
-                        @if ($users === auth()->user()->id)
-                        <option selected disabled>{{ $users->id }}</option>
-                        @else
                         <option value="{{ $users->id }}">{{ $users->name }}</option>
-                        @endif
                         @endforeach
                     </select>
                 </div>
@@ -82,7 +78,7 @@
                 <input type="file" class="form-control" id="lampiran" name="lampiran">
             </div> --}}
 
-            <div class="col-lg-6 container ">
+            <div class="col-lg-6 container mt-4">
                 <button type="submit" class="btn btn-primary m-right-3 me-3"><i class="bi bi-plus-square"></i> Buat Surat</button>
 
                 <a class="btn btn-warning" href="/dashboard/suratkeluar"><i class="bi bi-arrow-left-square"></i> Kembali</a>

@@ -100,7 +100,8 @@
         
             <hr class="featurette-divider">
         
-        </div><!-- /.container -->
+        </div>
+        <!-- /.container -->
         
         
         <!-- FOOTER -->

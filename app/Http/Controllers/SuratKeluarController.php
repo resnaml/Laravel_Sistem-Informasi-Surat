@@ -39,19 +39,20 @@ class SuratKeluarController extends Controller
     */
     public function create()
     {
-        return view('dashboard.suratkeluar.create', [
-            'users' => User::all(),
-            'jenissurats' => jenissurat::all(),
-            'sifat' => Sifatsurat::all()
-        ]);
+        $all = User::all();
+        $collect = collect($all);
+        $users = $collect->whereNotIn('id', auth()->user()->id);
+        $users->all();
+        $jenissurats = jenissurat::all();
+        $sifat = Sifatsurat::all();
+        return view('dashboard.suratkeluar.create', compact('jenissurats','sifat','users'));
     }
     
     /*
         Store Data -> Surat Keluar 
     */
-    public function store(Request $request, Disposisisurat $disposisisurat)
+    public function store(Request $request)
     {
-
         $validatedData = $request->validate([
             'no_surat_keluar' => 'nullable',
             'tgl_surat_keluar' => 'required|date',
@@ -65,7 +66,6 @@ class SuratKeluarController extends Controller
         // $validatedData['kepada'] = ($user_id);
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['perihal'] = ($request->perihal);
-        // $validatedData['perihal'] = (strip_tags($request->perihal));
         Suratkeluar::create($validatedData);
         return redirect('/dashboard/suratkeluar')->with('success','Surat Keluar berhasil terbuat !!!');
     }

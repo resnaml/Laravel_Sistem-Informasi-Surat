@@ -111,5 +111,15 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'is_admin' => 1
         ]);
+
+        User::create([
+            'name' => 'Dadang',
+            'username' => 'dadang',
+            'email' => 'dadang@gmail.com',
+            'nip' => '199205142023052004',
+            'jabatan' => 'Staff',
+            'level' => 'Karyawan',
+            'password' => bcrypt('password'),
+        ]);
     }
 }

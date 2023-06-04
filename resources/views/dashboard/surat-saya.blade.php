@@ -24,7 +24,8 @@
                                     <h6 class="card-title"><i class="bi bi-dash-lg"></i> {{ $surat->sifatsurat['namesifat'] }} <i class="bi bi-dash-lg"></i></h6>
                                 </div>
                                 <a class="btn btn-success mt-3" href="/dashboard/suratsaya/{{ $surat->id }}"><i class="bi bi-file-earmark-pdf"></i></a>
-                                <a class="btn btn-primary mt-3"><i class="bi bi-file-earmark-word"></i></a>
+                                {{-- <a class="btn btn-primary mt-3"><i class="bi bi-file-earmark-word"></i>
+                                </a> --}}
                                 <a class="btn btn-danger mt-3" href="/generate-pdf"><i class="bi bi-trash-fill"></i></a>
                             </div>
                             <div class="card-footer">
