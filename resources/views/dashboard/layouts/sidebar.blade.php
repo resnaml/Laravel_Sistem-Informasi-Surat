@@ -48,7 +48,7 @@
             </a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle {{ Request::is('dashboard/jenissurat*') ? 'active' : '' }} {{ Request::is('dashboard/sifatsurat*') ? 'active' : '' }}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="bi bi-envelope-at"></i> Tambah Data Surat</a>
+            <a class="nav-link dropdown-toggle {{ Request::is('dashboard/jenissurat*') ? 'active' : '' }} {{ Request::is('dashboard/sifatsurat*') ? 'active' : '' }}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="bi bi-file-earmark-plus"></i> Tambah Data Surat</a>
             <ul class="dropdown-menu">
             <li><a class="dropdown-item nav-item" href="/dashboard/jenissurat">Jenis Surat</a></li>
             <li><a class="dropdown-item nav-item" href="/dashboard/sifatsurat">Sifat Surat</a></li>

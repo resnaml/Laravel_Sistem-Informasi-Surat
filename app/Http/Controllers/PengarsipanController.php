@@ -64,7 +64,7 @@ class PengarsipanController extends Controller
     {
         $data = DB::table('pengarsipans')->where('id',$id)->first();
         $file_path = storage_path("app/public/{$data->file_arsip}"); 
-        return Response::download($file_path , $name = null);
+        return Response::download($file_path ,);
     }
 
     /* 

@@ -5,11 +5,20 @@
         <h1 class="h2">Surat Untuk : {{ auth()->user()->name }}</h1>
     </div>
 
+    @if(session()->has('danger'))
+    <div class="alert alert-danger mt-2" role="alert">
+        {{ session('danger') }}
+    </div>
+    @endif
+
     <div class="container">
 
-        @if ($jumlahMasuk == 0)
+
+        @if ($jumlahMasuk == null)
             <h1 class="mt-2">
-                Belum Ada Surat
+                <marquee behavior="2" direction="3">
+                    Belum Ada Surat
+                </marquee> 
             </h1>
         @else
             
@@ -33,7 +42,11 @@
                                 <a class="btn btn-success mt-3" href="/dashboard/suratsaya/{{ $surat->id }}"><i class="bi bi-file-earmark-pdf"></i></a>
                                 {{-- <a class="btn btn-primary mt-3"><i class="bi bi-file-earmark-word"></i>
                                 </a> --}}
-                                <a class="btn btn-danger mt-3" href="/generate-pdf"><i class="bi bi-trash-fill"></i></a>
+                                <form action="/dashboard/suratsaya{{ $surat->id }}" method="post" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="btn mt-3 btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>
+                                </form>
                             </div>
                             <div class="card-footer">
                                 <small class="text-body-secondary">Terakhir {{ $surat->created_at->diffForHumans() }}</small>

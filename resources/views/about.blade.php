@@ -4,7 +4,7 @@
 
     <body class="bg-light">
 
-            <div class="col-md-5 mt-md-5 container">
+            <div class="col-md-5 mt-md-5 container text-center">
                 <div class="card mb-4 rounded-3 shadow-sm">
                 <div class="card-header py-3">
                     <h4 class="my-0 fw-normal">Pengembang Website</h4>

@@ -81,9 +81,10 @@ class DashboardController extends Controller
     /*
         Hapus Surat Saya
     */
-    public function hapusSuratPDF(Suratkeluar $suratkeluar)
+    public function hapusSurat(Suratkeluar $suratkeluar)
     {
-        
+        Suratkeluar::destroy($suratkeluar->id);
+        return redirect('/dashboard/suratsaya')->with('danger','Data surat keluar berhasil terhapus !!!');
     }
 
     /*
