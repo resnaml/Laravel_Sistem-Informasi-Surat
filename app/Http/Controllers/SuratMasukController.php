@@ -15,9 +15,10 @@ class SuratMasukController extends Controller
     */
     public function index()
     {
-        return view('dashboard.surat.index', [
-            'suratmasuk' => Suratkeluar::all()
-        ]);
+        
+        $suratmasuk = Suratkeluar::where('disposisi_isi', 0)->get();
+        $jumlah = Suratkeluar::where('disposisi_isi', 0)->count();
+        return view('dashboard.surat.index', compact('suratmasuk','jumlah'));
     }
 
     /* 

@@ -32,14 +32,14 @@
                         @enderror
                         </div>
                         
-                        <div class="mb-3 mt-3 text-center">
-                            <label for="keterangan" class="hidden"><b>Keterangan Kode</b></label>
-                            <textarea class="form-control @error('keterangan') is-invalid @enderror" rows="3" name="keterangan">
+                        <div class="mb-3 mt-3">
+                            <label for="keterangan" class="hidden"><b>Keterangan Jenis Surat</b></label>
+                            <textarea class="form-control mt-2 @error('keterangan') is-invalid @enderror"  name="keterangan">
                             </textarea>
                         </div>
 
                         <div class="mt-2 mb-4">
-                            <button type="submit" class="btn btn-primary me-2"><i class="bi bi-plus-square"></i> Buat Kode Surat</button>
+                            <button type="submit" class="btn btn-primary me-2"><i class="bi bi-plus-square"></i> Buat </button>
                             <a class="btn btn-warning" href="/dashboard/jenissurat"><i class="bi bi-arrow-left-square"></i> Kembali</a>
                         </div>
             </form>

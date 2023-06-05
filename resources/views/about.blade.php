@@ -21,6 +21,11 @@
                 </div>
                 </div>
             </div>
-    </body>
+        </body>
+
+        <footer class="d-flex">
+            @include('dashboard.layouts.footer')
+        </footer>
+
     
     @endsection

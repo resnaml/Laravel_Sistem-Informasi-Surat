@@ -1,18 +1,17 @@
         @extends('layouts.main')
 
         @section('container')
-            <!-- Custom styles for this template -->
             
         <body class="bg-light">
         <main>
 
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
+            {{-- <div class="carousel-indicators">
                 
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 3"></button>
+            </div> --}}
 
             <div class="carousel-inner">
                 
@@ -50,7 +49,7 @@
             
         </div>
             
-            
+        {{-- <div >
             <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -59,7 +58,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
             </button>
-        </div>
+        </div> --}}
         
         <!-- Marketing messaging and featurettes
         ================================================== -->
@@ -72,9 +71,6 @@
                 
             </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
-        
-        
-            <!-- START THE FEATURETTES -->
         
             <hr class="featurette-divider">
         
@@ -111,19 +107,10 @@
                     <img src="/img/arsip3.jpg" height="250" weight="350">
                 </div>
             </div>
-            <hr class="featurette-divider">
         </div>
+        
         <!-- /.container -->
         
-        <!-- FOOTER -->
-        <footer class="container">
-            <p class="float-end"><a href="#">Back to top</a></p>
-            <p>&copy; 2023 Aresss.
-        </footer>
-        </main>
-
-            <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>    
-        </body>
-        </html>
+        @include('dashboard.layouts.footer')
 
         @endsection

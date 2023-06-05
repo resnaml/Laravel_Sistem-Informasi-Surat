@@ -47,9 +47,9 @@
             {{ $surats->links() }}
         </div>
     </footer>
-
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     
 </body>
+
+@include('dashboard.layouts.footer')
 
 @endsection

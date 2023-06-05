@@ -44,12 +44,13 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $rules =[
-            'alamat' => 'required|min:5|max:30',
-            'jabatan' => 'required|max:20',
-            'telepon' => 'required|max:13',
+            'alamat' => 'required|max:30',
+            'jabatan' => 'nullable',
+            'telepon' => 'required|min:13',
             'tgl_lahir' => 'required',
             'gambar' => 'nullable|image',
-            'role_id' => 'nullable'
+            'is_admin' => 'nullable',
+            'nip' => 'nullable'
         ];
         $validatedData = $request->validate($rules);
         User::where('id', $user->id)->update($validatedData);

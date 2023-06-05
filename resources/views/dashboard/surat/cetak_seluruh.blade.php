@@ -13,13 +13,12 @@
             border: 1px solid #543535;
         }
     </style>
-    <title>Laporan Surat BP3MI</title>
 
 </head>
 
     <body>
+        <h3 align="center">Laporan Data Seluruh Surat BP3MI Bandung</h3>
         <div class="form-group">
-            <p align="center"><b>Laporan Data Seluruh Surat BP3MI Bandung</b></p>
             <table class="static" align="center" rule="all" border="1px" style="width: 95%;">
             <tr>
                 <th scope="col">No</th>
@@ -35,7 +34,7 @@
             @foreach ($suratkeluar as $surat)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $surat->jenissurat['kodesurat'] ?? '' }}-{{ str_pad($surat->no_surat_keluar, 4, '0', STR_PAD_LEFT) }}</td>
+                <td>{{ $surat->full_number }}</td>
                 <td>{{ $surat->tgl_surat_keluar }}</td>
                 <td>{{ $surat->jenissurat['namejenis'] }}</td>
                 <td>{{ $surat->sifatsurat['namesifat'] }}</td>
@@ -45,13 +44,13 @@
                 <td>{{ $surat->created_at->format('m-d-y') }}</td>
             </tr>
             @endforeach
-            
             </table>
         </div>
 
         <script type="text/javascript">
             window.print();
-
         </script>
+    
     </body>
+    
 </html>

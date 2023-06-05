@@ -30,8 +30,12 @@ class SuratKeluarController extends Controller
     */
     public function cetakSurat()
     {
-        $suratkeluar = Suratkeluar::where('user_id', auth()->user()->id)->with('jenissurat')->get();
-        return view('dashboard.suratkeluar.cetak_surat', compact('suratkeluar'));
+        $suratkeluar = Suratkeluar::where('user_id', auth()->user()->id)->get();
+        $surat = [
+            'surats' => $suratkeluar
+        ];
+        $pdf = PDF::loadView('dashboard.suratkeluar.cetak_surat', $surat);
+        return $pdf->download('Laporan Surat Pribadi.pdf');
     }
 
     /*

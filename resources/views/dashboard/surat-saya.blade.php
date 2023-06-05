@@ -6,13 +6,20 @@
     </div>
 
     <div class="container">
+
+        @if ($jumlahMasuk == 0)
+            <h1 class="mt-2">
+                Belum Ada Surat
+            </h1>
+        @else
+            
         <div class="row">
+            
             @foreach ($suratkeluar as $surat)
             
                 @if ($surat->print_surat == false)
                 @continue
                 @endif
-
                 <div class="row col-md-3 g-3">
                     <div class="col">
                         <div class="card h-100 text-center border-dark">
@@ -36,6 +43,8 @@
                 </div>
             @endforeach
         </div>
+        @endif
+        
     </div>
     
 @endsection

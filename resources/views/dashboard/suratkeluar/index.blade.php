@@ -26,7 +26,7 @@
     <div class="d-flex mb-0">
         <a class="d-flex btn btn-primary me-3 mb-3 border-bottom" href="/dashboard/suratkeluar/create"><i class="bi bi-envelope-plus"> Buat Surat</i></a>
 
-        <a class="d-flex btn btn-success me-3 mb-3 border-bottom" href="/dashboard/suratkeluarcetak" target="_blank"><i class="bi bi-printer"> Cetak Data</i></a>
+        <a class="d-flex btn btn-success me-3 mb-3 border-bottom" href="/dashboard/suratkeluarcetak"><i class="bi bi-printer"> Cetak Data</i></a>
     </div>
     
     <h4 class="border-top border-dark">Daftar Surat</h4>

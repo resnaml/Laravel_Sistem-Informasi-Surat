@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengarsipan;
 use App\Models\User;
-use App\Models\Disposisisurat;
 use App\Models\Suratkeluar;
-use App\Models\Suratmasuk;
 use Barryvdh\DomPDF\Facade\PDF;
 use Carbon\Carbon;
+use App\Models\Disposisisurat;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Dflydev\DotAccessData\Data;
 
 class DashboardController extends Controller
 {
+    
     /* 
         Halaman Dashboard 
     */
@@ -52,7 +52,8 @@ class DashboardController extends Controller
         $telepon = auth()->user()->telepon;
         $tgl_lahir = auth()->user()->tgl_lahir;
         $jabatan = auth()->user()->jabatan;
-        return view('dashboard.viewakun',compact('name', 'username', 'email', 'jabatan','alamat','telepon','tgl_lahir'));
+        $admin = auth()->user()->is_admin;
+        return view('dashboard.viewakun',compact('name', 'username', 'email', 'jabatan','alamat','telepon','tgl_lahir','admin'));
     }
 
     /*
@@ -60,9 +61,9 @@ class DashboardController extends Controller
     */ 
     public function suratSaya()
     {
-        return view('dashboard.surat-saya',[
-            'suratkeluar' => Suratkeluar::where('kepada', auth()->user()->id)->get()
-        ]);
+        $suratkeluar = Suratkeluar::where('kepada', auth()->user()->id)->get();
+        $jumlahMasuk = Suratkeluar::where('kepada', auth()->user()->id)->count();
+        return view('dashboard.surat-saya',compact('suratkeluar','jumlahMasuk'));
     }
 
     /*

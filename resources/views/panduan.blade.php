@@ -93,14 +93,9 @@
                     <img src="/img/9.png" height="250" weight="250">
                 </div>
         </div>
-        <hr class="featurette-divider">
-        
 
-    </div><!-- /.container -->
 </body>
 
-<link href="/css/carousel.css" rel="stylesheet">
-
-
+@include('dashboard.layouts.footer')
 
 @endsection
