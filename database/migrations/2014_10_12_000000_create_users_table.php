@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('nip')->unique();
             $table->string('password');
             $table->string('jabatan');
-            $table->enum('level',['Kepala','Karyawan']);
+            $table->enum('level',['Kepala','Karyawan'])->default('Karyawan');
             $table->text('alamat')->nullable();
             $table->string('telepon')->nullable();
             $table->date('tgl_lahir')->nullable();

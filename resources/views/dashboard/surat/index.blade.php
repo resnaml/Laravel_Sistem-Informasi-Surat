@@ -19,6 +19,7 @@
     <a class="btn btn-danger">Segera Disposisi Surat : {{ $jumlah }}</a>
     @endif
     </div>
+    
     @if($jumlah == 0)
 
     <h1>Belum ada Pengajuan</h1>

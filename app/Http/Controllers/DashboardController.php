@@ -7,7 +7,6 @@ use App\Models\User;
 use App\Models\Suratkeluar;
 use Barryvdh\DomPDF\Facade\PDF;
 use Carbon\Carbon;
-use App\Models\Disposisisurat;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Dflydev\DotAccessData\Data;
@@ -75,7 +74,7 @@ class DashboardController extends Controller
             'surat' => $suratkeluar
         ];
         $pdf = PDF::loadView('dashboard.mypdf', $surats);
-        return $pdf->download('mypdf.pdf');
+        return $pdf->download('Suratku.pdf');
     }
 
     /*
@@ -102,7 +101,7 @@ class DashboardController extends Controller
     {
         return view('status',[
             "title" => "Status Surat",
-            "surats" => Suratkeluar::latest()->filter(request(['search','jenissurat']))->paginate(6)->withQueryString()
+            "surats" => Suratkeluar::latest()->filter(request(['search','jenissurat']))->paginate(8)->withQueryString()
         ]);
     }
 

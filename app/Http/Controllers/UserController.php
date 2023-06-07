@@ -46,7 +46,7 @@ class UserController extends Controller
         $rules =[
             'alamat' => 'required|max:30',
             'jabatan' => 'nullable',
-            'telepon' => 'required|min:13',
+            'telepon' => 'required|min:10|max:14',
             'tgl_lahir' => 'required',
             'gambar' => 'nullable|image',
             'is_admin' => 'nullable',

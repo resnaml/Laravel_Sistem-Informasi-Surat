@@ -15,8 +15,8 @@
                 <h1 class="h3 lg-4 mb-4 fw-normal text-center">Silahkan Daftar</h1>
                 <form action="/register" method="post">
                     @csrf
-                <div class="form-floating">
-                        <input type="number" name="nip" class="form-control rounded mb-1 @error('nip') is-invalid @enderror" placeholder="NIP" required value="{{ old('nip') }}">
+                <div class="form-floating mb-2">
+                        <input type="number" name="nip" class="form-control rounded  @error('nip') is-invalid @enderror" placeholder="NIP" required value="{{ old('nip') }}">
                         <label for="nip">NIP</label>
                         @error('nip')
                         <div class="invalid-feedback">
@@ -25,7 +25,7 @@
                         @enderror
                 </div>
 
-                <div class="form-floating">
+                <div class="form-floating mb-2">
                     <input type="name" name="name" class="form-control rounded @error('name') is-invalid @enderror" id="name" placeholder="Name" required value="{{ old('name') }}">
                     <label for="name">Nama</label>
                     @error('name')
@@ -36,7 +36,7 @@
                 </div>
 
                 
-                <div class="form-floating mt-2 mb-2">
+                {{-- <div class="form-floating mt-2 mb-2">
                     <div class="col-12">
                         <select  required class="form-control text-center" name="level" aria-placeholder="Jabatan">
                             @foreach(["Kepala" => "Kepala"] as $status => $status)
@@ -47,7 +47,7 @@
                             @endforeach
                         </select>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="form-floating">
                     <input type="name" name="jabatan" class="form-control rounded mb-1 @error('jabatan') is-invalid @enderror" placeholder="Jabatan" required value="{{ old('jabatan') }}">

@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row">
                 @foreach ($surats as $surat)
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="card mb-3">
                         <div class="position-absolute bg-dark p-3 py-2 text-white" style="background-color: rgba(0, 0, 0, 0.7)">{{ $surat->created_at->diffForHumans() }}</div>
                         <img src="https://source.unsplash.com/400x400/?envelope" class="card-img-top" alt="..." height="225" width="300">

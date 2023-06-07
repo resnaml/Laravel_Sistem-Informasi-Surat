@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Login;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -25,9 +26,9 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nip' => 'required|numeric|min:18|min:18|unique:users',
+            'nip' => 'required|numeric|digits:18|unique:users',
             'name' => 'required|max:20',
-            'level' => 'required',
+            // 'level' => 'required',
             'jabatan' => 'required|max:20',
             'username' => 'required|min:3|max:255|unique:users',
             'email' => 'required|unique:users',
