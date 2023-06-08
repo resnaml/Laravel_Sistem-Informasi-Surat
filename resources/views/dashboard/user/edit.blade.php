@@ -71,12 +71,12 @@
                         </div>
                         @enderror
                         
-                        <div class="mb-3 container">
+                        <div class="mb-3 container rounded border border-dark bg-info">
                             <label for="alamat" class="form-label"><b>Admin</b></label>
-    
+                            
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="1" name="is_admin">
-                                <label class="form-check-label" for="flexCheckIndeterminate">
+                                <label class="form-check-label text-bold">
                                 Jadikan Admin ?
                                 </label>
                             </div>

@@ -12,12 +12,12 @@
     @endif
 
     <div class="d-flex border-bottom border-dark">
-        <form action=""  role="search">
+        {{-- <form action=""  role="search">
             <div class="d-flex btn">
                 <input class="d-flex mb-3 form-control me-3" type="search">
             <button class="d-flex btn mb-3 btn-outline-success" type="submit">Search</button>
         </form>
-    </div>
+    </div> --}}
         <div class="row mt-2 m-1">
                     <div class="col">
                         <input type="date" name="tglawal" id="tglawal" class="form-control">
@@ -59,6 +59,7 @@
             <th scope="col">Pembuat Surat</th>
             <th scope="col">Tujuan Surat</th>
             <th scope="col">Status Surat</th>
+            <th scope="col">Disposisi</th>
             <th scope="col">Tgl Dibuat</th>
             <th scope="col"></th>
             <tbody>
@@ -71,6 +72,7 @@
                 <td>{{ $surat->user->name }}</td>
                 <td>{{ $surat->kepada_id['name'] }}</td>
                 <td>{{ $surat->status }}</td>
+                <td>{{ $surat->disposisi['disposisi_oleh'] }}</td>
                 <td>{{ $surat->created_at->format('y-m-d') }}</td>
             <td>
                 <a href="/dashboard/pengarsipan/create" class="btn btn-success m-lg-1"><i class="bi bi-safe"></i></a>

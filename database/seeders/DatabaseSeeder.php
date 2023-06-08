@@ -6,8 +6,8 @@ use Illuminate\Database\Seeder;
 use App\Models\jenissurat;
 use App\Models\Kategoriarsip;
 use App\Models\Sifatsurat;
-use App\Models\Suratkeluar;
 use App\Models\User;
+use App\Models\Nip;
 
 class DatabaseSeeder extends Seeder
 {
@@ -79,6 +79,18 @@ class DatabaseSeeder extends Seeder
         Kategoriarsip::create([
             'arsip_kategori' => 'Arsip Dinamis',
             'kode_arsip' => 'AD01'
+        ]);
+
+        Nip::create([
+            'nip_kode' => 199205142023052001
+        ]);
+
+        Nip::create([
+            'nip_kode' => 199205142023052002
+        ]);
+
+        Nip::create([
+            'nip_kode' => 199205142023052003
         ]);
 
         User::create([

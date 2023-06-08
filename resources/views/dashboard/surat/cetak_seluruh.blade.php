@@ -19,17 +19,18 @@
     <body>
         <h3 align="center">Laporan Data Seluruh Surat BP3MI Bandung</h3>
         <div class="form-group">
-            <table class="static" align="center" rule="all" border="1px" style="width: 95%;">
+            <table class="static" align="center" rule="all" border="1px" style="width: 100%;">
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">Kode Surat</th>
-                <th scope="col">Tgl Surat Untuk</th>
-                <th scope="col">Jenis Surat</th>
-                <th scope="col">Sifat Surat</th>
-                <th scope="col">Pembuat Surat</th>
-                <th scope="col">Tujuan Surat</th>
-                <th scope="col">Status Surat</th>
-                <th scope="col"><i class="bi bi-clock-fill"></i>Tgl Surat Dibuat</th>
+                <th scope="col">Kode</th>
+                <th scope="col">Tgl Untuk</th>
+                <th scope="col">Jenis</th>
+                <th scope="col">Sifat</th>
+                <th scope="col">Pembuat</th>
+                <th scope="col">Tujuan</th>
+                <th scope="col">Status</th>
+                <th scope="col">Disposisi</th>
+                <th scope="col"><i class="bi bi-clock-fill"></i>Surat Dibuat</th>
             </tr>
             @foreach ($suratkeluar as $surat)
             <tr>
@@ -41,7 +42,8 @@
                 <td>{{ $surat->user->name }}</td>
                 <td>{{ $surat->kepada_id['name'] }}</td>
                 <td>{{ $surat->status }}</td>
-                <td>{{ $surat->created_at->format('m-d-y') }}</td>
+                <td>{{ $surat->disposisi['disposisi_oleh'] }}</td>
+                <td>{{ $surat->created_at->format('y-m-d') }}</td>
             </tr>
             @endforeach
             </table>

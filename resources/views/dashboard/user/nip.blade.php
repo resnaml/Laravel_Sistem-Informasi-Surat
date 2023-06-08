@@ -57,7 +57,7 @@
                                 <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>
                             </form>
                         </td>
-                        
+                    </tr>
             @endforeach
         </ul>
     </div>
