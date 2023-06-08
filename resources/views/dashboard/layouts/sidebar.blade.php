@@ -43,7 +43,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{ Request::is('dashboard/kelolaakun*') ? 'active' : '' }}" aria-current="page" href="/dashboard/kelolaakun">
+            <a class="nav-link {{ Request::is('dashboard/kelolaakun') ? 'active' : '' }}" aria-current="page" href="/dashboard/kelolaakun">
                 <i class="bi bi-person-lines-fill"></i> Kelola User
             </a>
         </li>

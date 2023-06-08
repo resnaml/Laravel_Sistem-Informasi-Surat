@@ -39,13 +39,12 @@ class PengarsipanController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'author' => 'required',
             'judul' => 'required|max:25|min:5',
             'kategori_arsip_id' => 'required',
             'file_arsip' => 'required|file|mimes:doc,docx,pdf,xls,xlsx,pdf,ppt,pptx',
             'kodearsip' => 'nullable'
         ]);
-        // $validatedData['author'] = auth()->user()->id;
+        $validatedData['arsip_user'] = auth()->user()->id;
         if($request->file('file_arsip')) {
             $validatedData['file_arsip'] = $request->file('file_arsip')->store('dokument');
         }

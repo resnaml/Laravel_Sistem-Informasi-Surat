@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Nip;
 
 class UserController extends Controller
 {
@@ -44,7 +44,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $rules =[
-            'alamat' => 'required|max:30',
+            'alamat' => 'required|max:50',
             'jabatan' => 'nullable',
             'telepon' => 'required|min:10|max:14',
             'tgl_lahir' => 'required',
@@ -66,4 +66,26 @@ class UserController extends Controller
         return redirect('/dashboard/kelolaakun')->with('danger','User berhasil terhapus !!!');
     }
 
+    /* 
+        View NIP (Admin) 
+    */
+    public function indexNip()
+    {
+        return view('dashboard.user.nip' ,[
+            'nips' => Nip::all()
+        ]);
+    }
+
+    /* 
+        Store NIP (Admin) 
+    */
+    public function createNip(Request $request)
+    {
+        $data = $request->validate([
+            'nip_kode' => 'required|numeric|digits:18|unique:nips'
+        ]);
+
+        Nip::create($data);
+        return redirect('/dashboard/kelolaakun/nip')->with('success','NIP Berhasil di Daftarkan !');
+    }
 }

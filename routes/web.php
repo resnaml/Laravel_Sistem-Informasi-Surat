@@ -80,13 +80,17 @@ Route::get('/dashboard/pengarsipan/download/{id}', [PengarsipanController::class
 
 
 /* 
-    --Kelola Akun Route-- 
+--Kelola Akun Route-- 
 */
 Route::get('/dashboard/kelolaakun', [UserController::class, 'index'])->middleware('admin');
+Route::get('/dashboard/kelolaakun/nip', [UserController::class, 'indexNip'])->middleware('admin');
 Route::get('/dashboard/kelolaakun/{user}', [UserController::class, 'show']);
 Route::get('/dashboard/kelolaakun/{user}/edit', [UserController::class, 'edit'])->middleware('admin');
 Route::put('/dashboard/kelolaakun/{user}/edit', [UserController::class, 'update']);
 Route::delete('/dashboard/kelolaakun/{user}', [UserController::class, 'destroy']);
+Route::post('/dashboard/kelolaakun/nip', [UserController::class, 'createNip']);
+
+
 
 /* 
     --Surat Masuk Route--

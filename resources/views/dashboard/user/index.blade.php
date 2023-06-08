@@ -5,11 +5,15 @@
         <h2>Daftar Akun Staff Bp2mi</h2>    
     </div>
 
-    <div class="d-flex col-lg-3 pt-1 pb-3 mb-2 border-bottom border-dark"  action="">
-        <input class="form-control me-2" name="search" type="search" placeholder="Cari User..." 
-        value="">
+
+    <div class="d-flex col-lg-3 pt-1 pb-3 mb-2 border-bottom border-dark">
+        <form action="submit">
+            <input class="form-control me-2" name="search" type="search" placeholder="Cari User..." value="">
+        </form>
         <button class="btn btn-outline-primary" type="submit" >Search</button>
     </div>
+
+    <a class="btn btn-primary mb-2" href="/dashboard/kelolaakun/nip"><i class="bi bi-people-fill"></i></i> Daftar NIP</a>
     
     @if(session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -63,7 +67,5 @@
             </tbody>
             @endforeach
         </div>
-        
-                
     
 @endsection

@@ -18,7 +18,7 @@
     @endif
 
     <div class="d-flex border-bottom border-dark">
-        <a class="btn btn-primary mb-2 me-3" href="/dashboard/pengarsipan/create"><i class="bi bi-safe"></i> Buat File Arsip</a>
+        <a class="btn btn-primary mb-2 me-3" href="/dashboard/pengarsipan/create"><i class="bi bi-folder-plus"></i> Buat File Arsip</a>
     </div>
 
     <div class="card-group_s mt-4 row">

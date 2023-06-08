@@ -25,10 +25,10 @@ class RegisterController extends Controller
     */
     public function store(Request $request)
     {
+        // exists:users
         $validatedData = $request->validate([
-            'nip' => 'required|numeric|digits:18|unique:users',
+            'nip' => 'required|numeric|digits:18|unique:users|exists:nips,nip_kode',
             'name' => 'required|max:20',
-            // 'level' => 'required',
             'jabatan' => 'required|max:20',
             'username' => 'required|min:3|max:255|unique:users',
             'email' => 'required|unique:users',
