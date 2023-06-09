@@ -115,6 +115,3 @@ Route::post('/dashboard/surat{suratkeluar}/disposisi', [DisposisiController::cla
 Route::resource('/dashboard/suratkeluar', SuratKeluarController::class)->middleware('auth');
 Route::get('/dashboard/suratkeluarcetak', [SuratKeluarController::class, 'cetakSurat'])->middleware('auth');
 Route::get('/dashboard/suratkeluar{suratkeluar}.pdf', [SuratKeluarController::class, 'pdfExport']);
-
-
-// Route::get('/dashboard/suratkeluar/KodeSurat', [Suratkeluar::class, 'KodeSurat']);

@@ -7,7 +7,7 @@
 <main>
         <h1 class="text-center mb-3">{{ $title }}</h1>
 
-        <div class="row justify-content-center mb-4">
+        <div class="row justify-content-center mb-1">
             <div class="col-md-6 conten-justify">
                 <form action="/status">
                     @if (request('jenissurat'))
@@ -20,6 +20,8 @@
                 </form>
             </div>
         </div>
+
+        <hr>
 
         <div class="container">
             <div class="row">

@@ -2,97 +2,72 @@
 
 @section('container')
 
+    <link rel="stylesheet" href="/css/blog.css">
+
 <body class="bg-light">
-    <h1 class="text-center text-bold mt-3">Panduan Melakukan Pengajuan Surat</h1>
 
-    <hr class="mt-3 featurette-divider">
+    <h2 class="text-center text-bold mt-3">Panduan Melakukan Pengajuan Surat</h2>
 
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h5 class="featurette-heading fw-normal">Langkah Pertama</h5>
-            <p class="lead">Klik tombol sisi side bar, Surat Keluar</p>
-        </div>
-        <div class="col-md-5">
-            <img src="/img/1.png" height="250" weight="250">
-        </div>
-        </div>
-        <hr class="featurette-divider">
+    <hr>
 
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h4 class="featurette-heading fw-normal">Langkah Kedua</h4>
-                <p class="lead">Klik tombol biru Untuk Buat Surat</p>
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex text-center flex-column position-static">
+                    <strong class="mb-1"><hr></strong>
+                    <h3 class="mb-0">Daftar Akun</h3>
+                    <p class="card-text mb-auto">Minta kepada Admin, untuk memasukan (NIP) agar dapat mendaftar akun.</p>
+                    <strong class="mb-1"><hr></strong>
+                </div>
+                <div class="col-auto container mt-3 d-none d-lg-block">
+                <img src="/img/daftar.png" class="rounded" width="230" height="200">
+                </div>
             </div>
-            <div class="col-md-5">
-                <img src="/img/2.png" height="250" weight="250">
-            </div>
-            </div>
-            <hr class="featurette-divider">
-            
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">Langkah Ketiga</h2>
-                <p class="lead">Silahkan untuk Isi bagian form Surat</p>
-                </div>
-                <div class="col-md-5">
-                    <img src="/img/3.png" height="250" weight="250">
-                </div>
         </div>
-        <hr class="featurette-divider">
-        
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">Langkah Keempat</h2>
-                <p class="lead">Jika Form surat terisi, maka klik tombol Buat Surat</p>
-                </div>
-                <div class="col-md-5">
-                    <img src="/img/5.png" height="250" weight="250">
-                </div>
-        </div>
-        <hr class="featurette-divider">
-        
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">Langkah Kelima</h2>
-                <p class="lead">Setelah itu, Maka akan ada "Surat telah berhasil Terbuat"</p>
-                </div>
-                <div class="col-md-5">
-                    <img src="/img/6.png" height="250" weight="250">
-                </div>
-        </div>
-        <hr class="featurette-divider">
-        
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">Langkah Keenam</h2>
-                <p class="lead">Lalu tunggu admin untuk Memperoses surat anda</p>
-                </div>
-                <div class="col-md-5">
-                    <img src="/img/7.png" height="250" weight="250">
-                </div>
-        </div>
-        <hr class="featurette-divider">
 
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">Langkah Ketujuh</h2>
-                <p class="lead">Jika surat sudah di Acc(diterima), maka surat sudah bisa di Print</p>
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex text-center flex-column position-static">
+                    <strong class="mb-1"><hr></strong>
+                    <h3 class="mb-0">Buat Surat</h3>
+                    <p class="card-text mb-auto">Masuk menu surat keluar, lalu pilih jenis surat & sifat, lalu pilih User tujuan surat</p>
+                    <strong class="mb-1"><hr></strong>
                 </div>
-                <div class="col-md-5">
-                    <img src="/img/8.png" height="250" weight="250">
+                <div class="col-auto container mt-3 d-none d-lg-block">
+                <img src="/img/pengajuan.png" class="rounded" width="230" height="200">
                 </div>
+            </div>
         </div>
-        <hr class="featurette-divider">
+        
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex text-center flex-column position-static">
+                    <strong class="mb-1"><hr></strong>
+                    <h3 class="mb-0">Disposisi</h3>
+                    <p class="card-text mb-auto">Jika sudah, Tunggu admin untuk Disposisi surat anda.</p>
+                    <strong class="mb-1"><hr></strong>
+                </div>
+                <div class="col-auto container mt-3 d-none d-lg-block">
+                <img src="/img/status.png" class="rounded" width="230" height="200">
+                </div>
+            </div>
+        </div>
 
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">Hasil dari Surat yang diajukan</h2>
-                
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex text-center flex-column position-static">
+                    <strong class="mb-1"><hr></strong>
+                    <h3 class="mb-0">Hasil</h3>
+                    <p class="card-text mb-auto">Jika surat sudah Disetujui maka surat sudah terkirim kepada user yang dituju, dan bisa download PDF</p>
+                    <strong class="mb-1"><hr></strong>
                 </div>
-                <div class="col-md-5">
-                    <img src="/img/9.png" height="250" weight="250">
+                <div class="col-auto container mt-3 d-none d-lg-block">
+                <img src="/img/hasil.png" class="rounded" width="230" height="200">
                 </div>
+            </div>
         </div>
+
+    </div>
 
 </body>
 
