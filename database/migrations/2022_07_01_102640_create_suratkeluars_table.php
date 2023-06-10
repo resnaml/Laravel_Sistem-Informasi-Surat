@@ -31,7 +31,6 @@ class CreateSuratkeluarsTable extends Migration
                 $table->foreignId('jenissurat_id')->constrained('jenissurats')->onDelete('cascade');
                 $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
                 $table->foreignId('kepada')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
-                // $table->foreignId('diposisi_id')->constrained('disposisisurats')->onDelete('cascade')->onUpdate('cascade');
             });
     }
 

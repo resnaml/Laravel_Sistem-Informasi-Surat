@@ -39,7 +39,7 @@
                 <td>{{ $arsip->created_at->format('d-m-y') }}</td>
                 <td>{{ $arsip->file_arsip }}</td>
                 <td>
-                    <a href="/dashboard/pengarsipan/{{ $arsip->id }}" class="btn btn-info m-lg-1"><i class="bi bi-eye"></i></a>
+                    <a href="{{ url('/dashboard/pengarsipan/download/'.$arsip->id) }} " class="btn btn-success m-lg-1"><i class="bi bi-download"></i></a>
                     
                     <form action="/dashboard/pengarsipan/{{ $arsip->id }}" method="post" class="d-inline">
                         @method('delete')

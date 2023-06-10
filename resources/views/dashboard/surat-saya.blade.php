@@ -26,9 +26,6 @@
             
             @foreach ($suratkeluar as $surat)
             
-                @if ($surat->print_surat == false)
-                @continue
-                @endif
                 <div class="row col-md-3 g-3">
                     <div class="col">
                         <div class="card h-100 text-center border-dark">

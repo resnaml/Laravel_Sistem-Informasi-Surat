@@ -44,6 +44,7 @@
                 <th scope="col">Nama</th>
                 <th scope="col">Email</th>
                 <th scope="col">Jabatan</th>
+                <th scope="col">NIP</th>
                 <th scope="col">Opsi</th>
                 </tr>
             </thead>
@@ -53,6 +54,7 @@
                 <td scope="col">{{ $akun->name }}</td>
                 <td scope="col">{{ $akun->email }}</td>
                 <td scope="col">{{ $akun->jabatan }}</td>
+                <td scope="col">{{ $akun->nip }}</td>
                 <td scope="col">
                     <a href="/dashboard/kelolaakun/{{ $akun->id }}" class="btn btn-info m-lg-1"><i class="bi bi-eye"></i></a>
                     <a href="/dashboard/kelolaakun/{{ $akun->id }}/edit" class="btn btn-warning m-lg-1"><i class="bi bi-tools"></i></a>

@@ -60,7 +60,7 @@ class DashboardController extends Controller
     */ 
     public function suratSaya()
     {
-        $suratkeluar = Suratkeluar::where('kepada', auth()->user()->id)->get();
+        $suratkeluar = Suratkeluar::where('kepada', auth()->user()->id)->where('print_surat','=' ,1)->get();
         $jumlahMasuk = Suratkeluar::where('kepada', auth()->user()->id)->count();
         return view('dashboard.surat-saya',compact('suratkeluar','jumlahMasuk'));
     }
