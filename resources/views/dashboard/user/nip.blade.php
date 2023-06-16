@@ -36,7 +36,7 @@
                         </div>
                         @enderror
                     </div>
-                    
+
                 </div>
 
                 <button type="submit" class="btn btn-success mb-3 mt-3"><i class="bi bi-person-add"></i> Tambah NIP</button>
@@ -57,7 +57,6 @@
                     <tr>
                     <th scope="col">No</th>
                     <th scope="col">NIP</th>
-                    {{-- <th scope="col">Keterangan</th> --}}
                     <th scope="col"></th>
                     </tr>
                 <tbody>
