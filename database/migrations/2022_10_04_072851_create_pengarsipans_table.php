@@ -19,6 +19,7 @@ class CreatePengarsipansTable extends Migration
             $table->string('file_arsip');
             $table->string('judul');
             $table->integer('kodearsip');
+            $table->date('tgl_arsip');
 
             // Foregin ID
             $table->foreignId('kategori_arsip_id')->constrained('kategoriarsips')->onDelete('cascade')->onUpdate('cascade');

@@ -16,14 +16,29 @@
             <form method="post" action="/dashboard/kelolaakun/nip">
                 @csrf
                 <div class="container mt-3 col-7">
-                    <label for="No induk" class="mb-2"><b>No Induk Pegawai</b></label>
-                    <input type="number" class="text-center form-control @error('nip_kode') is-invalid @enderror" name="nip_kode" required value="{{ old('nip_kode') }}">
-                    @error('nip_kode')
-                    <div class="invalid-feedback">
-                        {{ $message }}
+
+                    <div class="container">
+                        <label for="No induk" class="mb-2"><b>No Induk Pegawai</b></label>
+                        <input type="number" class="text-center form-control @error('nip_kode') is-invalid @enderror" name="nip_kode" required value="{{ old('nip_kode') }}">
+                        @error('nip_kode')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
-                    @enderror
+
+                    <div class="container">
+                        <label for="No induk" class="mb-2"><b>No Induk Pegawai</b></label>
+                        <input type="number" class="text-center form-control @error('nip_kode') is-invalid @enderror" name="nip_kode" required value="{{ old('nip_kode') }}">
+                        @error('nip_kode')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    
                 </div>
+
                 <button type="submit" class="btn btn-success mb-3 mt-3"><i class="bi bi-person-add"></i> Tambah NIP</button>
             </form>
 

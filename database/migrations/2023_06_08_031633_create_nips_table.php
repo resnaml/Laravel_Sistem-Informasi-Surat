@@ -16,6 +16,10 @@ class CreateNipsTable extends Migration
         Schema::create('nips', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('nip_kode');
+            $table->string('jabatan');
+            $table->text('alamat');
+            $table->string('telepon');
+            $table->date('tgl_lahir');
             $table->timestamps();
         });
     }

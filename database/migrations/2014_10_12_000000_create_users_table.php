@@ -19,12 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('username');
             $table->string('email')->unique();
-            $table->string('nip')->unique();
+            $table->bigInteger('nip')->unique();
             $table->string('password');
-            $table->string('jabatan');
-            $table->text('alamat')->nullable();
-            $table->string('telepon')->nullable();
-            $table->date('tgl_lahir')->nullable();
             $table->boolean('is_admin')->default(false);
             $table->rememberToken();
         });
