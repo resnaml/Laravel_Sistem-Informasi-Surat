@@ -25,7 +25,7 @@
                         @enderror
                 </div>
 
-                <div class="form-floating mb-2">
+                {{-- <div class="form-floating mb-2">
                     <input type="name" name="name" class="form-control rounded @error('name') is-invalid @enderror" id="name" placeholder="Name" required value="{{ old('name') }}">
                     <label for="name">Nama</label>
                     @error('name')
@@ -33,23 +33,9 @@
                         {{ $message }}
                     </div>
                     @enderror
-                </div>
-
-                
-                {{-- <div class="form-floating mt-2 mb-2">
-                    <div class="col-12">
-                        <select  required class="form-control text-center" name="level" aria-placeholder="Jabatan">
-                            @foreach(["Kepala" => "Kepala"] as $status => $status)
-                            <option value="{{ $status }}">{{ $status }}</option>
-                            @foreach(["Karyawan" => "Karyawan"] as $status => $status2)
-                            <option value="{{ $status2 }}">{{ $status2 }}</option>
-                            @endforeach
-                            @endforeach
-                        </select>
-                    </div>
                 </div> --}}
 
-                <div class="form-floating">
+                {{-- <div class="form-floating">
                     <input type="name" name="jabatan" class="form-control rounded mb-1 @error('jabatan') is-invalid @enderror" placeholder="Jabatan" required value="{{ old('jabatan') }}">
                     <label for="jabatan">Jabatan</label>
                     @error('jabatan')
@@ -57,7 +43,7 @@
                         {{ $message }}
                     </div>
                     @enderror
-                </div>
+                </div> --}}
 
                 <div class="form-floating">
                     <input type="text" name="username" class="form-control rounded mb-1 @error('username') is-invalid @enderror" id="username" placeholder="Username" required value="{{ old('username') }}">

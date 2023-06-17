@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
-        <h2>Daftar Akun Staff Bp2mi</h2>    
+        <h2>Daftar User Akun Staff Bp2mi</h2>    
     </div>
 
 
@@ -13,7 +13,7 @@
         <button class="btn btn-outline-primary" type="submit" >Search</button>
     </div>
 
-    <a class="btn btn-primary mb-2" href="/dashboard/kelolaakun/nip"><i class="bi bi-people-fill"></i></i> Daftar NIP</a>
+    <a class="btn btn-primary mb-2" href="/dashboard/kelolaakun/nip"><i class="bi bi-people-fill"></i></i> Daftar Pegawai</a>
     
     @if(session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">

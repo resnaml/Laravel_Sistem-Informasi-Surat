@@ -48,7 +48,6 @@ class UserController extends Controller
             'jabatan' => 'nullable',
             'telepon' => 'required|min:10|max:14',
             'tgl_lahir' => 'required',
-            'gambar' => 'nullable|image',
             'is_admin' => 'nullable',
             'nip' => 'nullable'
         ];
@@ -82,7 +81,12 @@ class UserController extends Controller
     public function createNip(Request $request)
     {
         $data = $request->validate([
-            'nip_kode' => 'required|numeric|digits:18|unique:nips'
+            'nip_kode' => 'required|numeric|digits:18|unique:nips',
+            'nama_lengkap' => 'required',
+            'jabatan' => 'required',
+            'alamat' => 'required',
+            'telepon' => 'required',
+            'tgl_lahir' => 'required|date'
         ]);
 
         Nip::create($data);

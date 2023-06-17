@@ -19,6 +19,19 @@
 
     <div class="d-flex border-bottom border-dark">
         <a class="btn btn-primary mb-2 me-3" href="/dashboard/pengarsipan/create"><i class="bi bi-folder-plus"></i> Buat File Arsip</a>
+        
+            <form action="/dashboard/pengarsipan/cari-arsip">
+                <input type="text" class="btn mb-2 me-3 btn-outline-info" placeholder="Cari Surat..." name="search" value="{{ request('search') }}">
+                <button class="btn btn-outline-secondary mb-2 me-3" id="button-addon2" type="submit" ><i class="bi bi-search"></i> Cari...</button>
+            </form>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                sadas
+            </div>
+        </div>
     </div>
 
     <div class="card-group_s mt-4 row">
