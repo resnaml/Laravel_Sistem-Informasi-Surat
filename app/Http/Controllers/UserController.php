@@ -82,10 +82,10 @@ class UserController extends Controller
     {
         $data = $request->validate([
             'nip_kode' => 'required|numeric|digits:18|unique:nips',
-            'nama_lengkap' => 'required',
-            'jabatan' => 'required',
-            'alamat' => 'required',
-            'telepon' => 'required',
+            'nama_lengkap' => 'required|max:20',
+            'jabatan' => 'required|max:20',
+            'alamat' => 'required|max:50',
+            'telepon' => 'required|numeric',
             'tgl_lahir' => 'required|date'
         ]);
 
