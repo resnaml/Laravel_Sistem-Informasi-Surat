@@ -59,7 +59,7 @@
                     <select class="form-select mb-3" name="kepada">
                         <option selected disabled>-- Pilih User --</option>
                         @foreach ($users as $users)
-                        <option value="{{ $users->id }}">{{ $users->name }} | {{ $users->jabatan }}</option>
+                        <option value="{{ $users->id }}">{{ $users->username }}</option>
                         @endforeach
                     </select>
                 </div>

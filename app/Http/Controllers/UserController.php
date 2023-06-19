@@ -13,6 +13,8 @@ class UserController extends Controller
     */
     public function index()
     {
+        // $user = User::all();
+        // dd($user);
         return view('dashboard.user.index',[
             'user' => User::all()
         ]);
@@ -34,7 +36,8 @@ class UserController extends Controller
     public function edit(User $user)
     {
         return view('dashboard.user.edit',[
-            'akun' => $user
+            'akun' => $user,
+            'nips' => Nip::all()
         ]);
     }
 
@@ -44,12 +47,8 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $rules =[
-            'alamat' => 'required|max:50',
-            'jabatan' => 'nullable',
-            'telepon' => 'required|min:10|max:14',
-            'tgl_lahir' => 'required',
             'is_admin' => 'nullable',
-            'nip' => 'nullable'
+            'nip_id' => 'nullable'
         ];
         $validatedData = $request->validate($rules);
         User::where('id', $user->id)->update($validatedData);
@@ -83,9 +82,9 @@ class UserController extends Controller
         $data = $request->validate([
             'nip_kode' => 'required|numeric|digits:18|unique:nips',
             'nama_lengkap' => 'required|max:20',
-            'jabatan' => 'required|max:20',
-            'alamat' => 'required|max:50',
-            'telepon' => 'required|numeric',
+            'jabatan' => 'required|min:3|max:20',
+            'alamat' => 'required|min:4|max:60',
+            'telepon' => 'required|digits:13',
             'tgl_lahir' => 'required|date'
         ]);
 

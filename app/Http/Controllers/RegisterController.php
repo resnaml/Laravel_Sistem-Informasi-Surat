@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Nip;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -25,16 +26,15 @@ class RegisterController extends Controller
     */
     public function store(Request $request)
     {
+        
         $validatedData = $request->validate([
             'nip' => 'required|numeric|digits:18|unique:users|exists:nips,nip_kode',
-            'name' => 'required|max:20',
-            'jabatan' => 'required|max:20',
             'username' => 'required|min:3|max:255|unique:users',
-            'email' => 'required|unique:users',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:6|max:20',
-            'no_induk' => 'required' . $this->nip()->id()
         ]);
-        $validatedData['password']= Hash::make($validatedData['password']);
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        // dd($validatedData);
         User::create($validatedData);
         // $request->session()->flash('success','Registrasi berhasil silhakan untuk login!!!');
         return redirect('/login')->with('success','Registrasi berhasil silhakan untuk login!!!');

@@ -11,6 +11,13 @@
 
     <div class="card col-10 container-fluid border text-center" style="width: 34rem;">
 
+        @if(session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+
         <div class="container mt-2">
             <h4>Masukan Data Pegawai</h4>
             <form method="post" action="/dashboard/kelolaakun/nip">
@@ -50,7 +57,7 @@
 
                     <div class="container">
                         <label for="alamat" class="mb-2 mt-2"><b>Alamat Pegawai</b></label>
-                        <textarea class="form-control" name="alamat" cols="4" rows="4"></textarea>
+                        <textarea class="form-control" value="{{ old('alamat') }}" name="alamat" cols="4" rows="4"></textarea>
                         @error('alamat')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -86,14 +93,16 @@
         </div>
     </div>
 
-        @if(session()->has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
+       
+
+        @if(session()->has('danger'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('danger') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
 
-        <div class="card col-12 mt-4 mb-3 container-fluid border text-center" style="width: 34rem;">
+        <div class="card col-9 mt-4 mb-3 container-fluid border text-center">
 
                 <h4 class="mt-2">Daftar Pegawai</h4>
             <ul class="list-group mt-3 list-group-flush">
@@ -114,11 +123,11 @@
                         <tr>
                             <td><b>{{ $loop->iteration }}</b></td>
                             <td>{{ $nip->nip_kode }}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $nip->nama_lengkap }}</td>
+                            <td>{{ $nip->jabatan }}</td>
+                            <td>{{ $nip->alamat }}</td>
+                            <td>{{ $nip->telepon }}</td>
+                            <td>{{ $nip->tgl_lahir }}</td>
                             <td>
                                 <form action="#" method="post" class="d-inline">
                                     @method('delete')

@@ -29,17 +29,21 @@
                 @endforeach
             </select>
         </div>
-{{-- 
+
         <div class="container mb-3 col-8">
-            <label for="nama" class="form-label"><b>Author</b></label>
-            <input type="text" class="form-control text-center" name="author" readonly value="{{ auth()->user()->id }}">
-            
-        </div> --}}
+            <label for="Kategori" class="form-label"><b>Tgl Arsip</b></label>
+            <input type="date" class="form-control  @error('tgl_arsip') is-invalid @enderror" name="tgl_arsip" value="{{ old('tgl_arsip') }}" required>
+            @error('tgl_arsip')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
 
             <div class="container col-8">
                 <label for="file" class="form-label"><b>Pilih File Arsip</b></label>
                 <img class="img-preview img-fluid">
-                <input type="file" class="form-control mt-3 @error('file_arsip') is-invalid @enderror" id="file_arsip" name="file_arsip" onchange="previewImage()" required>
+                <input type="file" class="form-control @error('file_arsip') is-invalid @enderror" name="file_arsip" onchange="previewImage()" required>
                 @error('file_arsip')
                 <div class="invalid-feedback">
                     {{ $message }}

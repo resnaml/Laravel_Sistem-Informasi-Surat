@@ -18,11 +18,6 @@
                 <div class="card-body">
                     <table class="table rounded">
                         <tbody>
-
-                            <tr>
-                                <th scope="row">Nama</th>
-                                <td>: {{ $name }}</td>
-                            </tr>
                             <tr>
                                 <th scope="row">Username</th>
                                 <td>: {{ $username }}</td>
@@ -31,7 +26,7 @@
                                 <th scope="row">Email</th>
                                 <td>: {{ $email }}</td>
                             </tr>
-                            <tr>
+                            {{-- <tr>
                                 <th scope="row">Jabatan</th>
                                 <td>: {{ $jabatan }}</td>
                             </tr>
@@ -46,7 +41,7 @@
                             <tr>
                                 <th scope="row">Alamat</th>
                                 <td>: {{ $alamat }}</td>
-                            </tr>
+                            </tr> --}}
                             <tr>
                                 <th scope="row">Is Admin</th>
                                 @if ($admin == 1)

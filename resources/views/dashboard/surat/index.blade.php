@@ -42,8 +42,8 @@
                 @foreach ($suratmasuk as $surat)
                 <td>{{ $surat->jenissurat['kodesurat'] ?? '' }}-{{ str_pad($surat->no_surat_keluar, 4, '0', STR_PAD_LEFT) }}</td>
                 <td>{{ $surat->tgl_surat_keluar }}</td>
-                <td>{{ $surat->kepada_id['name'] }}</td>
-                <td>{{ $surat->user->name }}</td>
+                <td>{{ $surat->kepada_id['username'] }}</td>
+                <td>{{ $surat->user->username }}</td>
                 <td>{{ $surat->status }}</td>
                 <td>{{ $surat->created_at->diffForHumans() }}</td>
                 <td>

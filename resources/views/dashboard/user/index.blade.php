@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
-        <h2>Daftar User Akun Staff Bp2mi</h2>    
+        <h2>Daftar User Staff Bp3mi</h2>    
     </div>
 
 
@@ -14,13 +14,6 @@
     </div>
 
     <a class="btn btn-primary mb-2" href="/dashboard/kelolaakun/nip"><i class="bi bi-people-fill"></i></i> Daftar Pegawai</a>
-    
-    @if(session()->has('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
 
     @if(session()->has('warning'))
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -43,17 +36,15 @@
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Email</th>
-                <th scope="col">Jabatan</th>
                 <th scope="col">NIP</th>
-                <th scope="col">Opsi</th>
+                <th scope="col"></th>
                 </tr>
             </thead>
             @foreach ($user as $akun)
             <tbody class="table-light">
                 <td>{{ $loop->iteration }}</td>
-                <td scope="col">{{ $akun->name }}</td>
+                <td scope="col">{{ $akun->username }}</td>
                 <td scope="col">{{ $akun->email }}</td>
-                <td scope="col">{{ $akun->jabatan }}</td>
                 <td scope="col">{{ $akun->nip }}</td>
                 <td scope="col">
                     <a href="/dashboard/kelolaakun/{{ $akun->id }}" class="btn btn-info m-lg-1"><i class="bi bi-eye"></i></a>

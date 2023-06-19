@@ -40,7 +40,7 @@
             </tr>
             <tr>
                 <th>Kepada</th>
-                <td>: {{ $surat->kepada_id['name'] }}</td>
+                <td>: {{ $surat->kepada_id['username'] }}</td>
             </tr>
         </table>
     </div>

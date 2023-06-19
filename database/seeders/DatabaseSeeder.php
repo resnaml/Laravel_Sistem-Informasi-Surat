@@ -81,57 +81,56 @@ class DatabaseSeeder extends Seeder
             'kode_arsip' => 'AD01'
         ]);
 
-        Nip::create([
-            'nip_kode' => 199205142023052001
-        ]);
+
 
         Nip::create([
-            'nip_kode' => 199205142023052002
-        ]);
-
-        Nip::create([
-            'nip_kode' => 199205142023052003
+            'nip_kode' => '199205142023052001',
+            'nama_lengkap' => 'Admin',
+            'jabatan' => 'Admin',
+            'alamat' => 'Jln. Patimura no.90',
+            'telepon' => '09823921993929',
+            'tgl_lahir' => '2023-06-19'
         ]);
 
         User::create([
-            'name' => 'Ares',
-            'username' => 'ares',
-            'email' => 'ares@gmail.com',
-            'nip' => '199205142023052001',
-            'jabatan' => 'Staff',
-            'level' => 'Karyawan',
-            'password' => bcrypt('password')
-        ]);
-
-        User::create([
-            'name' => 'Emul',
-            'username' => 'emul',
-            'email' => 'emul@gmail.com',
-            'nip' => '199205142023052002',
-            'jabatan' => 'Staff',
-            'level' => 'Karyawan',
-            'password' => bcrypt('password')
-        ]);
-
-        User::create([
-            'name' => 'Admin',
             'username' => 'admin',
             'email' => 'admin@gmail.com',
-            'nip' => '199205142023052003',
-            'jabatan' => 'Admin',
-            'level' => 'Kepala',
+            'nip' => '199205142023052001',
             'password' => bcrypt('password'),
             'is_admin' => 1
         ]);
 
-        // User::create([
-        //     'name' => 'Dadang',
-        //     'username' => 'dadang',
-        //     'email' => 'dadang@gmail.com',
-        //     'nip' => '199205142023052004',
-        //     'jabatan' => 'Staff',
-        //     'level' => 'Karyawan',
-        //     'password' => bcrypt('password'),
-        // ]);
+        Nip::create([
+            'nip_kode' => '199205142023052002',
+            'nama_lengkap' => 'Ares',
+            'jabatan' => 'Staff',
+            'alamat' => 'Jln. Patimura no.90',
+            'telepon' => '09823921993929',
+            'tgl_lahir' => '2023-06-19'
+        ]);
+
+        User::create([
+            'username' => 'ares',
+            'email' => 'ares@gmail.com',
+            'nip' => '199205142023052002',
+            'password' => bcrypt('password'),
+        ]);
+
+        Nip::create([
+            'nip_kode' => '199205142023052003',
+            'nama_lengkap' => 'Emul',
+            'jabatan' => 'Staff',
+            'alamat' => 'Jln. Patimura no.90',
+            'telepon' => '09823921993929',
+            'tgl_lahir' => '2023-06-19'
+        ]);
+
+        User::create([
+            'username' => 'emul',
+            'email' => 'emul@gmail.com',
+            'nip' => '199205142023052003',
+            'password' => bcrypt('password'),
+        ]);
+        
     }
 }

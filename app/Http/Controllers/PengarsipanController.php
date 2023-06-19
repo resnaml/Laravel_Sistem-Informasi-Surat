@@ -42,6 +42,7 @@ class PengarsipanController extends Controller
             'judul' => 'required|max:25|min:5',
             'kategori_arsip_id' => 'required',
             'file_arsip' => 'required|file|mimes:doc,docx,pdf,xls,xlsx,pdf,ppt,pptx',
+            'tgl_arsip' => 'required|date',
             'kodearsip' => 'nullable'
         ]);
         $validatedData['arsip_user'] = auth()->user()->id;

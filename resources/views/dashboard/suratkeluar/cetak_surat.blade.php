@@ -38,8 +38,8 @@
                 <td>{{ $surat->tgl_surat_keluar }}</td>
                 <td>{{ $surat->jenissurat['namejenis'] }}</td>
                 <td>{{ $surat->sifatsurat['namesifat'] }}</td>
-                <td>{{ $surat->user->name }}</td>
-                <td>{{ $surat->kepada_id['name'] }}</td>
+                <td>{{ $surat->user->username }}</td>
+                <td>{{ $surat->kepada_id['username'] }}</td>
                 <td>{{ $surat->status }}</td>
                 <td>{{ $surat->created_at->format('m-d-y') }}</td>
             </tr>

@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
-        <h2>Surat Keluar oleh : {{ auth()->user()->name }}</h2>
+        <h2>Surat Keluar oleh : {{ auth()->user()->username }}</h2>
     </div>
     
     @if(session()->has('success'))
@@ -49,8 +49,8 @@
                 <td>{{ $surat->full_number }}</td>
                 {{-- <td>{{ $surat->jenissurat['kodesurat'] ?? '' }}-{{ str_pad($surat->no_surat_keluar, 4, '0', STR_PAD_LEFT) }}</td> --}}
                 <td>{{ $surat->tgl_surat_keluar }}</td>
-                <td>{{ $surat->kepada_id['name'] }}</td>
-                <td>{{ $surat->user->name }}</td>
+                <td>{{ $surat->kepada_id['username'] }}</td>
+                <td>{{ $surat->user->username }}</td>
                 <td>{{ $surat->status }}</td>
                 <td>
                     

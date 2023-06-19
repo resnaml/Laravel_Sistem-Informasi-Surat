@@ -35,7 +35,7 @@
 
                                 <div class="mb-3 container-fluid">
                                     <label for="no_surat_keluar" class="form-label"><b>Pembuat Surat Masuk</b></label>
-                                    <input type="text" class="text-center form-control" readonly id="penerima_surat_masuk" name="penerima_surat_masuk" value="{{ old('pengirim_surat', $surat->user->name) }}">
+                                    <input type="text" class="text-center form-control" readonly id="penerima_surat_masuk" name="penerima_surat_masuk" value="{{ old('pengirim_surat', $surat->user->username) }}">
                                 </div>
 
                                 <div class="col-fluid container mt-4">

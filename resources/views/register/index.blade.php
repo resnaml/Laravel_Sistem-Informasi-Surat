@@ -25,26 +25,6 @@
                         @enderror
                 </div>
 
-                {{-- <div class="form-floating mb-2">
-                    <input type="name" name="name" class="form-control rounded @error('name') is-invalid @enderror" id="name" placeholder="Name" required value="{{ old('name') }}">
-                    <label for="name">Nama</label>
-                    @error('name')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                    @enderror
-                </div> --}}
-
-                {{-- <div class="form-floating">
-                    <input type="name" name="jabatan" class="form-control rounded mb-1 @error('jabatan') is-invalid @enderror" placeholder="Jabatan" required value="{{ old('jabatan') }}">
-                    <label for="jabatan">Jabatan</label>
-                    @error('jabatan')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                    @enderror
-                </div> --}}
-
                 <div class="form-floating">
                     <input type="text" name="username" class="form-control rounded mb-1 @error('username') is-invalid @enderror" id="username" placeholder="Username" required value="{{ old('username') }}">
                     <label for="username">Username</label>

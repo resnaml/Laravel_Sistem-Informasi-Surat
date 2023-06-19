@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Nip;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->boolean('is_admin')->default(false);
             $table->rememberToken();
 
-            // $table->foreignId('no_induk')->constrained('nips')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('nip_id')->nullable()->constrained('nips')->onDelete('cascade');
         });
     }
 

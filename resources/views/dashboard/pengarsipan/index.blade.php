@@ -28,8 +28,26 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
-                sadas
+            <div class="col-md-12 mt-3">
+                <table class="table table-striped table-bordered mb-3">
+                    <thead class="table table-primary table-striped-columns">
+                        <tr>
+                            <th>No</th>
+                            <th>Kategori</th>
+                            <th>judul</th>
+                            <th>tgl</th>
+                            <th></th>
+
+                            <tbody>
+                                <td>1</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td></td>
+                            </tbody>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>

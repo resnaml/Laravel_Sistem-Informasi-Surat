@@ -62,7 +62,7 @@
 
                         <div class="mb-3 mt-3 text-center container-fluid col-lg-8" id="isi_oleh">
                             <label for="disposisi oleh" class="form-label"><b>Disposisi Oleh</b></label>
-                            <input type="text" class="form-control"   name="disposisi_oleh" value="{{ auth()->user()->name }}" readonly>
+                            <input type="text" class="form-control"   name="disposisi_oleh" value="{{ auth()->user()->username }}" readonly>
                         </div>
                         
                         <div class="col-lg-8 text-center container mt-4">

@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Auth\AuthManager;
+
+use App\Models\Nip;
+use App\Models\Suratkeluar;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Auth\AuthManager;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -19,29 +21,29 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     // protected $fillable = [
-    //     'name',
+    //     'id',
     //     'email',
     //     'password',
     //     'username',
-    //     'jabatan',
-    //     'alamat',
-    //     'gambar'
+    //     'nip',
+    //     'is_admin',
+    //     'nip_id'
     // ];
+    // protected $fillable =['nip_id'];
 
     protected $guarded = ['id'];
 
     /*
-        Relation
-    **/
+        Relationship
+    */
     public function suratkeluar()
     {
         return $this->hasMany(Suratkeluar::class);
     }
 
-    // public function suratmasuk()
-    // {
-    //     return $this->hasMany(Suratmasuk::class,'suratmasuk_id');
-    // }
+    public function nips_id(){
+        return $this->belongsTo(Nip::class,'nip_id');
+    }
 
     public function kepada_surat()
     {

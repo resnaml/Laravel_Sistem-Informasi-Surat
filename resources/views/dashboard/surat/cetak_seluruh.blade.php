@@ -39,10 +39,14 @@
                 <td>{{ $surat->tgl_surat_keluar }}</td>
                 <td>{{ $surat->jenissurat['namejenis'] }}</td>
                 <td>{{ $surat->sifatsurat['namesifat'] }}</td>
-                <td>{{ $surat->user->name }}</td>
-                <td>{{ $surat->kepada_id['name'] }}</td>
+                <td>{{ $surat->user->username }}</td>
+                <td>{{ $surat->kepada_id['username'] }}</td>
                 <td>{{ $surat->status }}</td>
-                <td>{{ $surat->disposisi['disposisi_oleh'] }}</td>
+                <td>
+                    @isset($surat->disposisi)
+                    {{ $surat->disposisi['disposisi_oleh'] }}
+                    @endisset
+                </td>
                 <td>{{ $surat->created_at->format('y-m-d') }}</td>
             </tr>
             @endforeach
