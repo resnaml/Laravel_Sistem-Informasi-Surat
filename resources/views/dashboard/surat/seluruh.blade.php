@@ -74,7 +74,6 @@
                 <td>{{ $surat->status }}</td>
                 <td>
                     @isset($surat->disposisi)
-                    
                     {{ $surat->disposisi['disposisi_oleh'] }}
                     @endisset
                 </td>
