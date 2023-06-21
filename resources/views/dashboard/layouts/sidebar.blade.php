@@ -14,7 +14,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/suratsaya') ? 'active' : '' }}" aria-current="page" href="/dashboard/suratsaya">
-                <i class="bi bi-envelope-open"></i> Surat Saya
+                <i class="bi bi-envelope-paper"></i> Surat Saya
             </a>
         </li>
 
@@ -27,7 +27,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/surat') ? 'active' : '' }}" aria-current="page" href="/dashboard/surat">
-                <i class="bi bi-envelope-paper"></i> Surat masuk 
+                <i class="bi bi-clipboard"></i> Disposisi Surat 
                 {{-- <span class="badge bg-primary rounded-pill">{{ $jumlah }}</span> --}}
 
             </a>

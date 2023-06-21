@@ -21,16 +21,6 @@ class UserController extends Controller
     }
 
     /* 
-        Halaman Detail User => akun 
-    */
-    public function show(User $user)
-    {
-        return view('dashboard.user.show',[
-            'user' => $user
-        ]);
-    }
-
-    /* 
         Halaman Edit Akun User (Admin) 
     */
     public function edit(User $user)

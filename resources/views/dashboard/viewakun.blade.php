@@ -15,46 +15,54 @@
                 <h5>Akun Saya</h5>   
             </div>
 
+            @foreach ($user as $item)
                 <div class="card-body">
                     <table class="table rounded">
                         <tbody>
                             <tr>
                                 <th scope="row">Username</th>
-                                <td>: {{ $username }}</td>
+                                <td>: {{ $item->username }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Email</th>
-                                <td>: {{ $email }}</td>
+                                <td>: {{ $item->email }}</td>
                             </tr>
-                            {{-- <tr>
+
+                            @isset($item->nips_id)
+                            <tr>
+                                <th scope="row">Nama</th>
+                                <td>: {{ $item->nips_id['nama_lengkap'] }}</td>
+                            </tr>
+                            <tr>
                                 <th scope="row">Jabatan</th>
-                                <td>: {{ $jabatan }}</td>
+                                <td>: {{ $item->nips_id['jabatan'] }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Tgl Lahir</th>
-                                <td>: {{ $tgl_lahir }}</td>
+                                <td>: {{ $item->nips_id['tgl_lahir'] }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">No Telpon</th>
-                                <td>: {{ $telepon }}</td>
+                                <td>: {{ $item->nips_id['telepon'] }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Alamat</th>
-                                <td>: {{ $alamat }}</td>
-                            </tr> --}}
+                                <td>: {{ $item->nips_id['alamat'] }}</td>
+                            </tr>
                             <tr>
+                            @endisset
                                 <th scope="row">Is Admin</th>
-                                @if ($admin == 1)
+                                @if ($item->is_admin == 1)
                                 <td colspan="2"> :
                                     <i class="bi bi-shield-check" style="font-size: 1.5rem;"></i>
                                 @else
                                     <td colspan="2">: <i class="bi bi-shield-fill-x" style="font-size: 1.5rem;"></i></td>
                                 @endif    
                             </tr>
-
                         </tbody>
                         
                     </table>
+                    @endforeach
                 </div>
             </div>
 

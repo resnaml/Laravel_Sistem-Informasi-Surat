@@ -7,8 +7,7 @@ use App\Models\User;
 use App\Models\Suratkeluar;
 use Barryvdh\DomPDF\Facade\PDF;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
+
 use Dflydev\DotAccessData\Data;
 
 class DashboardController extends Controller
@@ -44,15 +43,10 @@ class DashboardController extends Controller
     */
     public function ShowAkun(User $user)
     {   
-        $name = auth()->user()->name;
-        $username = auth()->user()->username;
-        $email = auth()->user()->email;
-        $alamat = auth()->user()->alamat;
-        $telepon = auth()->user()->telepon;
-        $tgl_lahir = auth()->user()->tgl_lahir;
-        $jabatan = auth()->user()->jabatan;
-        $admin = auth()->user()->is_admin;
-        return view('dashboard.viewakun',compact('name', 'username', 'email', 'jabatan','alamat','telepon','tgl_lahir','admin'));
+        $all = User::all();
+        $collect = collect($all);
+        $user = $collect->whereIn('id', auth()->user()->id);
+        return view('dashboard.viewakun',compact('user'));
     }
 
     /*

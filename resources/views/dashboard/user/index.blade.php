@@ -27,7 +27,8 @@
         {{ session('danger') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    @endif    
+    @endif
+
 
         <div class="table-responsive table-bordered text-center">
             <table class="table table-dark table-sm">
@@ -65,7 +66,6 @@
                     
                     
                 <td scope="col">
-                    <a href="/dashboard/kelolaakun/{{ $akun->id }}" class="btn btn-info m-lg-1"><i class="bi bi-eye"></i></a>
                     <a href="/dashboard/kelolaakun/{{ $akun->id }}/edit" class="btn btn-warning m-lg-1"><i class="bi bi-tools"></i></a>
 
                     <form action="/dashboard/kelolaakun/{{ $akun->id }}" method="post" class="d-inline">
@@ -77,10 +77,10 @@
                 </td>
                 
             </tbody>
-            
             @endforeach
+            </table>
+
         </div>
 
-        
     
 @endsection

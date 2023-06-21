@@ -8,7 +8,6 @@ use App\Models\User;
 use App\Models\Disposisisurat;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Te7aHoudini\LaravelTrix\Traits\HasTrixRichText;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Facades\App;
