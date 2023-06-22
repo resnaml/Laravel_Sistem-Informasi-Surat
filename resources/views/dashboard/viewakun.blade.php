@@ -9,7 +9,7 @@
         <a class="btn btn-primary mb-2" href="/dashboard"><i class="bi bi-caret-left"></i> Kembali</a>
     </div>
     
-            <div class="card mt-4 container-fluid border col-4 mb-5">
+            <div class="card mt-4 container-fluid border col-4 mb-4">
                 <div class="card-header text-center">
                 <i class="bi bi-file-earmark-person" style="font-size: 3.0rem;"></i>
                 <h5>Akun Saya</h5>   

@@ -10,100 +10,103 @@
     </div>
 
     @if(session()->has('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     @endif
 
+    @if(session()->has('danger'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('danger') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
 
     <div class="d-flex">
-
-        <div class="card col-7 justify-content-start mb-4 border text-center" style="width: 25rem;">
+        
+            <div class="card col-6 justify-content-start border text-center" style="width: 25rem;">
     
-            <div class="justify-content-start mt-2">
-                <h4>Masukan Data Pegawai</h4>
-                <form method="post" action="/dashboard/kelolaakun/nip">
-                    @csrf
-                    <div class="container mt-3 col-7">
-    
-                        <div class="container">
-                            <label for="No induk" class="mb-2"><b>No Induk Pegawai</b></label>
-                            <input type="number" class="text-center form-control @error('nip_kode') is-invalid @enderror" name="nip_kode" required value="{{ old('nip_kode') }}">
-                            @error('nip_kode')
-                            <div class="invalid-feedback">
-                                {{ $message }}
+                <div class="justify-content-start mt-2">
+                    <h4>Masukan Data Pegawai</h4>
+                    <form method="post" action="/dashboard/kelolaakun/nip">
+                        @csrf
+                        <div class="container mt-3 col-7">
+        
+                            <div class="container">
+                                <label for="No induk" class="mb-2"><b>No Induk Pegawai</b></label>
+                                <input type="number" class="text-center form-control @error('nip_kode') is-invalid @enderror" name="nip_kode" required value="{{ old('nip_kode') }}">
+                                @error('nip_kode')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
-                            @enderror
-                        </div>
-    
-                        <div class="container">
-                            <label class="mb-2 mt-2"><b>Nama Pegawai</b></label>
-                            <input type="text" class="text-center form-control @error('nama_lengkap') is-invalid @enderror" name="nama_lengkap" required value="{{ old('nama_lengkap') }}">
-                            @error('nama_lengkap')
-                            <div class="invalid-feedback">
-                                {{ $message }}
+        
+                            <div class="container">
+                                <label class="mb-2 mt-2"><b>Nama Pegawai</b></label>
+                                <input type="text" class="text-center form-control @error('nama_lengkap') is-invalid @enderror" name="nama_lengkap" required value="{{ old('nama_lengkap') }}">
+                                @error('nama_lengkap')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
-                            @enderror
-                        </div>
-    
-                        <div class="container">
-                            <label class="mb-2 mt-2"><b>Jabatan Pegawai</b></label>
-                            <input type="text" class="text-center form-control @error('jabatan') is-invalid @enderror" name="jabatan" required value="{{ old('jabatan') }}">
-                            @error('jabatan')
-                            <div class="invalid-feedback">
-                                {{ $message }}
+        
+                            <div class="container">
+                                <label class="mb-2 mt-2"><b>Jabatan Pegawai</b></label>
+                                <input type="text" class="text-center form-control @error('jabatan') is-invalid @enderror" name="jabatan" required value="{{ old('jabatan') }}">
+                                @error('jabatan')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
-                            @enderror
-                        </div>
-                        
-    
-                        <div class="container">
-                            <label for="alamat" class="mb-2 mt-2"><b>Alamat Pegawai</b></label>
-                            <textarea class="form-control" value="{{ old('alamat') }}" name="alamat" cols="4" rows="4"></textarea>
-                            @error('alamat')
-                            <div class="invalid-feedback">
-                                {{ $message }}
+                            
+        
+                            <div class="container">
+                                <label for="alamat" class="mb-2 mt-2"><b>Alamat Pegawai</b></label>
+                                <textarea class="form-control" value="{{ old('alamat') }}" name="alamat" cols="4" rows="4" required></textarea>
+                                @error('alamat')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
-                            @enderror
-                        </div>
-    
-                        <div class="container">
-                            <label class="mb-2 mt-2"><b>No Telpon Pegawai</b></label>
-                            <input type="number" class="text-center form-control @error('telepon') is-invalid @enderror" name="telepon" required value="{{ old('telepon') }}">
-                            @error('telepon')
-                            <div class="invalid-feedback">
-                                {{ $message }}
+        
+                            <div class="container">
+                                <label class="mb-2 mt-2"><b>No Telpon Pegawai</b></label>
+                                <input type="number" class="text-center form-control @error('telepon') is-invalid @enderror" name="telepon" required value="{{ old('telepon') }}">
+                                @error('telepon')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
-                            @enderror
-                        </div>
-    
-                        <div class="container">
-                            <label class="mb-2 mt-2"><b>Tgl Lahir Pegawai</b></label>
-                            <input type="date" class="text-center form-control @error('tgl_lahir') is-invalid @enderror" name="tgl_lahir" required value="{{ old('tgl_lahir') }}">
-                            @error('tgl_lahir')
-                            <div class="invalid-feedback">
-                                {{ $message }}
+        
+                            <div class="container">
+                                <label class="mb-2 mt-2"><b>Tgl Lahir Pegawai</b></label>
+                                <input type="date" class="text-center form-control @error('tgl_lahir') is-invalid @enderror" name="tgl_lahir" required value="{{ old('tgl_lahir') }}">
+                                @error('tgl_lahir')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
-                            @enderror
+        
                         </div>
-    
-                    </div>
-    
-                    <button type="submit" class="btn btn-success mb-3 mt-3"><i class="bi bi-person-add"></i> Tambah NIP</button>
-                </form>
-    
+        
+                        <button type="submit" class="btn btn-success mb-3 mt-3"><i class="bi bi-person-add"></i> Tambah NIP</button>
+                    </form>
+                </div>
             </div>
-            
-        </div>
 
-
-        <div class="justify-content-end col-7 p-3 text-center">
+            <div class="justify-content-end col-7 p-3 text-center" style="width: 43rem;">
     
-                <h4 class="mt-2">Daftar Pegawai</h4>
+                <h4>Daftar Pegawai</h4>
             
-                <table class="table table-striped table-sm table-bordered    table-primary">
-                    <thead>
+                <table class="table table-striped table-sm table-bordered">
+                    <thead class="table-info">
                         <tr>
                         <th scope="col">No</th>
                         <th scope="col">NIP</th>
@@ -114,7 +117,8 @@
                         <th scope="col">Tahun</th>
                         <th scope="col"></th>
                         </tr>
-                    <tbody>
+                    </thead>
+                    <tbody class="table-group-divider">
                         @foreach ($nips as $nip)
                         <tr>
                             <td><b>{{ $loop->iteration }}</b></td>
@@ -132,11 +136,10 @@
                                 </form>
                             </td>
                         </tr>
-                @endforeach
-            
+                        @endforeach
+                    </tbody>
+                </table>
+        </div>
     </div>
-
-    </div>
-
 
 @endsection

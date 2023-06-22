@@ -27,7 +27,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/surat') ? 'active' : '' }}" aria-current="page" href="/dashboard/surat">
-                <i class="bi bi-clipboard"></i> Disposisi Surat 
+                <i class="bi bi-journal-check"></i> Disposisi Surat 
                 {{-- <span class="badge bg-primary rounded-pill">{{ $jumlah }}</span> --}}
 
             </a>

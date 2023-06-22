@@ -79,8 +79,8 @@
                 </td>
                 <td>{{ $surat->created_at->format('y-m-d') }}</td>
             <td>
-                <a href="/dashboard/pengarsipan/create" class="btn btn-success m-lg-1"><i class="bi bi-safe"></i></a>
-                    
+                {{-- <a href="/dashboard/pengarsipan/create" class="btn btn-success m-lg-1"><i class="bi bi-safe"></i></a> --}}
+                
                     <form action="/dashboard/suratkeluar/{{ $surat->id }}" method="post" class="d-inline">
                         @method('delete')
                         @csrf

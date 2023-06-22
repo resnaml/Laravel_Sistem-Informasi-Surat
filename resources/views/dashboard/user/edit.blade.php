@@ -33,27 +33,33 @@
 
                         <div class="mb-3">
                             <label for="User" class="form-label"><b>User & Nip</b></label>
+                            @if ($akun->nip_id == 0)
                             <select class="form-select mb-3" name="nip_id">
                                 <option selected disabled>-- Pilih User --</option>
                                 @foreach ($nips as $nips)
                                 <option value="{{ $nips->id }}">{{ $nips->nama_lengkap }}</option>
                                 @endforeach
                             </select>
+                            @else
+                            <input readonly class="form-control text-center" value="{{ old('nip', $akun->nips_id['nama_lengkap']) }}">
+                            @endif
                         </div>
 
-                        <div class="mb-3 mt-3 container rounded border border-dark bg-light">
-                            <label for="alamat" class="form-label"><b>Admin</b></label>
+                        <div class="mb-4 mt-3 bg-white">
                             
-                            <div class="form-check">
+                            @if ($akun->is_admin == 0)
+                            <div class="form-control">
                                 <input class="form-check-input" type="checkbox" value="1" name="is_admin">
                                 <label class="form-check-label text-bold">
                                 Jadikan Admin ?
                                 </label>
                             </div>
-                            
+                            @else
+                            <h5>Akun Sudah Admin</h5>
+                            @endif
                         </div>
 
-                        <div class="mt-2">
+                        <div>
                             <button type="submit" class="btn btn-primary m-right-3 me-1"><i class="bi bi-plus-square"></i> Update</button>
                             <a class="btn btn-warning" href="/dashboard/kelolaakun"><i class="bi bi-arrow-left-square"></i> Kembali</a>
                         </div>

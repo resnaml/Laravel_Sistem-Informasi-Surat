@@ -37,7 +37,6 @@
                             <th>judul</th>
                             <th>tgl</th>
                             <th></th>
-
                             <tbody>
                                 <td>1</td>
                                 <td>-</td>
