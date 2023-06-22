@@ -16,11 +16,12 @@ class PengarsipanController extends Controller
     */
     public function index()
     {
+        
         $arsipBerguna = Pengarsipan::where('kategori_arsip_id', 1)->get()->count();
         $arsipPenting = Pengarsipan::where('kategori_arsip_id', 2)->get()->count();
         $arsipVital = Pengarsipan::where('kategori_arsip_id', 3)->get()->count();
         $arsipDinamis = Pengarsipan::where('kategori_arsip_id', 4)->get()->count();
-        return view('dashboard.pengarsipan.index', compact('arsipBerguna','arsipPenting','arsipVital','arsipDinamis'));
+        return view('dashboard.pengarsipan.index', compact('arsipBerguna','arsipPenting','arsipVital','arsipDinamis'),["arsip" => Pengarsipan::latest()->filter(request(['search']))->paginate(10)->withQueryString()]);
     }
 
     /*
@@ -39,11 +40,12 @@ class PengarsipanController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'judul' => 'required|max:25|min:5',
+            'judul' => 'required|max:35|min:5',
             'kategori_arsip_id' => 'required',
             'file_arsip' => 'required|file|mimes:doc,docx,pdf,xls,xlsx,pdf,ppt,pptx',
             'tgl_arsip' => 'required|date',
-            'kodearsip' => 'nullable'
+            'kodearsip' => 'nullable',
+            'full_kode' => 'nullable'
         ]);
         $validatedData['arsip_user'] = auth()->user()->id;
         if($request->file('file_arsip')) {
@@ -90,6 +92,8 @@ class PengarsipanController extends Controller
         $arsipDinamis = Pengarsipan::where('kategori_arsip_id', 4)->get();
         return view('dashboard.pengarsipan.arsipDinamis', compact('arsipDinamis'));
     }
+
+    
 
     /*
         Hapus Data Arsip

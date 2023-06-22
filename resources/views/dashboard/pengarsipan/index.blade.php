@@ -20,38 +20,16 @@
     <div class="d-flex border-bottom border-dark">
         <a class="btn btn-primary mb-2 me-3" href="/dashboard/pengarsipan/create"><i class="bi bi-folder-plus"></i> Buat File Arsip</a>
         
-            <form action="/dashboard/pengarsipan/cari-arsip">
-                <input type="text" class="btn mb-2 me-3 btn-outline-info" placeholder="Cari Surat..." name="search" value="{{ request('search') }}">
+            <form method="GET" action="/dashboard/pengarsipan/cari-arsip">
+                @if (request('kode_arsip'))
+                        <input type="hidden" name="kode_arsip" value="{{ request('kode_arsip') }}">
+                    @endif
+                <input type="text" class="btn mb-2 me-3 btn-outline-info" placeholder="Cari Arsip..." name="search" value="{{ request('search') }}">
                 <button class="btn btn-outline-secondary mb-2 me-3" id="button-addon2" type="submit" ><i class="bi bi-search"></i> Cari...</button>
             </form>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 mt-3">
-                <table class="table table-striped table-bordered mb-3">
-                    <thead class="table table-primary table-striped-columns">
-                        <tr>
-                            <th>No</th>
-                            <th>Kategori</th>
-                            <th>judul</th>
-                            <th>tgl</th>
-                            <th></th>
-                            <tbody>
-                                <td>1</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td></td>
-                            </tbody>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <div class="card-group_s mt-4 row">
+    <div class="card-group_s mt-3 mb-3 row">
         <div class="card border border-dark" style="max-width: 13rem;">
             <div class="card-header h5 mt-2"><b>Arsip Berguna</b>  
             <div class="mt-2 h4 bold border"><a href="/dashboard/pengarsipan/arsipberguna">{{ $arsipBerguna }}</a></div>
@@ -85,5 +63,41 @@
             </div>
         </div>
     </div>
+
+    <hr>
+
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3>Daftar Arsip</h3>
+                <table class="table table-striped table-bordered">
+                    <thead class="table table-primary table-striped-columns">
+                        <tr>
+                            <th>No</th>
+                            <th>Kode Arsip</th>
+                            <th>Kategori</th>
+                            <th>Judul Arsip</th>
+                            <th>Tgl Arsip</th>
+                            <th></th>
+                            @foreach($arsip as $arsip)
+                            <tbody>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $arsip->full_kode }}</td>
+                                <td>{{ $arsip->kategori['kode_arsip'] }}</td>
+                                <td>{{ $arsip->judul }}</td>
+                                <td>{{ $arsip->tgl_arsip }}</td>
+                                <td>
+                                    <a href="{{ url('/dashboard/pengarsipan/download/'.$arsip->id) }} " class="btn btn-success"><i class="bi bi-download"></i></a>
+                                </td>
+                            </tbody>
+                            @endforeach
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    
     
 @endsection

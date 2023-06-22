@@ -51,46 +51,51 @@
         <table class="table table-striped table-bordered mb-3">
         <thead class="table table-primary table-striped-columns">
             <tr>
-            <th scope="col">No</th>
-            <th scope="col">Kode Surat</th>
-            <th scope="col">Tgl Surat</th>
-            <th scope="col">Jenis Surat</th>
-            <th scope="col">Sifat Surat</th>
-            <th scope="col">Pembuat Surat</th>
-            <th scope="col">Tujuan Surat</th>
-            <th scope="col">Status Surat</th>
-            <th scope="col">Disposisi</th>
-            <th scope="col">Tgl Dibuat</th>
-            <th scope="col"></th>
-            <tbody>
-                @foreach ($surats as $surat)
-                <td>{{ $loop->iteration }}</td>
-                <td>{{ $surat->full_number }}</td>
-                <td>{{ $surat->tgl_surat_keluar }}</td>
-                <td>{{ $surat->jenissurat['namejenis'] }}</td>
-                <td>{{ $surat->sifatsurat['namesifat'] }}</td>
-                <td>{{ $surat->user->username }}</td>
-                <td>{{ $surat->kepada_id['username'] }}</td>
-                <td>{{ $surat->status }}</td>
-                <td>
-                    @isset($surat->disposisi)
-                    {{ $surat->disposisi['disposisi_oleh'] }}
-                    @endisset
-                </td>
-                <td>{{ $surat->created_at->format('y-m-d') }}</td>
-            <td>
-                {{-- <a href="/dashboard/pengarsipan/create" class="btn btn-success m-lg-1"><i class="bi bi-safe"></i></a> --}}
-                
-                    <form action="/dashboard/suratkeluar/{{ $surat->id }}" method="post" class="d-inline">
-                        @method('delete')
-                        @csrf
-                        <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>
-                    </form>
-            </td>
-                </tr>
+                <th scope="col">No</th>
+                <th scope="col">Kode Surat</th>
+                <th scope="col">Tgl Surat</th>
+                <th scope="col">Jenis Surat</th>
+                <th scope="col">Sifat Surat</th>
+                <th scope="col">Pembuat Surat</th>
+                <th scope="col">Tujuan Surat</th>
+                <th scope="col">Status Surat</th>
+                <th scope="col">Disposisi</th>
+                <th scope="col">Tgl Dibuat</th>
+                <th scope="col"></th>
             </tr>
-            @endforeach
-            </tbody>
-        </div>
+        </thead>
+
+                <tbody>
+                    <tr>
+                    @foreach ($surats as $surat)
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $surat->full_number }}</td>
+                    <td>{{ $surat->tgl_surat_keluar }}</td>
+                    <td>{{ $surat->jenissurat['namejenis'] }}</td>
+                    <td>{{ $surat->sifatsurat['namesifat'] }}</td>
+                    <td>{{ $surat->user->username }}</td>
+                    <td>{{ $surat->kepada_id['username'] }}</td>
+                    <td>{{ $surat->status }}</td>
+                    <td>
+                        @isset($surat->disposisi)
+                        {{ $surat->disposisi['disposisi_oleh'] }}
+                        @endisset
+                    </td>
+                    <td>{{ $surat->created_at->format('y-m-d') }}</td>
+                    <td>
+                        {{-- <a href="/dashboard/pengarsipan/create" class="btn btn-success m-lg-1"><i class="bi bi-safe"></i></a> --}}
+                        
+                            <form action="/dashboard/suratkeluar/{{ $surat->id }}" method="post" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>
+                            </form>
+                    </td>
+                    </tr>
+                </tbody>
+                @endforeach
+            </table>
+
+    </div>
 
 @endsection

@@ -24,7 +24,7 @@ use App\Http\Controllers\jenissuratController;
 */
 
 /*
-    --Dashboard Route-- 
+    --Dashboard Route--
 */
 Route::get('/', [DashboardController::class,'home']);
 Route::get('/status', [DashboardController::class, 'StatusSurat']);
@@ -77,6 +77,7 @@ Route::get('/dashboard/pengarsipan/arsipvital', [PengarsipanController::class, '
 Route::get('/dashboard/pengarsipan/arsipdinamis', [PengarsipanController::class, 'arsipDinamis'])->middleware('admin');
 Route::delete('/dashboard/pengarsipan/{pengarsipan}', [PengarsipanController::class, 'destroy'])->middleware('admin');
 Route::get('/dashboard/pengarsipan/download/{id}', [PengarsipanController::class, 'download'])->middleware('admin');
+Route::get('/dashboard/pengarsipan/cari-arsip', [PengarsipanController::class, 'index'])->middleware('admin');
 
 
 /* 

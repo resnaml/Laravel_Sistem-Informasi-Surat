@@ -19,8 +19,8 @@ class IsAdmin
         if(!auth()->check() || !auth()->user()->is_admin){
             abort(403);
         }
-        // if(!auth()->check() || !auth()->user()->username !== 'ares'){
-        //     abort(403);
+        // elseif(!auth()->check() ){
+
         // }
         return $next($request);
     }
