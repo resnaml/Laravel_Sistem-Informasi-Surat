@@ -33,11 +33,11 @@
                             </tr>
                             <tr>
                                 <th scope="row" class="fw-normal">Penerima Surat</th>
-                                <td colspan="2">: {{ $surat->kepada_id['name'] }}</td>
+                                <td colspan="2">: {{ $surat->kepada_id['username'] }}</td>
                             </tr>
                             <tr>
                                 <th scope="row" class="fw-normal">Pengirim Surat</th>
-                                <td colspan="2">: {{ $surat->user->name }}</td>
+                                <td colspan="2">: {{ $surat->user->username }}</td>
                             </tr>
                             <tr>
                                 <th scope="row" class="fw-normal">Jenis Surat</th>

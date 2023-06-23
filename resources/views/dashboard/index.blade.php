@@ -18,17 +18,19 @@
                 <i class="bi bi-envelope-paper" style="font-size: 4.0rem;"></i>
             </div>
         </div>
-
-        @if(auth()->user()->is_admin == 1)
-        <div class="card" style="max-width: 18rem;">
+        
+        @can('kepala')
+        <div class="card container" style="max-width: 18rem;">
             <div class="card-header">Surat Disposisi  
             <div class="mt-2 h4 bold border">{{ $suratKeluarCount }}</div>
             </div>
             <div class="card-body">
-                <i class="bi bi-envelope-exclamation" style="font-size: 4.0rem;"></i>
+                <i class="bi bi-journal-check" style="font-size: 4.0rem;"></i>
             </div>
         </div>
-
+        @endcan
+        
+        @can('admin')
         <div class="card" style="max-width: 18rem;">
             <div class="card-header">Seluruh Surat
                 <div class="h4 border mt-2">  {{ $suratallCount }} </div>
@@ -53,10 +55,9 @@
                 <i class="bi bi-people-fill" style="font-size: 4.0rem;"></i>
             </div>
         </div>
-        @endif
     </div>
 
-    @if(auth()->user()->is_admin == 1)
+    
     <div class="card mt-4 mb-3 border-dark">
         <div class="row mt-4 container">
             <div class="col-xl-6">
@@ -75,9 +76,8 @@
                 </div>
             </div>
             </div>
-        </div>
-        @endif
-        
+    </div>
+        @endcan
         
         <script type="text/javascript">
             var _ydata=JSON.parse( '{!! json_encode($months) !!}' );

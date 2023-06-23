@@ -38,7 +38,8 @@ class UserController extends Controller
     {
         $rules =[
             'is_admin' => 'nullable',
-            'nip_id' => 'nullable'
+            'nip_id' => 'nullable',
+            'is_kepala' => 'nullable'
         ];
         $validatedData = $request->validate($rules);
         User::where('id', $user->id)->update($validatedData);

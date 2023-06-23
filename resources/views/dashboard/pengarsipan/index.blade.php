@@ -76,7 +76,7 @@
                         <tr>
                             <th>No</th>
                             <th>Kode Arsip</th>
-                            <th>Kategori</th>
+                            {{-- <th>Kategori</th> --}}
                             <th>Judul Arsip</th>
                             <th>Tgl Arsip</th>
                             <th></th>
@@ -84,7 +84,7 @@
                             <tbody>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $arsip->full_kode }}</td>
-                                <td>{{ $arsip->kategori['kode_arsip'] }}</td>
+                                {{-- <td>{{ $arsip->kategori['kode_arsip'] }}</td> --}}
                                 <td>{{ $arsip->judul }}</td>
                                 <td>{{ $arsip->tgl_arsip }}</td>
                                 <td>

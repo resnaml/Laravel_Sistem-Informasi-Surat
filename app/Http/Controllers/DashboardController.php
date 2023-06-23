@@ -12,6 +12,16 @@ use Dflydev\DotAccessData\Data;
 
 class DashboardController extends Controller
 {
+
+    // private $x;
+    // public function min(){
+    //     $this->x = '22';
+    // }
+
+    // public function get_min(){
+    //     echo $this->x;
+    // }
+
     
     /* 
         Halaman Dashboard 
@@ -19,8 +29,7 @@ class DashboardController extends Controller
     public function index(User $user)
     {
         
-        
-        $surat = Suratkeluar::get();
+        // $surat = Suratkeluar::get();
         $suratKeluarCount = Suratkeluar::where('disposisi_isi', 0)->get()->count();
         $suratDisposisiCount = Suratkeluar::where('user_id', auth()->user()->id)->get()->count();
         $userCount = User::get()->count();
@@ -37,7 +46,7 @@ class DashboardController extends Controller
             $monthCount[]=count($values);
         }
 
-        return view('dashboard.index', compact('surat','suratKeluarCount','suratDisposisiCount','userCount','suratallCount', 'data', 'months','monthCount','pengarsipanCount'));
+        return view('dashboard.index', compact('suratKeluarCount','suratDisposisiCount','userCount','suratallCount', 'data', 'months','monthCount','pengarsipanCount'));
     }
 
     /* 
@@ -69,6 +78,7 @@ class DashboardController extends Controller
         $surats = [
             'surat' => $suratkeluar
         ];
+        
         $pdf = PDF::loadView('dashboard.mypdf', $surats);
         return $pdf->download('Suratku.pdf');
     }

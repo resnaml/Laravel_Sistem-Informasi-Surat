@@ -18,20 +18,23 @@
             </a>
         </li>
 
-        @can('admin')
-        {{-- @if(auth()->user()->is_admin == 1) --}}
-        <li class="nav-item">
-            <small class="nav-link h6 text-muted" aria-current="page">
-                <i class="bi bi-diagram-2"></i> -- Admin Access --
-            </small>
-        </li>
+        @can('kepala')
         <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/surat') ? 'active' : '' }}" aria-current="page" href="/dashboard/surat">
                 <i class="bi bi-journal-check"></i> Disposisi Surat 
                 {{-- <span class="badge bg-primary rounded-pill">{{ $jumlah }}</span> --}}
-
+            
             </a>
         </li>
+        @endcan
+
+        {{-- <li class="nav-item">
+            <small class="nav-link h6 text-muted" aria-current="page">
+                <i class="bi bi-diagram-2"></i> -- Admin Access --
+            </small>
+        </li> --}}
+
+        @can('admin')
         <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/seluruhsurat') ? 'active' : '' }}" aria-current="page" href="/dashboard/seluruhsurat">
                 <i class="bi bi-mailbox"></i> Seluruh Surat

@@ -59,6 +59,20 @@
                             @endif
                         </div>
 
+                        <div class="mb-4 mt-3 bg-white">
+                            
+                            @if ($akun->is_kepala == 0)
+                            <div class="form-control">
+                                <input class="form-check-input" type="checkbox" value="1" name="is_kepala">
+                                <label class="form-check-label text-bold">
+                                Jadikan Kepala ?
+                                </label>
+                            </div>
+                            @else
+                            <h5>Akun Sudah Kepala</h5>
+                            @endif
+                        </div>
+
                         <div>
                             <button type="submit" class="btn btn-primary m-right-3 me-1"><i class="bi bi-plus-square"></i> Update</button>
                             <a class="btn btn-warning" href="/dashboard/kelolaakun"><i class="bi bi-arrow-left-square"></i> Kembali</a>

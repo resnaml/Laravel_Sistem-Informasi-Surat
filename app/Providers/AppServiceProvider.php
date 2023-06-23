@@ -35,9 +35,9 @@ class AppServiceProvider extends ServiceProvider
             return $user->is_admin;
         });
 
-        // Gate::define('kepala', function(User $user) {
-        //     return $user->is_kepala;
-        // });
+        Gate::define('kepala', function(User $user) {
+            return $user->is_kepala;
+        });
 
 
         // Schema::defaultStringLength(191);

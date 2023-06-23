@@ -6,9 +6,10 @@ use App\Models\jenissurat;
 use App\Models\Sifatsurat;
 use App\Models\Suratkeluar;
 use App\Models\User;
-use App\Models\Disposisisurat;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\PDF;
+use App\Models\Disposisisurat;
+
 use PhpOffice\PhpWord\TemplateProcessor;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -66,7 +67,6 @@ class SuratKeluarController extends Controller
             'kepada' => 'required'
         ]);
         
-        // $validatedData['kepada'] = ($user_id);
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['perihal'] = ($request->perihal);
         Suratkeluar::create($validatedData);
