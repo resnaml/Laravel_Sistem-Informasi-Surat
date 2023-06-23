@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('nip')->unique();
             $table->string('password');
             $table->boolean('is_admin')->default(false);
+            $table->boolean('is_kepala')->default(false);
             $table->rememberToken();
 
             $table->foreignId('nip_id')->nullable()->constrained('nips')->onDelete('cascade');

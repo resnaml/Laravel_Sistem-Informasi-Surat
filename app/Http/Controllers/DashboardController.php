@@ -18,6 +18,8 @@ class DashboardController extends Controller
     */
     public function index(User $user)
     {
+        
+        
         $surat = Suratkeluar::get();
         $suratKeluarCount = Suratkeluar::where('disposisi_isi', 0)->get()->count();
         $suratDisposisiCount = Suratkeluar::where('user_id', auth()->user()->id)->get()->count();
