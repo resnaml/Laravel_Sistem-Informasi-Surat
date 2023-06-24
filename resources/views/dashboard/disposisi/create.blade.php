@@ -5,6 +5,22 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h4 class="container">Disposisi Surat Masuk</h4>
     </div>
+
+    {{-- <script type="text/javascript" src="js/excanvas.js"></script> --}}
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+    <link type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet"> 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://keith-wood.name/js/jquery.signature.js"></script>
+
+    <style>
+        .kbw-signature{width: 100%; height: 150px;}{
+            $sign canvas{
+                width: 100% !important;
+                height: auto;
+            }
+        }
+    </style>
     
     <div class="card mt-4 container mb-4 border-dark col-5">
             <div class="card-header text-center">
@@ -13,12 +29,12 @@
         <div class="card-body">
             <table class="table">
                 <tbody>
-                    <div class="container">
+                    <div class="container col-lg-8">
                     <form method="post" action="/dashboard/surat{{ $surat->id }}/disposisi">
                         @method('post')
                         @csrf
                         
-                        <div id="example" class="mb-2 mt-2 text-center container-fluid col-lg-8">
+                        <div id="example" class="mb-2 mt-2 text-center">
                             <label for="status disposisi" class="form-label"><b>Status Disposisi</b></label>
                             <select  required class="form-control text-center" name="status" id="status">
                             @foreach(["Proses" => "Proses"] as $status => $status1)
@@ -33,26 +49,26 @@
                             </select>
                         </div>
 
-                        <div id="isi_ditolak" class="mb-3 text-center mt-4 container-fluid">
+                        <div id="isi_ditolak" class="mb-3 text-center mt-4">
                             <label for="no_surat_keluar" class="form-label"><b>Alasan Surat Ditolak</b></label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="isi_ditolak"></textarea>
                         </div>
                         
-                        <div class="mb-3 mt-4 container-fluid col-lg-8 me-2" id="checkbox">
-                            <input class="form-check-input" type="checkbox" value="1" name="print_surat"{{ $surat->print_surat || old('print_surat', 0) === 1 ? 'checked' : '' }}>
-                            <label class="form-check-label me-4">Setuju Disposisi</label>
+                        <div class="mb-3 mt-4 text-center border border-dark rounded me-2" id="checkbox">
+                            <input class="form-check-input mt-3 mb-3" type="checkbox" value="1" name="print_surat"{{ $surat->print_surat || old('print_surat', 0) === 1 ? 'checked' : '' }}>
+                            <label class="form-check-label me-4 mb-2 mt-2">Setuju Disposisi</label>
                         </div>
 
-                        <div class="mb-2 mt-2 container-fluid col-lg-8" hidden>
+                        <div class="mb-2 mt-2" hidden>
                             <input class="form-check-input" type="checkbox" value="1" name="disposisi_isi" checked>
                             <label class="form-check-label" for="flexCheckChecked">Surat sudah disposisi</label>
                         </div>
                         
-                        <div class="mb-3 mt-3 text-center container-fluid col-lg-8" id="no_disposisi">
+                        <div class="mb-3 mt-3 text-center" id="no_disposisi">
                             <label for="no disposisi" class="form-label @error('no_disposisi') is-invalid @enderror"><b>No Surat</b></label>
-                            <input type="text" readonly 
+                            <input type="text" disabled 
                             value="{{ $surat->jenissurat['kodesurat'] ?? '' }}/{{ substr($surat->tgl_surat_keluar, 5, 2) }}/{{ substr($surat->tgl_surat_keluar, 2, 2) }}/{{ $surat->no_surat_keluar }}"
-                            class="form-control">
+                            class="form-control text-center">
                                 @error('no_disposisi')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -60,12 +76,23 @@
                                 @enderror
                         </div>
 
-                        <div class="mb-3 mt-3 text-center container-fluid col-lg-8" id="isi_oleh">
+                        <div class="mb-3 mt-3 text-center" id="isi_oleh">
                             <label for="disposisi oleh" class="form-label"><b>Disposisi Oleh</b></label>
-                            <input type="text" class="form-control"   name="disposisi_oleh" value="{{ auth()->user()->username }}" readonly>
+                            <input type="text" class="form-control text-center" name="disposisi_oleh" value="{{ auth()->user()->username }}" disabled>
                         </div>
-                        
-                        <div class="col-lg-8 text-center container mt-4">
+
+                        <div class="mt-3 text-center bg-transparent border border-dark rounded-3">
+                            <label for="Tanda tangan" class="form-label"><b>Tanda Tangan</b></label>
+                            <div id="sign"></div>
+                            <br>
+                            <textarea id="asd" name="ttd" style="display:none"></textarea>
+                            <button class="btn btn-danger mb-3" id="clear">Hapus Ttd</button>
+                            {{-- <button>Save</button> --}}
+                        </div>
+
+                        <hr>
+
+                        <div class="text-center container mt-4">
                             <button type="submit" class="btn btn-success"><i class="bi bi-check-circle-fill"></i> Simpan</button>
                             <a class="btn btn-warning" href="/dashboard/surat/{{ $surat->id }}"><i class="bi bi-arrow-left-square"></i> Kembali
                             </a>
@@ -77,7 +104,18 @@
             </table>
         </div>
     </div>
+    
 
-<script src="/js/disposisi.js"></script>
+    <script>
+        var sign = $('#sign').signature({ syncField:'#asd', syncFormat:'PNG' });
+        $('#clear').click(function(e){
+            e.preventDefault();
+            sign.signature('clear');
+            $('#signature').val('');
+        });
+    </script>
+
+
+    <script src="/js/disposisi.js"></script>
 
     @endsection

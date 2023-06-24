@@ -34,6 +34,20 @@ class DisposisiController extends Controller
         $validatedData = $request->validate($array);
         Suratkeluar::where('id', $suratkeluar->id)->update($validatedData);
 
+
+        // Ttd Store
+        $folderPath = public_path('Ttd/');
+
+        $image_parts = explode(';base64',$request->ttd);
+
+        $image_type_aux = explode('image/', $image_parts[0]);
+        
+        $image_type = $image_type_aux[1];
+        $image_base64 = base64_decode($image_parts[1]);
+
+        $file = $folderPath.uniqid().'.'.$image_type;
+        file_put_contents($file,$image_base64);
+
         $validatedData = $request->validate([
             'disposisi_oleh' => 'nullable',
             'isi_ditolak' => 'nullable'

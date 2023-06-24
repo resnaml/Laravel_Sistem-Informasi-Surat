@@ -9,6 +9,7 @@ $(function()
             $('#isi_oleh').hide();
             $('#checkbox').hide();
             $('#no_disposisi').hide();
+            $('#sign').hide();
             $('#isi_ditolak').show();
         }
     });
