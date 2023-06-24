@@ -12,12 +12,14 @@
     @endif
 
     <div class="d-flex border-bottom border-dark">
-        {{-- <form action=""  role="search">
+        <form action="/dashboard/seluruhsurat" role="search">
             <div class="d-flex btn">
-                <input class="d-flex mb-3 form-control me-3" type="search">
+                <input class="d-flex mb-3 form-control me-3" name="search" type="search">
             <button class="d-flex btn mb-3 btn-outline-success" type="submit">Search</button>
+            </div>
         </form>
-    </div> --}}
+
+
         <div class="row mt-2 m-1">
                     <div class="col">
                         <input type="date" name="tglawal" id="tglawal" class="form-control">
@@ -31,13 +33,15 @@
                     <label class="d-flex" for="sampai Tgl Surat"><b>--</b></label>
                     </div>
         </div>
-            <div class="row2">
-                <a target="_blank" class="d-flex btn btn-outline-success me-3 mt-2" onclick="this.href='/dashboard/seluruhsurat/'+ document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"><i class="bi bi-printer"> Cari Data</i></a>
-            </div>
-            <div class="row2">
-                <a class="d-flex btn btn-outline-primary mt-2" href="/dashboard/seluruhsurat/cetakseluruh"><i class="bi bi-printer"> Print Data</i></a>
-            </div>
+
+        <div class="row2">
+            <a class="d-flex btn btn-outline-success me-3 mt-2" onclick="this.href='/dashboard/seluruhsurat/'+ document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"><i class="bi bi-printer"> Cari Data</i></a>
+        </div>
+        <div class="row2">
+            <a class="d-flex btn btn-outline-primary mt-2" href="/dashboard/seluruhsurat/cetakseluruh"><i class="bi bi-printer"> Print Data</i></a>
+        </div>
     </div>
+    
 
     {{-- <div class="d-flex mt-2">
         <div class="d-flex mt-1">

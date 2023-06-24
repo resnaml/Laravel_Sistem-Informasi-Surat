@@ -39,7 +39,7 @@ class SuratMasukController extends Controller
     public function seluruhSurat()
     {
         return view('dashboard.surat.seluruh',[
-            'surats' => Suratkeluar::latest()->paginate(10)->withQueryString()
+            'surats' => Suratkeluar::latest()->filter(request(['search','jenissurat']))->paginate(10)->withQueryString()
         ]);
     }
 
@@ -62,26 +62,11 @@ class SuratMasukController extends Controller
     public function cetakPerBln($tglawal, $tglakhir)
     {
         $surat = Suratkeluar::with('jenissurat')->whereBetween('tgl_surat_keluar', [$tglawal, $tglakhir])->get();
-        return view('dashboard.surat.cetak_surat_tgl', compact('surat'));
+        $surats = [
+            'surat' => $surat
+        ];
+        $pdf = PDF::loadView('dashboard.surat.cetak_surat_tgl', $surats);
+        return $pdf->download('Laporan Surat PerBulan.pdf');
     }
-
-    /* Cari surat per Range Bulan */
-    // public function search2(Request $request)
-    // {
-    //     $fromDate = $request->input('fromDate');
-    //     $toDate = $request->input('toDate');
-
-    //     $query = DB::table('suratkeluars')->select()
-    //         ->where('created_at', '>=', $fromDate)
-    //         ->where('created_at', '<=', $toDate)
-    //         ->get();
-    //     dd($query);
-
-    //     // $surat = DB::table('suratkeluars')
-    //     // ->select('kode_surat','created_at','tgl_surat_keluar')
-    //     // ->get();
-    //     // dd($surat);
-    //     return view('dashboard.surat.seluruh', compact('query'));
-    // }
 
 }
