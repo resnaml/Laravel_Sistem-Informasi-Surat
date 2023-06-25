@@ -52,6 +52,5 @@
     
 </body>
 
-@include('dashboard.layouts.footer')
 
 @endsection

@@ -22,10 +22,5 @@
                 </div>
             </div>
         </body>
-
-        <footer class="d-flex">
-            @include('dashboard.layouts.footer')
-        </footer>
-
     
     @endsection

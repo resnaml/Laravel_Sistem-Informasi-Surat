@@ -111,6 +111,5 @@
         
         <!-- /.container -->
         
-        @include('dashboard.layouts.footer')
 
         @endsection
