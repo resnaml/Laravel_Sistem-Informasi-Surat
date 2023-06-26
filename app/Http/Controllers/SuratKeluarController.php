@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\PDF;
 use App\Models\Disposisisurat;
+use Illuminate\Support\Facades\Storage;
 
 use PhpOffice\PhpWord\TemplateProcessor;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -62,7 +63,7 @@ class SuratKeluarController extends Controller
             'tgl_surat_keluar' => 'required|date',
             'sifat_id' => 'required',
             'jenissurat_id' => 'required',
-            'lampiran' => 'nullable',
+            // 'lampiran' => 'nullable',
             'status' => 'nullable',
             'kepada' => 'required'
         ]);
@@ -118,8 +119,13 @@ class SuratKeluarController extends Controller
     /* 
         Hapus surat keluar 
     */
-    public function destroy(Suratkeluar $suratkeluar)
-    {
+    public function destroy(Suratkeluar $suratkeluar, Disposisisurat $disposisisurat)
+    {   
+        if($disposisisurat->ttd)
+        {
+            Storage::delete($disposisisurat->ttd);
+        }
+        Disposisisurat::deleted($disposisisurat->id);
         Suratkeluar::destroy($suratkeluar->id);
         return redirect('/dashboard/suratkeluar')->with('danger','Data surat keluar berhasil terhapus !!!');
     }

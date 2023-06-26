@@ -24,7 +24,7 @@
                 @if (request('kode_arsip'))
                         <input type="hidden" name="kode_arsip" value="{{ request('kode_arsip') }}">
                     @endif
-                <input type="text" class="btn mb-2 me-3 btn-outline-info" placeholder="Cari Arsip..." name="search" value="{{ request('search') }}">
+                <input type="text" class="btn mb-2 me-3 btn-outline-info" placeholder="Cari Arsip..." name="search" value="{{ request('search') }}" id="search">
                 <button class="btn btn-outline-secondary mb-2 me-3" id="button-addon2" type="submit" ><i class="bi bi-search"></i> Cari...</button>
             </form>
     </div>
@@ -67,7 +67,7 @@
     <hr>
 
         
-    <div class="container">
+    <div class="container" id="tabel">
         <div class="row">
             <div class="col-md-12 text-center">
                 <h3>Daftar Arsip</h3>
@@ -98,6 +98,25 @@
             </div>
         </div>
     </div>
+
+    {{-- <script>
+        $(function()
+        {   
+            $('#tabel').hide();
+            $('#search').change(function()
+            {
+                if ($('#search').val() != true) {
+                    // $('#checkbox').hide();
+                    // $('#isi_oleh').hide();
+                    // $('#checkbox').hide();
+                    // $('#no_disposisi').hide();
+                    // $('#sign').hide();
+                    // $('#form-ttd').hide();
+                    $('#tabel').show();
+                }
+            });
+        });
+    </script> --}}
     
     
 @endsection

@@ -36,7 +36,7 @@
                                     <h6 class="card-title mt-2"><i class="bi bi-dash-lg"></i> {{ $surat->jenissurat['namejenis'] }} <i class="bi bi-dash-lg"></i></h6>
                                     <h6 class="card-title"><i class="bi bi-dash-lg"></i> {{ $surat->sifatsurat['namesifat'] }} <i class="bi bi-dash-lg"></i></h6>
                                 </div>
-                                <a class="btn btn-success mt-3" href="/dashboard/suratsaya/{{ $surat->id }}"><i class="bi bi-file-earmark-pdf"></i></a>
+                                <a class="btn btn-success mt-3" href="/dashboard/suratsaya/{{ $surat->full_number }}"><i class="bi bi-file-earmark-pdf"></i></a>
                                 {{-- <a class="btn btn-primary mt-3"><i class="bi bi-file-earmark-word"></i>
                                 </a> --}}
                                 <form action="/dashboard/suratsaya{{ $surat->id }}" method="post" class="d-inline">

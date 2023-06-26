@@ -17,19 +17,16 @@ class DashboardController extends Controller
     // public function min(){
     //     $this->x = '22';
     // }
-
     // public function get_min(){
     //     echo $this->x;
     // }
 
-    
     /* 
         Halaman Dashboard 
     */
     public function index(User $user)
     {
         
-        // $surat = Suratkeluar::get();
         $suratKeluarCount = Suratkeluar::where('disposisi_isi', 0)->get()->count();
         $suratDisposisiCount = Suratkeluar::where('user_id', auth()->user()->id)->get()->count();
         $userCount = User::get()->count();
@@ -90,14 +87,6 @@ class DashboardController extends Controller
     {
         Suratkeluar::destroy($suratkeluar->id);
         return redirect('/dashboard/suratsaya')->with('danger','Data surat keluar berhasil terhapus !!!');
-    }
-
-    /*
-        Halaman Edit Akun
-    */
-    public function EditAkun(User $user)
-    {
-        return view('dashboard.editakun',compact('user'));
     }
 
     /*

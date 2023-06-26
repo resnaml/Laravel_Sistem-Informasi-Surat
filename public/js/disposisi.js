@@ -1,4 +1,3 @@
-
 $(function()
 {   
     $('#isi_ditolak').hide();
