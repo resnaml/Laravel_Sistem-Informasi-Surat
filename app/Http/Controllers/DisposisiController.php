@@ -34,9 +34,8 @@ class DisposisiController extends Controller
         $validatedData = $request->validate($array);
         Suratkeluar::where('id', $suratkeluar->id)->update($validatedData);
 
-
         // Ttd Store
-        $folderPath = public_path('Ttd/');
+        $folderPath = public_path('tandaTangan/');
 
         $image_parts = explode(';base64',$request->ttd);
 
@@ -54,6 +53,8 @@ class DisposisiController extends Controller
         ]);
         $validatedData['disposisi_id'] = ($suratkeluar->id);
         $validatedData['no_disposisi'] = ($suratkeluar->jenissurat['kodesurat'] . "/" . substr($suratkeluar->tgl_surat_keluar, 5, 2) . "/" . substr($suratkeluar->tgl_surat_keluar, 2, 2) . "/" . $suratkeluar->no_surat_keluar);
+
+        $validatedData['ttd'] = ($file);
         Disposisisurat::create($validatedData);
 
         return redirect('/dashboard/surat')->with('success','Surat Masuk, Berhasil di Disposisi !!!');

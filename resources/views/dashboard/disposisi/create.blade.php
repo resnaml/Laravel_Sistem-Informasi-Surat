@@ -47,7 +47,7 @@
                             @endforeach
                             @endforeach
                             </select>
-                        </div>
+                        </div> 
 
                         <div id="isi_ditolak" class="mb-3 text-center mt-4">
                             <label for="no_surat_keluar" class="form-label"><b>Alasan Surat Ditolak</b></label>
@@ -65,29 +65,24 @@
                         </div>
                         
                         <div class="mb-3 mt-3 text-center" id="no_disposisi">
-                            <label for="no disposisi" class="form-label @error('no_disposisi') is-invalid @enderror"><b>No Surat</b></label>
+                            <label for="no disposisi" class="form-label"><b>No Surat</b></label>
                             <input type="text" disabled 
                             value="{{ $surat->jenissurat['kodesurat'] ?? '' }}/{{ substr($surat->tgl_surat_keluar, 5, 2) }}/{{ substr($surat->tgl_surat_keluar, 2, 2) }}/{{ $surat->no_surat_keluar }}"
                             class="form-control text-center">
-                                @error('no_disposisi')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
                         </div>
 
                         <div class="mb-3 mt-3 text-center" id="isi_oleh">
                             <label for="disposisi oleh" class="form-label"><b>Disposisi Oleh</b></label>
-                            <input type="text" class="form-control text-center" name="disposisi_oleh" value="{{ auth()->user()->username }}" disabled>
+                            <input type="text" class="form-control text-center" name="disposisi_oleh" value="{{ auth()->user()->username }}" readonly>
                         </div>
 
-                        <div class="mt-3 text-center bg-transparent border border-dark rounded-3">
+                        <div class="mt-3 text-center bg-transparent border border-dark rounded-3" id="form-ttd">
                             <label for="Tanda tangan" class="form-label"><b>Tanda Tangan</b></label>
                             <div id="sign"></div>
                             <br>
                             <textarea id="asd" name="ttd" style="display:none"></textarea>
                             <button class="btn btn-danger mb-3" id="clear">Hapus Ttd</button>
-                            {{-- <button>Save</button> --}}
+                            
                         </div>
 
                         <hr>
@@ -106,15 +101,7 @@
     </div>
     
 
-    <script>
-        var sign = $('#sign').signature({ syncField:'#asd', syncFormat:'PNG' });
-        $('#clear').click(function(e){
-            e.preventDefault();
-            sign.signature('clear');
-            $('#signature').val('');
-        });
-    </script>
-
+    <script src="/js/tanda-tangan.js"></script>
 
     <script src="/js/disposisi.js"></script>
 

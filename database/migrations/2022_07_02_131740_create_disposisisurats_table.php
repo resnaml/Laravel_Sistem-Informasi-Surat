@@ -19,6 +19,7 @@ class CreateDisposisisuratsTable extends Migration
             $table->string('no_disposisi')->nullable();
             $table->string('disposisi_oleh')->nullable();
             $table->text('isi_ditolak')->nullable();
+            $table->string('ttd')->nullable();
 
             $table->foreignId('disposisi_id')->constrained('suratkeluars')->onUpdate('cascade')->onDelete('cascade');
         });

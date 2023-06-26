@@ -10,6 +10,7 @@ $(function()
             $('#checkbox').hide();
             $('#no_disposisi').hide();
             $('#sign').hide();
+            $('#form-ttd').hide();
             $('#isi_ditolak').show();
         }
     });

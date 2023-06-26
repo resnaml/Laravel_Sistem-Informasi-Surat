@@ -50,7 +50,7 @@
 
 <footer>
     <div class="position-absolute bottom-0 end-0" style="text-align: right;">
-        <img src="img/ttd1.jpg" style="width: 200px; height: 120px">
+        <img src="{{ ($surat->disposisi['ttd']) }}" style="width: 140px; height: 140px">
     <h6> Kepala Sub.Bag,  TU</h6>
         <b class="text-uppercase px-2">{{ $surat->disposisi['disposisi_oleh'] }}</b>
     </div>
