@@ -16,7 +16,7 @@ class UserController extends Controller
         // $user = User::all();
         // dd($user);
         return view('dashboard.user.index',[
-            'user' => User::all()
+            'user' => User::latest()->filter(request(['search']))->paginate(8)->withQueryString()
         ]);
     }
 

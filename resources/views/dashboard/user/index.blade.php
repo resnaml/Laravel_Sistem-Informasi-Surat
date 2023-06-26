@@ -6,14 +6,19 @@
     </div>
 
 
-    <div class="d-flex pt-1 p-3 mb-2 border-bottom border-dark">
-        <form action="submit">
-            <input class="form-control" name="search" type="search" placeholder="Cari User..." value="">
-        </form>
-        <button class="btn btn-outline-primary me-2" type="submit">Search</button>
+    <div class="d-flex border-bottom border-dark">
+        <div class="col-3 mb-2">
+            <form action="/dashboard/kelolaakun">
+            <div class="d-flex">
+                <input class="form-control me-3" name="search" type="search" placeholder="Cari User...">
+
+                <button class="btn btn-outline-primary me-2" type="submit">Search</button>
+            </div>
+            </form>
+        </div>
     </div>
 
-    <a class="btn btn-primary mb-2" href="/dashboard/kelolaakun/nip"><i class="bi bi-people-fill"></i></i> Daftar Pegawai</a>
+    <a class="btn btn-primary mt-2 mb-2" href="/dashboard/kelolaakun/nip"><i class="bi bi-people-fill"></i></i> Daftar Pegawai</a>
 
     @if(session()->has('warning'))
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
