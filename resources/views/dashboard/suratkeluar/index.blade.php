@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
-        <h2>Surat Keluar oleh : {{ auth()->user()->username }}</h2>
+        <h2>Surat Keluar oleh : <span class="text-uppercase text-success">{{ auth()->user()->username }}</span></h2>
     </div>
     
     @if(session()->has('success'))
@@ -30,7 +30,7 @@
     </div>
     
     <h4 class="border-top border-dark">Daftar Surat</h4>
-    <div class="table-responsive d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1">
+    <div class="d-flex table-responsive justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1">
         <table class="table table-striped table-sm table-bordered text-center">
         <thead class="table table-primary">
             <tr>
@@ -71,7 +71,6 @@
                         @csrf
                         <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>
                     </form>
-
                     @endif
                 
                 </td>

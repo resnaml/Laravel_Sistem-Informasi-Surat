@@ -12,10 +12,10 @@
             @endif
 
             <main class="container form-registration w-100 m-auto">
-                <h1 class="h3 lg-4 mb-4 fw-normal text-center">Silahkan Daftar</h1>
+                <h1 class="h3 lg-4 mt-3 mb-3 fw-normal text-center">Silahkan Daftar</h1>
                 <form action="/register" method="post">
                     @csrf
-                <div class="form-floating mb-2">
+                <div class="form-floating mb-1">
                         <input type="number" name="nip" class="form-control rounded  @error('nip') is-invalid @enderror" placeholder="NIP" required value="{{ old('nip') }}">
                         <label for="nip">NIP</label>
                         @error('nip')
@@ -43,8 +43,6 @@
                     </div>
                     @enderror
                 </div>
-
-                
                 
                 <div class="form-floating">
                     <input type="password" name="password" class="form-control rounded @error('password') is-invalid @enderror" id="password" placeholder="Password" required>
@@ -55,8 +53,8 @@
                     </div>
                     @enderror
                 </div>
-                <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Daftar Akun</button>
-                <small class="d-block text-center mt-3"> Sudah Pernah Daftar
+                <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">Daftar Akun</button>
+                <small class="d-block text-center mt-3"> Sudah Daftar Akun
                     <a href="/login">Login</a>
                 </small>
                 </form>

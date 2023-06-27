@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 border-bottom border-dark">
-        <h1 class="h2">Surat Untuk : {{ auth()->user()->username }}</h1>
+        <h3>Surat Untuk : <span class="text-uppercase text-success">{{ auth()->user()->username }}</span></h3>
     </div>
 
     @if(session()->has('danger'))
@@ -15,13 +15,14 @@
 
 
         @if ($jumlahMasuk == null)
-            <h1 class="mt-2">
+            <h2 class="mt-2">
                 <marquee behavior="2" direction="3">
                     Belum Ada Surat
                 </marquee> 
-            </h1>
+            </h2>
+        
         @else
-            
+        
         <div class="row">
             
             @foreach ($suratkeluar as $surat)
@@ -31,10 +32,10 @@
                         <div class="card h-100 text-center border-dark">
                             <img src="https://source.unsplash.com/200x200/?letter" class="card-img-top" width="200" height="200">
                             <div class="card-body">
-                                <h4 class="card-title mb-3"><b>{{ $surat->user->username }} <i class="bi bi-chat-quote"></i></b></h4>
+                                <h4 class="card-title mb-3"><b class="text-uppercase">{{ $surat->user->username }} <i class="bi bi-chat-quote"></i></b></h4>
                                 <div class="">
-                                    <h6 class="card-title mt-2"><i class="bi bi-dash-lg"></i> {{ $surat->jenissurat['namejenis'] }} <i class="bi bi-dash-lg"></i></h6>
-                                    <h6 class="card-title"><i class="bi bi-dash-lg"></i> {{ $surat->sifatsurat['namesifat'] }} <i class="bi bi-dash-lg"></i></h6>
+                                    <p class="card-title mt-2 fw-medium"><i class="bi bi-dash-lg"></i> {{ $surat->jenissurat['namejenis'] }} <i class="bi bi-dash-lg"></i></p>
+                                    <p class="card-title fw-medium"><i class="bi bi-dash-lg"></i> {{ $surat->sifatsurat['namesifat'] }} <i class="bi bi-dash-lg"></i></p>
                                 </div>
                                 <a class="btn btn-success mt-3" href="/dashboard/suratsaya/{{ $surat->full_number }}"><i class="bi bi-file-earmark-pdf"></i></a>
                                 {{-- <a class="btn btn-primary mt-3"><i class="bi bi-file-earmark-word"></i>
@@ -51,7 +52,9 @@
                         </div>
                     </div>
                 </div>
+
             @endforeach
+
         </div>
         @endif
         
