@@ -7,7 +7,7 @@
 
     <div class="card mt-4 container-fluid col-7 mb-4">
         <div class="card-header-">
-    <form method="post" action="/dashboard/suratkeluar" class="mb-5 text-center" enctype="multipart/form-data">
+    <form method="post" action="/dashboard/suratkeluar" class="mb-5" enctype="multipart/form-data">
         @csrf
         <h3 class="mb-2 text-center">Form Isi Pengajuan</h3>
         

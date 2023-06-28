@@ -22,7 +22,6 @@
     <script type="text/javascript" src="/js/trix.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 
-    
     <!-- TRIXXXXXX -->
     <style>
         trix-toolbar [data-trix-button-group="file-tools"]{

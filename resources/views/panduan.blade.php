@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="col-md-6">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex text-center flex-column position-static"><hr>
@@ -46,7 +46,7 @@
                     <i class="bi bi-3-square" style="font-size: 2.0rem;"></i>
                     <strong class="mb-1"></strong>
                     <h3 class="mb-0">Disposisi</h3>
-                    <p class="card-text mb-auto">Jika sudah, Tunggu admin untuk Disposisi surat anda.</p>
+                    <p class="card-text mb-auto">Jika sudah membuat, Tunggu admin untuk Disposisi surat anda.</p>
                     <strong class="mb-1"><hr></strong>
                 </div>
                 <div class="col-auto container mt-3 d-none d-lg-block">

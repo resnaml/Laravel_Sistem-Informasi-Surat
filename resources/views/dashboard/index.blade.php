@@ -8,8 +8,90 @@
     <div class="border-bottom border-dark">
         <a class="btn btn-primary mb-2 me-2" href="/dashboard/viewakun"><i class="bi bi-file-person"></i> My akun</a>
     </div>
+
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+
+            <div class="col-lg-3 col-4 text-center mb-2">
+                <div class="card bg-info">
+                    <i class="bi bi-envelope-paper" style="font-size: 4.0rem;"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Surat Keluar Saya</h5>
+                        <h3 class=" btn-outline-dark text-bold">{{ $suratDisposisiCount }}</h3>
+                    </div>
+                </div>
+            </div>
+
+            @can('kepala')
+            <div class="col-lg-3 col-4 text-center">
+                <div class="card bg-danger">
+                    <i class="bi bi-journal-check" style="font-size: 4.0rem;"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Surat Disposisi</h5>
+                        <h3 class=" btn-outline-dark text-bold">{{ $suratKeluarCount }}</h3>
+                    </div>
+                </div>
+            </div>
+            @endcan
+
+            @can('admin')
+            <div class="col-lg-3 col-4 text-center">
+                <div class="card bg-primary">
+                    <i class="bi bi-mailbox" style="font-size: 4.0rem;"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Seluruh Surat</h5>
+                        <h3 class=" btn-outline-dark text-bold">{{ $suratallCount }}</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-4 text-center">
+                <div class="card bg-success">
+                    <i class="bi bi-safe2" style="font-size: 4.0rem;"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Jumlah Pengarsipan</h5>
+                        <h3 class=" btn-outline-dark text-bold">{{ $pengarsipanCount }}</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-4 text-center">
+                <div class="card bg-warning">
+                    <i class="bi bi-people-fill" style="font-size: 4.0rem;"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Jumlah User</h5>
+                        <h3 class=" btn-outline-dark text-bold">{{ $userCount }}</h3>
+                    </div>
+                </div>
+            </div>
+        
+        
+        <div class="card mt-4 mb-3 border border-dark">
+            <div class="row mt-4 container">
+                <div class="col-xl-6">
+                    <div class="card-header text-bg-dark">
+                        <i class="bi bi-graph-up-arrow"></i> Chart Surat
+                    </div>
+                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas>
+                    </div>
+                </div>
     
-    <div class="card-group mt-4">
+                <div class="col-xl-6">
+                    <div class="card-header text-bg-dark">
+                        <i class="bi bi-reception-4"></i> Grafik Surat
+                    </div>
+                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas>
+                    </div>
+                </div>
+                </div>
+        </div>
+        @endcan
+
+    </div>
+
+    
+    {{-- <div class="card-group mt-4">
         <div class="card container border" style="max-width: 18rem;">
             <div class="card-header">Surat Keluar Saya
                 <div class="h4 border mt-2">  {{ $suratDisposisiCount }} </div>
@@ -18,6 +100,8 @@
                 <i class="bi bi-envelope-paper" style="font-size: 4.0rem;"></i>
             </div>
         </div>
+        
+        
         
         @can('kepala')
         <div class="card container" style="max-width: 18rem;">
@@ -55,29 +139,8 @@
                 <i class="bi bi-people-fill" style="font-size: 4.0rem;"></i>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    
-    <div class="card mt-4 mb-3 border-dark">
-        <div class="row mt-4 container">
-            <div class="col-xl-6">
-                <div class="card-header text-bg-dark">
-                    <i class="bi bi-graph-up-arrow"></i> Chart Surat
-                </div>
-                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas>
-                </div>
-            </div>
-
-            <div class="col-xl-6">
-                <div class="card-header text-bg-dark">
-                    <i class="bi bi-reception-4"></i> Grafik Surat
-                </div>
-                <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas>
-                </div>
-            </div>
-            </div>
-    </div>
-        @endcan
         
         <script type="text/javascript">
             var _ydata=JSON.parse( '{!! json_encode($months) !!}' );
