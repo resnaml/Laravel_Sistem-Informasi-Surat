@@ -5,11 +5,6 @@
         <h1 class="h2">Selamat Datang, <span class="text-uppercase">{{ auth()->user()->username }}</span></h1>
     </div>
 
-    <div class="border-bottom border-dark">
-        <a class="btn btn-primary mb-2 me-2" href="/dashboard/viewakun"><i class="bi bi-file-person"></i> My akun</a>
-    </div>
-
-
     <div class="container-fluid mt-3">
         <div class="row">
 

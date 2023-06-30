@@ -28,12 +28,6 @@
         </li>
         @endcan
 
-        {{-- <li class="nav-item">
-            <small class="nav-link h6 text-muted" aria-current="page">
-                <i class="bi bi-diagram-2"></i> -- Admin Access --
-            </small>
-        </li> --}}
-
         @can('admin')
         <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/seluruhsurat') ? 'active' : '' }}" aria-current="page" href="/dashboard/seluruhsurat">
@@ -58,7 +52,8 @@
             </ul>
         </li>
         </ul>
-        {{-- @endif --}}
+        
         @endcan
+
     </div>
 </nav>

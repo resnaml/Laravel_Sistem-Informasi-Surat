@@ -30,7 +30,7 @@
                 <div class="row col-md-3 g-3">
                     <div class="col">
                         <div class="card h-100 text-center border-dark">
-                            <img src="https://source.unsplash.com/200x200/?sun" class="card-img-top" width="200" height="200">
+                            <img src="https://source.unsplash.com/200x200/?letter" class="card-img-top" width="200" height="200">
                             <div class="card-body">
                                 <h4 class="card-title mb-3"><b class="text-uppercase">{{ $surat->user->username }} <i class="bi bi-chat-quote"></i></b></h4>
                                 <div class="">

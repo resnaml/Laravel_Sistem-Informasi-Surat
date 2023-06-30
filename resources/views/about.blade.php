@@ -10,7 +10,7 @@
                     <h4 class="my-0 fw-normal">Pengembang Website</h4>
                 </div>
                 <div class="card-body">
-                    <h1 class="card-title pricing-card-title"><i class="bi bi-person-circle"></i> <small class="text-body-secondary fw-light">- Resna Mulya</small></h1>
+                    <h1 class="card-title pricing-card-title"><img src="https://github.com/resnaml.png" alt="" width="80" height="80" class="rounded-circle me-2"><small class="text-body-secondary fw-light">- Resna Mulya</small></h1>
                     <ul class="list-unstyled mt-3 mb-4">
                     <li><i class="bi bi-mailbox"></i> resnamulyal@gmail.com</li>
                     </ul>
