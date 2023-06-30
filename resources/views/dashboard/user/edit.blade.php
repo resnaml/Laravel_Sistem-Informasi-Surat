@@ -28,7 +28,16 @@
                         <div class="mb-3">
                             <label for="nip" class="form-label"><b>nip</b></label>
                             <input disabled class="form-control text-center" value="{{ old('nip', $akun->nip) }}">
-                            
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label"><b>Ubah Password</b></label>
+                            <input class="form-control text-center @error('password') is-invalid @enderror" name="password">
+                            @error('password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                    @enderror
                         </div>
 
                         <div class="mb-3">

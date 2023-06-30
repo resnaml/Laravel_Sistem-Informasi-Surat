@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 border-bottom border-dark">
-        <h3>Surat Untuk : <span class="text-uppercase text-success">{{ auth()->user()->username }}</span></h3>
+        <h2>Surat Untuk : <span class="text-uppercase text-success">{{ auth()->user()->username }}</span></h2>
     </div>
 
     @if(session()->has('danger'))

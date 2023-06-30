@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2 border-bottom border-dark">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
         <h1 class="h2">Selamat Datang, <span class="text-uppercase">{{ auth()->user()->username }}</span></h1>
     </div>
 
@@ -14,8 +14,8 @@
         <div class="row">
 
             <div class="col-lg-3 col-4 text-center mb-2">
-                <div class="card bg-info">
-                    <i class="bi bi-envelope-paper" style="font-size: 4.0rem;"></i>
+                <div class="card bg-info flex-md-row position-relative">
+                    <i class="bi bi-envelope-paper mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
                         <h5 class="card-title">Surat Keluar Saya</h5>
                         <h3 class=" btn-outline-dark text-bold">{{ $suratDisposisiCount }}</h3>
@@ -25,8 +25,8 @@
 
             @can('kepala')
             <div class="col-lg-3 col-4 text-center">
-                <div class="card bg-danger">
-                    <i class="bi bi-journal-check" style="font-size: 4.0rem;"></i>
+                <div class="card bg-danger flex-md-row position-relative">
+                    <i class="bi bi-journal-check mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
                         <h5 class="card-title">Surat Disposisi</h5>
                         <h3 class=" btn-outline-dark text-bold">{{ $suratKeluarCount }}</h3>
@@ -37,8 +37,8 @@
 
             @can('admin')
             <div class="col-lg-3 col-4 text-center">
-                <div class="card bg-primary">
-                    <i class="bi bi-mailbox" style="font-size: 4.0rem;"></i>
+                <div class="card bg-primary flex-md-row position-relative">
+                    <i class="bi bi-mailbox mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
                         <h5 class="card-title">Seluruh Surat</h5>
                         <h3 class=" btn-outline-dark text-bold">{{ $suratallCount }}</h3>
@@ -47,9 +47,9 @@
             </div>
 
             <div class="col-lg-3 col-4 text-center">
-                <div class="card bg-success">
-                    <i class="bi bi-safe2" style="font-size: 4.0rem;"></i>
-                    <div class="card-body">
+                <div class="card bg-success flex-md-row position-relative">
+                    <i class="bi bi-safe2 mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
+                    <div class="card-body rounded border-dark">
                         <h5 class="card-title">Jumlah Pengarsipan</h5>
                         <h3 class=" btn-outline-dark text-bold">{{ $pengarsipanCount }}</h3>
                     </div>
@@ -57,8 +57,8 @@
             </div>
             
             <div class="col-lg-3 col-4 text-center">
-                <div class="card bg-warning">
-                    <i class="bi bi-people-fill" style="font-size: 4.0rem;"></i>
+                <div class="card bg-warning flex-md-row position-relative">
+                    <i class="bi bi-people-fill mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
                         <h5 class="card-title">Jumlah User</h5>
                         <h3 class=" btn-outline-dark text-bold">{{ $userCount }}</h3>
