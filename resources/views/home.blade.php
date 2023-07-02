@@ -95,11 +95,9 @@
                     <img src="/img/arsip2.jpg" height="260" weight="400">
                 </div>
             </div>
-        
             
-
             <hr class="featurette-divider">
-        
+            
             <div class="row featurette">
             <div class="col-md-7">
                 <h2 class="text-center text-uppercase">Peran Arsip dalam Kehidupan</h2>
