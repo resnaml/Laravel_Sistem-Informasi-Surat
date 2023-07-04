@@ -116,7 +116,9 @@ class DashboardController extends Controller
     public function about()
     {
         return view('about',[
-            "title" => "about"
+            "title" => "about",
+            "name" => "Resna Mulya",
+            "email" => "resnamulyal@gmail.com"
         ]);
     }
     
