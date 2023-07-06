@@ -18,10 +18,16 @@
             </a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link {{ Request::is('#') ? 'active' : '' }}" aria-current="page" href="#">
+                <i class="bi bi-clipboard2-check"></i> Diposisi Surat
+            </a>
+        </li>
+
         @can('kepala')
         <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/surat') ? 'active' : '' }}" aria-current="page" href="/dashboard/surat">
-                <i class="bi bi-journal-check"></i> Disposisi Surat 
+                <i class="bi bi-envelope-exclamation-fill"></i> Surat Masuk 
                 {{-- <span class="badge bg-primary rounded-pill">{{ $jumlah }}</span> --}}
             
             </a>

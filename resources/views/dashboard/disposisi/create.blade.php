@@ -7,7 +7,7 @@
     </div>
 
 
-    {{-- Jquery Sign By:Keith Wood --}}
+    {{-- Jquery Signin Pad By:Keith Wood --}}
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
     <link type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet"> 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -37,13 +37,11 @@
                         <div class="mb-2 mt-2 text-center">
                             <label for="status disposisi" class="form-label"><b>Status Disposisi</b></label>
                             <select onchange="handelOnChangeEvent(this.value)" required class="form-control text-center" name="status" id="status">
-                            <option selected disabled>--Pilih Status--</option>
+                            <option selected disabled>-- Pilih Status --</option>
                             @foreach(["Diterima" => "Diterima"] as $status => $status2)
-                            
                             <option value="{{ $status2 }}">{{ $status2 }}</option>
                             @foreach(["Ditolak" => "Ditolak"] as $status => $status3)
                             <option id="status3" value="{{ $status3 }}">{{ $status3 }}</option>
-                            {{-- @endforeach --}}
                             @endforeach
                             @endforeach
                             </select>
