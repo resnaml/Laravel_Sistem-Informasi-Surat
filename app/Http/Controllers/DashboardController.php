@@ -12,15 +12,6 @@ use Dflydev\DotAccessData\Data;
 
 class DashboardController extends Controller
 {
-
-    // private $x;
-    // public function min(){
-    //     $this->x = '22';
-    // }
-    // public function get_min(){
-    //     echo $this->x;
-    // }
-
     /* 
         Halaman Dashboard 
     */
@@ -87,17 +78,6 @@ class DashboardController extends Controller
     {
         Suratkeluar::destroy($suratkeluar->id);
         return redirect('/dashboard/suratsaya')->with('danger','Data surat keluar berhasil terhapus !!!');
-    }
-
-    /*
-        Halaman Front End Status Surat
-    */
-    public function StatusSurat()
-    {
-        return view('status',[
-            "title" => "Status Surat",
-            "surats" => Suratkeluar::latest()->filter(request(['search','jenissurat']))->paginate(8)->withQueryString()
-        ]);
     }
 
     /*
