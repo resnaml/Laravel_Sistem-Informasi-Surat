@@ -59,4 +59,19 @@ class DisposisiController extends Controller
 
         return redirect('/dashboard/surat')->with('success','Surat Masuk, Berhasil di Disposisi !!!');
     }
+
+    function indexDisposisi()
+    {
+        $suratkeluar = Suratkeluar::where('print_surat', 0)->where('disposisi_isi', 1)->get();
+        
+        return view('dashboard.disposisi.index',compact('suratkeluar'));
+    }
+
+    function diposisiCreate(Suratkeluar $suratkeluar)
+    {
+        // dd($suratkeluar);
+        return view('dashboard.disposisi.sign', [
+            'surat' => $suratkeluar
+        ]);
+    }
 }

@@ -95,9 +95,9 @@ Route::post('/dashboard/kelolaakun/nip', [UserController::class, 'createNip']);
 /* 
     --Surat Masuk Route--
 */
-Route::get('/dashboard/surat', [SuratMasukController::class, 'index'])->middleware('kepala');
+Route::get('/dashboard/surat', [SuratMasukController::class, 'index'])->middleware('admin');
 Route::get('/dashboard/seluruhsurat', [SuratMasukController::class, 'seluruhSurat'])->middleware('admin');
-Route::get('/dashboard/surat/{suratkeluar}', [SuratMasukController::class, 'edit'])->middleware('kepala');
+Route::get('/dashboard/surat/{suratkeluar}', [SuratMasukController::class, 'edit'])->middleware('admin');
 Route::get('/dashboard/seluruhsurat/{tglawal}/{tglakhir}', [SuratMasukController::class, 'cetakPerBln'])->middleware('admin');
 Route::get('/dashboard/seluruhsurat/cetakseluruh', [SuratMasukController::class, 'cetakSeluruhSurat'])->middleware('admin');
 
@@ -106,8 +106,12 @@ Route::get('/dashboard/seluruhsurat/cetakseluruh', [SuratMasukController::class,
 /*
     --Disposisi Route--
 */
-Route::get('/dashboard/surat{suratkeluar}/disposisi', [DisposisiController::class, 'index'])->middleware('kepala');
-Route::post('/dashboard/surat{suratkeluar}/disposisi', [DisposisiController::class, 'store'])->middleware('kepala');
+Route::get('/dashboard/surat{suratkeluar}/disposisi', [DisposisiController::class, 'index'])->middleware('admin');
+Route::post('/dashboard/surat{suratkeluar}/disposisi', [DisposisiController::class, 'store'])->middleware('admin');
+
+Route::get('/dashboard/diposisikepala', [DisposisiController::class, 'indexDisposisi'])->middleware('kepala');
+Route::get('/dashboard/diposisikepala/{suratkeluar:full_number}', [DisposisiController::class, 'diposisiCreate'])->middleware('kepala');
+
 
 /*
     --Surat Keluar Route-- 

@@ -20,17 +20,27 @@
 
             @can('kepala')
             <div class="col-lg-3 col-4 text-center">
-                <div class="card bg-danger flex-md-row position-relative">
-                    <i class="bi bi-journal-check mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
+                <div class="card bg-secondary flex-md-row position-relative">
+                    <i class="bi bi-pen mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
-                        <h5 class="card-title">Surat Disposisi</h5>
-                        <h3 class="btn bg-dark btn-outline-dark text-white">{{ $suratKeluarCount }}</h3>
+                        <h5 class="card-title">Menunggu Disposisi</h5>
+                        <h3 class="btn bg-dark btn-outline-dark text-white">{{ $disposisi }}</h3>
                     </div>
                 </div>
             </div>
             @endcan
-
+            
             @can('admin')
+            <div class="col-lg-3 col-4 text-center">
+                <div class="card bg-danger flex-md-row position-relative">
+                    <i class="bi bi-journal-check mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Menunggu Perersetujuan</h5>
+                        <h3 class="btn bg-dark btn-outline-dark text-white">{{ $suratKeluarCount }}</h3>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-lg-3 col-4 text-center">
                 <div class="card bg-primary flex-md-row position-relative">
                     <i class="bi bi-mailbox mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
@@ -55,12 +65,11 @@
                 <div class="card bg-warning flex-md-row position-relative">
                     <i class="bi bi-people-fill mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
-                        <h5 class="card-title">Jumlah User</h5>
+                        <h5 class="card-title">Seluruh User</h5>
                         <h3 class="btn bg-dark btn-outline-dark text-white">{{ $userCount }}</h3>
                     </div>
                 </div>
             </div>
-        
         
         <div class="card mt-4 mb-3 border border-dark">
             <div class="row mt-4 container">

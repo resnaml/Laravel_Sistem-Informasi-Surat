@@ -27,8 +27,6 @@
                 <h3>Form Disposisi</h3>
             </div>
         <div class="card-body">
-            <table class="table">
-                <tbody>
                     <div class="container col-lg-8">
                     <form method="post" action="/dashboard/surat{{ $surat->id }}/disposisi">
                         @method('post')
@@ -57,7 +55,7 @@
                             <label class="form-check-label me-4 mb-2 mt-2">Setuju Disposisi</label>
                         </div>
 
-                        <div class="mb-2 mt-2" hidden>
+                        <div class="mb-2 mt-2">
                             <input class="form-check-input" type="checkbox" value="1" name="disposisi_isi" checked>
                             <label class="form-check-label" for="flexCheckChecked">Surat sudah disposisi</label>
                         </div>
@@ -93,8 +91,6 @@
                         
                         </form>
                     </div>
-                </tbody>
-            </table>
         </div>
     </div>
     

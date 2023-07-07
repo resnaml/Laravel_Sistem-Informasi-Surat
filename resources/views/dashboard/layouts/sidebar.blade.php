@@ -18,13 +18,15 @@
             </a>
         </li>
 
+        @can('kepala')
         <li class="nav-item">
-            <a class="nav-link {{ Request::is('#') ? 'active' : '' }}" aria-current="page" href="#">
+            <a class="nav-link {{ Request::is('dashboard/diposisikepala') ? 'active' : '' }}" aria-current="page" href="/dashboard/diposisikepala">
                 <i class="bi bi-clipboard2-check"></i> Diposisi Surat
             </a>
         </li>
+        @endcan
 
-        @can('kepala')
+        @can('admin')
         <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/surat') ? 'active' : '' }}" aria-current="page" href="/dashboard/surat">
                 <i class="bi bi-envelope-exclamation-fill"></i> Surat Masuk 
@@ -32,9 +34,7 @@
             
             </a>
         </li>
-        @endcan
 
-        @can('admin')
         <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/seluruhsurat') ? 'active' : '' }}" aria-current="page" href="/dashboard/seluruhsurat">
                 <i class="bi bi-mailbox"></i> Seluruh Surat

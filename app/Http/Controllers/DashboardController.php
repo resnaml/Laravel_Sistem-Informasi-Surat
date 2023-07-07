@@ -19,11 +19,11 @@ class DashboardController extends Controller
     {
         
         $suratKeluarCount = Suratkeluar::where('disposisi_isi', 0)->get()->count();
+        $disposisi = Suratkeluar::where('print_surat', 0)->where('disposisi_isi', 1)->get()->count();
         $suratDisposisiCount = Suratkeluar::where('user_id', auth()->user()->id)->get()->count();
         $userCount = User::get()->count();
         $suratallCount = Suratkeluar::get()->count();
         $pengarsipanCount = Pengarsipan::get()->count();
-
         $data = Suratkeluar::select('id', 'created_at')->get()->groupBy(function($data){
             return Carbon::parse($data->created_at)->format('M');
         });
@@ -33,8 +33,7 @@ class DashboardController extends Controller
             $months[]=$month;
             $monthCount[]=count($values);
         }
-
-        return view('dashboard.index', compact('suratKeluarCount','suratDisposisiCount','userCount','suratallCount', 'data', 'months','monthCount','pengarsipanCount'));
+        return view('dashboard.index', compact('suratKeluarCount','suratDisposisiCount','userCount','suratallCount', 'data', 'months','monthCount','pengarsipanCount','disposisi'));
     }
 
     /* 
