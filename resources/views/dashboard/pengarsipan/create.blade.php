@@ -6,7 +6,7 @@
     </div>
 
 <div class="container card border border text-center col-lg-5 mt-4">
-    <form method="post" action="/dashboard/pengarsipan/create" class="mb-3" enctype="multipart/form-data">
+    <form method="post" action="/pengarsipan/create" class="mb-3" enctype="multipart/form-data">
         @csrf
         <h3 class="text-center mt-4 border-bottom">Form Pengarsipan</h3>
         <div class="container mb-3 mt-3 col-8">
@@ -53,7 +53,7 @@
 
             <div class="container col-lg-9 mt-4">
                 <button type="submit" class="btn btn-primary m-right-1 me-1"><i class="bi bi-safe"></i> Masukan Arsip</button>
-                <a class="btn btn-warning" href="/dashboard/pengarsipan"><i class="bi bi-arrow-left-square"></i> Kembali</a>
+                <a class="btn btn-warning" href="/pengarsipan"><i class="bi bi-arrow-left-square"></i> Kembali</a>
             </div>
     </form>
     </div>

@@ -18,9 +18,9 @@
     @endif
 
     <div class="d-flex border-bottom border-dark">
-        <a class="btn btn-primary mb-2 me-3" href="/dashboard/pengarsipan/create"><i class="bi bi-folder-plus"></i> Buat File Arsip</a>
+        <a class="btn btn-primary mb-2 me-3" href="/pengarsipan/create"><i class="bi bi-folder-plus"></i> Buat File Arsip</a>
         
-            <form method="GET" action="/dashboard/pengarsipan/cari-arsip">
+            <form method="GET" action="/pengarsipan/cari-arsip">
                 @if (request('kode_arsip'))
                         <input type="hidden" name="kode_arsip" value="{{ request('kode_arsip') }}">
                     @endif
@@ -32,7 +32,7 @@
     <div class="card-group_s mt-3 mb-3 row">
         <div class="card border border-dark" style="max-width: 13rem;">
             <div class="card-header h5 mt-2"><b>Arsip Berguna</b>  
-            <div class="mt-2 h4 bold border"><a href="/dashboard/pengarsipan/arsipberguna">{{ $arsipBerguna }}</a></div>
+            <div class="mt-2 h4 bold border"><a href="/pengarsipan/AB">{{ $arsipBerguna }}</a></div>
             </div>
             <div class="card-body">
                 <i class="bi bi-safe" style="font-size: 4.0rem;"></i>
@@ -40,7 +40,7 @@
         </div>
         <div class="card border border-dark" style="max-width: 13rem;">
             <div class="card-header h5 mt-2"><b>Arsip Penting</b>
-                <div class="h4 border mt-2"><a href="/dashboard/pengarsipan/arsippenting">{{ $arsipPenting }}</a></div>
+                <div class="h4 border mt-2"><a href="/pengarsipan/AP">{{ $arsipPenting }}</a></div>
             </div>
             <div class="card-body">
                 <i class="bi bi-safe-fill" style="font-size: 4.0rem;"></i>
@@ -48,7 +48,7 @@
         </div>
         <div class="card border border-dark" style="max-width: 13rem;">
             <div class="card-header h5 mt-2"><b>Arsip Vital</b>
-                <div class="h4 border mt-2"><a href="/dashboard/pengarsipan/arsipvital">{{ $arsipVital }}</a></div>
+                <div class="h4 border mt-2"><a href="/pengarsipan/AV">{{ $arsipVital }}</a></div>
             </div>
             <div class="card-body">
                 <i class="bi bi-safe2" style="font-size: 4.0rem;"></i>
@@ -56,7 +56,7 @@
         </div>
         <div class="card border border-dark" style="max-width: 13rem;">
             <div class="card-header h5 mt-2"><b>Arsip Dinamis</b> 
-            <div class="h4 border mt-2"><a href="/dashboard/pengarsipan/arsipdinamis">{{ $arsipDinamis }}</a></div>
+            <div class="h4 border mt-2"><a href="/pengarsipan/AD">{{ $arsipDinamis }}</a></div>
             </div>
             <div class="card-body">
                 <i class="bi bi-safe2-fill" style="font-size: 4.0rem;"></i>
@@ -76,7 +76,6 @@
                         <tr>
                             <th>No</th>
                             <th>Kode Arsip</th>
-                            {{-- <th>Kategori</th> --}}
                             <th>Judul Arsip</th>
                             <th>Tgl Arsip</th>
                             <th></th>
@@ -84,11 +83,10 @@
                             <tbody>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $arsip->full_kode }}</td>
-                                {{-- <td>{{ $arsip->kategori['kode_arsip'] }}</td> --}}
                                 <td>{{ $arsip->judul }}</td>
                                 <td>{{ $arsip->tgl_arsip }}</td>
                                 <td>
-                                    <a href="{{ url('/dashboard/pengarsipan/download/'.$arsip->id) }} " class="btn btn-success"><i class="bi bi-download"></i></a>
+                                    <a href="{{ url('/pengarsipan/download/'.$arsip->id) }} " class="btn btn-success"><i class="bi bi-download"></i></a>
                                 </td>
                             </tbody>
                             @endforeach

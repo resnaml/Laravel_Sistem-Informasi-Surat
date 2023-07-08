@@ -71,16 +71,16 @@ Route::post('/jenissurat/create', [jenissuratController::class,'store']);
 /*
     --Pengarsipan Route-- 
 */
-Route::get('/dashboard/pengarsipan', [PengarsipanController::class, 'index'])->middleware('admin');
-Route::get('/dashboard/pengarsipan/create', [PengarsipanController::class, 'create'])->middleware('admin');
-Route::post('/dashboard/pengarsipan/create', [PengarsipanController::class, 'store'])->middleware('admin');
-Route::get('/dashboard/pengarsipan/arsipberguna', [PengarsipanController::class, 'arsipBerguna'])->middleware('admin');
-Route::get('/dashboard/pengarsipan/arsippenting', [PengarsipanController::class, 'arsipPenting'])->middleware('admin');
-Route::get('/dashboard/pengarsipan/arsipvital', [PengarsipanController::class, 'arsipVital'])->middleware('admin');
-Route::get('/dashboard/pengarsipan/arsipdinamis', [PengarsipanController::class, 'arsipDinamis'])->middleware('admin');
-Route::delete('/dashboard/pengarsipan/{pengarsipan}', [PengarsipanController::class, 'destroy'])->middleware('admin');
-Route::get('/dashboard/pengarsipan/download/{id}', [PengarsipanController::class, 'download'])->middleware('admin');
-Route::get('/dashboard/pengarsipan/cari-arsip', [PengarsipanController::class, 'index'])->middleware('admin');
+Route::get('/pengarsipan', [PengarsipanController::class, 'index'])->middleware('admin');
+Route::get('/pengarsipan/create', [PengarsipanController::class, 'create'])->middleware('admin');
+Route::post('/pengarsipan/create', [PengarsipanController::class, 'store'])->middleware('admin');
+Route::get('/pengarsipan/AB', [PengarsipanController::class, 'arsipBerguna'])->middleware('admin');
+Route::get('/pengarsipan/AP', [PengarsipanController::class, 'arsipPenting'])->middleware('admin');
+Route::get('/pengarsipan/AV', [PengarsipanController::class, 'arsipVital'])->middleware('admin');
+Route::get('/pengarsipan/AD', [PengarsipanController::class, 'arsipDinamis'])->middleware('admin');
+Route::delete('/pengarsipan/{pengarsipan}', [PengarsipanController::class, 'destroy'])->middleware('admin');
+Route::get('/pengarsipan/download/{id}', [PengarsipanController::class, 'download'])->middleware('admin');
+Route::get('/pengarsipan/cari-arsip', [PengarsipanController::class, 'index'])->middleware('admin');
 
 
 /* 
@@ -98,22 +98,23 @@ Route::delete('/kelolaakun/nip', [UserController::class, 'destroyNip']);
 /* 
     --Surat Masuk Route--
 */
-Route::get('/dashboard/surat', [SuratMasukController::class, 'index'])->middleware('admin');
-Route::get('/dashboard/seluruhsurat', [SuratMasukController::class, 'seluruhSurat'])->middleware('admin');
-Route::get('/dashboard/surat/{suratkeluar}', [SuratMasukController::class, 'edit'])->middleware('admin');
-Route::get('/dashboard/seluruhsurat/{tglawal}/{tglakhir}', [SuratMasukController::class, 'cetakPerBln'])->middleware('admin');
-Route::get('/dashboard/seluruhsurat/cetakseluruh', [SuratMasukController::class, 'cetakSeluruhSurat'])->middleware('admin');
+Route::get('/suratmasuk', [SuratMasukController::class, 'index'])->middleware('admin');
+Route::get('/suratmasuk/{suratkeluar:full_number}', [SuratMasukController::class, 'edit'])->middleware('admin');
 
+
+// Seluruh Surat
+Route::get('/seluruhsurat', [SuratMasukController::class, 'seluruhSurat'])->middleware('admin');
+Route::get('/seluruhsurat/{tglawal}/{tglakhir}', [SuratMasukController::class, 'cetakPerBln'])->middleware('admin');
+Route::get('/seluruhsurat/cetakseluruh', [SuratMasukController::class, 'cetakSeluruhSurat'])->middleware('admin');
+Route::delete('/seluruhsurat{suratkeluar}', [SuratMasukController::class, 'destroy'])->middleware('admin');
 
 /*
     --Disposisi Route--
 */
 Route::get('/dashboard/surat{suratkeluar}/disposisi', [DisposisiController::class, 'index'])->middleware('admin');
 Route::post('/dashboard/surat{suratkeluar}/disposisi', [DisposisiController::class, 'store'])->middleware('admin');
-
 Route::get('/diposisikepala', [DisposisiController::class, 'indexDisposisi'])->middleware('kepala');
 Route::get('/diposisikepala/{suratkeluar:full_number}', [DisposisiController::class, 'diposisiCreate'])->middleware('kepala');
-
 Route::get('/diposisikepala/{suratkeluar:full_number}', [DisposisiController::class, 'diposisiStore'])->middleware('kepala');
 
 

@@ -41,7 +41,7 @@
                                 <div class="col-fluid container mt-4">
                                         <a href="/dashboard/surat{{ $surat->id }}/disposisi" class="btn btn-primary mb-3"><i class="bi bi-check-circle"></i> Disposisi</a>
                                         
-                                        <a class="btn btn-warning" href="/dashboard/surat"><i class="bi bi-arrow-left-square"></i> Kembali</a>
+                                        <a class="btn btn-warning" href="/suratmasuk"><i class="bi bi-arrow-left-square"></i> Kembali</a>
                                 </div>
                             </div>
                         </tbody>

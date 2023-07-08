@@ -16,7 +16,7 @@ class SuratMasukController extends Controller
     public function index()
     {
         $suratmasuk = Suratkeluar::where('disposisi_isi', 0)->get();
-        $jumlah = Suratkeluar::where('disposisi_isi', 0)->count();
+        $jumlah = $suratmasuk->count();
         return view('dashboard.surat.index', compact('suratmasuk','jumlah'));
     }
 
@@ -66,6 +66,12 @@ class SuratMasukController extends Controller
         ];
         $pdf = PDF::loadView('dashboard.surat.cetak_surat_tgl', $surats);
         return $pdf->download('Laporan Surat PerBulan.pdf');
+    }
+
+    public function destroy(Suratkeluar $suratkeluar)
+    {
+        Suratkeluar::destroy($suratkeluar->id);
+        return redirect('/seluruhsurat')->with('danger','Data Surat berhasil terhapus !!!');
     }
 
 }

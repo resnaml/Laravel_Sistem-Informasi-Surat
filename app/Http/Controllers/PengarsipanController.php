@@ -53,7 +53,7 @@ class PengarsipanController extends Controller
         }
         
         Pengarsipan::create($validatedData);
-        return redirect('/dashboard/pengarsipan')->with('success','Data Arsip Berhasil Dibuat !!! ');
+        return redirect('/pengarsipan')->with('success','Data Arsip Berhasil Dibuat !!! ');
     }
 
     /*
@@ -104,6 +104,6 @@ class PengarsipanController extends Controller
             Storage::delete($pengarsipan->file_arsip);
         }
         Pengarsipan::destroy($pengarsipan->id);
-        return redirect('/dashboard/pengarsipan')->with('danger','Data Arsip Telah Dihapus!');
+        return redirect('/pengarsipan')->with('danger','Data Arsip Telah Dihapus!');
     }
 }

@@ -32,7 +32,7 @@
 
                         <div class="mb-3">
                             <label for="password" class="form-label"><b>Ubah Password</b></label>
-                            <input class="form-control text-center @error('password') is-invalid @enderror" name="password">
+                            <input type="password" class="form-control text-center @error('password') is-invalid @enderror" name="password">
                             @error('password')
                             <div class="invalid-feedback">
                                 {{ $message }}

@@ -73,18 +73,12 @@
                 <trix-editor class="text-right bg-white" input="perihal"></trix-editor>
             </div>
 
-            {{-- <div class="mb-4 col-8 container">
-                <label for="lampiran" class="form-label"><b> Lampiran <span class="text-muted">(Opsional)</span></b></label>
-                <input type="file" class="form-control" id="lampiran" name="lampiran">
-            </div> --}}
-
             <div class="col-lg-6 container mt-4">
                 <button type="submit" class="btn btn-primary m-right-3 me-3"><i class="bi bi-plus-square"></i> Buat Surat</button>
 
                 <a class="btn btn-warning" href="/dashboard/suratkeluar"><i class="bi bi-arrow-left-square"></i> Kembali</a>
             </div>
 
-            
         </form>
         </div>
     </div>

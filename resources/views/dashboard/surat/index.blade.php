@@ -51,7 +51,7 @@
                     <td>{{ $surat->status }}</td>
                     <td>{{ $surat->created_at->diffForHumans() }}</td>
                     <td>
-                        <a href="/dashboard/surat/{{ $surat->id }}" class="btn btn-info m-lg-1"><i class="bi bi-clipboard-check" style="font-size: 1.2rem;"></i></a>
+                        <a href="/suratmasuk/{{ $surat->full_number }}" class="btn btn-info m-lg-1"><i class="bi bi-clipboard-check" style="font-size: 1.2rem;"></i></a>
                     </td>
                 </tr>
                 

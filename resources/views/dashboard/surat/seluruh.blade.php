@@ -12,7 +12,7 @@
     @endif
 
     <div class="d-flex border-bottom border-dark">
-        <form action="/dashboard/seluruhsurat" role="search">
+        <form action="/seluruhsurat" role="search">
             <div class="d-flex btn">
                 <input class="d-flex mb-3 form-control me-3" name="search" type="search">
             <button class="d-flex btn mb-3 btn-outline-success" type="submit">Search</button>
@@ -35,21 +35,13 @@
         </div>
 
         <div class="row2">
-            <a class="d-flex btn btn-outline-success me-3 mt-2" onclick="this.href='/dashboard/seluruhsurat/'+ document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"><i class="bi bi-printer"> Cari Data</i></a>
+            <a class="d-flex btn btn-outline-success me-3 mt-2" onclick="this.href='/seluruhsurat/'+ document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"><i class="bi bi-printer"> Cari Data</i></a>
         </div>
         <div class="row2">
-            <a class="d-flex btn btn-outline-primary mt-2" href="/dashboard/seluruhsurat/cetakseluruh"><i class="bi bi-printer"> Print Data</i></a>
+            <a class="d-flex btn btn-outline-primary mt-2" href="/seluruhsurat/cetakseluruh"><i class="bi bi-printer"> Print Data</i></a>
         </div>
     </div>
     
-
-    {{-- <div class="d-flex mt-2">
-        <div class="d-flex mt-1">
-            <div class="d-flex">
-                {{ $surats->links() }}
-            </div>
-        </div>
-    </div> --}}
 
     <div class="table-responsive text-center d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1">
         <table class="table table-striped table-bordered mb-3">
@@ -87,9 +79,8 @@
                     </td>
                     <td>{{ $surat->created_at->format('y-m-d') }}</td>
                     <td>
-                        {{-- <a href="/dashboard/pengarsipan/create" class="btn btn-success m-lg-1"><i class="bi bi-safe"></i></a> --}}
                         
-                            <form action="/dashboard/suratkeluar/{{ $surat->id }}" method="post" class="d-inline">
+                            <form action="/seluruhsurat{{ $surat->id }}" method="POST" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>

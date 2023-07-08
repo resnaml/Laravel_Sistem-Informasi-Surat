@@ -22,12 +22,12 @@
         <link href="/css/carousel.css" rel="stylesheet">
 
     </head>
+    @include('partials.navbar')
 
     <body>
 
-        @include('partials.navbar')
     <div class="container mt-4 mb-3">
-            @yield('container')
+        @yield('container')
     </div>
 
     </body>
