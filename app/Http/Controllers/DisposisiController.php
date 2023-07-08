@@ -74,4 +74,9 @@ class DisposisiController extends Controller
             'surat' => $suratkeluar
         ]);
     }
+
+    public function disposisiStore(Request $request, Suratkeluar $suratkeluar,Disposisisurat $disposisisurat)
+    {
+        
+    }
 }

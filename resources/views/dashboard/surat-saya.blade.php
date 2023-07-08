@@ -37,10 +37,10 @@
                                     <p class="card-title mt-2 fw-medium"><i class="bi bi-dash-lg"></i> {{ $surat->jenissurat['namejenis'] }} <i class="bi bi-dash-lg"></i></p>
                                     <p class="card-title fw-medium"><i class="bi bi-dash-lg"></i> {{ $surat->sifatsurat['namesifat'] }} <i class="bi bi-dash-lg"></i></p>
                                 </div>
-                                <a class="btn btn-success mt-3" href="/dashboard/suratsaya/{{ $surat->full_number }}"><i class="bi bi-file-earmark-pdf"></i></a>
+                                <a class="btn btn-success mt-3" href="/suratsaya{{ $surat->full_number }}"><i class="bi bi-file-earmark-pdf"></i></a>
                                 {{-- <a class="btn btn-primary mt-3"><i class="bi bi-file-earmark-word"></i>
                                 </a> --}}
-                                <form action="/dashboard/suratsaya{{ $surat->id }}" method="post" class="d-inline">
+                                <form action="/suratsaya{{ $surat->id }}" method="POST" class="d-inline">
                                     @method('delete')
                                     @csrf
                                     <button class="btn mt-3 btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>

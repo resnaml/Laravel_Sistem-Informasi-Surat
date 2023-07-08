@@ -13,7 +13,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{ Request::is('dashboard/suratsaya') ? 'active' : '' }}" aria-current="page" href="/dashboard/suratsaya">
+            <a class="nav-link {{ Request::is('suratsaya') ? 'active' : '' }}" aria-current="page" href="/suratsaya">
                 <i class="bi bi-envelope-paper"></i> Surat Saya
             </a>
         </li>

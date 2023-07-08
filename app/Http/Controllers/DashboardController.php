@@ -52,8 +52,8 @@ class DashboardController extends Controller
     */ 
     public function suratSaya()
     {
-        $suratkeluar = Suratkeluar::where('kepada', auth()->user()->id)->where('print_surat','=' ,1)->get();
-        $jumlahMasuk = Suratkeluar::where('kepada', auth()->user()->id)->count();
+        $suratkeluar = Suratkeluar::where('kepada', auth()->user()->id)->where('print_surat', 1)->where('print_surat' , 1)->get();
+        $jumlahMasuk = $suratkeluar->count();
         return view('dashboard.surat-saya',compact('suratkeluar','jumlahMasuk'));
     }
 
@@ -76,7 +76,7 @@ class DashboardController extends Controller
     public function hapusSurat(Suratkeluar $suratkeluar)
     {
         Suratkeluar::destroy($suratkeluar->id);
-        return redirect('/dashboard/suratsaya')->with('danger','Data surat keluar berhasil terhapus !!!');
+        return redirect('/suratsaya')->with('danger','Data surat keluar berhasil terhapus !!!');
     }
 
     /*

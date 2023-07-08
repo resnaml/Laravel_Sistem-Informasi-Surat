@@ -24,17 +24,20 @@ use App\Http\Controllers\jenissuratController;
 */
 
 /*
-    --Dashboard Route--
+    Interface Web
 */
 Route::get('/', [DashboardController::class,'home']);
 Route::get('/about', [DashboardController::class,'about']);
 Route::get('/panduan', [DashboardController::class,'panduan']);
 
+// Dashboard 
 Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth');
 Route::get('/dashboard/viewakun', [DashboardController::class,'ShowAkun'])->middleware('auth');
-Route::get('/dashboard/suratsaya', [DashboardController::class,'suratSaya'])->middleware('auth');
-Route::get('/dashboard/suratsaya/{suratkeluar:full_number}', [DashboardController::class, 'bukaSuratPDF'])->middleware('auth');
-Route::delete('/dashboard/suratsaya{suratkeluar}', [DashboardController::class, 'hapusSurat'])->middleware('auth');
+
+// Surat Saya
+Route::get('/suratsaya', [DashboardController::class,'suratSaya'])->middleware('auth');
+Route::get('/suratsaya{suratkeluar:full_number}', [DashboardController::class, 'bukaSuratPDF'])->middleware('auth');
+Route::delete('/suratsaya{suratkeluar}', [DashboardController::class, 'hapusSurat'])->middleware('auth');
 
 /* 
     --Login Route-- 
@@ -89,9 +92,7 @@ Route::get('/kelolaakun/{user}', [UserController::class, 'edit'])->middleware('a
 Route::put('/kelolaakun/{user}', [UserController::class, 'update']);
 Route::delete('/kelolaakun/{user}', [UserController::class, 'destroy']);
 Route::post('/kelolaakun/nip', [UserController::class, 'createNip']);
-
 Route::delete('/kelolaakun/nip', [UserController::class, 'destroyNip']);
-
 
 
 /* 
@@ -103,7 +104,6 @@ Route::get('/dashboard/surat/{suratkeluar}', [SuratMasukController::class, 'edit
 Route::get('/dashboard/seluruhsurat/{tglawal}/{tglakhir}', [SuratMasukController::class, 'cetakPerBln'])->middleware('admin');
 Route::get('/dashboard/seluruhsurat/cetakseluruh', [SuratMasukController::class, 'cetakSeluruhSurat'])->middleware('admin');
 
-// Route::post('/dashboard/seluruhsurat/search', [SuratMasukController::class, 'search2'])->middleware('admin');
 
 /*
     --Disposisi Route--
@@ -113,6 +113,9 @@ Route::post('/dashboard/surat{suratkeluar}/disposisi', [DisposisiController::cla
 
 Route::get('/diposisikepala', [DisposisiController::class, 'indexDisposisi'])->middleware('kepala');
 Route::get('/diposisikepala/{suratkeluar:full_number}', [DisposisiController::class, 'diposisiCreate'])->middleware('kepala');
+
+Route::get('/diposisikepala/{suratkeluar:full_number}', [DisposisiController::class, 'diposisiStore'])->middleware('kepala');
+
 
 
 /*
