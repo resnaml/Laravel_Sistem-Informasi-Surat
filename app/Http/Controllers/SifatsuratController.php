@@ -35,7 +35,7 @@ class SifatsuratController extends Controller
             'namesifat' => 'required|max:10|unique:sifatsurats'
         ]);
         Sifatsurat::create($validatedData);
-        return redirect('/dashboard/sifatsurat')->with('success','Sifat Surat Berhasil Terbuat !');
+        return redirect('/sifatsurat')->with('success','Sifat Surat Berhasil Terbuat !');
     }
 
     /*
@@ -44,6 +44,6 @@ class SifatsuratController extends Controller
     public function destroy(Sifatsurat $s)
     {
         Sifatsurat::destroy($s->id);
-        return redirect('/dashboard/sifatsurat')->with('danger','Sifat surat berhasil terhapus !!!');
+        return redirect('/sifatsurat')->with('danger','Sifat surat berhasil terhapus !!!');
     }
 }

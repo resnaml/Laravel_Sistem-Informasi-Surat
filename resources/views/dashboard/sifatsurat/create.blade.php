@@ -9,7 +9,7 @@
         <div class="container">
             <h4 class="mt-2 mb-3 border-bottom border-1">Form Sifat Surat</h4>    
         </div>
-            <form action="/dashboard/sifatsurat/create" method="post">
+            <form action="/sifatsurat/create" method="POST">
                     @csrf
                     <div class="container-fluid mb-3 mt-1 col-lg-7">
                         <label for="namesifat" class="visually-hiddensd mb-2 "><b> Sifat Surat</b></label>
@@ -23,7 +23,7 @@
 
                         <div class="mt-2 mb-3">
                             <button type="submit" class="btn btn-primary me-2"><i class="bi bi-plus-square"></i> Buat Sifat</button>
-                            <a class="btn btn-warning" href="/dashboard/sifatsurat"><i class="bi bi-arrow-left-square"></i> Kembali</a>
+                            <a class="btn btn-warning" href="/sifatsurat"><i class="bi bi-arrow-left-square"></i> Kembali</a>
                         </div>
                     </form>
         </div>

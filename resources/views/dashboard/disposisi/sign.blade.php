@@ -30,21 +30,20 @@
                 <h5 class="card-text"> <i class="bi bi-person-circle"></i> : {{ $surat->user->username }}</h5>
                 <h5 class="card-title mb-2"><i class="bi bi-caret-right-fill"></i> : {{ $surat->jenissurat['namejenis'] }}</h5>
                 <h5 class="card-title mb-2"><i class="bi bi-clock"></i> : {{ $surat->tgl_surat_keluar }}</h5>
+                <h5 class="card-title border border-dark rounded mb-2"><i class="bi bi-check-circle-fill"></i> : Sudah Acc Admin</h5>
             </div>
         </div>
-
             
             <div class="card-body">
                         <div class="container">
-                        <form method="post" action="/dashboard/surat{{ $surat->id }}/disposisi">
+                        <form method="post" action="/dashboard/disposisikepala/{{ $surat->full_number }}">
                             @method('post')
                             @csrf
-
                             <div class="mb-3 mt-4 text-center border border-dark rounded me-2" id="checkbox">
                                 <input class="form-check-input mt-3 mb-3" type="checkbox" value="1" name="print_surat">
                                 <label class="form-check-label me-4 mb-2 mt-2">Setuju Disposisi</label>
                             </div>
-
+                            
                             <div class="mt-3 text-center bg-transparent border border-dark rounded-3" id="form-ttd">
                                 <label for="Tanda tangan" class="form-label"><b>Tanda Tangan</b></label>
                                 <div id="sign"></div>
@@ -57,7 +56,6 @@
                             <div class="text-center container mt-4">
                                 <button type="submit" class="btn btn-success"><i class="bi bi-pen"></i> Simpan</button>
                             </div>
-
                         </form>
                         </div>
             </div>

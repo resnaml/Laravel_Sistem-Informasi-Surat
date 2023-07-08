@@ -9,7 +9,7 @@
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>   
+    </div>
     @endif
 
     @if(session()->has('danger'))
@@ -21,7 +21,7 @@
     
     <div class="card col-10 container-fluid text-center border" style="width: 34rem;">
         <div class="container">
-            <a class="btn btn-success mb-3 mt-3" href="/dashboard/sifatsurat/create">Tambah Sifat Baru</a>    
+            <a class="btn btn-success mb-3 mt-3" href="/sifatsurat/create">Tambah Sifat Baru</a>    
         </div>
 
             <ul class="list-group list-group-flush">
@@ -36,7 +36,7 @@
                         <tr>
                             <td>{{ $s->namesifat }}</td>
                             <td>
-                            <form action="/dashboard/sifatsurat/{{ $s->id }}" method="post" class="d-inline">
+                            <form action="/sifatsurat/{{ $s->id }}" method="POST" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i> Hapus</i></button>

@@ -6,7 +6,7 @@
 </div>
 
     <div class="border-bottom border-dark mb-3">
-        <a class="btn btn-warning mb-2" href="/dashboard/kelolaakun"><i class="bi bi-caret-left-fill"></i> Kembali</a>
+        <a class="btn btn-warning mb-2" href="/kelolaakun"><i class="bi bi-caret-left-fill"></i> Kembali</a>
     </div>
 
     @if(session()->has('success'))
@@ -29,7 +29,7 @@
     
                 <div class="justify-content-start mt-2">
                     <h4>Masukan Data Pegawai</h4>
-                    <form method="post" action="/dashboard/kelolaakun/nip">
+                    <form method="POST" action="/kelolaakun/nip">
                         @csrf
                         <div class="container mt-3 col-7">
         

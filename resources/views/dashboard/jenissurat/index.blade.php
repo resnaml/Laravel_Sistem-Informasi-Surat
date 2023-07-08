@@ -21,7 +21,7 @@
     
     <div class="card col-10 container-fluid border text-center" style="width: 34rem;">
         <div class="container">
-            <a class="btn btn-success mb-3 mt-3" href="/dashboard/jenissurat/create">Buat Kode Surat</a>    
+            <a class="btn btn-success mb-3 mt-3" href="/jenissurat/create">Buat Kode Surat</a>    
         </div>
         <ul class="list-group list-group-flush">
             <table class="table table-striped table-sm table-bordered    table-primary">
@@ -39,7 +39,7 @@
                         <td>{{ $jenis->namejenis }}</td>
                         <td>{{ $jenis->keterangan }}</td>
                         <td>
-                            <form action="/dashboard/jenissurat/{{ $jenis->id }}" method="post" class="d-inline">
+                            <form action="/jenissurat/{{ $jenis->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>

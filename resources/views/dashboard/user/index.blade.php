@@ -8,7 +8,7 @@
 
     <div class="d-flex border-bottom border-dark">
         <div class="col-3 mb-2">
-            <form action="/dashboard/kelolaakun">
+            <form action="/kelolaakun">
             <div class="d-flex">
                 <input class="form-control me-3" name="search" type="search" placeholder="Cari User...">
 
@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <a class="btn btn-primary mt-2 mb-2" href="/dashboard/kelolaakun/nip"><i class="bi bi-people-fill"></i></i> Daftar Pegawai</a>
+    <a class="btn btn-primary mt-2 mb-2" href="/kelolaakun/nip"><i class="bi bi-people-fill"></i></i> Daftar Pegawai</a>
 
     @if(session()->has('warning'))
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -67,8 +67,8 @@
                 @endisset
                 
                 <td scope="col">
-                    <a href="/dashboard/kelolaakun/{{ $akun->id }}/edit" class="btn btn-warning m-lg-1"><i class="bi bi-tools"></i></a>
-                    <form action="/dashboard/kelolaakun/{{ $akun->id }}" method="post" class="d-inline">
+                    <a href="/kelolaakun/{{ $akun->id }}" class="btn btn-warning m-lg-1"><i class="bi bi-tools"></i></a>
+                    <form action="/kelolaakun/{{ $akun->id }}" method="POST" class="d-inline">
                         @method('delete')
                         @csrf
                         <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>

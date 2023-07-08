@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2 border-bottom border-dark">
-        <h1 class="h2">Halaman edit</h1>
+        <h1 class="h2">Halaman Edit Akun</h1>
     </div>
 
     <div class="card mt-3 container-fluid col-4 border mb-4">
@@ -12,7 +12,7 @@
         <div class="card-body text-center">
             <table class="table">
                 <tbody>
-                    <form method="post" action="/dashboard/kelolaakun/{{ $akun->id }}/edit" class="mb-5">
+                    <form method="post" action="/kelolaakun/{{ $akun->id }}" class="mb-5">
                         @method('put')
                         @csrf
                         
@@ -84,7 +84,7 @@
 
                         <div>
                             <button type="submit" class="btn btn-primary m-right-3 me-1"><i class="bi bi-plus-square"></i> Update</button>
-                            <a class="btn btn-warning" href="/dashboard/kelolaakun"><i class="bi bi-arrow-left-square"></i> Kembali</a>
+                            <a class="btn btn-warning" href="/kelolaakun"><i class="bi bi-arrow-left-square"></i> Kembali</a>
                         </div>
                     </form>
                 </tbody>

@@ -43,7 +43,7 @@ class UserController extends Controller
         ];
         $validatedData = $request->validate($rules);
         User::where('id', $user->id)->update($validatedData);
-        return redirect('/dashboard/kelolaakun')->with('warning','Akun Berhasil di Update !!');
+        return redirect('/kelolaakun')->with('warning','Akun Berhasil di Update !!');
     }
 
     /* 
@@ -52,7 +52,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {   
         User::destroy($user->id);
-        return redirect('/dashboard/kelolaakun')->with('danger','User berhasil terhapus !!!');
+        return redirect('/kelolaakun')->with('danger','User berhasil terhapus !!!');
     }
 
     /* 
@@ -66,7 +66,7 @@ class UserController extends Controller
     }
 
     /* 
-        Store NIP (Admin) 
+        Store NIP Control
     */
     public function createNip(Request $request)
     {
@@ -80,6 +80,12 @@ class UserController extends Controller
         ]);
 
         Nip::create($data);
-        return redirect('/dashboard/kelolaakun/nip')->with('success','NIP Berhasil di Daftarkan !');
+        return redirect('/kelolaakun/nip')->with('success','NIP Berhasil di Daftarkan !');
+    }
+
+    public function destroyNip(Nip $nip)
+    {
+        Nip::destroy($nip->id);
+        return redirect('/kelolaakun/nip')->with('danger','NIP berhasil terhapus !');
     }
 }

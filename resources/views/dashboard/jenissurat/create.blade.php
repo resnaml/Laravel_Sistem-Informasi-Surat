@@ -10,7 +10,7 @@
             <h4 class="card-header mt-2 mb-2 border-bottom border-1">Form Kode Surat</h4>    
         </div>
 
-            <form action="/dashboard/jenissurat/create" method="POST">
+            <form action="/jenissurat/create" method="POST">
                 @csrf
                         <div class="mb-2">
                         <label for="kodesurat" class="visually-hiddensd mb-2"><b>Kode Surat</b></label>
@@ -40,7 +40,7 @@
 
                         <div class="mt-2 mb-4">
                             <button type="submit" class="btn btn-primary me-2"><i class="bi bi-plus-square"></i> Buat </button>
-                            <a class="btn btn-warning" href="/dashboard/jenissurat"><i class="bi bi-arrow-left-square"></i> Kembali</a>
+                            <a class="btn btn-warning" href="/jenissurat"><i class="bi bi-arrow-left-square"></i> Kembali</a>
                         </div>
             </form>
     </div>

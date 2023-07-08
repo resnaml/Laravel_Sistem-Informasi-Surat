@@ -36,7 +36,7 @@ class jenissuratController extends Controller
             'keterangan' => 'nullable|max:255'
         ]);
     jenissurat::create($validatedData);
-    return redirect('/dashboard/jenissurat')->with('success','Kode Surat Telah Terbuat !');
+    return redirect('/jenissurat')->with('success','Kode Surat Telah Terbuat !');
     }
 
     /*
@@ -45,6 +45,6 @@ class jenissuratController extends Controller
     public function destroy(jenissurat $jenis)
     {
         jenissurat::destroy($jenis->id);
-        return redirect('/dashboard/jenissurat')->with('danger','Jenis Surat  berhasil terhapus !!!');
+        return redirect('/jenissurat')->with('danger','Jenis Surat  berhasil terhapus !!!');
     }
 }

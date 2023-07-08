@@ -52,18 +52,18 @@ Route::get('/register', [RegisterController::class,'index'])->middleware('guest'
 /*
     --Sifat Surat Route-- 
 */
-Route::get('/dashboard/sifatsurat',[SifatsuratController::class,'index'])->middleware('admin');
-Route::delete('/dashboard/sifatsurat/{s}',[SifatsuratController::class,'destroy'])->middleware('admin');
-Route::get('/dashboard/sifatsurat/create',[SifatsuratController::class,'create'])->middleware('admin');
-Route::post('/dashboard/sifatsurat/create',[SifatsuratController::class,'store'])->middleware('admin');
+Route::get('/sifatsurat',[SifatsuratController::class,'index'])->middleware('admin');
+Route::delete('/sifatsurat/{s}',[SifatsuratController::class,'destroy'])->middleware('admin');
+Route::get('/sifatsurat/create',[SifatsuratController::class,'create'])->middleware('admin');
+Route::post('/sifatsurat/create',[SifatsuratController::class,'store'])->middleware('admin');
 
 /*
     --Jenis Surat Route-- 
 */
-Route::get('/dashboard/jenissurat',[jenissuratController::class,'index'])->middleware('admin');
-Route::delete('/dashboard/jenissurat/{jenis}',[jenissuratController::class,'destroy'])->middleware('admin');
-Route::get('/dashboard/jenissurat/create',[jenissuratController::class,'create'])->middleware('admin');
-Route::post('/dashboard/jenissurat/create', [jenissuratController::class,'store']);
+Route::get('/jenissurat',[jenissuratController::class,'index'])->middleware('admin');
+Route::delete('/jenissurat/{jenis}',[jenissuratController::class,'destroy'])->middleware('admin');
+Route::get('/jenissurat/create',[jenissuratController::class,'create'])->middleware('admin');
+Route::post('/jenissurat/create', [jenissuratController::class,'store']);
 
 /*
     --Pengarsipan Route-- 
@@ -81,14 +81,16 @@ Route::get('/dashboard/pengarsipan/cari-arsip', [PengarsipanController::class, '
 
 
 /* 
---Kelola Akun Route-- 
+    --Kelola Akun Route-- 
 */
-Route::get('/dashboard/kelolaakun', [UserController::class, 'index'])->middleware('admin');
-Route::get('/dashboard/kelolaakun/nip', [UserController::class, 'indexNip'])->middleware('admin');
-Route::get('/dashboard/kelolaakun/{user}/edit', [UserController::class, 'edit'])->middleware('admin');
-Route::put('/dashboard/kelolaakun/{user}/edit', [UserController::class, 'update']);
-Route::delete('/dashboard/kelolaakun/{user}', [UserController::class, 'destroy']);
-Route::post('/dashboard/kelolaakun/nip', [UserController::class, 'createNip']);
+Route::get('/kelolaakun', [UserController::class, 'index'])->middleware('admin');
+Route::get('/kelolaakun/nip', [UserController::class, 'indexNip'])->middleware('admin');
+Route::get('/kelolaakun/{user}', [UserController::class, 'edit'])->middleware('admin');
+Route::put('/kelolaakun/{user}', [UserController::class, 'update']);
+Route::delete('/kelolaakun/{user}', [UserController::class, 'destroy']);
+Route::post('/kelolaakun/nip', [UserController::class, 'createNip']);
+
+Route::delete('/kelolaakun/nip', [UserController::class, 'destroyNip']);
 
 
 
@@ -109,8 +111,8 @@ Route::get('/dashboard/seluruhsurat/cetakseluruh', [SuratMasukController::class,
 Route::get('/dashboard/surat{suratkeluar}/disposisi', [DisposisiController::class, 'index'])->middleware('admin');
 Route::post('/dashboard/surat{suratkeluar}/disposisi', [DisposisiController::class, 'store'])->middleware('admin');
 
-Route::get('/dashboard/diposisikepala', [DisposisiController::class, 'indexDisposisi'])->middleware('kepala');
-Route::get('/dashboard/diposisikepala/{suratkeluar:full_number}', [DisposisiController::class, 'diposisiCreate'])->middleware('kepala');
+Route::get('/diposisikepala', [DisposisiController::class, 'indexDisposisi'])->middleware('kepala');
+Route::get('/diposisikepala/{suratkeluar:full_number}', [DisposisiController::class, 'diposisiCreate'])->middleware('kepala');
 
 
 /*
