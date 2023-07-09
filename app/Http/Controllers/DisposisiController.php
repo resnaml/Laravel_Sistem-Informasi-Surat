@@ -26,8 +26,7 @@ class DisposisiController extends Controller
     public function store(Request $request, Suratkeluar $suratkeluar , Disposisisurat $diposisi)
     {   
         $array =[
-            'status' => 'required',
-            'disposisi_isi' => 'nullable',
+            'status' => 'nullable',
             'print_surat' => 'nullable'
         ];
         $validatedData['disposisi_id'] = ($diposisi->id);
@@ -35,34 +34,45 @@ class DisposisiController extends Controller
         Suratkeluar::where('id', $suratkeluar->id)->update($validatedData);
 
         // Ttd Store
-        $folderPath = public_path('tandaTangan/');
+        // $folderPath = public_path('tandaTangan/');
 
-        $image_parts = explode(';base64',$request->ttd);
+        // $image_parts = explode(';base64',$request->ttd);
 
-        $image_type_aux = explode('image/', $image_parts[0]);
+        // $image_type_aux = explode('image/', $image_parts[0]);
         
-        $image_type = $image_type_aux[1];
-        $image_base64 = base64_decode($image_parts[1]);
+        // $image_type = $image_type_aux[1];
+        // $image_base64 = base64_decode($image_parts[1]);
 
-        $file = $folderPath.uniqid().'.'.$image_type;
-        file_put_contents($file,$image_base64);
+        // $file = $folderPath.uniqid().'.'.$image_type;
+        // file_put_contents($file,$image_base64);
+        // $validatedData['ttd'] = ($file);
 
-        $validatedData = $request->validate([
-            'disposisi_oleh' => 'nullable',
-            'isi_ditolak' => 'nullable'
-        ]);
-        $validatedData['disposisi_id'] = ($suratkeluar->id);
-        $validatedData['no_disposisi'] = ($suratkeluar->jenissurat['kodesurat'] . "/" . substr($suratkeluar->tgl_surat_keluar, 5, 2) . "/" . substr($suratkeluar->tgl_surat_keluar, 2, 2) . "/" . $suratkeluar->no_surat_keluar);
 
-        $validatedData['ttd'] = ($file);
+        if ($suratkeluar->print_surat == true) {
+            
+            $validatedData['disposisi_id'] = ($suratkeluar->id);
+            $validatedData['no_disposisi'] = ($suratkeluar->jenissurat['kodesurat'] . "/" . substr($suratkeluar->tgl_surat_keluar, 5, 2) . "/" . substr($suratkeluar->tgl_surat_keluar, 2, 2) . "/" . $suratkeluar->no_surat_keluar);
+        } else {
+            $validatedData['disposisi_id'] = ($suratkeluar->id);
+            $validatedData['isi_ditolak'] = ($request->isi_ditolak);
+        }
+
+        // $validatedData = $request->validate([
+        //     // 'disposisi_oleh' => 'nullable',
+        //     'isi_ditolak' => 'nullable'
+        // ]);
+
+        // $validatedData['disposisi_id'] = ($suratkeluar->id);
+        // $validatedData['no_disposisi'] = ($suratkeluar->jenissurat['kodesurat'] . "/" . substr($suratkeluar->tgl_surat_keluar, 5, 2) . "/" . substr($suratkeluar->tgl_surat_keluar, 2, 2) . "/" . $suratkeluar->no_surat_keluar);
+        // dd($validatedData);
+
         Disposisisurat::create($validatedData);
-
-        return redirect('/dashboard/surat')->with('success','Surat Masuk, Berhasil di Disposisi !!!');
+        return redirect('/suratmasuk')->with('success','Surat , Berhasil di Setujui !!!');
     }
 
     function indexDisposisi()
     {
-        $suratkeluar = Suratkeluar::where('print_surat', 0)->where('disposisi_isi', 1)->get();
+        $suratkeluar = Suratkeluar::where('print_surat', 1)->where('disposisi_isi', 0)->get();
         
         return view('dashboard.disposisi.index',compact('suratkeluar'));
     }

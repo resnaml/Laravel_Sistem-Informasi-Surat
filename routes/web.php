@@ -109,10 +109,15 @@ Route::get('/seluruhsurat/cetakseluruh', [SuratMasukController::class, 'cetakSel
 Route::delete('/seluruhsurat{suratkeluar}', [SuratMasukController::class, 'destroy'])->middleware('admin');
 
 /*
-    --Disposisi Route--
+    --Persetujuan Admin
 */
 Route::get('/dashboard/surat{suratkeluar}/disposisi', [DisposisiController::class, 'index'])->middleware('admin');
-Route::post('/dashboard/surat{suratkeluar}/disposisi', [DisposisiController::class, 'store'])->middleware('admin');
+
+Route::post('/suratmasuk/{suratkeluar:full_number}', [DisposisiController::class, 'store'])->middleware('admin');
+
+/*
+    --Disposisi Kepala
+*/
 Route::get('/diposisikepala', [DisposisiController::class, 'indexDisposisi'])->middleware('kepala');
 Route::get('/diposisikepala/{suratkeluar:full_number}', [DisposisiController::class, 'diposisiCreate'])->middleware('kepala');
 Route::get('/diposisikepala/{suratkeluar:full_number}', [DisposisiController::class, 'diposisiStore'])->middleware('kepala');

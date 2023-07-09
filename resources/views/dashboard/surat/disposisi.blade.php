@@ -5,49 +5,103 @@
         <h4 class="container">Form Surat Masuk</h4>
     </div>
 
-            <div class="card mt-4 container-fluid border mb-5 col-5">
-                <div class="card-header text-center">
+            <div class="card mt-3 container-fluid border mb-4 col-5">
+                <div class="card-header text-center mb-3">
                 <h3>Detail Surat Masuk</h3>
                 </div>
-                <div class="card-body text-center">
-                    <table class="table">
-                        <tbody>
-                            <div class="container-fluid col-lg-8">
-                                <div class="mb-3 container-fluid">
-                                    <label for="no_surat_keluar" class="form-label"><b>Kode Surat Keluar</b></label>
-                                    <input type="text"  class="text-center form-control" readonly id="no_surat_keluar" name="no_surat_keluar" value="{{ $surat->jenissurat['kodesurat'] ?? '' }}-{{ str_pad($surat->no_surat_keluar, 4, '0', STR_PAD_LEFT) }}">
+                    <div class="container-fluid text-center col-lg-8">
+
+                                <div class="border rounded border-dark mb-2">
+                                    <label class="form-label"><b>Jenis Surat</b></label>
+                                    <h3>{{ $surat->jenissurat['namejenis'] }}</h3>
                                 </div>
 
-                                <div class="mb-3 container-fluid">
-                                    <label for="no_surat_keluar" class="form-label"><b>Tgl Surat Masuk</b></label>
-                                    <input type="text" class="text-center form-control" readonly id="tgl_surat_keluar" name="tgl_surat_keluar" value="{{ old('tgl_surat_keluar',$surat->tgl_surat_keluar) }}">
+                                <div class="border rounded border-dark mb-2">
+                                    <label class="form-label"><b>Jenis Surat</b></label>
+                                    <h3>{{ $surat->sifatsurat['namesifat'] }}</h3>
                                 </div>
 
-                                <div class="mb-3 container-fluid">
-                                    <label for="no_surat_keluar" class="form-label"><b>Jenis Surat Masuk</b></label>
-                                    <input type="text" class="text-center form-control" readonly id="jenis_surat_masuk" name="jenis_surat_masuk" value="{{ old('jenissurat_namejenis',$surat->jenissurat['namejenis']) }}">
+                                <div class="border rounded border-dark mb-2">
+                                <label class="form-label"><b>No Surat</b></label>
+                                <h3>{{ $surat->full_number }}</h3>
                                 </div>
 
-                                <div class="mb-3 container-fluid">
-                                    <label for="no_surat_keluar" class="form-label"><b>Sifat Surat Masuk</b></label>
-                                    <input type="text"class="text-center form-control" readonly id="sifat_surat_masuk" name="sifat_surat_masuk" value="{{ old('sifat_id', $surat->sifatsurat['namesifat']) }}">
+                                <div class="border rounded border-dark mb-2">
+                                    <label class="form-label"><b>Tgl Surat</b></label>
+                                    <h3>{{ $surat->tgl_surat_keluar }}</h3>
+                                </div>
+                                
+                                <div class="border rounded border-dark mb-2">
+                                    <label class="form-label"><b>Pembuat Surat</b></label>
+                                    <h3>{{ $surat->user->username }}</h3>
                                 </div>
 
-                                <div class="mb-3 container-fluid">
-                                    <label for="no_surat_keluar" class="form-label"><b>Pembuat Surat Masuk</b></label>
-                                    <input type="text" class="text-center form-control" readonly id="penerima_surat_masuk" name="penerima_surat_masuk" value="{{ old('pengirim_surat', $surat->user->username) }}">
-                                </div>
-
-                                <div class="col-fluid container mt-4">
+                                <div class="container mt-3">
                                         <a href="/dashboard/surat{{ $surat->id }}/disposisi" class="btn btn-primary mb-3"><i class="bi bi-check-circle"></i> Disposisi</a>
                                         
-                                        <a class="btn btn-warning" href="/suratmasuk"><i class="bi bi-arrow-left-square"></i> Kembali</a>
+                                        <a class="btn btn-warning mb-3" href="/suratmasuk"><i class="bi bi-arrow-left-square"></i> Kembali</a>
+
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-bookmark-check"></i> Setujui Surat</button>
                                 </div>
                             </div>
-                        </tbody>
-                    </table>
                 </div>
-            </div>
 
+                <div class="modal fade" id="exampleModal" tabindex="-1"  aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5">Disposisi Surat</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="container col-lg-8">
+                            <form method="POST" action="/suratmasuk/{{ $surat->full_number }}">
+                                @method('POST')
+                                @csrf
+                                
+                                <div class="mb-2 mt-2 text-center">
+                                    <label for="status disposisi" class="form-label"><b>Status Disposisi</b></label>
+                                    <select onchange="handelOnChangeEvent(this.value)" required class="form-control text-center" name="status" id="status">
+                                    <option selected disabled>-- Pilih Status --</option>
+                                    @foreach(["Diterima" => "Diterima"] as $status => $status2)
+                                    <option value="{{ $status2 }}">{{ $status2 }}</option>
+                                    @foreach(["Ditolak" => "Ditolak"] as $status => $status3)
+                                    <option id="status3" value="{{ $status3 }}">{{ $status3 }}</option>
+                                    @endforeach
+                                    @endforeach
+                                    </select>
+                                </div> 
+        
+                                <div id="isi_ditolak" class="mb-3 text-center mt-4">
+                                    <label class="form-label"><b>Alasan Surat Ditolak</b></label>
+                                    <textarea class="form-control" rows="4" name="isi_ditolak"></textarea>
+                                </div>
+                                
+                                <div class="mb-3 mt-4 text-center border border-dark rounded" id="checkbox">
+                                    <div class="mt-3 mb-3">
+                                        <input class="form-check-input" type="checkbox" value="1" name="print_surat"{{ $surat->print_surat || old('print_surat', 0) === 1 ? 'checked' : '' }}>
+                                        <label class="form-check-label">Setujui Surat</label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 mt-3 text-center" id="isi_oleh">
+                                    <label for="disposisi oleh" class="form-label"><b>Disetujui Oleh</b></label>
+                                    <input type="text" class="form-control text-center" name="disposisi_oleh" value="{{ auth()->user()->username }}" readonly>
+                                </div>
+
+                                <div class="text-center container mt-4">
+                                    <button type="submit" class="btn btn-success"><i class="bi bi-check-circle-fill"></i> Simpan</button>
+                                </div>
+                                
+                                </form>
+                            </div>
+                        </div>
+                        <hr>
+                        </div>
+                    </div>
+                </div>
+
+    <script src="/js/disposisi.js"></script>
 
     @endsection
