@@ -36,11 +36,9 @@
                                 </div>
 
                                 <div class="container mt-3">
-                                        <a href="/dashboard/surat{{ $surat->id }}/disposisi" class="btn btn-primary mb-3"><i class="bi bi-check-circle"></i> Disposisi</a>
+                                        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-bookmark-check"></i> Setujui Surat</button>
                                         
                                         <a class="btn btn-warning mb-3" href="/suratmasuk"><i class="bi bi-arrow-left-square"></i> Kembali</a>
-
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-bookmark-check"></i> Setujui Surat</button>
                                 </div>
                             </div>
                 </div>
@@ -84,9 +82,16 @@
                                     </div>
                                 </div>
 
+                                <div class="mb-3 mt-4 text-center border border-dark rounded" id="acc_admin">
+                                    <div class="mt-3 mb-3">
+                                        <input class="form-check-input" type="checkbox" value="1" checked name="acc_admin">
+                                        <label class="form-check-label">acc admin</label>
+                                    </div>
+                                </div>
+
                                 <div class="mb-3 mt-3 text-center" id="isi_oleh">
                                     <label for="disposisi oleh" class="form-label"><b>Disetujui Oleh</b></label>
-                                    <input type="text" class="form-control text-center" name="disposisi_oleh" value="{{ auth()->user()->username }}" readonly>
+                                    <input type="text" class="form-control text-center" value="{{ auth()->user()->username }}" readonly>
                                 </div>
 
                                 <div class="text-center container mt-4">

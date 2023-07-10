@@ -30,7 +30,7 @@
                 <h5 class="card-text"> <i class="bi bi-person-circle"></i> : {{ $surat->user->username }}</h5>
                 <h5 class="card-title mb-2"><i class="bi bi-caret-right-fill"></i> : {{ $surat->jenissurat['namejenis'] }}</h5>
                 <h5 class="card-title mb-2"><i class="bi bi-clock"></i> : {{ $surat->tgl_surat_keluar }}</h5>
-                <h5 class="card-title border border-dark rounded mb-2"><i class="bi bi-check-circle-fill"></i> : Sudah Acc Admin</h5>
+                <h5 class="card-title border bg-success border-dark rounded mb-2"><i class="bi bi-check-circle-fill"></i> : Sudah Acc Admin</h5>
             </div>
         </div>
             
@@ -39,10 +39,17 @@
                         <form method="post" action="/dashboard/disposisikepala/{{ $surat->full_number }}">
                             @method('post')
                             @csrf
-                            <div class="mb-3 mt-4 text-center border border-dark rounded me-2" id="checkbox">
+                            <div class="mb-3 mt-4 text-center border border-dark rounded me-2">
                                 <input class="form-check-input mt-3 mb-3" type="checkbox" value="1" name="print_surat">
                                 <label class="form-check-label me-4 mb-2 mt-2">Setuju Disposisi</label>
                             </div>
+
+                            <div class="mb-3 mt-3 text-center" id="isi_oleh">
+                                <label class="form-label"><b>Disposisi Oleh</b></label>
+                                <input type="text" class="form-control text-center" value="{{ auth()->user()->username }}" readonly>
+                            </div>
+
+                            
                             
                             <div class="mt-3 text-center bg-transparent border border-dark rounded-3" id="form-ttd">
                                 <label for="Tanda tangan" class="form-label"><b>Tanda Tangan</b></label>
@@ -50,7 +57,6 @@
                                 <br>
                                 <textarea id="asd" name="ttd" style="display:none"></textarea>
                                 <button class="btn btn-danger mb-3" id="clear">Hapus Ttd</button>
-                                
                             </div>
 
                             <div class="text-center container mt-4">

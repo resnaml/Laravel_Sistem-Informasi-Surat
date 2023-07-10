@@ -19,9 +19,9 @@ class CreateSuratkeluarsTable extends Migration
                 $table->timestamps();
                 $table->integer('no_surat_keluar');
                 $table->date('tgl_surat_keluar');
-                // $table->integer('lampiran')->nullable();
                 $table->text('perihal', 255);
                 $table->enum('status', ['Diterima', 'Proses', 'Ditolak'])->default('Proses');
+                $table->boolean('acc_admin')->default(0);
                 $table->boolean('disposisi_isi')->default(0);
                 $table->boolean('print_surat')->default(0);
                 $table->string('full_number');

@@ -35,7 +35,6 @@
                 <td>{{ $surat->user->username }}</td>
                 <td>{{ $surat->created_at->diffForHumans() }} </td>
                 <td>
-                    
                     <a href="/diposisikepala/{{ $surat->full_number }}" class="btn btn-info m-lg-1"><i class="bi bi-clipboard2-check"></i></a>
                     
                 </td>

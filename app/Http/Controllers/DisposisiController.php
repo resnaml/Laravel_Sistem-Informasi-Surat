@@ -11,15 +11,6 @@ use Illuminate\Support\Str;
 
 class DisposisiController extends Controller
 {
-    /* 
-        Halaman Disposisi Surat Masuk
-    */
-    public function index(Suratkeluar $suratkeluar){
-        return view('dashboard.disposisi.create', [
-            'surat' => $suratkeluar
-        ]);
-    }
-
     /*
         Store Data -> Disposisi Surat Masuk By: Admin 
     */
@@ -27,7 +18,8 @@ class DisposisiController extends Controller
     {   
         $array =[
             'status' => 'nullable',
-            'print_surat' => 'nullable'
+            'print_surat' => 'nullable',
+            'acc_admin' => 'nullable'
         ];
         $validatedData['disposisi_id'] = ($diposisi->id);
         $validatedData = $request->validate($array);
@@ -45,12 +37,19 @@ class DisposisiController extends Controller
         return redirect('/suratmasuk')->with('success','Berhasil di Acc !!!');
     }
 
+    /*
+        View Persetujuan Surat Masuk By: Admin 
+    */
     function indexDisposisi()
     {
-        $suratkeluar = Suratkeluar::where('print_surat', 1)->where('disposisi_isi', 0)->get();
+        $suratkeluar = Suratkeluar::where('acc_admin', 1)->where('print_surat', 1)->where('disposisi_isi', 0)->get();
         return view('dashboard.disposisi.index',compact('suratkeluar'));
     }
 
+
+    /*
+        View -> Disposisi Surat By: Kepala 
+    */
     function diposisiCreate(Suratkeluar $suratkeluar)
     {
         return view('dashboard.disposisi.sign', [
@@ -58,9 +57,13 @@ class DisposisiController extends Controller
         ]);
     }
 
+    /*
+        Store Data -> Disposisi Surat By: Kepala 
+    */
     public function disposisiStore(Request $request, Suratkeluar $suratkeluar,Disposisisurat $disposisisurat)
     {
 
+        
         // Ttd Store
         // $folderPath = public_path('tandaTangan/');
 

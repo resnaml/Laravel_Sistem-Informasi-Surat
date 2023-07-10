@@ -2,9 +2,8 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
-        <h2>Daftar User Staff Bp3mi</h2>    
+        <h2>Daftar User</h2>    
     </div>
-
 
     <div class="d-flex border-bottom border-dark">
         <div class="col-3 mb-2">

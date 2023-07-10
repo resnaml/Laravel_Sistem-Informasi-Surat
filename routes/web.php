@@ -96,10 +96,11 @@ Route::delete('/kelolaakun/nip', [UserController::class, 'destroyNip']);
 
 
 /* 
-    --Surat Masuk Route--
+    -- Persetujuan Admin
 */
 Route::get('/suratmasuk', [SuratMasukController::class, 'index'])->middleware('admin');
 Route::get('/suratmasuk/{suratkeluar:full_number}', [SuratMasukController::class, 'edit'])->middleware('admin');
+Route::post('/suratmasuk/{suratkeluar:full_number}', [DisposisiController::class, 'store'])->middleware('admin');
 
 
 // Seluruh Surat
@@ -107,12 +108,6 @@ Route::get('/seluruhsurat', [SuratMasukController::class, 'seluruhSurat'])->midd
 Route::get('/seluruhsurat/{tglawal}/{tglakhir}', [SuratMasukController::class, 'cetakPerBln'])->middleware('admin');
 Route::get('/seluruhsurat/cetakseluruh', [SuratMasukController::class, 'cetakSeluruhSurat'])->middleware('admin');
 Route::delete('/seluruhsurat{suratkeluar}', [SuratMasukController::class, 'destroy'])->middleware('admin');
-
-/*
-    --Persetujuan Admin
-*/
-Route::get('/dashboard/surat{suratkeluar}/disposisi', [DisposisiController::class, 'index'])->middleware('admin');
-Route::post('/suratmasuk/{suratkeluar:full_number}', [DisposisiController::class, 'store'])->middleware('admin');
 
 /*
     --Disposisi Kepala

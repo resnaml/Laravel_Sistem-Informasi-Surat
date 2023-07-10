@@ -45,12 +45,12 @@
         </li>
 
         
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link {{ Request::is('suratmasuk') ? 'active' : '' }}" aria-current="page" href="/suratmasuk">
-                <i class="bi bi-envelope-exclamation-fill"></i> Surat Masuk 
+                <i class="bi bi-envelope-exclamation-fill"></i> Surat Masuk  --}}
                 {{-- <span class="badge bg-primary rounded-pill">{{ $jumlah }}</span> --}}
-            </a>
-        </li>
+            {{-- </a>
+        </li> --}}
 
         {{-- <li class="nav-item">
             <a class="nav-link {{ Request::is('seluruhsurat') ? 'active' : '' }}" aria-current="page" href="/seluruhsurat"><i class="bi bi-mailbox"></i> Seluruh Surat
