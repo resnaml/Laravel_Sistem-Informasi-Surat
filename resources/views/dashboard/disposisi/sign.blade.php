@@ -36,20 +36,13 @@
             
             <div class="card-body">
                         <div class="container">
-                        <form method="post" action="/dashboard/disposisikepala/{{ $surat->full_number }}">
-                            @method('post')
+                        <form method="POST" action="/diposisikepala/{{ $surat->id }}">
+                            @method('PUT')
                             @csrf
                             <div class="mb-3 mt-4 text-center border border-dark rounded me-2">
                                 <input class="form-check-input mt-3 mb-3" type="checkbox" value="1" name="print_surat">
                                 <label class="form-check-label me-4 mb-2 mt-2">Setuju Disposisi</label>
                             </div>
-
-                            <div class="mb-3 mt-3 text-center" id="isi_oleh">
-                                <label class="form-label"><b>Disposisi Oleh</b></label>
-                                <input type="text" class="form-control text-center" value="{{ auth()->user()->username }}" readonly>
-                            </div>
-
-                            
                             
                             <div class="mt-3 text-center bg-transparent border border-dark rounded-3" id="form-ttd">
                                 <label for="Tanda tangan" class="form-label"><b>Tanda Tangan</b></label>

@@ -11,12 +11,6 @@
     </div>
     @endif
 
-    @if(session()->has('warning'))
-    <div class="alert alert-warning" role="alert">
-        {{ session('warning') }}
-    </div>
-    @endif
-
     @if(session()->has('danger'))
     <div class="alert alert-danger" role="alert">
         {{ session('danger') }}
@@ -47,31 +41,34 @@
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $surat->full_number }}</td>
-                {{-- <td>{{ $surat->jenissurat['kodesurat'] ?? '' }}-{{ str_pad($surat->no_surat_keluar, 4, '0', STR_PAD_LEFT) }}</td> --}}
                 <td>{{ $surat->tgl_surat_keluar }}</td>
                 <td>{{ $surat->kepada_id['username'] }}</td>
                 <td>{{ $surat->user->username }}</td>
                 <td>{{ $surat->status }}</td>
                 <td>
                     
-                    @if ($surat->disposisi_isi == true)
+                    @if ($surat->status == 'Ditolak')
+                    <a href="/dashboard/suratkeluar/{{ $surat->id }}" class="btn btn-info m-lg-1"><i class="bi bi-eye"></i></a>
+                    
+                    @endif
+
+                    {{-- @if ($surat->print_surat == true)
                     <a href="/dashboard/suratkeluar/{{ $surat->id }}" class="btn btn-info m-lg-1"><i class="bi bi-eye"></i></a>
                     
                     <form action="/dashboard/suratkeluar/{{ $surat->id }}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
                         <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>
-                    </form>
+                    </form> --}}
                     
-                    @else
-                    {{-- <a href="/dashboard/suratkeluar/{{ $surat->id }}/edit" class="btn btn-warning m-lg-1"><i class="bi bi-tools"></i></a> --}}
+                    {{-- @else --}}
                     
                     <form action="/dashboard/suratkeluar/{{ $surat->id }}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
                         <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>
                     </form>
-                    @endif
+                    {{-- @endif --}}
                 
                 </td>
             </tr>
