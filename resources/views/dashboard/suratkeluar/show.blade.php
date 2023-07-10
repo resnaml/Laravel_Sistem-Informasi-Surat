@@ -58,7 +58,7 @@
 
                         <hr class="featurette-divider border-dark mt-3 mb-4">
                         
-                        @if ($surat->print_surat == true)
+                        @if ($surat->disposisi_isi == true)
                         <div class="card-header mt-3 text-center">
                             <h3>Isi Disposisi</h3>
                         </div>

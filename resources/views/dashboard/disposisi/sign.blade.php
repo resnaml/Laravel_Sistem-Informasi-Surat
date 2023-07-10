@@ -37,12 +37,21 @@
             <div class="card-body">
                         <div class="container">
                         <form method="POST" action="/diposisikepala/{{ $surat->id }}">
-                            @method('PUT')
+                            @method('POST')
                             @csrf
                             <div class="mb-3 mt-4 text-center border border-dark rounded me-2">
-                                <input class="form-check-input mt-3 mb-3" type="checkbox" value="1" name="print_surat">
+                                <input class="form-check-input mt-3 mb-3" type="checkbox" value="1" name="disposisi_isi">
                                 <label class="form-check-label me-4 mb-2 mt-2">Setuju Disposisi</label>
                             </div>
+
+                            <div class="mb-2 mt-2 text-center">
+                                <label for="status disposisi" class="form-label"><b>Status Disposisi</b></label>
+                                <select class="form-control text-center" name="status" id="status">
+                                @foreach(["Diterima" => "Diterima"] as $status => $status2)
+                                <option value="{{ $status2 }}">{{ $status2 }}</option>
+                                @endforeach
+                                </select>
+                            </div> 
                             
                             <div class="mt-3 text-center bg-transparent border border-dark rounded-3" id="form-ttd">
                                 <label for="Tanda tangan" class="form-label"><b>Tanda Tangan</b></label>

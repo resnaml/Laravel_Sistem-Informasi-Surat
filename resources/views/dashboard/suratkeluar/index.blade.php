@@ -49,7 +49,11 @@
                     
                     @if ($surat->status == 'Ditolak')
                     <a href="/dashboard/suratkeluar/{{ $surat->id }}" class="btn btn-info m-lg-1"><i class="bi bi-eye"></i></a>
-                    
+                    @endif
+
+                    @if ($surat->status == 'Diterima')
+                    <a href="/dashboard/suratkeluar{{ $surat->id }}.pdf" class="btn btn-danger me-2 content-center" type="submit"><i class="bi bi-file-earmark-pdf"></i> Export PDF
+                    </a>
                     @endif
 
                     {{-- @if ($surat->print_surat == true)
@@ -61,14 +65,11 @@
                         <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>
                     </form> --}}
                     
-                    {{-- @else --}}
-                    
                     <form action="/dashboard/suratkeluar/{{ $surat->id }}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
                         <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>
                     </form>
-                    {{-- @endif --}}
                 
                 </td>
             </tr>
