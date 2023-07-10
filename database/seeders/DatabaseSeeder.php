@@ -98,6 +98,7 @@ class DatabaseSeeder extends Seeder
             'nip' => '199205142023052001',
             'password' => bcrypt('password'),
             'is_admin' => 1,
+            'is_kepala' => 1
         ]);
 
         Nip::create([

@@ -2,15 +2,14 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h4 class="container">Form Surat Masuk</h4>
+        <h4 class="container">Surat Masuk</h4>
     </div>
 
             <div class="card mt-3 container-fluid border mb-4 col-5">
                 <div class="card-header text-center mb-3">
-                <h3>Detail Surat Masuk</h3>
+                <h4>Detail Surat Masuk</h4>
                 </div>
                     <div class="container-fluid text-center col-lg-8">
-
                                 <div class="border rounded border-dark mb-2">
                                     <label class="form-label"><b>Jenis Surat</b></label>
                                     <h3>{{ $surat->jenissurat['namejenis'] }}</h3>
@@ -64,7 +63,7 @@
                                     <label for="status disposisi" class="form-label"><b>Status Disposisi</b></label>
                                     <select onchange="handelOnChangeEvent(this.value)" required class="form-control text-center" name="status" id="status">
                                     <option selected disabled>-- Pilih Status --</option>
-                                    @foreach(["Diterima" => "Diterima"] as $status => $status2)
+                                    @foreach(["Proses" => "Proses"] as $status => $status2)
                                     <option value="{{ $status2 }}">{{ $status2 }}</option>
                                     @foreach(["Ditolak" => "Ditolak"] as $status => $status3)
                                     <option id="status3" value="{{ $status3 }}">{{ $status3 }}</option>

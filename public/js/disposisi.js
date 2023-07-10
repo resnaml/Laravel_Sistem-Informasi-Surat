@@ -7,7 +7,7 @@ $('#form-ttd').hide();
 $('#isi_ditolak').hide();
 
 function handelOnChangeEvent(x){
-    if (x === 'Diterima') {
+    if (x === 'Proses') {
         $('#isi_oleh').show();
         $('#checkbox').show();
         $('#no_disposisi').show();
