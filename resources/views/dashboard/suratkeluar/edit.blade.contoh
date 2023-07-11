@@ -50,7 +50,6 @@
                     <label for="penerimasurat" class="form-label"><b> Penerima Surat </b></label>
                     <input type="text" class="form-control @error('penerima_surat') is-invalid @enderror" name="penerima_surat" readonly value="{{ old('kepada_id', $surat->kepada_id['name']) }}">
                 </div>
-                
             </div>
             <div class="col-5 container mt-4">
                 <button type="submit" class="btn btn-primary m-right-3"><i class="bi bi-plus-square"></i> Update</button>

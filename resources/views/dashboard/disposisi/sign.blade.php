@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
-    <h2>Kepala : <span class="text-uppercase text-success">{{ auth()->user()->username }}</span></h2>
+    <h2>Form Disposisi</h2>
     </div> 
 
     {{-- Jquery Signin Pad By:Keith Wood --}}
@@ -21,10 +21,7 @@
     </style>
     
     <div class="card mt-4 container mb-4 border-dark col-5">
-        <div class="card-header text-center">
-            <h3>Tanda Tangan Surat</h3>
-        </div>
-        <div class="card border mt-3 border-dark container-fluid text-center" style="width: 18rem;">
+        <div class="card border mt-3 border-dark container-fluid text-center" style="width: 20rem;">
             <div class="card-head h4 mt-2 border-bottom border-dark"><i class="bi bi-envelope-open"></i> : {{ $surat->full_number }}</div>
             <div class="card-body">
                 <h5 class="card-text"> <i class="bi bi-person-circle"></i> : {{ $surat->user->username }}</h5>
@@ -36,15 +33,15 @@
             
             <div class="card-body">
                         <div class="container">
-                        <form method="POST" action="/diposisikepala/{{ $surat->id }}">
-                            @method('POST')
+                        <form method="POST" action="/diposisikepala/{{ $surat->id }}/edit">
+                            @method('PUT')
                             @csrf
-                            <div class="mb-3 mt-4 text-center border border-dark rounded me-2">
-                                <input class="form-check-input mt-3 mb-3" type="checkbox" value="1" name="disposisi_isi">
+                            <div class="mb-3 mt-4 text-center border border-dark rounded me-2" checked id="hide2">
+                                <input class="form-check-input mt-3 mb-3" type="checkbox" value="1" name="disposisi_isi" checked>
                                 <label class="form-check-label me-4 mb-2 mt-2">Setuju Disposisi</label>
                             </div>
 
-                            <div class="mb-2 mt-2 text-center">
+                            <div class="mb-2 mt-2 text-center" id="hide1">
                                 <label for="status disposisi" class="form-label"><b>Status Disposisi</b></label>
                                 <select class="form-control text-center" name="status" id="status">
                                 @foreach(["Diterima" => "Diterima"] as $status => $status2)
@@ -65,10 +62,14 @@
                                 <button type="submit" class="btn btn-success"><i class="bi bi-pen"></i> Simpan</button>
                             </div>
                         </form>
-                        </div>
+                    </div>
             </div>
         </div>
 
         <script src="/js/tanda-tangan.js"></script>
+        <script>
+            $('#hide1').hide();
+            $('#hide2').hide();
+        </script>
         
 @endsection

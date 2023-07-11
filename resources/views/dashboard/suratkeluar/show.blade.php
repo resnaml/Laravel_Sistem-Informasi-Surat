@@ -58,31 +58,9 @@
 
                         <hr class="featurette-divider border-dark mt-3 mb-4">
                         
-                        @if ($surat->disposisi_isi == true)
-                        <div class="card-header mt-3 text-center">
-                            <h3>Isi Disposisi</h3>
-                        </div>
 
                     <div class="card-body">
-                        <table class="table table-responsive">
                             <tbody>    
-                                <tr>
-                                    <th scope="row">No Surat</th>
-                                    <td colspan="2">
-                                    @isset($surat->disposisi)
-                                        {{ $surat->diposisi }}
-                                        <div><b>{{ $surat->disposisi['no_disposisi'] }}</b></div>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Tgl Disposisi</th>
-                                    <td colspan="2"><b>{{ $surat->disposisi->created_at }}</b></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Disposisi Oleh</th>
-                                    <td colspan="2"><b>{{ $surat->disposisi['disposisi_oleh'] }}</b></td>
-                                </tr>
-                                @endisset
-                                @else
                                 <div class="card-header mt-4 mb-3 text-center">
                                     <h3>Disposisi Ditolak</h3>
                                     </div>
@@ -91,25 +69,14 @@
                                     <tr>
                                         <th scope="row">Isi Ditolak</th>
                                     <td>
-                                            <textarea readonly class="form-control" style="height: 100px">{{ $surat->disposisi['isi_ditolak'] }}</textarea>
+                                            <textarea readonly class="form-control text-center" style="height: 100px">{{ $surat->disposisi['isi_ditolak'] }}</textarea>
                                     </td>
                                     </tr>
                                     </tbody>
                                 </table>
-                                @endif
                             </tbody>
-                        </table>
                     </div>
-                    
-                    <hr class="featurette-divider mt-3">
-
-                    @section( $surat->print_surat == true )
-                    @show
-                    @if ($surat->print_surat == true)
-                        
-                        <a href="/dashboard/suratkeluar{{ $surat->id }}.pdf" class="btn btn-danger me-2 content-center" type="submit"><i class="bi bi-file-earmark-pdf"></i> Export PDF
-                        </a>
-                    @endif
+                
                 </div>
             </div>
 

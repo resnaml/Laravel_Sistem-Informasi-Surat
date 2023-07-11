@@ -18,13 +18,12 @@
     @endif
 
     <div class="d-flex mb-0">
-        <a class="d-flex btn btn-primary me-3 mb-3 border-bottom" href="/dashboard/suratkeluar/create"><i class="bi bi-envelope-plus"> Buat Surat</i></a>
-
-        <a class="d-flex btn btn-success me-3 mb-3 border-bottom" href="/dashboard/suratkeluarcetak"><i class="bi bi-printer"> Cetak Data</i></a>
+        <a class="btn btn-primary me-3 mb-3" href="/dashboard/suratkeluar/create"><i class="bi bi-envelope-plus"> Buat Surat</i></a>
+        <a class="btn btn-success me-3 mb-3" href="/dashboard/suratkeluarcetak"><i class="bi bi-printer"> Cetak Data</i></a>
     </div>
     
     <h4 class="border-top border-dark">Daftar Surat</h4>
-    <div class="d-flex table-responsive justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1">
+    <div class="d-flex table-responsive justify-content-between flex-wrap flex-md-nowrap align-items-center mb-1">
         <table class="table table-striped table-sm table-bordered text-center">
         <thead class="table table-primary">
             <tr>
@@ -46,24 +45,15 @@
                 <td>{{ $surat->user->username }}</td>
                 <td>{{ $surat->status }}</td>
                 <td>
-                    
+
                     @if ($surat->status == 'Ditolak')
                     <a href="/dashboard/suratkeluar/{{ $surat->id }}" class="btn btn-info m-lg-1"><i class="bi bi-eye"></i></a>
                     @endif
 
                     @if ($surat->status == 'Diterima')
-                    <a href="/dashboard/suratkeluar{{ $surat->id }}.pdf" class="btn btn-danger me-2 content-center" type="submit"><i class="bi bi-file-earmark-pdf"></i> Export PDF
+                    <a href="/dashboard/suratkeluar{{ $surat->id }}.pdf" class="btn btn-success m-lg-1 content-center" type="submit"><i class="bi bi-file-earmark-pdf"></i>
                     </a>
                     @endif
-
-                    {{-- @if ($surat->print_surat == true)
-                    <a href="/dashboard/suratkeluar/{{ $surat->id }}" class="btn btn-info m-lg-1"><i class="bi bi-eye"></i></a>
-                    
-                    <form action="/dashboard/suratkeluar/{{ $surat->id }}" method="post" class="d-inline">
-                        @method('delete')
-                        @csrf
-                        <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>
-                    </form> --}}
                     
                     <form action="/dashboard/suratkeluar/{{ $surat->id }}" method="post" class="d-inline">
                         @method('delete')

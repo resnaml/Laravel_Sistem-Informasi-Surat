@@ -11,14 +11,6 @@
         </div>
     @endif
 
-    <div class="d-flex">
-        @if($jumlah == 0)
-    @else
-
-    <a class="btn btn-danger mb-2">Segera Disposisi Surat : {{ $jumlah }}</a>
-    
-    @endif
-    </div>
     
     @if($jumlah == 0)
 
@@ -27,7 +19,7 @@
     @else
     
     <div>
-        <h2 class="text-center border-top border-dark">Menunggu Persetujuan</h2>
+        <h2 class="text-center">Menunggu Persetujuan</h2>
         <div class="table-responsive text-center mb-1">
             <table class="table table-striped table-bordered mb-3">
             <thead class="table table-primary table-striped-columns">

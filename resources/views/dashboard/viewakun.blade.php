@@ -49,26 +49,8 @@
                                 <th scope="row">Alamat</th>
                                 <td>: {{ $item->nips_id['alamat'] }}</td>
                             </tr>
-                            <tr>
                             @endisset
-                                <th scope="row">Is Admin</th>
-                                @if ($item->is_admin == 1)
-                                <td colspan="2"> :
-                                    <i class="bi bi-shield-check" style="font-size: 1.5rem;"></i>
-                                @else
-                                    <td colspan="2">: <i class="bi bi-shield-fill-x" style="font-size: 1.5rem;"></i></td>
-                                @endif
-                            </tr>
-                            
-                            <tr>
-                                <th scope="row">Is Kepala</th>
-                                @if ($item->is_kepala == 1)
-                                <td colspan="2"> :
-                                    <i class="bi bi-shield-check" style="font-size: 1.5rem;"></i>
-                                @else
-                                    <td colspan="2">: <i class="bi bi-shield-fill-x" style="font-size: 1.5rem;"></i></td>
-                                @endif  
-                            </tr>
+                        
                         </tbody>
                         
                     </table>

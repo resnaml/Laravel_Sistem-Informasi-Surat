@@ -43,8 +43,8 @@ class DisposisiController extends Controller
     function indexDisposisi()
     {
         $suratkeluar = Suratkeluar::where('acc_admin', 1)->where('print_surat', 1)->where('disposisi_isi', 0)->with('disposisi')->get();
-        // dd($suratkeluar);
-        return view('dashboard.disposisi.index',compact('suratkeluar'));
+        $jumlah = $suratkeluar->count();
+        return view('dashboard.disposisi.index',compact('suratkeluar','jumlah'));
     }
 
 
@@ -61,11 +61,15 @@ class DisposisiController extends Controller
     /*
         Store Data -> Disposisi Surat By: Kepala 
     */
-    public function disposisiStore(Request $request,Suratkeluar $suratkeluar,Disposisisurat $disposisisurat)
+    public function disposisiStore(Request $request,Suratkeluar $suratkeluar)
     {
 
-        // Ttd Store
+        $validatedData['disposisi_isi'] = ($request->disposisi_isi);
+        $validatedData['status'] = ($request->status);
+
+        Suratkeluar::where('id', $suratkeluar->id)->update($validatedData);
         
+        // Ttd Store
         
         $folderPath = public_path('tandaTangan/');
         $image_parts = explode(';base64',$request->ttd);
@@ -77,15 +81,8 @@ class DisposisiController extends Controller
 
         $array['ttd'] = ($file);
         $array['disposisi_oleh'] = (auth()->user()->username);
-        $array['disposisi_isi'] = ($request->disposisi_isi);
-        $array['status'] = ($request->status);
-
-        dd($array);
-
-
-        // Disposisisurat::where('id', $suratkeluar->$disposisisurat)->update($array);
-        
-        // return redirect('/diposisikepala')->with('success','Surat Berasil Disposisi !!!');
+        $suratkeluar->disposisi->forceFill($array)->save();
+        return redirect('/diposisikepala')->with('success','Surat Berasil Disposisi !!!');
         
     }
 }

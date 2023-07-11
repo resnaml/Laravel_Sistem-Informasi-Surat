@@ -114,7 +114,7 @@ Route::delete('/seluruhsurat{suratkeluar}', [SuratMasukController::class, 'destr
 */
 Route::get('/diposisikepala', [DisposisiController::class, 'indexDisposisi'])->middleware('kepala');
 Route::get('/diposisikepala/{suratkeluar}', [DisposisiController::class, 'diposisiCreate'])->middleware('kepala');
-Route::post('/diposisikepala/{suratkeluar}', [DisposisiController::class, 'disposisiStore'])->middleware('kepala');
+Route::put('/diposisikepala/{suratkeluar}/edit', [DisposisiController::class, 'disposisiStore'])->middleware('kepala');
 
 
 

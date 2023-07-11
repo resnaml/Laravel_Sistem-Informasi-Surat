@@ -24,12 +24,14 @@
                 @if (request('kode_arsip'))
                         <input type="hidden" name="kode_arsip" value="{{ request('kode_arsip') }}">
                     @endif
-                <input type="text" class="btn mb-2 me-3 btn-outline-info" placeholder="Cari Arsip..." name="search" value="{{ request('search') }}" id="search">
-                <button class="btn btn-outline-secondary mb-2 me-3" id="button-addon2" type="submit" ><i class="bi bi-search"></i> Cari...</button>
+                <input type="text" class="btn mb-2 me-3 btn-outline-info" placeholder="Cari Arsip..." name="search" value="{{ request('search') }}">
+                <button class="btn btn-outline-secondary mb-2 me-3" type="submit"><i class="bi bi-search"></i> Cari...</button>
             </form>
+
+                <button class="btn btn-success mb-2 me-3" onclick="cari()"><i class="bi bi-search"></i> Kategori</button>
     </div>
 
-    <div class="card-group_s mt-3 mb-3 row">
+    <div class="card-group_s mt-3 mb-3 row" id="tabel">
         <div class="card border border-dark" style="max-width: 13rem;">
             <div class="card-header h5 mt-2"><b>Arsip Berguna</b>  
             <div class="mt-2 h4 bold border"><a href="/pengarsipan/AB">{{ $arsipBerguna }}</a></div>
@@ -63,11 +65,8 @@
             </div>
         </div>
     </div>
-
-    <hr>
-
         
-    <div class="container" id="tabel">
+    <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
                 <h3>Daftar Arsip</h3>
@@ -97,24 +96,12 @@
         </div>
     </div>
 
-    {{-- <script>
-        $(function()
-        {   
-            $('#tabel').hide();
-            $('#search').change(function()
-            {
-                if ($('#search').val() != true) {
-                    // $('#checkbox').hide();
-                    // $('#isi_oleh').hide();
-                    // $('#checkbox').hide();
-                    // $('#no_disposisi').hide();
-                    // $('#sign').hide();
-                    // $('#form-ttd').hide();
-                    $('#tabel').show();
-                }
-            });
-        });
-    </script> --}}
+    <script>
+        $('#tabel').hide();
+        function cari(){
+            $('#tabel').show();
+        }
+    </script>
     
     
 @endsection

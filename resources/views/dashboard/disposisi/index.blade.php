@@ -11,8 +11,12 @@
     </div>
     @endif
     
+
+    @if ($jumlah == 0)
+        <marquee class="h4" behavior="20" direction="20">Surat Disposisi Masih kosong</marquee>
+    @else
     <div class="container-fluid">
-        <h2 class="text-center mb-3 border-bottom">Daftar Surat Menunggu Disposisi</h2>
+        <h2 class="text-center mb-3 border-bottom">Menunggu Disposisi</h2>
         <table class="table table-striped table-sm table-bordered text-center">
             <tr>
                 <thead class="table table-primary">
@@ -43,5 +47,6 @@
             </tbody>
         </table>
     </div>
+    @endif
 
 @endsection
