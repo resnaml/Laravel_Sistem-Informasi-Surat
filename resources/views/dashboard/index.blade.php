@@ -13,7 +13,7 @@
                     <i class="bi bi-envelope-paper mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
                         <h5 class="card-title">Surat Keluar Saya</h5>
-                        <h3 class="btn bg-dark btn-outline-dark text-white">{{ $suratDisposisiCount }}</h3>
+                        <h3 class="btn bg-dark btn-outline-dark text-white">{{ $suratsaya }}</h3>
                     </div>
                 </div>
             </div>
