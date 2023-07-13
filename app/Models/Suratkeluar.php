@@ -9,7 +9,6 @@ use App\Models\Disposisisurat;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Facades\App;
 
 class Suratkeluar extends Model
