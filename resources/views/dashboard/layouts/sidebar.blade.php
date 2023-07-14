@@ -7,11 +7,16 @@
             Dashboard
             </a>
         </li>
+
+        @cannot('kepala')
         <li class="nav-item">
             <a class="nav-link {{ Request::is('dashboard/suratkeluar*') ? 'active' : '' }}" aria-current="page" href="/dashboard/suratkeluar">
                 <i class="bi bi-envelope-plus"></i> Surat Keluar
             </a>
         </li>
+        @endcannot
+        
+
         <li class="nav-item">
             <a class="nav-link {{ Request::is('suratsaya') ? 'active' : '' }}" aria-current="page" href="/suratsaya">
                 <i class="bi bi-envelope-paper"></i> Surat Saya

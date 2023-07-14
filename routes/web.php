@@ -89,10 +89,10 @@ Route::get('/pengarsipan/cari-arsip', [PengarsipanController::class, 'index'])->
 Route::get('/kelolaakun', [UserController::class, 'index'])->middleware('admin');
 Route::get('/kelolaakun/nip', [UserController::class, 'indexNip'])->middleware('admin');
 Route::get('/kelolaakun/{user}', [UserController::class, 'edit'])->middleware('admin');
-Route::put('/kelolaakun/{user}', [UserController::class, 'update']);
-Route::delete('/kelolaakun/{user}', [UserController::class, 'destroy']);
-Route::post('/kelolaakun/nip', [UserController::class, 'createNip']);
-Route::delete('/kelolaakun/nip', [UserController::class, 'destroyNip']);
+Route::put('/kelolaakun/{user}', [UserController::class, 'update'])->middleware('admin');
+Route::delete('/kelolaakun/{user}', [UserController::class, 'destroy'])->middleware('admin');
+Route::post('/kelolaakun/nip', [UserController::class, 'createNip'])->middleware('admin');
+Route::delete('/kelolaakun/nip', [UserController::class, 'destroyNip'])->middleware('admin');
 
 
 /* 
@@ -123,4 +123,4 @@ Route::put('/diposisikepala/{suratkeluar}/edit', [DisposisiController::class, 'd
 */
 Route::resource('/dashboard/suratkeluar', SuratKeluarController::class)->middleware('auth');
 Route::get('/dashboard/suratkeluarcetak', [SuratKeluarController::class, 'cetakSurat'])->middleware('auth');
-Route::get('/dashboard/suratkeluar{suratkeluar}.pdf', [SuratKeluarController::class, 'pdfExport']);
+Route::get('/dashboard/suratkeluar{suratkeluar}.pdf', [SuratKeluarController::class, 'pdfExport'])->middleware('auth');
