@@ -25,6 +25,7 @@ class CreateSuratkeluarsTable extends Migration
                 $table->boolean('disposisi_isi')->default(0);
                 $table->boolean('print_surat')->default(0);
                 $table->string('full_number');
+                $table->softDeletes();
                 
                 // foreign key
                 $table->foreignId('sifat_id')->constrained('sifatsurats')->onDelete('cascade');

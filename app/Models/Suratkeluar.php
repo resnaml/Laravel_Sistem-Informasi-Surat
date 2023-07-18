@@ -8,12 +8,12 @@ use App\Models\User;
 use App\Models\Disposisisurat;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\App;
 
 class Suratkeluar extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
     // use HasTrixRichText;
 
     protected $guarded = ['id'];
