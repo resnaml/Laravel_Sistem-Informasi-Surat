@@ -23,9 +23,9 @@ class DatabaseSeeder extends Seeder
         Sifatsurat::create([
             'namesifat' => 'Biasa'
         ]);
-        Sifatsurat::create([
-            'namesifat' => 'Rahasia'
-        ]);
+        // Sifatsurat::create([
+        //     'namesifat' => 'Rahasia'
+        // ]);
         Sifatsurat::create([
             'namesifat' => 'Penting'
         ]);
