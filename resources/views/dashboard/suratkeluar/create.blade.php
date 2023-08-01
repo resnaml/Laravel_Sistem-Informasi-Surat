@@ -70,7 +70,7 @@
                 @error('perihal')
                 <p class="text-danger">{{ $message }}</p>
                 @enderror
-                <trix-editor class="text-right bg-white" input="perihal"></trix-editor>
+                <trix-editor id='text' class="text-right bg-white" input="perihal"></trix-editor>
             </div>
 
             <div class="col-lg-6 container mt-4">
@@ -82,7 +82,21 @@
         </form>
         </div>
     </div>
+    
 
+    
+    <script>
+        document.getElementById('text').addEventListener('keydown', function(e) {
+            if(e.key == 'Tab'){
+                e.preventDefault();
+                var start = this.selectionStart;
+                var end = this.selectionEnd;
+                this.value = this.value.substring(0, start) +
+                "\t" + this.value.substring(end);
+                this.selectionStart = this.selectionEnd = start + 1;
+            }
+        });
+    </script>
 {{-- 
     <script>
         const jenissurat_id = document.querySelector('#jenissurat_id');
