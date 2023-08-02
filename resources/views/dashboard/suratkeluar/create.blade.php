@@ -83,8 +83,6 @@
         </div>
     </div>
     
-
-    
     <script>
         document.getElementById('text').addEventListener('keydown', function(e) {
             if(e.key == 'Tab'){

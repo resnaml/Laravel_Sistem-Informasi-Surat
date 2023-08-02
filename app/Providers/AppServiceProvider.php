@@ -5,8 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use App\Models\User;
-// use Illuminate\Auth\Access\Gate;
 use Illuminate\Support\Facades\Gate;
+// use Illuminate\Support\Facades\View;
 
 
 
@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         Paginator::useBootstrap();
 
         Gate::define('admin', function(User $user) {
@@ -38,7 +39,6 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('kepala', function(User $user) {
             return $user->is_kepala;
         });
-
 
         // Schema::defaultStringLength(191);
     }

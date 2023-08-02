@@ -14,14 +14,14 @@
     <div class="container">
 
 
-        @if ($jumlahMasuk == null)
+        {{-- @if ($jumlahMasuk == null)
             <h2 class="mt-2">
                 <marquee behavior="2" direction="3">
                     Belum Ada Surat
                 </marquee> 
             </h2>
         
-        @else
+        @else --}}
         
         <div class="row">
             
@@ -56,7 +56,7 @@
             @endforeach
 
         </div>
-        @endif
+        {{-- @endif --}}
         
     </div>
     

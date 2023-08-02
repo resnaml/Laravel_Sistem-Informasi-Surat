@@ -39,6 +39,8 @@ class Suratkeluar extends Model
 
     // protected $fillable= ['no_surat_keluar','tgl_surat_keluar','lampiran','perihal','penerima_surat','sifat_id','jenissurat_id'];
 
+
+
     public function jenissurat()
     {
         return $this->belongsTo(jenissurat::class,'jenissurat_id');
@@ -60,7 +62,7 @@ class Suratkeluar extends Model
     {
         return $this->belongsTo(User::class,'kepada');
     }
-    
+
     // public function sluggable(): array
     // {
     //     return [

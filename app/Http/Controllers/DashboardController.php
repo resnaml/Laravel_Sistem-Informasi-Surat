@@ -13,11 +13,11 @@ use Dflydev\DotAccessData\Data;
 class DashboardController extends Controller
 {
     /* 
-        Halaman Dashboard 
+        Halaman Dashboard     
     */
+    
     public function index(User $user)
     {
-        // $suratmasuk = Suratkeluar::where('acc_admin', 0)->get();
         $suratKeluarCount = Suratkeluar::where('acc_admin', 0)->get()->count();
         $disposisi = Suratkeluar::where('print_surat', 1)->where('disposisi_isi', 0)->get()->count();
         $suratsaya = Suratkeluar::where('user_id', auth()->user()->id)->get()->count();
@@ -52,6 +52,7 @@ class DashboardController extends Controller
     */ 
     public function suratSaya()
     {
+
         $suratkeluar = Suratkeluar::where('kepada', auth()->user()->id)->where('disposisi_isi' , 1)->get();
         $jumlahMasuk = $suratkeluar->count();
         return view('dashboard.surat-saya',compact('suratkeluar','jumlahMasuk'));
