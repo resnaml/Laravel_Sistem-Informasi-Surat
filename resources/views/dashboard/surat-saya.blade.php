@@ -25,7 +25,7 @@
         
         <div class="row">
             
-            @foreach ($suratkeluar as $surat)
+            @forelse ($suratkeluar as $surat)
             
                 <div class="row col-md-3 g-3">
                     <div class="col">
@@ -38,8 +38,6 @@
                                     <p class="card-title fw-medium"><i class="bi bi-dash-lg"></i> {{ $surat->sifatsurat['namesifat'] }} <i class="bi bi-dash-lg"></i></p>
                                 </div>
                                 <a class="btn btn-success mt-3" href="/suratsaya{{ $surat->full_number }}"><i class="bi bi-file-earmark-pdf"></i></a>
-                                {{-- <a class="btn btn-primary mt-3"><i class="bi bi-file-earmark-word"></i>
-                                </a> --}}
                                 <form action="/suratsaya{{ $surat->id }}" method="POST" class="d-inline">
                                     @method('delete')
                                     @csrf
@@ -51,12 +49,17 @@
                             </div>
                         </div>
                     </div>
+                    @empty
+                        
+                    <h1 class="d-flex">
+                        Belum ada surat
+                    </h1>
+                    
                 </div>
+                @endforelse
 
-            @endforeach
 
         </div>
-        {{-- @endif --}}
         
     </div>
     

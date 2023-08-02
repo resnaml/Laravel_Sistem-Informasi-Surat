@@ -19,6 +19,7 @@
     @else
     
     <div>
+
         <h2 class="text-center">Menunggu Persetujuan</h2>
         <div class="table-responsive text-center mb-1">
             <table class="table table-striped table-bordered mb-3">
@@ -33,8 +34,8 @@
                 <th scope="col"><i class="bi bi-clock-fill"></i></th>
                 <th scope="col"></th>
                 <tbody>
-
                     @foreach ($suratmasuk as $surat)
+
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $surat->jenissurat['kodesurat'] ?? '' }}-{{ str_pad($surat->no_surat_keluar, 4, '0', STR_PAD_LEFT) }}</td>
                     <td>{{ $surat->tgl_surat_keluar }}</td>

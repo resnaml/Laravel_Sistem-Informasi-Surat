@@ -54,8 +54,7 @@ class DashboardController extends Controller
     {
 
         $suratkeluar = Suratkeluar::where('kepada', auth()->user()->id)->where('disposisi_isi' , 1)->get();
-        $jumlahMasuk = $suratkeluar->count();
-        return view('dashboard.surat-saya',compact('suratkeluar','jumlahMasuk'));
+        return view('dashboard.surat-saya',compact('suratkeluar'));
     }
 
     /*

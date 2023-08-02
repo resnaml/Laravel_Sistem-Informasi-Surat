@@ -1,9 +1,11 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
+    <div class="d-flex mb-2 pt-3 pb-2  border-bottom border-dark">
     <h2>Form Disposisi</h2>
-    </div> 
+    </div>
+
+    
 
     {{-- Jquery Signin Pad By:Keith Wood --}}
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
@@ -20,14 +22,13 @@
         }
     </style>
     
-    <div class="card mt-4 container mb-4 border-dark col-5">
+    <div class="card mt-3 container mb-4 border-dark col-5">
         <div class="card border mt-3 border-dark container-fluid text-center" style="width: 20rem;">
-            <div class="card-head h4 mt-2 border-bottom border-dark"><i class="bi bi-envelope-open"></i> : {{ $surat->full_number }}</div>
+            <div class="card-head h4 mt-2 border-bottom border-dark"><i class="bi bi-envelope-open"></i> : {{ $surat->full_number }} <span><i class="bi bi-check-circle-fill"></i></span></div>
             <div class="card-body">
                 <h5 class="card-text"> <i class="bi bi-person-circle"></i> : {{ $surat->user->username }}</h5>
                 <h5 class="card-title mb-2"><i class="bi bi-caret-right-fill"></i> : {{ $surat->jenissurat['namejenis'] }}</h5>
                 <h5 class="card-title mb-2"><i class="bi bi-clock"></i> : {{ $surat->tgl_surat_keluar }}</h5>
-                <h5 class="card-title border bg-success border-dark rounded mb-2"><i class="bi bi-check-circle-fill"></i> : Sudah Acc Admin</h5>
             </div>
         </div>
             
@@ -59,7 +60,8 @@
                             </div>
 
                             <div class="text-center container mt-4">
-                                <button type="submit" class="btn btn-success"><i class="bi bi-pen"></i> Simpan</button>
+                                <button type="submit" class="btn btn-success me-2"><i class="bi bi-pen"></i> Simpan</button>
+                                <a href="/diposisikepala" class="btn-primary btn">Kembali</a>
                             </div>
                         </form>
                     </div>

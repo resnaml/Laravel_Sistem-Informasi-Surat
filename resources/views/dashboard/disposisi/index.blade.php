@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
-    <h2>Disposisi Surat Oleh : <span class="text-uppercase">{{ auth()->user()->username }}</span></h2>
+    <h2>Menunggu Disposisi</span></h2>
     </div> 
 
     @if(session()->has('success'))
@@ -13,22 +13,25 @@
     
 
     @if ($jumlah == 0)
-        <marquee class="h4" behavior="20" direction="20">Surat Disposisi Masih kosong</marquee>
+        <marquee class="h4" behavior="20" direction="20">Masih Kosong</marquee>
     @else
+
     <div class="container-fluid">
-        <h2 class="text-center mb-3 border-bottom">Menunggu Disposisi</h2>
-        <table class="table table-striped table-sm table-bordered text-center">
+        
+        <table class="table table-striped table-bordered text-center">
+            <thead>
             <tr>
-                <thead class="table table-primary">
-                    <th scope="col">No</th>
-                    <th scope="col">Kode Surat</th>
+                    <thead class="table table-primary">
+                        <th scope="col">No</th>
+                        <th scope="col">Kode Surat</th>
                     <th scope="col">Tgl Surat Keluar</th>
                     <th scope="col">Tujuan Surat</th>
                     <th scope="col">Pembuat Surat</th>
                     <th scope="col"><i class="bi bi-clock-fill"></i></th>
-                    <th scope="col"> </th>
+                    <th></th>
                 </thead>
             </tr>
+            </thead>
             <tbody>
                 @foreach ($suratkeluar as $surat)
             <tr>
