@@ -1,14 +1,14 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
+    <div class="pt-3 pb-2 mb-3 border-bottom border-dark">
         <h1 class="h2">Selamat Datang, <span class="text-uppercase">{{ auth()->user()->username }}</span></h1>
     </div>
 
     <div class="container-fluid mt-3">
-        <div class="row">
+        <div class="row text-center">
 
-            <div class="col-lg-3 col-4 text-center mb-2">
+            <div class="col-lg-3 col-4 mt-2">
                 <div class="card bg-info flex-md-row position-relative">
                     <i class="bi bi-envelope-paper mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
@@ -19,7 +19,7 @@
             </div>
 
             @can('kepala')
-            <div class="col-lg-3 col-4 text-center">
+            <div class="col-lg-3 col-4 mt-2">
                 <div class="card bg-secondary flex-md-row position-relative">
                     <i class="bi bi-pen mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
@@ -31,7 +31,7 @@
             @endcan
             
             @can('admin')
-            <div class="col-lg-3 col-4 text-center">
+            <div class="col-lg-3 col-4 mt-2">
                 <div class="card bg-danger flex-md-row position-relative">
                     <i class="bi bi-journal-check mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-4 text-center">
+            <div class="col-lg-3 col-4 mt-2">
                 <div class="card bg-primary flex-md-row position-relative">
                     <i class="bi bi-mailbox mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
@@ -51,7 +51,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-4 text-center">
+            <div class="col-lg-3 col-4 mt-2">
                 <div class="card bg-success flex-md-row position-relative">
                     <i class="bi bi-safe2 mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body rounded border-dark">
@@ -61,7 +61,7 @@
                 </div>
             </div>
             
-            <div class="col-lg-3 col-4 text-center">
+            <div class="col-lg-3 col-4 mt-2">
                 <div class="card bg-warning flex-md-row position-relative">
                     <i class="bi bi-people-fill mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
@@ -71,8 +71,8 @@
                 </div>
             </div>
         
-        <div class="card mt-4 mb-3 border border-dark">
-            <div class="row mt-4 container">
+        <div class="card container mt-4 mb-3 border border-dark">
+            <div class="row mt-4">
                 <div class="col-6">
                     <div class="card-header text-bg-dark">
                         <i class="bi bi-graph-up-arrow"></i> Chart Surat

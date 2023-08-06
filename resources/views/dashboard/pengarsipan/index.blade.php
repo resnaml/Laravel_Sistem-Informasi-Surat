@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2 border-dark border-bottom">
+    <div class="d-flex pt-3 pb-2 mb-2 border-dark border-bottom">
         <h1 class="h2">Halaman Pengarsipan</h1>
     </div>
 

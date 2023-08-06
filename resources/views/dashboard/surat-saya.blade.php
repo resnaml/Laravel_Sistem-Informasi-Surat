@@ -1,8 +1,8 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 border-bottom border-dark">
-        <h2>Surat Untuk : <span class="text-uppercase text-success">{{ auth()->user()->username }}</span></h2>
+    <div class="d-flex pt-3 pb-2 border-bottom border-dark">
+        <h2>Surat Masuk : <span class="text-uppercase text-success">{{ auth()->user()->username }}</span></h2>
     </div>
 
     @if(session()->has('danger'))
@@ -12,21 +12,17 @@
     @endif
 
     <div class="container">
-
-
-        {{-- @if ($jumlahMasuk == null)
+        @if ($jumlahMasuk == null)
             <h2 class="mt-2">
                 <marquee behavior="2" direction="3">
                     Belum Ada Surat
                 </marquee> 
             </h2>
-        
-        @else --}}
+        @else
         
         <div class="row">
             
-            @forelse ($suratkeluar as $surat)
-            
+            @foreach ($suratkeluar as $surat)
                 <div class="row col-md-3 g-3">
                     <div class="col">
                         <div class="card h-100 text-center border-dark">
@@ -49,15 +45,11 @@
                             </div>
                         </div>
                     </div>
-                    @empty
-                        
-                    <h1 class="d-flex">
-                        Belum ada surat
-                    </h1>
                     
                 </div>
-                @endforelse
 
+                @endforeach
+            @endif
 
         </div>
         

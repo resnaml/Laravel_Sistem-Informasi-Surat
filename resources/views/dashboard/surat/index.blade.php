@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-    <div class="border-bottom border-dark d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2">
+    <div class="border-bottom border-dark d-flex align-items-center pt-3 pb-2 mb-2">
         <h1 class="h2">Daftar Surat Masuk</h1>
     </div>
 
@@ -11,7 +11,6 @@
         </div>
     @endif
 
-    
     @if($jumlah == 0)
 
     <h1>Belum ada Pengajuan</h1>

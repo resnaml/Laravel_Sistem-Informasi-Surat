@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-    <div class="border-bottom border-dark d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2">
+    <div class="border-bottom border-dark d-flex align-items-center pt-3 pb-2 mb-2">
         <h2>Daftar Seluruh Surat BP3MI</h2>
     </div>
 

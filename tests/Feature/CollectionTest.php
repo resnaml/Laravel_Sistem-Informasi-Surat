@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Data\Person;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use PhpParser\ErrorHandler\Collecting;
 use Tests\TestCase;
 
 use function PHPUnit\Framework\assertEquals;
@@ -110,4 +111,112 @@ class CollectionTest extends TestCase
                 "HR" => collect(["Emul"])
             ], $result->all());
     }
+
+
+    // Zipping
+    public function testZip()
+    {
+        $collection1 = collect([1,2,3]);
+        $collection2 = collect([4,5,6]);
+        $collection3 = $collection1->zip($collection2);
+
+        $this->assertEquals([
+            collect([1,4]),
+            collect([2,5]),
+            collect([3,6])
+        ], $collection3->all());
+    }
+
+    public function testConcat()
+    {
+        $collection1 = collect([1,2,3]);
+        $collection2 = collect([4,5,6]);
+        $collection3 = $collection1->concat($collection2);
+
+        $this->assertEquals([1,2,3,4,5,6], $collection3->all());
+    }
+
+    public function testCombine()
+    {
+        $collection1 = collect(["name", "country"]);
+        $collection2 = collect(["Emul", "Indonesia"]);
+        $collection3 = $collection1->combine($collection2);
+
+        $this->assertEqualsCanonicalizing([
+            "name" => "Emul",
+            "country" => "Indonesia"
+        ], $collection3->all());
+    } 
+
+    public function testCollapse()
+    {
+        $array = collect([
+            [1,2,3],
+            [4,5,6],
+            [7,8,9]
+        ]);
+        $hasil = $array->collapse();
+
+        $this->assertEqualsCanonicalizing([1,2,3,4,5,6,7,8,9], $hasil->all());
+    }
+
+    public function testFlatMap()
+    {
+        $collection = collect([
+            [
+                "name" => "Emul",
+                "hoby" => ["Gaming","Singing"]
+            ],
+            [
+                "name" => "Aresss",
+                "hoby" => ["Write", "Calming"]
+            ]
+            ]);
+
+            $hasil = $collection->flatMap(function ($item){
+                $hoby = $item["hoby"];
+                return $hoby;
+            });
+
+            $this->assertEqualsCanonicalizing(["Gaming", "Singing", "Write", "Calming"], $hasil->all());
+    }
+
+    public function testJoin()
+    {
+        $collection = collect(["Resna", "Mulya", "Lesmana"]);
+
+        $this->assertEquals("Resna-Mulya-Lesmana", $collection->join("-"));
+        $this->assertEquals("Resna-Mulya_Lesmana", $collection->join("-","_"));
+        $this->assertEquals("Resna, Mulya and Lesmana", $collection->join(", " , " and "));
+    }
+
+    public function testFilter()
+    {
+        $collection = collect([
+            "budi" => 100,
+            "dimes" => 70,
+            "joko" => 90
+        ]);
+
+        $result = $collection->filter(function ($value, $key){
+            return $value >=70;
+        });
+
+        assertEquals([
+            "budi" => 100,
+            "joko" => 90,
+            "dimes" => 70
+        ], $result->all());
+    }
+
+    public function testFilterIndex()
+    {
+        $collection = collect([1,2,3,4,5,6,7,8,9,10]);
+        $filter = $collection->filter(function ($value, $key){
+            return $value % 2 == 0;
+        });
+
+        $this->assertEqualsCanonicalizing([2,4,6,8,10], $filter->all());
+    }
+
 }
