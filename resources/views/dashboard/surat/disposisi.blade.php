@@ -1,38 +1,34 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h4 class="container">Surat Masuk</h4>
+    <div class="d-flex pt-3 pb-2 border-bottom">
     </div>
 
-            <div class="card mt-3 container-fluid border mb-4 col-5">
-                <div class="card-header text-center mb-3">
-                <h4>Detail Surat Masuk</h4>
+            <div class="card mt-5 container-fluid border mb-4 col-5">
+                <div class="text-center mt-2 mb-2">
+                <h4><i class="bi bi-envelope-open"></i> : {{ $surat->full_number }}</h4>
                 </div>
-                    <div class="container-fluid text-center col-lg-8">
-                                <div class="border rounded border-dark mb-2">
+
+                    <div class="container-fluid text-center col-9">
+                                
+                            <div class="border rounded border-dark mb-2">
                                     <label class="form-label"><b>Jenis Surat</b></label>
-                                    <h3>{{ $surat->jenissurat['namejenis'] }}</h3>
+                                    <h4>{{ $surat->jenissurat['namejenis'] }}</h4>
                                 </div>
 
                                 <div class="border rounded border-dark mb-2">
-                                    <label class="form-label"><b>Jenis Surat</b></label>
-                                    <h3>{{ $surat->sifatsurat['namesifat'] }}</h3>
-                                </div>
-
-                                <div class="border rounded border-dark mb-2">
-                                <label class="form-label"><b>No Surat</b></label>
-                                <h3>{{ $surat->full_number }}</h3>
+                                    <label class="form-label"><b>Sifat Surat</b></label>
+                                    <h4>- {{ $surat->sifatsurat['namesifat'] }}</h4>
                                 </div>
 
                                 <div class="border rounded border-dark mb-2">
                                     <label class="form-label"><b>Tgl Surat</b></label>
-                                    <h3>{{ $surat->tgl_surat_keluar }}</h3>
+                                    <h4>{{ $surat->tgl_surat_keluar }}</h4>
                                 </div>
                                 
                                 <div class="border rounded border-dark mb-2">
                                     <label class="form-label"><b>Pembuat Surat</b></label>
-                                    <h3>{{ $surat->user->username }}</h3>
+                                    <h4>{{ $surat->user->username }}</h4>
                                 </div>
 
                                 <div class="container mt-3">

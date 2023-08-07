@@ -14,8 +14,6 @@
             </span>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-            {{-- <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li> --}}
             <li><a class="dropdown-item btn btn-primary" href="/dashboard/viewakun">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><form action="/logout" method="post">

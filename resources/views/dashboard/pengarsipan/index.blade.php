@@ -5,18 +5,6 @@
         <h1 class="h2">Halaman Pengarsipan</h1>
     </div>
 
-    @if(session()->has('success'))
-    <div class="alert alert-success mt-1" role="alert">
-        {{ session('success') }}
-    </div>
-    @endif
-
-    @if(session()->has('danger'))
-    <div class="alert alert-danger mt-1" role="alert">
-        {{ session('danger') }}
-    </div>
-    @endif
-
     <div class="d-flex border-bottom border-dark mt-2">
         <a class="btn btn-primary mb-2 me-3" href="/pengarsipan/create"><i class="bi bi-folder-plus"></i> Buat File Arsip</a>
         
@@ -30,6 +18,18 @@
 
                 <button class="btn btn-success mb-2 me-3" onclick="cari()"><i class="bi bi-search"></i> Kategori</button>
     </div>
+
+    @if(session()->has('success'))
+    <div class="alert alert-success mt-1" role="alert">
+        {{ session('success') }}
+    </div>
+    @endif
+
+    @if(session()->has('danger'))
+    <div class="alert alert-danger mt-1" role="alert">
+        {{ session('danger') }}
+    </div>
+    @endif
 
     <div class="card-group_s mt-3 mb-3 row" id="tabel">
         <div class="card border border-dark" style="max-width: 13rem;">
@@ -70,26 +70,32 @@
         <div class="row">
             <div class="col-12 text-center">
                 <table class="table table-striped table-bordered">
-                    <thead class="table table-primary table-striped-columns">
-                        <tr>
-                            <th>No</th>
-                            <th>Kode Arsip</th>
-                            <th>Judul Arsip</th>
-                            <th>Tgl Arsip</th>
-                            <th></th>
-                        </tr>
+                        <thead class="table table-primary table-striped-columns">
+                            <tr>
+                                <th>No</th>
+                                <th>Kode Arsip</th>
+                                <th>Judul Arsip</th>
+                                <th>Tgl Arsip</th>
+                                <th></th>
+                            </tr>
                         </thead>
-                            @foreach($arsip as $arsip)
-                            <tbody>
+                        @foreach($arsip as $arsip)
+                        <tbody>
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $arsip->full_kode }}</td>
                                 <td>{{ $arsip->judul }}</td>
-                                <td>{{ $arsip->tgl_arsip }}</td>
+                                <td>{{ $arsip->created_at->format('y-m-d') }}</td>
                                 <td>
                                     <a href="{{ url('/pengarsipan/download/'.$arsip->id) }} " class="btn btn-success"><i class="bi bi-download"></i></a>
+                                    
+                                    <form action="/pengarsipan/{{ $arsip->id }}" method="post" class="d-inline">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>
+                                    </form>                                
                                 </td>
-                            </tr>
+                                </tr>
                             </tbody>
                             @endforeach
                 </table>

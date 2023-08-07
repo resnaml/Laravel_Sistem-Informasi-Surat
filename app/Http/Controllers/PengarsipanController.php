@@ -43,7 +43,6 @@ class PengarsipanController extends Controller
             'judul' => 'required|max:35|min:5',
             'kategori_arsip_id' => 'required',
             'file_arsip' => 'required|file|mimes:doc,docx,pdf,xls,xlsx,pdf,ppt,pptx',
-            'tgl_arsip' => 'required|date',
             'kodearsip' => 'nullable',
             'full_kode' => 'nullable'
         ]);

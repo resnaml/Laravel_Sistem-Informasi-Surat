@@ -95,8 +95,8 @@
             }
         });
     </script>
-{{-- 
-    <script>
+    
+    {{-- <script>
         const jenissurat_id = document.querySelector('#jenissurat_id');
         const no_surat_keluar = document.querySelector('#no_surat_keluar');
         

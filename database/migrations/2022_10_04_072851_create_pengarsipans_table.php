@@ -19,7 +19,6 @@ class CreatePengarsipansTable extends Migration
             $table->string('file_arsip');
             $table->string('judul');
             $table->integer('kodearsip');
-            $table->date('tgl_arsip');
             $table->string('full_kode');
 
             // Foregin ID
