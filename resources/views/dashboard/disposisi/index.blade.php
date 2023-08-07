@@ -1,8 +1,8 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
-    <h2>Menunggu Disposisi</span></h2>
+    <div class="d-flex pt-3 pb-2 mb-3 border-bottom border-dark">
+    <h2>Halaman Disposisi</span></h2>
     </div> 
 
     @if(session()->has('success'))
@@ -13,20 +13,17 @@
     
 
     @if ($jumlah == 0)
-        <marquee class="h4" behavior="20" direction="20">Masih Kosong</marquee>
+        <marquee class="h4" behavior="20" direction="20">Belum ada Data</marquee>
     @else
 
     <div class="container-fluid">
         
-        <table class="table table-striped table-bordered text-center">
+        <table class="table table-bordered text-center">
             <thead>
             <tr>
                     <thead class="table table-primary">
-                        <th scope="col">No</th>
-                        <th scope="col">Kode Surat</th>
-                    <th scope="col">Tgl Surat Keluar</th>
-                    <th scope="col">Tujuan Surat</th>
-                    <th scope="col">Pembuat Surat</th>
+                    <th scope="col">No</th>
+                    <th scope="col">Kode Surat</th>
                     <th scope="col"><i class="bi bi-clock-fill"></i></th>
                     <th></th>
                 </thead>
@@ -34,22 +31,23 @@
             </thead>
             <tbody>
                 @foreach ($suratkeluar as $surat)
-            <tr>
-                <td>{{ $loop->iteration }}</td>
-                <td>{{ $surat->full_number }}</td>
-                <td>{{ $surat->tgl_surat_keluar }}</td>
-                <td>{{ $surat->kepada_id['username'] }}</td>
-                <td>{{ $surat->user->username }}</td>
-                <td>{{ $surat->created_at->diffForHumans() }} </td>
+            <tbody>
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $surat->full_number }}</td>
+                    <td>{{ $surat->created_at->diffForHumans() }} </td>
                 <td>
                     <a href="/diposisikepala/{{ $surat->id }}" class="btn btn-info m-lg-1"><i class="bi bi-clipboard2-check"></i></a>
                     
                 </td>
-            </tr>
+                </tr>
+            </tbody>
             @endforeach
             </tbody>
         </table>
+
     </div>
+
     @endif
 
 @endsection

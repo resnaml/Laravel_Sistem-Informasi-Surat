@@ -19,7 +19,6 @@
             </div>
         </form>
 
-
         <div class="row mt-2 m-1">
                     <div class="col">
                         <input type="date" name="tglawal" id="tglawal" class="form-control">
@@ -79,7 +78,6 @@
                     </td>
                     <td>{{ $surat->created_at->format('y-m-d') }}</td>
                     <td>
-                        
                             <form action="/seluruhsurat{{ $surat->id }}" method="POST" class="d-inline">
                                 @method('delete')
                                 @csrf
@@ -88,8 +86,9 @@
                     </td>
                     </tr>
                 </tbody>
+
                 @endforeach
-            </table>
+        </table>
 
     </div>
 

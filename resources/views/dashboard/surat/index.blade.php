@@ -1,8 +1,8 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-    <div class="border-bottom border-dark d-flex align-items-center pt-3 pb-2 mb-2">
-        <h1 class="h2">Daftar Surat Masuk</h1>
+    <div class="border-bottom border-dark d-flex  pt-3 pb-2 mb-2">
+        <h2>Halaman Surat Masuk</h2>
     </div>
 
     @if(session()->has('success'))
@@ -12,9 +12,12 @@
     @endif
 
     @if($jumlah == 0)
-
-    <h1>Belum ada Pengajuan</h1>
-
+        
+    <h2 class="mt-2">
+            <marquee behavior="2" direction="3">
+                Belum Pengajuan Surat
+            </marquee> 
+    </h2>
     @else
     
     <div>

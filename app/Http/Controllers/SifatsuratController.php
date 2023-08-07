@@ -19,14 +19,6 @@ class SifatsuratController extends Controller
     }
 
     /*
-        Halaman Buat Sifat Surat -> Admin
-    */
-    public function create()
-    {
-        return view('dashboard.sifatsurat.create');
-    }
-
-    /*
         Store Sifat Surat -> Admin 
     */
     public function store(Request $request)

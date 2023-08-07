@@ -57,8 +57,7 @@ Route::get('/register', [RegisterController::class,'index'])->middleware('guest'
 */
 Route::get('/sifatsurat',[SifatsuratController::class,'index'])->middleware('admin');
 Route::delete('/sifatsurat/{s}',[SifatsuratController::class,'destroy'])->middleware('admin');
-Route::get('/sifatsurat/create',[SifatsuratController::class,'create'])->middleware('admin');
-Route::post('/sifatsurat/create',[SifatsuratController::class,'store'])->middleware('admin');
+Route::post('/sifatsurat',[SifatsuratController::class,'store'])->middleware('admin');
 
 /*
     --Jenis Surat Route-- 

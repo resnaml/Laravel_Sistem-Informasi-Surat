@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-    <div class="d-flex pt-3 pb-2 mb-2 border-dark border-bottom">
+    <div class="d-flex pt-3 pb-2 border-dark border-bottom">
         <h1 class="h2">Halaman Pengarsipan</h1>
     </div>
 
@@ -17,7 +17,7 @@
     </div>
     @endif
 
-    <div class="d-flex border-bottom border-dark">
+    <div class="d-flex border-bottom border-dark mt-2">
         <a class="btn btn-primary mb-2 me-3" href="/pengarsipan/create"><i class="bi bi-folder-plus"></i> Buat File Arsip</a>
         
             <form method="GET" action="/pengarsipan/cari-arsip">
@@ -66,10 +66,9 @@
         </div>
     </div>
         
-    <div class="container">
+    <div class="container mt-3">
         <div class="row">
-            <div class="col-md-12 text-center">
-                <h3>Daftar Arsip</h3>
+            <div class="col-12 text-center">
                 <table class="table table-striped table-bordered">
                     <thead class="table table-primary table-striped-columns">
                         <tr>
@@ -78,8 +77,11 @@
                             <th>Judul Arsip</th>
                             <th>Tgl Arsip</th>
                             <th></th>
+                        </tr>
+                        </thead>
                             @foreach($arsip as $arsip)
                             <tbody>
+                            <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $arsip->full_kode }}</td>
                                 <td>{{ $arsip->judul }}</td>
@@ -87,10 +89,9 @@
                                 <td>
                                     <a href="{{ url('/pengarsipan/download/'.$arsip->id) }} " class="btn btn-success"><i class="bi bi-download"></i></a>
                                 </td>
+                            </tr>
                             </tbody>
                             @endforeach
-                        </tr>
-                    </thead>
                 </table>
             </div>
         </div>

@@ -1,12 +1,12 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
+    <div class="d-flex pt-3 pb-2 border-bottom border-dark">
         <h2>Daftar User</h2>    
     </div>
 
     <div class="d-flex border-bottom border-dark">
-        <div class="col-3 mb-2">
+        <div class="col-3 mb-2 mt-3 me-2">
             <form action="/kelolaakun">
             <div class="d-flex">
                 <input class="form-control me-3" name="search" type="search" placeholder="Cari User...">
@@ -15,26 +15,27 @@
             </div>
             </form>
         </div>
+        <div class="mb-1 mt-2">
+            <a class="btn btn-primary mt-2 mb-2" href="/kelolaakun/nip"><i class="bi bi-people-fill"></i></i> Daftar Pegawai</a>
+        </div>
     </div>
-
-    <a class="btn btn-primary mt-2 mb-2" href="/kelolaakun/nip"><i class="bi bi-people-fill"></i></i> Daftar Pegawai</a>
 
     @if(session()->has('warning'))
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
         {{ session('warning') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <button type="button" data-bs-dismiss="alert" ></button>
     </div>
     @endif
-
+    
     @if(session()->has('danger'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         {{ session('danger') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <button type="button" data-bs-dismiss="alert" ></button>
     </div>
     @endif
 
-        <div class="table-responsive table-bordered text-center">
-            <table class="table table-dark table-sm">
+        <div class="table text-center mt-3">
+            <table class="table table-primary table-sm">
             <thead>
                 <tr>
                 <th scope="col">No</th>
@@ -52,6 +53,7 @@
             
             @foreach ($user as $akun)
             <tbody class="table-light">
+                <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td scope="col">{{ $akun->username }}</td>
                 <td scope="col">{{ $akun->email }}</td>
@@ -73,10 +75,9 @@
                         <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>
                     </form>
                 </td>
-                
+                </tr>
             </tbody>
             @endforeach
-            </table>
         </div>
     
 @endsection
