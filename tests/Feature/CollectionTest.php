@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Data\Person;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\LazyCollection;
 use PhpParser\ErrorHandler\Collecting;
 use Tests\TestCase;
 
@@ -219,4 +220,263 @@ class CollectionTest extends TestCase
         $this->assertEqualsCanonicalizing([2,4,6,8,10], $filter->all());
     }
 
+    public function testPartition()
+    {
+        $collection = collect([
+            "budi" => 100,
+            "dimes" => 70,
+            "joko" => 90
+        ]);
+
+        [$result1,$result2] = $collection->partition(function ($value, $key){
+            return $value >= 90;
+        });
+
+        assertEquals([
+            "budi" => 100,
+            "joko" => 90
+        ], $result1->all());
+        
+        assertEquals([
+            "dimes" => 70
+        ], $result2->all());
+    }
+
+    public function testTesting()
+    {
+        $collection = collect(["Resna", "Mulya", "Lesmana"]);
+        $this->assertTrue($collection->contains("Resna"));
+        $this->assertTrue($collection->contains(function ($value, $key){
+            return $value == "Resna";
+        }));
+    }
+
+    public function testGrouping()
+    {
+        $collection = collect([
+            [
+                "name" => "Emul",
+                "department" => "IT"
+            ],
+            [
+                "name" => "Budi",
+                "department" => "IT"
+            ],
+            [
+                "name" => "Lagos",
+                "department" => "HR"
+            ]
+        ]);
+
+        $result = $collection->groupBy("department");
+
+        assertEquals([
+            "IT" => collect([
+                [
+                    "name" => "Emul",
+                    "department" => "IT"
+                ],
+                [
+                    "name" => "Budi",
+                    "department" => "IT"
+                ],
+            ]),
+            "HR" => collect([
+                [
+                    "name" => "Lagos",
+                    "department" => "HR"
+                ]
+            ])
+                ], $result->all());
+
+        $result = $collection->groupBy(function($value,$key){
+            return strtolower($value["department"]);
+        });
+        
+        assertEquals([
+            "it" => collect([
+                [
+                    "name" => "Emul",
+                    "department" => "IT"
+                ],
+                [
+                    "name" => "Budi",
+                    "department" => "IT"
+                ],
+            ]),
+            "hr" => collect([
+                [
+                    "name" => "Lagos",
+                    "department" => "HR"
+                ]
+            ])
+                ], $result->all());
+    }
+
+    public function testSlice()
+    {
+        $collection = collect([1,2,3,4,5,6,7,8,9]);
+
+        $result = $collection->slice(3);
+        $this->assertEqualsCanonicalizing([4,5,6,7,8,9], $result->all());
+
+        $result = $collection->slice(3,2);
+        $this->assertEqualsCanonicalizing([4,5],$result->all());
+    }
+
+    public function testTake()
+    {
+        $collection = collect([1,2,3,4,5,6,7,8,9]);
+
+        $result = $collection->take(3);
+        $this->assertEqualsCanonicalizing([1,2,3], $result->all());
+
+        $result = $collection->takeUntil(function ($value,$key){
+            return $value == 3;
+        });
+        $this->assertEqualsCanonicalizing([1,2], $result->all());
+
+        $result = $collection->takeWhile(function($value,$key){
+            return $value < 5;
+        });
+        $this->assertEqualsCanonicalizing([1,2,3,4], $result->all());
+    }
+
+    public function testSkip()
+    {
+        $collection = collect([1,2,3,4,5,6,7,8,9]);
+        
+        $result = $collection->skip(3);
+        $this->assertEqualsCanonicalizing([4,5,6,7,8,9], $result->all());
+    
+        $result = $collection->skipUntil(function($value,$key){
+            return $value == 3;
+        });
+        $this->assertEqualsCanonicalizing([3,4,5,6,7,8,9], $result->all());
+    
+        $result = $collection->skipWhile(function($value,$key){
+            return $value < 3;
+        });
+        $this->assertEqualsCanonicalizing([3,4,5,6,7,8,9], $result->all());
+    }
+
+    public function testChunk()
+    {
+        $collection = collect([1,2,3,4,5,6,7,8,9]);
+
+        $result = $collection->chunk(3);
+        $this->assertEqualsCanonicalizing([1,2,3], $result->all()[0]->all());
+        $this->assertEqualsCanonicalizing([4,5,6], $result->all()[1]->all());
+        $this->assertEqualsCanonicalizing([7,8,9], $result->all()[2]->all());
+    }
+
+    public function testFirst()
+    {
+        $collection = collect([1,2,3,4,5,6,7,8,9]);
+
+        $result = $collection->first();
+        $this->assertEquals(1, $result);
+
+        $result = $collection->first(function ($value, $key){
+            return $value > 3;
+        });
+        $this->assertEquals(4, $result);
+    }
+
+    public function testLast()
+    {
+        $collection = collect([1,2,3,4,5,6,7,8,9]);
+
+        $result = $collection->last();
+        $this->assertEquals(9,$result);
+
+        $result = $collection->last(function ($value, $key){
+            return $value = 8;
+        });
+        $this->assertEquals(9, $result);
+    }
+
+    public function testRandom()
+    {
+        $collection = collect([1,2,3,4,5,6,7,8,9]);
+
+        $result = $collection->random();
+        $this->assertTrue(in_array($result , [1,2,3,4,5,6,7,8,9]));
+    
+        // $result = $collection->random(5);
+        // $this->assertEqualsCanonicalizing([1,2,3,4,5], $result);
+    }
+
+    public function testChecking()
+    {
+        $collection = collect([1,2,3,4,5,6,7,8,9]);
+        
+        $this->assertTrue($collection->isNotEmpty());
+        $this->assertFalse($collection->isEmpty());
+        $this->assertTrue($collection->contains(1));
+        $this->assertFalse($collection->contains(10));
+        $this->assertTrue($collection->contains(function ($value,$key){
+            return $value == 9;
+        }));
+        
+    }
+
+    public function testOrdering()
+    {
+        $collection = collect([1,3,2,6,7,8,9,4,5]);
+
+        $result = $collection->sort();
+        $this->assertEqualsCanonicalizing([1,2,3,4,5,6,7,8,9],$result->all());
+        $result = $collection->sortDesc();
+        $this->assertEqualsCanonicalizing([9,8,7,6,5,4,3,2,1], $result->all());
+    }
+
+    public function testAggregation()
+    {
+        $collection = collect([1,2,3,4,5,6,7,8,9]);
+
+        $result = $collection->sum();
+        $this->assertEquals(45, $result);
+
+        $result = $collection->avg();
+        $this->assertEquals(5, $result);
+        
+        $result = $collection->min();
+        $this->assertEquals(1, $result);
+
+        $result = $collection->max();
+        $this->assertEquals(9, $result);
+    }
+
+    public function testReduce()
+    {
+        $collection = collect([1,2,3,4,5,6,7,8,9]);
+
+        $result = $collection->reduce(function ($carry, $item){
+            return $carry + $item;
+        });
+        $this->assertEquals(45,$result);
+
+        // reduce(1,2) = 3
+        // reduce(3,3) = 6
+        // reduce(6,4) = 10
+        // reduce(10,5) = 15
+        // reduce(15,6) = 21
+        // reduce(21,7) = 28
+    }
+
+    public function testLazyCollection()
+    {
+        $collection = LazyCollection::make(function (){
+            $value = 0;
+
+            while(true){
+                yield $value;
+                $value++;
+            }
+        });
+
+        $result = $collection->take(10);
+        $this->assertEqualsCanonicalizing([0,1,2,3,4,5,6,7,8,9],$result->all());
+    }
 }

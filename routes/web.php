@@ -30,7 +30,9 @@ Route::get('/', [DashboardController::class,'home']);
 Route::get('/about', [DashboardController::class,'about']);
 Route::get('/panduan', [DashboardController::class,'panduan']);
 
-// Dashboard 
+/*
+    Dashboard
+*/
 Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth');
 Route::get('/dashboard/viewakun', [DashboardController::class,'ShowAkun'])->middleware('auth');
 
@@ -93,7 +95,6 @@ Route::delete('/kelolaakun/{user}', [UserController::class, 'destroy'])->middlew
 Route::post('/kelolaakun/nip', [UserController::class, 'createNip'])->middleware('admin');
 Route::delete('/kelolaakun/nip', [UserController::class, 'destroyNip'])->middleware('admin');
 
-
 /* 
     -- Persetujuan Admin
 */
@@ -101,8 +102,9 @@ Route::get('/suratmasuk', [SuratMasukController::class, 'index'])->middleware('a
 Route::get('/suratmasuk/{suratkeluar:full_number}', [SuratMasukController::class, 'edit'])->middleware('admin');
 Route::post('/suratmasuk/{suratkeluar:full_number}', [DisposisiController::class, 'store'])->middleware('admin');
 
-
-// Seluruh Surat
+/* 
+    -- Seluruh Surat
+*/
 Route::get('/seluruhsurat', [SuratMasukController::class, 'seluruhSurat'])->middleware('admin');
 Route::get('/seluruhsurat/{tglawal}/{tglakhir}', [SuratMasukController::class, 'cetakPerBln'])->middleware('admin');
 Route::get('/seluruhsurat/cetakseluruh', [SuratMasukController::class, 'cetakSeluruhSurat'])->middleware('admin');
@@ -114,7 +116,6 @@ Route::delete('/seluruhsurat{suratkeluar}', [SuratMasukController::class, 'destr
 Route::get('/diposisikepala', [DisposisiController::class, 'indexDisposisi'])->middleware('kepala');
 Route::get('/diposisikepala/{suratkeluar}', [DisposisiController::class, 'diposisiCreate'])->middleware('kepala');
 Route::put('/diposisikepala/{suratkeluar}/edit', [DisposisiController::class, 'disposisiStore'])->middleware('kepala');
-
 
 
 /*
