@@ -54,8 +54,8 @@
                     @enderror
                 </div>
                 <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">Daftar Akun</button>
-                <small class="d-block text-center mt-3"> Sudah Daftar Akun
-                    <a href="/login">Login</a>
+                <small class="d-block text-center mt-3"> Sudah Daftar
+                    <a href="/login">Ayo Login</a>
                 </small>
                 </form>
             </main>

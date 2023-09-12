@@ -27,6 +27,7 @@ class UserController extends Controller
     {
         return view('dashboard.user.edit',[
             'akun' => $user,
+            // 'user' => User::whereNull('nip_id')->get(),
             'nips' => Nip::all()
         ]);
     }

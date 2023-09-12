@@ -24,6 +24,7 @@ class DashboardController extends Controller
         $userCount = User::get()->count();
         $suratallCount = Suratkeluar::get()->count();
         $pengarsipanCount = Pengarsipan::get()->count();
+        
         $data = Suratkeluar::select('id', 'created_at')->get()->groupBy(function($data){
             return Carbon::parse($data->created_at)->format('M');
         });

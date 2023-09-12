@@ -38,7 +38,7 @@
                     <label for="Password">Password</label>
                 </div>
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
-                <small class="d-block text-center mt-3"> Belum Daftar
+                <small class="d-block text-center mt-3"> Belum Memiliki Akun
                     <a href="/register">Daftar Dahulu?</a>
                 </small>
                 </form>
