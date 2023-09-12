@@ -13,7 +13,7 @@
                     <i class="bi bi-envelope-paper mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
                         <h5 class="card-title">Surat Keluar Saya</h5>
-                        <h3 class="btn bg-dark btn-outline-dark text-white">{{ $suratsaya }}</h3>
+                        <a class="btn bg-dark btn-outline-dark text-white">{{ $suratsaya }}</a>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                     <i class="bi bi-pen mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
                         <h5 class="card-title">Menunggu Disposisi</h5>
-                        <h3 class="btn bg-dark btn-outline-dark text-white">{{ $disposisi }}</h3>
+                        <a href="/diposisikepala" class="btn bg-dark btn-outline-dark text-white">{{ $disposisi }}</a>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                     <i class="bi bi-journal-check mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
                         <h5 class="card-title">Menunggu Perersetujuan</h5>
-                        <h3 class="btn bg-dark btn-outline-dark text-white">{{ $suratKeluarCount }}</h3>
+                        <a href="/suratmasuk" class="btn bg-dark btn-outline-dark text-white">{{ $suratKeluarCount }}</a>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                     <i class="bi bi-mailbox mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
                         <h5 class="card-title">Seluruh Surat</h5>
-                        <h3 class="btn bg-dark btn-outline-dark text-white">{{ $suratallCount }}</h3>
+                        <a class="btn bg-dark btn-outline-dark text-white">{{ $suratallCount }}</a>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     <i class="bi bi-safe2 mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body rounded border-dark">
                         <h5 class="card-title">Jumlah Pengarsipan</h5>
-                        <h3 class="btn bg-dark btn-outline-dark text-white">{{ $pengarsipanCount }}</h3>
+                        <a class="btn bg-dark btn-outline-dark text-white">{{ $pengarsipanCount }}</a>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                     <i class="bi bi-people-fill mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
                     <div class="card-body">
                         <h5 class="card-title">Seluruh User</h5>
-                        <h3 class="btn bg-dark btn-outline-dark text-white">{{ $userCount }}</h3>
+                        <a class="btn bg-dark btn-outline-dark text-white">{{ $userCount }}</a>
                     </div>
                 </div>
             </div>
