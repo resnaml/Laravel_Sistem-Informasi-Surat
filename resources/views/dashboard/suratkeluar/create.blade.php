@@ -5,10 +5,11 @@
         <h1 class="h2">Buat Surat keluar </h1>
     </div>
 
-    <div class="card mt-4 container-fluid col-7 mb-4">
-        <div class="card-header-">
+    <div class="card mt-4 text-center container-fluid col-7 mb-4">
+    
     <form method="post" action="/dashboard/suratkeluar" class="mb-5" enctype="multipart/form-data">
         @csrf
+
         <h3 class="mb-2 text-center">Form Isi Pengajuan</h3>
         
         <hr class="featurette-divider mb-4">
@@ -37,7 +38,6 @@
                     @else
                     <option value="{{ $sifats->id }}">{{ $sifats->namesifat }}</option>
                     @endif
-                    
                     @endforeach
                 </select>
             </div>
@@ -64,13 +64,18 @@
                     </select>
                 </div>
 
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="perihal" class="form-label"><b> Isi Surat </b></label>
                 <input id="perihal" type="hidden" name="perihal" value="{{ old('perihal') }}" required>
                 @error('perihal')
                 <p class="text-danger">{{ $message }}</p>
                 @enderror
                 <trix-editor id='text' class="text-right bg-white" input="perihal"></trix-editor>
+            </div> --}}
+
+            <div class="mb-3">
+                <label for="perihal" class="form-label text-center"><b> Isi Surat </b></label>
+                <textarea name="perihal" id="mytextarea"></textarea>
             </div>
 
             <div class="col-lg-6 container mt-4">
@@ -80,10 +85,19 @@
             </div>
 
         </form>
-        </div>
+        
     </div>
+
+    <script src="https://cdn.tiny.cloud/1/a68xqd9wpckqsojfq91h6e41dcf1qljlsk9ba1slymtnblhx/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     
     <script>
+        tinymce.init({
+            selector:'#mytextarea',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat'
+        });
+    </script>
+
+    {{-- <script>
         document.getElementById('text').addEventListener('keydown', function(e) {
             if(e.key == 'Tab'){
                 e.preventDefault();
@@ -94,7 +108,7 @@
                 this.selectionStart = this.selectionEnd = start + 1;
             }
         });
-    </script>
+    </script> --}}
     
     {{-- <script>
         const jenissurat_id = document.querySelector('#jenissurat_id');

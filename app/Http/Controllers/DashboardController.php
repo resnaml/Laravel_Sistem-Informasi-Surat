@@ -21,6 +21,9 @@ class DashboardController extends Controller
         $suratKeluarCount = Suratkeluar::where('acc_admin', 0)->get()->count();
         $disposisi = Suratkeluar::where('print_surat', 1)->where('disposisi_isi', 0)->get()->count();
         $suratsaya = Suratkeluar::where('user_id', auth()->user()->id)->get()->count();
+
+        $suratme = Suratkeluar::where('kepada',  auth()->user()->id)->where('disposisi_isi', 1)->get()->count();
+        
         $userCount = User::get()->count();
         $suratallCount = Suratkeluar::get()->count();
         $pengarsipanCount = Pengarsipan::get()->count();
@@ -34,7 +37,7 @@ class DashboardController extends Controller
             $months[]=$month;
             $monthCount[]=count($values);
         }
-        return view('dashboard.index', compact('suratKeluarCount','suratsaya','userCount','suratallCount', 'data', 'months','monthCount','pengarsipanCount','disposisi'));
+        return view('dashboard.index', compact('suratKeluarCount','suratsaya','userCount','suratallCount', 'data', 'months','monthCount','pengarsipanCount','disposisi','suratme'));
     }
 
     /* 

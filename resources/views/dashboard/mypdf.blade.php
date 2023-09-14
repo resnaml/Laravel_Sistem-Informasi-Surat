@@ -11,39 +11,42 @@
 
 <div style="text-align: center;">
         <img src="img/header_jelas.jpg" style="width: 800px; height: 130px">
-    </div>
+</div>
 
-    <div class="text-end mt-1 px-2">
-        <h6>{{ $surat->tgl_surat_keluar }}</h6>
-    </div>
 
-<body>
-    
-    <div>
-        <table class="table table-borderless text-start mb-3 px-2">
-            <tr>
-                <th>NoSurat</th>
-                <td class="table">: {{ $surat->disposisi['no_disposisi'] }}</td> 
-            </tr>
-            <tr>
-                <th>Hal</th>
-                <td>: {{ $surat->jenissurat['namejenis'] }}</td>
-            </tr>
-            <tr>
-                <th>Sifat</th>
-                <td>: {{ $surat->sifatsurat['namesifat'] }}</td>
-            </tr>
-            <tr>
-                <th>Kepada</th>
-                <td>: {{ $surat->kepada_id['username'] }}</td>
-            </tr>
-        </table>
-    </div>
+    <head>
+        <div class="text-end px-2">
+            <h6>{{ date('d/m/Y', strtotime($surat->tgl_surat_keluar)) }}</h6>
+        </div>
+        <div class="text-start px-2">
 
-    <hr class="border border-dark border-2 opacity-100">
+            <table class="table table-borderless">
+                <tr>
+                    <th>NoSurat</th>
+                    <td class="table">: {{ $surat->disposisi['no_disposisi'] }}</td> 
+                </tr>
+                <tr>
+                    <th>Hal</th>
+                    <td>: {{ $surat->jenissurat['namejenis'] }}</td>
+                </tr>
+                <tr>
+                    <th>Sifat</th>
+                    <td>: {{ $surat->sifatsurat['namesifat'] }}</td>
+                </tr>
+                <tr>
+                    <th>Kepada</th>
+                    <td>: {{ $surat->kepada_id['username'] }}</td>
+                </tr>
+            </table>
+        </div>
+    </head>
+
+    <hr class="border border-dark border-1 opacity-100" style="padding-top: 10px;">
+
+<body style="padding-top: 5px;">
     
     <div class="justify px-2">
-        <p>{!! $surat->perihal !!}</p>
+        {!! $surat->perihal !!}
     </div>
     
 </body>

@@ -18,6 +18,16 @@
                 </div>
             </div>
 
+            <div class="col-lg-3 col-4 mt-2">
+                <div class="card bg-light flex-md-row position-relative">
+                    <i class="bi bi-envelope-exclamation-fill mx-3 me-3 mt-2" style="font-size: 4.0rem;"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Surat Untuk Saya</h5>
+                        <a href="/suratsaya" class="btn bg-dark btn-outline-dark text-white">{{ $suratme }}</a>
+                    </div>
+                </div>
+            </div>
+
             @can('kepala')
             <div class="col-lg-3 col-4 mt-2">
                 <div class="card bg-secondary flex-md-row position-relative">
