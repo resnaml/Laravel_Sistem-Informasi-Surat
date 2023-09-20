@@ -35,7 +35,7 @@
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $surat->full_number }}</td>
-                <td>{{ $surat->tgl_surat_keluar }}</td>
+                <td>{{ date('d/m/Y', strtotime($surat->tgl_surat_keluar)) }}</td>
                 <td>{{ $surat->jenissurat['namejenis'] }}</td>
                 <td>{{ $surat->sifatsurat['namesifat'] }}</td>
                 <td>{{ $surat->user->username }}</td>

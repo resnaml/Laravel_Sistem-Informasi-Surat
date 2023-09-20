@@ -34,7 +34,7 @@ class DisposisiController extends Controller
         }
 
         Disposisisurat::create($validatedData);
-        return redirect('/suratmasuk')->with('success','Berhasil di Acc !!!');
+        return redirect('/suratmasuk')->with('warning','Surat berhasil telah di proses');
     }
 
     /*
@@ -82,7 +82,7 @@ class DisposisiController extends Controller
         $array['ttd'] = ($file);
         $array['disposisi_oleh'] = (auth()->user()->username);
         $suratkeluar->disposisi->forceFill($array)->save();
-        return redirect('/diposisikepala')->with('success','Surat Berasil Disposisi !!!');
+        return redirect('/diposisikepala')->with('success','Berhasil melakukan diposisi !');
         
     }
 }

@@ -19,7 +19,7 @@
 
     <div class="d-flex mb-0 mb-3">
         <a class="btn btn-primary me-2" href="/dashboard/suratkeluar/create"><i class="bi bi-envelope-plus"> Buat Surat</i></a>
-        <a class="btn btn-success" href="/dashboard/suratkeluarcetak"><i class="bi bi-printer"> Cetak Data</i></a>
+        {{-- <a class="btn btn-success" href="/dashboard/suratkeluarcetak"><i class="bi bi-printer"> Cetak Data</i></a> --}}
     </div>
     
     
@@ -41,7 +41,7 @@
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $surat->full_number }}</td>
-                <td>{{ $surat->tgl_surat_keluar }}</td>
+                <td>{{ date('d/m/Y', strtotime($surat->tgl_surat_keluar)) }}</td>
                 <td>{{ $surat->kepada_id['username'] }}</td>
                 <td>{{ $surat->user->username }}</td>
                 <td>{{ $surat->status }}</td>

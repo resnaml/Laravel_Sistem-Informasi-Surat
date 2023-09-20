@@ -34,10 +34,10 @@
         </div>
 
         <div class="row2">
-            <a class="d-flex btn btn-outline-success me-3 mt-2" onclick="this.href='/seluruhsurat/'+ document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"><i class="bi bi-printer"> Cari Data</i></a>
+            <a class="d-flex btn btn-outline-success me-3 mt-2" onclick="this.href='/seluruhsurat/'+ document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"><i class="bi bi-printer"> Cari data</i></a>
         </div>
         <div class="row2">
-            <a class="d-flex btn btn-outline-primary mt-2" href="/seluruhsurat/cetakseluruh"><i class="bi bi-printer"> Print Data</i></a>
+            <a class="d-flex btn btn-outline-primary mt-2" href="/seluruhsurat/cetakseluruh"><i class="bi bi-printer"> Print Seluruh Data</i></a>
         </div>
     </div>
     
@@ -55,7 +55,7 @@
                 <th scope="col">Tujuan Surat</th>
                 <th scope="col">Status Surat</th>
                 <th scope="col">Disposisi</th>
-                <th scope="col">Tgl Dibuat</th>
+                <th scope="col">Tgl Pengajuan</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -65,7 +65,7 @@
                     @foreach ($surats as $surat)
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $surat->full_number }}</td>
-                    <td>{{ $surat->tgl_surat_keluar }}</td>
+                    <td>{{ date('d/m/Y', strtotime($surat->tgl_surat_keluar)) }}</td>
                     <td>{{ $surat->jenissurat['namejenis'] }}</td>
                     <td>{{ $surat->sifatsurat['namesifat'] }}</td>
                     <td>{{ $surat->user->username }}</td>
@@ -76,7 +76,7 @@
                         {{ $surat->disposisi['disposisi_oleh'] }}
                         @endisset
                     </td>
-                    <td>{{ $surat->created_at->format('y-m-d') }}</td>
+                    <td>{{ $surat->created_at->format('d//m/Y') }}</td>
                     <td>
                             <form action="/seluruhsurat{{ $surat->id }}" method="POST" class="d-inline">
                                 @method('delete')

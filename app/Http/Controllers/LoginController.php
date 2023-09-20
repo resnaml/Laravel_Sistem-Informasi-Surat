@@ -22,7 +22,7 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required',
+            'username' => 'required',
             'password' => 'required'
         ]);
 
@@ -30,7 +30,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         }
-        return back()->with('LoginError','Login gagal coba periksa lagi Username atau Password !!');
+        return back()->with('LoginError','Login gagal coba periksa lagi Username atau Password anda !');
     }
 
     /* 
