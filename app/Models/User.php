@@ -32,6 +32,7 @@ class User extends Authenticatable
     // protected $fillable =['nip_id'];
 
     protected $guarded = ['id'];
+    
 
     public function scopeFilter($query, array $filters)
     {
@@ -50,7 +51,7 @@ class User extends Authenticatable
     }
 
     public function nips_id(){
-        return $this->belongsTo(Nip::class,'nip_id');
+        return $this->belongsTo(Nip::class, 'nip_id');
     }
 
     public function kepada_surat()

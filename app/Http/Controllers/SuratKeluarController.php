@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\PDF;
 use App\Models\Disposisisurat;
+use App\Models\Nip;
 use Illuminate\Support\Facades\Storage;
 
 use PhpOffice\PhpWord\TemplateProcessor;
@@ -47,10 +48,10 @@ class SuratKeluarController extends Controller
         $all = User::all();
         $collect = collect($all);
         $users = $collect->whereNotIn('id', auth()->user()->id);
-        $users->all();
+        $nips = Nip::all();
         $jenissurats = jenissurat::all();
         $sifat = Sifatsurat::all();
-        return view('dashboard.suratkeluar.create', compact('jenissurats','sifat','users'));
+        return view('dashboard.suratkeluar.create', compact('jenissurats','sifat','users','nips'));
     }
     
     /*

@@ -59,7 +59,11 @@
                     <select class="form-select text-center" name="kepada">
                         <option selected disabled>-- Pilih User --</option>
                         @foreach ($users as $users)
-                        <option value="{{ $users->id }}">{{ $users->username }}</option>
+                        <option value="{{ $users->id }}">{{ $users->username }} |
+                        @isset($users->nips_id) 
+                        {{ $users->nips_id['jabatan'] }}
+                        @endisset
+                        </option>
                         @endforeach
                     </select>
                 </div>

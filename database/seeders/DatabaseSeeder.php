@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(10)->create();
 
         Sifatsurat::create([
             'namesifat' => 'Biasa'
@@ -37,28 +36,28 @@ class DatabaseSeeder extends Seeder
         ]);
 
         jenissurat::create([
-            'kodesurat' => 'SR01',
-            'namejenis' => 'SuratResmi'
+            'kodesurat' => 'PK01',
+            'namejenis' => 'Surat Penerimaan PKL'
+        ]);
+        jenissurat::create([
+            'kodesurat' => 'IN01',
+            'namejenis' => 'Surat Izin Penelitian'
         ]);
         jenissurat::create([
             'kodesurat' => 'SP01',
-            'namejenis' => 'SuratPermohonan'
-        ]);
-        jenissurat::create([
-            'kodesurat' => 'SK01',
-            'namejenis' => 'SuratKuasa'
+            'namejenis' => 'Surat Permohonan'
         ]);
         jenissurat::create([
             'kodesurat' => 'SP02',
-            'namejenis' => 'SuratPerintah'
+            'namejenis' => 'Surat Perintah'
         ]);
         jenissurat::create([
             'kodesurat' => 'SP03',
-            'namejenis' => 'SuratPengantar'
+            'namejenis' => 'Surat Pengantar'
         ]);
         jenissurat::create([
             'kodesurat' => 'SE01',
-            'namejenis' => 'SuratEdaran'
+            'namejenis' => 'Surat Edaran'
         ]);
 
         Kategoriarsip::create([
@@ -102,8 +101,25 @@ class DatabaseSeeder extends Seeder
 
         Nip::create([
             'nip_kode' => '199205142023052002',
+            'nama_lengkap' => 'Kepala',
+            'jabatan' => 'Kepala',
+            'alamat' => 'Jln. Patimura no.90',
+            'telepon' => '09823921993929',
+            'tgl_lahir' => '2023-06-19'
+        ]);
+
+        User::create([
+            'username' => 'kepala',
+            'email' => 'kepala@gmail.com',
+            'nip' => '199205142023052002',
+            'password' => bcrypt('password'),
+            'is_kepala' => 1
+        ]);
+
+        Nip::create([
+            'nip_kode' => '199205142023052003',
             'nama_lengkap' => 'Ares',
-            'jabatan' => 'Staff',
+            'jabatan' => 'Karyawan',
             'alamat' => 'Jln. Patimura no.90',
             'telepon' => '09823921993929',
             'tgl_lahir' => '2023-06-19'
@@ -112,23 +128,6 @@ class DatabaseSeeder extends Seeder
         User::create([
             'username' => 'ares',
             'email' => 'ares@gmail.com',
-            'nip' => '199205142023052002',
-            'password' => bcrypt('password'),
-            'is_kepala' => 1
-        ]);
-
-        Nip::create([
-            'nip_kode' => '199205142023052003',
-            'nama_lengkap' => 'Emul',
-            'jabatan' => 'Staff',
-            'alamat' => 'Jln. Patimura no.90',
-            'telepon' => '09823921993929',
-            'tgl_lahir' => '2023-06-19'
-        ]);
-
-        User::create([
-            'username' => 'emul',
-            'email' => 'emul@gmail.com',
             'nip' => '199205142023052003',
             'password' => bcrypt('password'),
         ]);

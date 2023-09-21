@@ -33,10 +33,10 @@
                     <th>Sifat</th>
                     <td>: {{ $surat->sifatsurat['namesifat'] }}</td>
                 </tr>
-                <tr>
+                {{-- <tr>
                     <th>Kepada</th>
                     <td>: {{ $surat->kepada_id['username'] }}</td>
-                </tr>
+                </tr> --}}
             </table>
         </div>
     </head>

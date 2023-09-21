@@ -13,7 +13,7 @@ class Nip extends Model
     protected $guarded = ['id'];
 
     function nip(){
-        return $this->hasOne(User::class,'nip_id');
+        return $this->hasOne(User::class);
     }
 
 }
