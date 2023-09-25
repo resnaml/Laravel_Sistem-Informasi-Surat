@@ -5,9 +5,9 @@
         <h2>Halaman Persetujuan Surat</h2>
     </div>
 
-    @if(session()->has('success'))
-        <div class="alert alert-success" role="alert">
-            {{ session('success') }}
+    @if(session()->has('warning'))
+        <div class="alert alert-warning" role="alert">
+            {{ session('warning') }}
         </div>
     @endif
 
@@ -22,8 +22,8 @@
     
     <div>
         <div class="table-responsive text-center mt-3">
-            <table class="table table-striped table-bordered">
-            <thead class="table table-primary table-striped-columns">
+            <table class="table table-hover">
+            <thead class="table table-primary">
                 <tr>
                 <th scope="col">No</th>
                 <th scope="col">Kode Surat</th>

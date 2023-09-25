@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="border-bottom border-dark d-flex align-items-center pt-3 pb-2 mb-2">
-        <h2>Daftar Seluruh Surat BP3MI</h2>
+        <h2>Seluruh Surat BP3MI</h2>
     </div>
 
     @if(session()->has('danger'))
@@ -22,7 +22,7 @@
         <div class="row mt-2 m-1">
                     <div class="col">
                         <input type="date" name="tglawal" id="tglawal" class="form-control">
-                        <label class="d-flex" for="Tgl Surat dari"><b>-</b></label>
+                        <label class="d-flex" for="Tgl Surat dari"><span>Tgl surat</span></label>
                     </div>
                     <div class="col">
                         <i class="bi bi-chevron-double-right" style="font-size: 1.5rem;"></i>
@@ -34,16 +34,16 @@
         </div>
 
         <div class="row2">
-            <a class="d-flex btn btn-outline-success me-3 mt-2" onclick="this.href='/seluruhsurat/'+ document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"><i class="bi bi-printer"> Cari data</i></a>
+            <a class="d-flex btn btn-success me-3 mt-2" onclick="this.href='/seluruhsurat/'+ document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"><i class="bi bi-printer"> Cari data</i></a>
         </div>
         <div class="row2">
-            <a class="d-flex btn btn-outline-primary mt-2" href="/seluruhsurat/cetakseluruh"><i class="bi bi-printer"> Print Seluruh Data</i></a>
+            <a class="d-flex btn btn-primary mt-2" href="/seluruhsurat/cetakseluruh"><i class="bi bi-printer"> Print Seluruh Data</i></a>
         </div>
     </div>
     
 
-    <div class="table-responsive text-center d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1">
-        <table class="table table-striped table-bordered mb-3">
+    <div class="table-responsive text-center justify-content-between pt-3 pb-2 mb-1">
+        <table class="table table-hover">
         <thead class="table table-primary table-striped-columns">
             <tr>
                 <th scope="col">No</th>
@@ -56,7 +56,7 @@
                 <th scope="col">Status Surat</th>
                 <th scope="col">Disposisi</th>
                 <th scope="col">Tgl Pengajuan</th>
-                <th scope="col"></th>
+                {{-- <th scope="col"></th> --}}
             </tr>
         </thead>
 
@@ -77,13 +77,13 @@
                         @endisset
                     </td>
                     <td>{{ $surat->created_at->format('d//m/Y') }}</td>
-                    <td>
+                    {{-- <td>
                             <form action="/seluruhsurat{{ $surat->id }}" method="POST" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="btn btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>
                             </form>
-                    </td>
+                    </td> --}}
                     </tr>
                 </tbody>
 

@@ -18,7 +18,7 @@
 
                                 <div class="border rounded border-dark mb-2">
                                     <label class="form-label"><b>Sifat Surat</b></label>
-                                    <h4>- {{ $surat->sifatsurat['namesifat'] }}</h4>
+                                    <h4>{{ $surat->sifatsurat['namesifat'] }}</h4>
                                 </div>
 
                                 <div class="border rounded border-dark mb-2">

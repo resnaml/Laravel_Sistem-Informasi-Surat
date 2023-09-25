@@ -16,23 +16,23 @@
 
     <head>
         <div class="text-end px-2">
-            <h6>{{ date('d/m/Y', strtotime($surat->tgl_surat_keluar)) }}</h6>
+            <h6 class="fw-normal">{{ date('d M Y', strtotime($surat->tgl_surat_keluar)) }}</h6>
         </div>
         <div class="text-start px-2">
 
             <table class="table table-borderless">
                 <tr>
-                    <th>NoSurat</th>
+                    <th class="fw-normal">Nomor</th>
                     <td class="table">: {{ $surat->disposisi['no_disposisi'] }}</td> 
                 </tr>
                 <tr>
-                    <th>Hal</th>
-                    <td>: {{ $surat->jenissurat['namejenis'] }}</td>
+                    <th class="fw-normal">Hal</th>
+                    <td class="fw-bold">: {{ $surat->jenissurat['namejenis'] }}</td>
                 </tr>
-                <tr>
+                {{-- <tr>
                     <th>Sifat</th>
                     <td>: {{ $surat->sifatsurat['namesifat'] }}</td>
-                </tr>
+                </tr> --}}
                 {{-- <tr>
                     <th>Kepada</th>
                     <td>: {{ $surat->kepada_id['username'] }}</td>
@@ -41,9 +41,9 @@
         </div>
     </head>
 
-    <hr class="border border-dark border-1 opacity-100" style="padding-top: 10px;">
+    {{-- <hr class="border border-dark border-1 opacity-100" style="padding-top: 10px;"> --}}
 
-<body style="padding-top: 5px;">
+<body style="padding-top: 15px;">
     
     <div class="justify px-2">
         {!! $surat->perihal !!}
@@ -53,9 +53,12 @@
 
 <footer>
     <div class="position-absolute bottom-0 end-0" style="text-align: right;">
-        <img src="{{ ($surat->disposisi['ttd']) }}" style="width: 150px; height: 100px">
-    <h6> Kepala Sub.Bag,  TU</h6>
-        <b class="text-uppercase px-2">{{ $surat->disposisi['disposisi_oleh'] }}</b>
+        <div class="lh-1 text-wrap justify-content-center" style="width: 14rem;">
+            {{-- an. Kepala UPT BP3MI Wilayah Bandung-Jawa Barat --}}
+            <p>Ka.Sub.Bag. Tata Usaha</p>
+        </div>
+        <img src="{{ ($surat->disposisi['ttd']) }}" width="130" height="90">
+        <p class="text-uppercase px-2">{{ $surat->disposisi['disposisi_oleh'] }}</p>
     </div>
 </footer>
 

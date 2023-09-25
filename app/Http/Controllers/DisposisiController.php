@@ -42,7 +42,7 @@ class DisposisiController extends Controller
     */
     function indexDisposisi()
     {
-        $suratkeluar = Suratkeluar::where('acc_admin', 1)->where('print_surat', 1)->where('disposisi_isi', 0)->with('disposisi')->get();
+        $suratkeluar = Suratkeluar::where('acc_admin', 1)->where('print_surat', 1)->where('disposisi_isi', 0)->with('disposisi')->orderBy('id','ASC')->get();
         $jumlah = $suratkeluar->count();
         return view('dashboard.disposisi.index',compact('suratkeluar','jumlah'));
     }

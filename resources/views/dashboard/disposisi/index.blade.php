@@ -24,18 +24,17 @@
                     <thead class="table table-primary">
                     <th scope="col">No</th>
                     <th scope="col">Kode Surat</th>
-                    <th scope="col"><i class="bi bi-clock-fill"></i></th>
+                    {{-- <th scope="col"><i class="bi bi-clock-fill"></i></th> --}}
                     <th></th>
                 </thead>
             </tr>
             </thead>
-            <tbody>
-                @foreach ($suratkeluar as $surat)
+            @foreach ($suratkeluar as $surat)
             <tbody>
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $surat->full_number }}</td>
-                    <td>{{ $surat->created_at->diffForHumans() }} </td>
+                    {{-- <td>{{ $surat->created_at->diffForHumans() }} </td> --}}
                 <td>
                     <a href="/diposisikepala/{{ $surat->id }}" class="btn btn-info m-lg-1"><i class="bi bi-clipboard2-check"></i></a>
                     
@@ -43,7 +42,6 @@
                 </tr>
             </tbody>
             @endforeach
-            </tbody>
         </table>
 
     </div>

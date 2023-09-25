@@ -24,7 +24,7 @@
     
     
     <div class="d-flex mb-1">
-        <table class="table table-striped table-sm table-bordered text-center">
+        <table class="table table-hover text-center">
             <thead class="table table-primary">
                 <tr>
             <th scope="col">No</th>
@@ -44,16 +44,36 @@
                 <td>{{ date('d/m/Y', strtotime($surat->tgl_surat_keluar)) }}</td>
                 <td>{{ $surat->kepada_id['username'] }}</td>
                 <td>{{ $surat->user->username }}</td>
-                <td>{{ $surat->status }}</td>
+                
+                @if ($surat->status == 'Diterima')
                 <td>
+                    <span class="d-inline btn btn-success">{{ $surat->status }}</span>
+                    </td>
+                <td>
+                @endif
+
+                @if ($surat->status == 'Ditolak')
+                <td>
+                    <span class="d-inline btn btn-danger">{{ $surat->status }}</span>
+                    </td>
+                <td>
+                @endif
+
+                @if ($surat->status == 'Proses')
+                <td>
+                    <span class="d-inline btn btn-warning">{{ $surat->status }}</span>
+                    </td>
+                <td>
+                @endif
+
                     @if ($surat->status == 'Ditolak')
                     <a href="/dashboard/suratkeluar/{{ $surat->id }}" class="btn btn-info m-lg-1"><i class="bi bi-eye"></i></a>
                     @endif
 
-                    @if ($surat->status == 'Diterima')
+                    {{-- @if ($surat->status == 'Diterima')
                     <a href="/dashboard/suratkeluar{{ $surat->id }}.pdf" class="btn btn-success m-lg-1 content-center" type="submit"><i class="bi bi-file-earmark-pdf"></i>
                     </a>
-                    @endif
+                    @endif --}}
                     
                     <form action="/dashboard/suratkeluar/{{ $surat->id }}" method="post" class="d-inline">
                         @method('delete')

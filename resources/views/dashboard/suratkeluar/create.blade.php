@@ -81,6 +81,8 @@
                     <label for="perihal" class="form-label text-center"><b> Isi Surat </b></label>
                     <textarea name="perihal" id="mytextarea"></textarea>
                 </div>
+
+                {{-- <div id="summernote"></div> --}}
     
                 <div class="container mt-4 mb-3">
                     <button type="submit" class="btn btn-primary m-right-3 me-3"><i class="bi bi-plus-square"></i> Buat Surat</button>
@@ -95,6 +97,27 @@
     <script src="https://cdn.tiny.cloud/1/a68xqd9wpckqsojfq91h6e41dcf1qljlsk9ba1slymtnblhx/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     
     <script src="/js/tinymce.js"></script>
+
+    {{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> --}}
+    {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script> --}}
+    
+    {{-- <script>
+      $('#summernote').summernote({
+        // placeholder: '',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+    </script> --}}
 
     {{-- <script>
         document.getElementById('text').addEventListener('keydown', function(e) {

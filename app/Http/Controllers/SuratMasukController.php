@@ -15,7 +15,7 @@ class SuratMasukController extends Controller
     */
     public function index()
     {
-        $suratmasuk = Suratkeluar::where('acc_admin', 0)->get();
+        $suratmasuk = Suratkeluar::where('acc_admin', 0)->orderBy('id','ASC')->get();
         $jumlah = $suratmasuk->count();
         return view('dashboard.surat.index', compact('suratmasuk','jumlah'));
     }
