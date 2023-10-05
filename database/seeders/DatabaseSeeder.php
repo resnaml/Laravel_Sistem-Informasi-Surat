@@ -36,11 +36,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         jenissurat::create([
-            'kodesurat' => 'PK01',
+            'kodesurat' => 'PP01',
             'namejenis' => 'Surat Penerimaan PKL'
         ]);
         jenissurat::create([
-            'kodesurat' => 'IN01',
+            'kodesurat' => 'IP01',
             'namejenis' => 'Surat Izin Penelitian'
         ]);
         jenissurat::create([
@@ -102,7 +102,7 @@ class DatabaseSeeder extends Seeder
         Nip::create([
             'nip_kode' => '199205142023052002',
             'nama_lengkap' => 'Kepala',
-            'jabatan' => 'Kepala',
+            'jabatan' => 'Kepala Tata Usaha',
             'alamat' => 'Jln. Patimura no.90',
             'telepon' => '09823921993929',
             'tgl_lahir' => '2023-06-19'

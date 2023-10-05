@@ -15,7 +15,18 @@ class SuratMasukController extends Controller
     */
     public function index()
     {
-        $suratmasuk = Suratkeluar::where('acc_admin', 0)->orderBy('id','ASC')->get();
+        $suratmasuk = Suratkeluar::with('sifatsurat')->with('user')->where('acc_admin', 0)->get()->map(function($query){
+            return [
+                'id' => $query->id,
+                'title' => $query->full_number,
+                'created_at' => $query->created_at->format('d/M/Y'),
+                'sifat' => $query->sifatsurat->namesifat,
+                'pembuat' => $query->user->username
+                ];
+        });
+        // dd($suratmasuk);
+        // $suratmasuk = Suratkeluar::where('acc_admin', 0)->orderBy('id','ASC')->get();
+        // dd($suratmasuk);
         $jumlah = $suratmasuk->count();
         return view('dashboard.surat.index', compact('suratmasuk','jumlah'));
     }

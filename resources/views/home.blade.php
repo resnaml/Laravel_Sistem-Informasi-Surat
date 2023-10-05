@@ -16,10 +16,10 @@
             <div class="carousel-inner">
                 
             <div class="carousel-item active">
-                <img class="container" src="/img/Kurangi_Risiko_Penyebaran,_BP2MI_Turut_Serta_dalam_Penanganan_dan_Pengendalian_Covid-19_IMG-20200914-WA0028.jpg" height="500" weight="500">
+                <img class="container" src="/img/bp3mi.jpg" height="500" weight="500">
                 <div class="container">
                         <div class="carousel-caption text-start">
-                        <h1>BP2MI Pusat</h1>
+                        <h1>BP3MI Bandung</h1>
                         <p class="opacity-75">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, error.</p>
                         </div>
                 </div>
@@ -39,7 +39,7 @@
                     <img class="container" src="/img/kepala-badan-perlindungan-pekerja-migran-indonesia-bp2mi-benny-rhamdani_220606231725-509.jpg" height="500" weight="500">
                     <div class="container">
                     <div class="carousel-caption text-end">
-                        <h1>Kepala BP2MI</h1>
+                        <h1>Kepala BP3MI</h1>
                             <p class="opacity-75">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non, libero voluptate hic exercitationem quas, magnam animi obcaecati reiciendis, fuga omnis minima atque tenetur ipsam asperiores.</p>
                             </div>
                     </div>
@@ -49,20 +49,6 @@
             
         </div>
             
-        {{-- <div >
-            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-            </button>
-        </div> --}}
-        
-        <!-- Marketing messaging and featurettes
-        ================================================== -->
-        <!-- Wrap the rest of the page in another container to center all the content. -->
         
         <div class="container marketing">
         

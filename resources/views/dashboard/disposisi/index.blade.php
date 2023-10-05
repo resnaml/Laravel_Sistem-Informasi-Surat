@@ -18,7 +18,7 @@
 
     <div class="container-fluid">
         
-        <table class="table table-bordered text-center">
+        <table class="table table-hover text-center">
             <thead>
             <tr>
                     <thead class="table table-primary">

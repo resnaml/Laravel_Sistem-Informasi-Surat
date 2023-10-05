@@ -1,16 +1,18 @@
 <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
     <div class="container">
-    <a class="navbar-brand text-dark" href="/">BP3MI</a>
+        
+        <img src="/img/logo.png" width="60" height="60">
+    <a class="navbar-brand text-white fw-semibold">BP3MI</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse fw-semibold" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto mb-2 mt-1 mb-lg-0">
         <li class="nav-item">
             <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{ Request::is('panduan') ? 'active' : '' }}" href="/panduan">Panduan</a>
+            <a class=" nav-link {{ Request::is('panduan') ? 'active' : '' }}" href="/panduan">Panduan</a>
         </li>
         <li class="nav-item">
             <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="/about">About</a>

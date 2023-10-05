@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="row justify-content-center">
-        <div class="col-md-4">
+        <div class="col-md-4 mt-5">
 
             @if(session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -18,12 +18,26 @@
             </div>
             @endif
 
-            <main class="form-signin">
+            <style>
+                div.logo{
+                    width: 100px;
+            height: 100px;
+            position: absolute;
+            top:80px;
+            bottom: 50;
+            left: 0;
+            right: 20px;
+            margin: auto;
+                }
+            </style>
+            
+            <div class="logo" style="">
+                <img src="/img/logo.png" width="120" height="120">
+            </div>
+
+            <main class="form-signin mt-5">
                 <form action="/login" method="post">
                     @csrf
-                    <div class="mt-5">
-                        <img class="container mb-4" src="/img/BP2MI_logo.png" height="80" weight="50">
-                    </div>
                 <div class="form-floating">
                     <input  name="username" class="form-control @error('username') is-invalid @enderror" placeholder="name@example.com" autofocus required value="{{ old('username') }}">
                     <label for="username">Username</label>

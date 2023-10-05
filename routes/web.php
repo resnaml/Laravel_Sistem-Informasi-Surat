@@ -36,7 +36,9 @@ Route::get('/panduan', [DashboardController::class,'panduan']);
 Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth');
 Route::get('/dashboard/viewakun', [DashboardController::class,'ShowAkun'])->middleware('auth');
 
-// Surat Saya
+/*
+    Surat Saya
+*/
 Route::get('/suratsaya', [DashboardController::class,'suratSaya'])->middleware('auth');
 Route::get('/suratsaya{suratkeluar:full_number}', [DashboardController::class, 'bukaSuratPDF'])->middleware('auth');
 Route::delete('/suratsaya{suratkeluar}', [DashboardController::class, 'hapusSurat'])->middleware('auth');
