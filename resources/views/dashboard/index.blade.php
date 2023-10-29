@@ -105,57 +105,7 @@
     </div>
 
     
-    {{-- <div class="card-group mt-4">
-        <div class="card container border" style="max-width: 18rem;">
-            <div class="card-header">Surat Keluar Saya
-                <div class="h4 border mt-2">  {{ $suratDisposisiCount }} </div>
-            </div>
-            <div class="card-body">
-                <i class="bi bi-envelope-paper" style="font-size: 4.0rem;"></i>
-            </div>
-        </div>
-        
-        
-        
-        @can('kepala')
-        <div class="card container" style="max-width: 18rem;">
-            <div class="card-header">Surat Disposisi  
-            <div class="mt-2 h4 bold border">{{ $suratKeluarCount }}</div>
-            </div>
-            <div class="card-body">
-                <i class="bi bi-journal-check" style="font-size: 4.0rem;"></i>
-            </div>
-        </div>
-        @endcan
-        
-        @can('admin')
-        <div class="card" style="max-width: 18rem;">
-            <div class="card-header">Seluruh Surat
-                <div class="h4 border mt-2">  {{ $suratallCount }} </div>
-            </div>
-            <div class="card-body">
-                <i class="bi bi-mailbox" style="font-size: 4.0rem;"></i>
-            </div>
-        </div>
-        <div class="card" style="max-width: 18rem;">
-            <div class="card-header">Pengarsipan 
-            <div class="h4 border mt-2">{{ $pengarsipanCount }}</div>
-            </div>
-            <div class="card-body">
-                <i class="bi bi-safe2" style="font-size: 4.0rem;"></i>
-            </div>
-        </div>
-        <div class="card" style="max-width: 18rem;">
-            <div class="card-header">Jumlah User 
-            <div class="h4 border mt-2">  {{ $userCount }} </div> 
-            </div>
-            <div class="card-body">
-                <i class="bi bi-people-fill" style="font-size: 4.0rem;"></i>
-            </div>
-        </div>
-    </div> --}}
 
-        
         <script type="text/javascript">
             var _ydata=JSON.parse( '{!! json_encode($months) !!}' );
             var _xdata=JSON.parse( '{!! json_encode($monthCount) !!}' );

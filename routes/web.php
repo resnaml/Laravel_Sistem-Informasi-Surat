@@ -26,6 +26,11 @@ use App\Http\Controllers\jenissuratController;
 /*
     Interface Web
 */
+
+// Route::get('/test', function () {
+//     return view('main.surats.daftar');
+// });
+
 Route::get('/', [DashboardController::class,'home']);
 Route::get('/about', [DashboardController::class,'about']);
 Route::get('/panduan', [DashboardController::class,'panduan']);
@@ -115,14 +120,15 @@ Route::delete('/seluruhsurat{suratkeluar}', [SuratMasukController::class, 'destr
 /*
     --Disposisi Kepala
 */
-Route::get('/diposisikepala', [DisposisiController::class, 'indexDisposisi'])->middleware('kepala');
-Route::get('/diposisikepala/{suratkeluar}', [DisposisiController::class, 'diposisiCreate'])->middleware('kepala');
-Route::put('/diposisikepala/{suratkeluar}/edit', [DisposisiController::class, 'disposisiStore'])->middleware('kepala');
+Route::get('/diposisi', [DisposisiController::class, 'indexDisposisi'])->middleware('kepala');
+Route::get('/diposisi/{suratkeluar}', [DisposisiController::class, 'diposisiCreate'])->middleware('kepala');
+Route::put('/diposisi/{suratkeluar}/edit', [DisposisiController::class, 'disposisiStore'])->middleware('kepala');
 
 
 /*
     --Surat Keluar Route-- 
 */
-Route::resource('/dashboard/suratkeluar', SuratKeluarController::class)->middleware('auth');
+Route::resource('/surats', SuratKeluarController::class)->middleware('auth')->except('show','edit');
+
 Route::get('/dashboard/suratkeluarcetak', [SuratKeluarController::class, 'cetakSurat'])->middleware('auth');
 Route::get('/dashboard/suratkeluar{suratkeluar}.pdf', [SuratKeluarController::class, 'pdfExport'])->middleware('auth');

@@ -17,7 +17,7 @@
                     <i class="bi bi-1-square" style="font-size: 2.0rem;"></i>
                     <strong class="mb-1"></strong>
                     <h3 class="mb-0">Daftar Akun</h3>
-                    <p class="card-text mb-auto">Minta kepada Admin, untuk memasukan (NIP) agar dapat mendaftar akun.</p>
+                    <p class="card-text mb-auto">Minta kepada Admin, untuk memasukan <b>NIP</b> anda agar dapat mendaftar akun.</p>
                     <strong class="mb-1"><hr></strong>
                 </div>
                 <div class="col-auto container mt-3 d-none d-lg-block">
@@ -30,8 +30,8 @@
                 <div class="col p-4 d-flex text-center flex-column position-static"><hr>
                     <i class="bi bi-2-square" style="font-size: 2.0rem;"></i>
                     <strong class="mb-1"></strong>
-                    <h3 class="mb-0">Buat Surat</h3>
-                    <p class="card-text mb-auto">Masuk menu surat keluar, lalu pilih jenis surat & sifat, lalu pilih User tujuan surat</p>
+                    <h3 class="mb-0">Pengajuan Surat</h3>
+                    <p class="card-text mb-auto">Masuk menu buat surat, lalu isi seluruh form pengajuan surat</p>
                     <strong class="mb-1"><hr></strong>
                 </div>
                 <div class="col-auto container mt-3 d-none d-lg-block">
@@ -45,8 +45,8 @@
                 <div class="col p-4 d-flex text-center flex-column position-static"><hr>
                     <i class="bi bi-3-square" style="font-size: 2.0rem;"></i>
                     <strong class="mb-1"></strong>
-                    <h3 class="mb-0">Disposisi</h3>
-                    <p class="card-text mb-auto">Jika sudah membuat, Tunggu admin untuk Disposisi surat anda.</p>
+                    <h3 class="mb-0">Menunggu Disposisi</h3>
+                    <p class="card-text mb-auto">Jika sudah membuat, Tunggu <b>Admin & Kepala</b> untuk Disposisi surat anda.</p>
                     <strong class="mb-1"><hr></strong>
                 </div>
                 <div class="col-auto container mt-3 d-none d-lg-block">
@@ -61,7 +61,7 @@
                     <i class="bi bi-4-square" style="font-size: 2.0rem;"></i>
                     <strong class="mb-1"></strong>
                     <h3 class="mb-0">Hasil</h3>
-                    <p class="card-text mb-auto">Jika surat sudah Disetujui maka surat sudah terkirim kepada user yang dituju, dan bisa download PDF</p>
+                    <p class="card-text mb-auto">Lalu surat sudah tersedia pada menu <b>surat saya</b> maka surat sudah terkirim kepada user yang dituju</p>
                     <strong class="mb-1"><hr></strong>
                 </div>
                 <div class="col-auto container mt-3 d-none d-lg-block">

@@ -40,9 +40,9 @@
                                     <button class="btn mt-3 btn-danger border-0" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')"><i class="bi bi-trash"></i></i></button>
                                 </form> --}}
                             </div>
-                            {{-- <div class="card-footer">
-                                <small class="text-body-secondary">Terakhir {{ $surat->created_at->diffForHumans() }}</small>
-                            </div> --}}
+                            <div class="card-footer">
+                                <small class="text-body-secondary"> {{ $surat->created_at->format('Y-M-d') }}</small>
+                            </div>
                         </div>
                     </div>
                     

@@ -98,49 +98,5 @@
     
     <script src="/js/tinymce.js"></script>
 
-    {{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> --}}
-    {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script> --}}
-    
-    {{-- <script>
-      $('#summernote').summernote({
-        // placeholder: '',
-        tabsize: 2,
-        height: 120,
-        toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'clear']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['table', ['table']],
-          ['insert', ['link', 'picture', 'video']],
-          ['view', ['fullscreen', 'codeview', 'help']]
-        ]
-      });
-    </script> --}}
-
-    {{-- <script>
-        document.getElementById('text').addEventListener('keydown', function(e) {
-            if(e.key == 'Tab'){
-                e.preventDefault();
-                var start = this.selectionStart;
-                var end = this.selectionEnd;
-                this.value = this.value.substring(0, start) +
-                "\t" + this.value.substring(end);
-                this.selectionStart = this.selectionEnd = start + 1;
-            }
-        });
-    </script> --}}
-    
-    {{-- <script>
-        const jenissurat_id = document.querySelector('#jenissurat_id');
-        const no_surat_keluar = document.querySelector('#no_surat_keluar');
-        
-        title.addEventListener('change', function() {
-            fetch('/dashboard/suratkeluar/KodeSurat?jenissurat_id=' + jenissurat_id.value)
-            .then(response => response.json())
-            .then(data => no_surat_keluar.value = data.no_surat_keluar)
-        });
-    </script> --}}
 
 @endsection

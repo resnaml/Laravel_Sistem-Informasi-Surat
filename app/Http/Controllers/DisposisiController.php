@@ -44,7 +44,7 @@ class DisposisiController extends Controller
     {
         $suratkeluar = Suratkeluar::where('acc_admin', 1)->where('print_surat', 1)->where('disposisi_isi', 0)->with('disposisi')->orderBy('id','ASC')->get();
         $jumlah = $suratkeluar->count();
-        return view('dashboard.disposisi.index',compact('suratkeluar','jumlah'));
+        return view('main.layout.kepala.index',compact('suratkeluar','jumlah'));
     }
 
 
@@ -53,7 +53,7 @@ class DisposisiController extends Controller
     */
     function diposisiCreate(Suratkeluar $suratkeluar)
     {
-        return view('dashboard.disposisi.sign', [
+        return view('main.layout.kepala.disposisi', [
             'surat' => $suratkeluar
         ]);
     }
@@ -82,7 +82,7 @@ class DisposisiController extends Controller
         $array['ttd'] = ($file);
         $array['disposisi_oleh'] = (auth()->user()->username);
         $suratkeluar->disposisi->forceFill($array)->save();
-        return redirect('/diposisikepala')->with('success','Berhasil melakukan diposisi !');
+        return redirect('/diposisi');
         
     }
 }

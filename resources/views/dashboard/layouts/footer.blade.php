@@ -24,10 +24,10 @@
     <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2023 BP3MI</span>
     </div>
 
-    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+    {{-- <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
     <li class="ms-3"><a class="text-body-secondary" target="blank_" href="https://twitter.com/resnamulya"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
     <li class="ms-3"><a class="text-body-secondary" target="blank_" href="https://instagram.com/resnamulya/"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
     <li class="ms-3"><a class="text-body-secondary" target="blank_" href="https://id-id.facebook.com/resna.lesmana"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
-    </ul>
+    </ul> --}}
 </footer>
 </div>

@@ -19,8 +19,8 @@ class DashboardController extends Controller
     public function index(User $user)
     {
         $suratKeluarCount = Suratkeluar::where('acc_admin', 0)->get()->count();
+        
         $disposisi = Suratkeluar::where('print_surat', 1)->where('disposisi_isi', 0)->get()->count();
-        $suratsaya = Suratkeluar::where('user_id', auth()->user()->id)->get()->count();
 
         $suratme = Suratkeluar::where('kepada',  auth()->user()->id)->where('disposisi_isi', 1)->get()->count();
         
@@ -37,7 +37,7 @@ class DashboardController extends Controller
             $months[]=$month;
             $monthCount[]=count($values);
         }
-        return view('dashboard.index', compact('suratKeluarCount','suratsaya','userCount','suratallCount', 'data', 'months','monthCount','pengarsipanCount','disposisi','suratme'));
+        return view('main.layout.home', compact('suratKeluarCount','userCount','suratallCount', 'data', 'months','monthCount','pengarsipanCount','disposisi','suratme'));
     }
 
     /* 
@@ -58,8 +58,7 @@ class DashboardController extends Controller
     {
 
         $suratkeluar = Suratkeluar::where('kepada', auth()->user()->id)->where('disposisi_isi' , 1)->get();
-        $jumlahMasuk = $suratkeluar->count();
-        return view('dashboard.surat-saya',compact('suratkeluar','jumlahMasuk'));
+        return view('main.surats.surat-saya',compact('suratkeluar'));
     }
 
     /*
@@ -70,9 +69,7 @@ class DashboardController extends Controller
         $surats = [
             'surat' => $suratkeluar
         ];
-        
-        $pdf = PDF::loadView('dashboard.mypdf', $surats);
-        return $pdf->download('Suratku.pdf');
+        return PDF::loadView('dashboard.mypdf', $surats)->setPaper('a4')->download('Suratku.pdf');
     }
 
     /*

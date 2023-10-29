@@ -19,16 +19,13 @@ class SuratMasukController extends Controller
             return [
                 'id' => $query->id,
                 'title' => $query->full_number,
-                'created_at' => $query->created_at->format('d/M/Y'),
+                'created_at' => $query->created_at->diffForHumans(),
                 'sifat' => $query->sifatsurat->namesifat,
                 'pembuat' => $query->user->username
                 ];
         });
-        // dd($suratmasuk);
-        // $suratmasuk = Suratkeluar::where('acc_admin', 0)->orderBy('id','ASC')->get();
-        // dd($suratmasuk);
-        $jumlah = $suratmasuk->count();
-        return view('dashboard.surat.index', compact('suratmasuk','jumlah'));
+        
+        return view('main.layout.admin.suratmasuk', compact('suratmasuk'));
     }
 
     /* 
@@ -36,10 +33,8 @@ class SuratMasukController extends Controller
     */
     public function edit(Suratkeluar $suratkeluar)
     {
-        return view('dashboard.surat.disposisi', [
-            'surat' => $suratkeluar,
-            'jenissurats' => jenissurat::all(),
-            'sifat' => Sifatsurat::all()
+        return view('main.layout.admin.persetujuan', [
+            'surat' => $suratkeluar
         ]);
     }
     

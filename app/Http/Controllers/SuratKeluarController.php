@@ -22,7 +22,7 @@ class SuratKeluarController extends Controller
     */
     public function index()
     {
-        return view('dashboard.suratkeluar.index', [
+        return view('main.surats.daftar', [
             'suratkeluar' => Suratkeluar::where('user_id', auth()->user()->id)->get()
         ]);
     }
@@ -51,7 +51,7 @@ class SuratKeluarController extends Controller
         $nips = Nip::all();
         $jenissurats = jenissurat::all();
         $sifat = Sifatsurat::all();
-        return view('dashboard.suratkeluar.create', compact('jenissurats','sifat','users','nips'));
+        return view('main.surats.create', compact('jenissurats','sifat','users','nips'));
     }
     
     /*
@@ -64,7 +64,6 @@ class SuratKeluarController extends Controller
             'tgl_surat_keluar' => 'required|date',
             'sifat_id' => 'required',
             'jenissurat_id' => 'required',
-            // 'lampiran' => 'nullable',
             'status' => 'nullable',
             'kepada' => 'required'
         ]);
@@ -72,7 +71,7 @@ class SuratKeluarController extends Controller
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['perihal'] = ($request->perihal);
         Suratkeluar::create($validatedData);
-        return redirect('/dashboard/suratkeluar')->with('success','Surat Keluar berhasil terbuat !!!');
+        return redirect('/surats')->with('success','Surat Keluar berhasil terbuat !!!');
     }
 
     /*
@@ -128,7 +127,7 @@ class SuratKeluarController extends Controller
         }
         Disposisisurat::deleted($disposisisurat->id);
         Suratkeluar::destroy($suratkeluar->id);
-        return redirect('/dashboard/suratkeluar')->with('danger','Data surat keluar berhasil terhapus !!!');
+        return redirect('surats')->with('danger','Data surat keluar berhasil terhapus !!!');
     }
 
     /* 
