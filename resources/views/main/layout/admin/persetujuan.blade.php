@@ -11,8 +11,9 @@
         <div class="card-body text-center">
             <h4> {{ $surat->full_number }}</h4>
         </div>
+
         <div class="container-fluid text-center col-5">
-        
+
             <hr class="divider">
 
             <label class="label"><b>Jenis Surat</b></label>
@@ -33,6 +34,7 @@
                     <a class="btn btn-warning mb-3" href="/suratmasuk"><i class="bi bi-arrow-left-square"></i> Kembali</a>
                 </div>
         </div>
+        
         
         
         <div class="modal fade" id="exampleModal" tabindex="-1"  aria-hidden="true">
@@ -93,7 +95,6 @@
                         </form>
                     </div>
                 </div>
-                        {{-- <hr> --}}
             </div>
     </div>
 </div>

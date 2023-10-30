@@ -3,7 +3,7 @@
 @section('container')
 <div class="container-fluid">
 
-    <h1 class="h3 mb-2 text-gray-800">Persetujuan Surat</h1>
+    <h1 class="h3 mb-2 text-gray-800">Surat Masuk</h1>
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -20,7 +20,7 @@
                             <th scope="col">Pembuat Surat</th>
                             <th scope="col">Waktu Pengajuan</th>
                             <th scope="col">Action</th>
-                            </tr>
+                        </tr>
                     </thead>
                     
                 @foreach ($suratmasuk as $surat)

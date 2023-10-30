@@ -115,7 +115,7 @@ Route::post('/suratmasuk/{suratkeluar:full_number}', [DisposisiController::class
 Route::get('/seluruhsurat', [SuratMasukController::class, 'seluruhSurat'])->middleware('admin');
 Route::get('/seluruhsurat/{tglawal}/{tglakhir}', [SuratMasukController::class, 'cetakPerBln'])->middleware('admin');
 Route::get('/seluruhsurat/cetakseluruh', [SuratMasukController::class, 'cetakSeluruhSurat'])->middleware('admin');
-Route::delete('/seluruhsurat{suratkeluar}', [SuratMasukController::class, 'destroy'])->middleware('admin');
+Route::delete('/seluruhsurat/{suratkeluar}', [SuratMasukController::class, 'destroy'])->middleware('admin');
 
 /*
     --Disposisi Kepala
@@ -128,7 +128,7 @@ Route::put('/diposisi/{suratkeluar}/edit', [DisposisiController::class, 'disposi
 /*
     --Surat Keluar Route-- 
 */
-Route::resource('/surats', SuratKeluarController::class)->middleware('auth')->except('show','edit');
+Route::resource('/surats', SuratKeluarController::class)->middleware('auth')->except('edit');
 
 Route::get('/dashboard/suratkeluarcetak', [SuratKeluarController::class, 'cetakSurat'])->middleware('auth');
 Route::get('/dashboard/suratkeluar{suratkeluar}.pdf', [SuratKeluarController::class, 'pdfExport'])->middleware('auth');

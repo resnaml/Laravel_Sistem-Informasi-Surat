@@ -43,7 +43,7 @@ class SuratMasukController extends Controller
     */
     public function seluruhSurat()
     {
-        return view('dashboard.surat.seluruh',[
+        return view('main.layout.admin.seluruh',[
             'surats' => Suratkeluar::latest()->filter(request(['search','jenissurat']))->paginate(10)->withQueryString()
         ]);
     }

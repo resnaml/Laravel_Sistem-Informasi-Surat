@@ -57,9 +57,9 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Admin Component:</h6>
                 <a class="collapse-item" href="/suratmasuk">Surat Masuk</a>
-                <a class="collapse-item" href="utilities-border.html">Seluruh Surat</a>
-                <a class="collapse-item" href="utilities-animation.html">Daftar User</a>
-                <a class="collapse-item" href="utilities-other.html">Jenis Surat</a>
+                <a class="collapse-item" href="/seluruhsurat">Seluruh Surat</a>
+                <a class="collapse-item" href="/kelolaakun">Daftar User</a>
+                <a class="collapse-item" href="/jenissurat">Jenis Surat</a>
                 <a class="collapse-item" href="utilities-other.html">Pengarsipan</a>
             </div>
         </div>

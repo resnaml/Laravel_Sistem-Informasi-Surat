@@ -54,7 +54,7 @@
                             <td>
                             @endif
                                 @if ($surat->status == 'Ditolak')
-                                <a href="/dashboard/suratkeluar/{{ $surat->id }}" class="d-inline btn btn-warning">Lihat</a>
+                                <a href="/surats/{{ $surat->id }}" class="d-inline btn btn-warning">Lihat</a>
                                 @endif
                                 
                                 <form action="/surats/{{ $surat->id }}" method="post" class="d-inline">

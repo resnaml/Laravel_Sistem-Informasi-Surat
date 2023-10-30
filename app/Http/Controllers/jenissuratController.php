@@ -11,10 +11,10 @@ class jenissuratController extends Controller
     */
     public function index()
     {
-        return view('dashboard.jenissurat.index',[
-            'jenissurat' => jenissurat::all(),
-            'title' => 'jenissurat'
-        ]);
+        $jenis = jenissurat::all()->map->only('id','kodesurat','namejenis');
+        // dd($jenis);
+
+        return view('main.layout.admin.jenis',compact('jenis'));
     }
 
     /*

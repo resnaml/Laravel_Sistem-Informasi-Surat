@@ -13,9 +13,7 @@ class UserController extends Controller
     */
     public function index()
     {
-        // $user = User::all();
-        // dd($user);
-        return view('dashboard.user.index',[
+        return view('main.layout.admin.user',[
             'user' => User::latest()->filter(request(['search']))->paginate(8)->withQueryString()
         ]);
     }
