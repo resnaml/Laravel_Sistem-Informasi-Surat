@@ -92,12 +92,12 @@
             @endif
             <input type="text" name="search" class="form-control bg-light border-0 small" placeholder="Search for..."  value="{{ request('search') }}">
             <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                    <i class="fas fa-search fa-sm"></i>Cari
+                <button class="btn btn-primary" type="submit">
+                    Cari
                 </button>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 
         <div class="card-body">
             <div class="table-responsive">

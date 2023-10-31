@@ -29,37 +29,26 @@
                     <th class="fw-normal">Hal</th>
                     <td class="fw-bold">: {{ $surat->jenissurat['namejenis'] }}</td>
                 </tr>
-                {{-- <tr>
-                    <th>Sifat</th>
-                    <td>: {{ $surat->sifatsurat['namesifat'] }}</td>
-                </tr> --}}
-                {{-- <tr>
-                    <th>Kepada</th>
-                    <td>: {{ $surat->kepada_id['username'] }}</td>
-                </tr> --}}
             </table>
         </div>
     </head>
 
-    {{-- <hr class="border border-dark border-1 opacity-100" style="padding-top: 10px;"> --}}
-
-<body style="padding-top: 15px;">
-    
-    <div class="justify px-2">
-        {!! $surat->perihal !!}
-    </div>
-    
-</body>
-
-<footer>
-    <div class="position-absolute bottom-0 end-0" style="text-align: right;">
-        <div class="lh-1 text-wrap justify-content-center" style="width: 14rem;">
-            {{-- an. Kepala UPT BP3MI Wilayah Bandung-Jawa Barat --}}
-            <p>Ka.Sub.Bag. Tata Usaha</p>
+    <body style="padding-top: 15px;">
+        
+        <div class="justify px-2">
+            {!! $surat->perihal !!}
         </div>
-        <img src="{{ ($surat->disposisi['ttd']) }}" width="130" height="90">
-        <p class="text-uppercase px-2">{{ $surat->disposisi['disposisi_oleh'] }}</p>
-    </div>
-</footer>
+        
+    </body>
+
+    <footer>
+        <div class="position-absolute bottom-0 end-0" style="text-align: right;">
+            <div class="lh-1 text-wrap justify-content-center" style="width: 14rem;">
+                <p>Ka.Sub.Bag. Tata Usaha</p>
+            </div>
+            <img src="{{ ($surat->disposisi['ttd']) }}" width="130" height="90">
+            <p class="text-uppercase px-2">{{ $surat->disposisi['disposisi_oleh'] }}</p>
+        </div>
+    </footer>
 
 </html>

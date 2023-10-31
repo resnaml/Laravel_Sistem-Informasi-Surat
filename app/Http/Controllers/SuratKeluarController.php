@@ -139,10 +139,9 @@ class SuratKeluarController extends Controller
             'surat' => $suratkeluar
         ];
         
-        $pdf = PDF::loadView('dashboard.mypdf', $surats);
+        $pdf = PDF::loadView('main.layout.utils.surat.mypdf', $surats);
         return $pdf->download('mypdf.pdf');
     }
-    
 
     // public function KodeSurat(Request $request)
     // {

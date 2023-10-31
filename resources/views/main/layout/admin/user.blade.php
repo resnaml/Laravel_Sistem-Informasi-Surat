@@ -34,11 +34,7 @@
                         <th scope="col">Username</th>
                         <th scope="col">Email</th>
                         <th scope="col">NIP</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Jabatan</th>
-                        <th scope="col">Alamat</th>
-                        <th scope="col">Telepon</th>
-                        <th scope="col">Tgl Lahir</th>
+                        <th scope="col">Sync</th>
                         <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -46,24 +42,20 @@
                     <tbody>
                         <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td scope="col">{{ $akun->username }}</td>
-                        <td scope="col">{{ $akun->email }}</td>
-                        <td scope="col">{{ $akun->nip }}</td>
-                        
-                        @isset($akun->nips_id)
-                            <td scope="col">{{ $akun->nips_id['nama_lengkap'] }}</td>
-                            <td scope="col">{{ $akun->nips_id['jabatan'] }}</td>
-                            <td scope="col">{{ $akun->nips_id['alamat'] }}</td>
-                            <td scope="col">{{ $akun->nips_id['telepon'] }}</td>
-                            <td scope="col">{{ $akun->nips_id['tgl_lahir'] }}</td>
-                        @endisset
-                        
+                        <td scope="col">{{ $akun['username'] }}</td>
+                        <td scope="col">{{ $akun['email'] }}</td>
+                        <td scope="col">{{ $akun['nip'] }}</td>
+                        @if ( $akun['nip_id'] == true)
+                            <td scope="col" class="btn btn-success">Acc</td>
+                        @else
+                            <td scope="col" class="btn btn-danger">Belum</td>
+                        @endif
                         <td scope="col">
-                            <a href="/kelolaakun/{{ $akun->id }}" class="btn btn-warning">Edit</a>
-                            <form action="/kelolaakun/{{ $akun->id }}" method="POST" class="d-inline">
+                            <a href="/kelolaakun/{{ $akun['id'] }}" class="btn btn-warning">Edit</a>
+                            <form action="/kelolaakun/{{ $akun['id'] }}" method="POST" class="d-inline">
                                 @method('delete')
                                 @csrf
-                                <button class="btn btn-danger mt-2" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')">Hapus</button>
+                                <button class="btn btn-danger" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')">Hapus</button>
                             </form>
                         </td>
                         </tr>

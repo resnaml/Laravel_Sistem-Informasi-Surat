@@ -13,8 +13,12 @@ class UserController extends Controller
     */
     public function index()
     {
+        // $s = User::all()->map->only('id','username','email','nip','nip_id');
+        // dd($s);
+
         return view('main.layout.admin.user',[
-            'user' => User::oldest()->filter(request(['search']))->paginate(10)->withQueryString()
+            'user' => User::all()->map->only('id','username','email','nip','nip_id')
+            // ->filter(request(['search']))->paginate(10)->withQueryString()
         ]);
     }
 

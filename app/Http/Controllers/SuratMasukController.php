@@ -57,7 +57,7 @@ class SuratMasukController extends Controller
         $surats = [
         'suratkeluar' => $suratkeluar 
         ];
-        $pdf = PDF::loadView('dashboard.surat.cetak_seluruh', $surats);
+        $pdf = PDF::loadView('main.utils.surat.cetak-seluruh', $surats);
         return $pdf->download('Laporan Seluruh Surat.pdf');
     }
 

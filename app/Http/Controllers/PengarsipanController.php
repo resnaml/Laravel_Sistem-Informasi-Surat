@@ -11,12 +11,9 @@ use Illuminate\Support\Facades\Response;
 
 class PengarsipanController extends Controller
 {
-    /*
-        Index View Pengarsipan
-    */
+    // Index View 
     public function index()
     {
-        
         $berguna = Pengarsipan::where('kategori_arsip_id', 1)->get()->count();
         $penting = Pengarsipan::where('kategori_arsip_id', 2)->get()->count();
         $vital = Pengarsipan::where('kategori_arsip_id', 3)->get()->count();
@@ -26,22 +23,15 @@ class PengarsipanController extends Controller
         return view('main.layout.admin.pengarsipan', compact('berguna','penting','vital','dinamis','arsip'));
     }
 
-    /*
-        View Halaman Kategori by: Kategori
-    */
+    // View Kategori
     public function create()
     {
-        // $s = Kategoriarsip::all()->map->only('id','arsip_kategori');
-        // dd($s);
-
         return view('main.layout.admin.buat-arsip',[
             'kategori' => Kategoriarsip::all()->map->only('id','arsip_kategori')
         ]);
     }
 
-    /*
-        Store Data Pengarsipan
-    */
+    // Store Data Pengarsipan
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -60,7 +50,7 @@ class PengarsipanController extends Controller
         return redirect('/pengarsipan')->with('success','Data Arsip Berhasil Dibuat !!! ');
     }
 
-    // Download Data File
+    // Download Data
     public function download($id) 
     
     {
@@ -69,34 +59,7 @@ class PengarsipanController extends Controller
         return Response::download($file_path);
     }
 
-    /* 
-        View Arsip By Kategori 
-    */
-    public function arsipBerguna()
-    {
-        $arsipBerguna = Pengarsipan::where('kategori_arsip_id', 1)->get();
-        return view('dashboard.pengarsipan.arsipBerguna', compact('arsipBerguna'));
-    }
-    public function arsipPenting()
-    {
-        $arsipPenting = Pengarsipan::where('kategori_arsip_id', 2)->get();
-        return view('dashboard.pengarsipan.arsipPenting', compact('arsipPenting'));
-    }
-    public function arsipVital()
-    {
-        $arsipVital = Pengarsipan::where('kategori_arsip_id', 3)->get();
-        return view('dashboard.pengarsipan.arsipVital', compact('arsipVital'));
-    }
-    public function arsipDinamis()
-    {
-        $arsipDinamis = Pengarsipan::where('kategori_arsip_id', 4)->get();
-        return view('dashboard.pengarsipan.arsipDinamis', compact('arsipDinamis'));
-    }
-
-    
-    /*
-        Hapus Data Arsip
-    */
+    // Delete Data
     public function destroy(Pengarsipan $pengarsipan)
     {
         if($pengarsipan->file_arsip)
