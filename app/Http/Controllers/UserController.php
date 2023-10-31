@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
         return view('main.layout.admin.user',[
-            'user' => User::latest()->filter(request(['search']))->paginate(8)->withQueryString()
+            'user' => User::oldest()->filter(request(['search']))->paginate(10)->withQueryString()
         ]);
     }
 

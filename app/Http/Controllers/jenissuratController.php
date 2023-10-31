@@ -18,25 +18,16 @@ class jenissuratController extends Controller
     }
 
     /*
-        Halaman Buat Jenis Surat
-    */
-    public function create()
-    {
-        return view('dashboard.jenissurat.create');
-    }
-
-    /*
         Store data -> Jenis Surat
     */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
             'kodesurat' => 'required|max:4|unique:jenissurats',
-            'namejenis' => 'required|max:20',
-            'keterangan' => 'nullable|max:255'
+            'namejenis' => 'required|max:20'
         ]);
     jenissurat::create($validatedData);
-    return redirect('/jenissurat')->with('success','Kode Surat Telah Terbuat !');
+    return redirect('/jenissurat');
     }
 
     /*
@@ -45,6 +36,6 @@ class jenissuratController extends Controller
     public function destroy(jenissurat $jenis)
     {
         jenissurat::destroy($jenis->id);
-        return redirect('/jenissurat')->with('danger','Jenis Surat  berhasil terhapus !!!');
+        return redirect('/jenissurat');
     }
 }

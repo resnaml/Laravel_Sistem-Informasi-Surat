@@ -60,7 +60,7 @@
                 <a class="collapse-item" href="/seluruhsurat">Seluruh Surat</a>
                 <a class="collapse-item" href="/kelolaakun">Daftar User</a>
                 <a class="collapse-item" href="/jenissurat">Jenis Surat</a>
-                <a class="collapse-item" href="utilities-other.html">Pengarsipan</a>
+                <a class="collapse-item" href="/pengarsipan">Pengarsipan</a>
             </div>
         </div>
     </li>

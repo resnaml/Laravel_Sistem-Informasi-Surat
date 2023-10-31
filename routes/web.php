@@ -73,8 +73,7 @@ Route::post('/sifatsurat',[SifatsuratController::class,'store'])->middleware('ad
 */
 Route::get('/jenissurat',[jenissuratController::class,'index'])->middleware('admin');
 Route::delete('/jenissurat/{jenis}',[jenissuratController::class,'destroy'])->middleware('admin');
-Route::get('/jenissurat/create',[jenissuratController::class,'create'])->middleware('admin');
-Route::post('/jenissurat/create', [jenissuratController::class,'store']);
+Route::post('/jenissurat', [jenissuratController::class,'store'])->middleware('admin');
 
 /*
     --Pengarsipan Route-- 
@@ -82,12 +81,12 @@ Route::post('/jenissurat/create', [jenissuratController::class,'store']);
 Route::get('/pengarsipan', [PengarsipanController::class, 'index'])->middleware('admin');
 Route::get('/pengarsipan/create', [PengarsipanController::class, 'create'])->middleware('admin');
 Route::post('/pengarsipan/create', [PengarsipanController::class, 'store'])->middleware('admin');
-Route::get('/pengarsipan/AB', [PengarsipanController::class, 'arsipBerguna'])->middleware('admin');
-Route::get('/pengarsipan/AP', [PengarsipanController::class, 'arsipPenting'])->middleware('admin');
-Route::get('/pengarsipan/AV', [PengarsipanController::class, 'arsipVital'])->middleware('admin');
-Route::get('/pengarsipan/AD', [PengarsipanController::class, 'arsipDinamis'])->middleware('admin');
+// Route::get('/pengarsipan/AB', [PengarsipanController::class, 'arsipBerguna'])->middleware('admin');
+// Route::get('/pengarsipan/AP', [PengarsipanController::class, 'arsipPenting'])->middleware('admin');
+// Route::get('/pengarsipan/AV', [PengarsipanController::class, 'arsipVital'])->middleware('admin');
+// Route::get('/pengarsipan/AD', [PengarsipanController::class, 'arsipDinamis'])->middleware('admin');
 Route::delete('/pengarsipan/{pengarsipan}', [PengarsipanController::class, 'destroy'])->middleware('admin');
-Route::get('/pengarsipan/download/{id}', [PengarsipanController::class, 'download'])->middleware('admin');
+Route::get('/pengarsipan/{id}', [PengarsipanController::class, 'download'])->middleware('admin');
 Route::get('/pengarsipan/cari-arsip', [PengarsipanController::class, 'index'])->middleware('admin');
 
 

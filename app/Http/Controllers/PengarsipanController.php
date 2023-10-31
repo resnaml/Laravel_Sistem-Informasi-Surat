@@ -17,11 +17,13 @@ class PengarsipanController extends Controller
     public function index()
     {
         
-        $arsipBerguna = Pengarsipan::where('kategori_arsip_id', 1)->get()->count();
-        $arsipPenting = Pengarsipan::where('kategori_arsip_id', 2)->get()->count();
-        $arsipVital = Pengarsipan::where('kategori_arsip_id', 3)->get()->count();
-        $arsipDinamis = Pengarsipan::where('kategori_arsip_id', 4)->get()->count();
-        return view('dashboard.pengarsipan.index', compact('arsipBerguna','arsipPenting','arsipVital','arsipDinamis'),["arsip" => Pengarsipan::latest()->filter(request(['search']))->paginate(10)->withQueryString()]);
+        $berguna = Pengarsipan::where('kategori_arsip_id', 1)->get()->count();
+        $penting = Pengarsipan::where('kategori_arsip_id', 2)->get()->count();
+        $vital = Pengarsipan::where('kategori_arsip_id', 3)->get()->count();
+        $dinamis = Pengarsipan::where('kategori_arsip_id', 4)->get()->count();
+        $arsip = Pengarsipan::latest()->filter(request(['search']))->paginate(10)->withQueryString();
+
+        return view('main.layout.admin.pengarsipan', compact('berguna','penting','vital','dinamis','arsip'));
     }
 
     /*
@@ -29,8 +31,11 @@ class PengarsipanController extends Controller
     */
     public function create()
     {
-        return view('dashboard.pengarsipan.create',[
-            'kategori' => Kategoriarsip::all()
+        // $s = Kategoriarsip::all()->map->only('id','arsip_kategori');
+        // dd($s);
+
+        return view('main.layout.admin.buat-arsip',[
+            'kategori' => Kategoriarsip::all()->map->only('id','arsip_kategori')
         ]);
     }
 
@@ -55,10 +60,6 @@ class PengarsipanController extends Controller
         return redirect('/pengarsipan')->with('success','Data Arsip Berhasil Dibuat !!! ');
     }
 
-    /*
-        Relativ Path File
-        (storage\app\public\dokument\u78rOpY059fgP9t1D6MojGKj3urnXo4IUT8BY4zo.pdf)
-    */
     // Download Data File
     public function download($id) 
     
@@ -103,6 +104,6 @@ class PengarsipanController extends Controller
             Storage::delete($pengarsipan->file_arsip);
         }
         Pengarsipan::destroy($pengarsipan->id);
-        return redirect('/pengarsipan')->with('danger','Data Arsip Telah Dihapus!');
+        return redirect('/pengarsipan');
     }
 }
