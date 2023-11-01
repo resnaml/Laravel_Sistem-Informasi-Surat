@@ -45,10 +45,7 @@ class DashboardController extends Controller
     */
     public function ShowAkun(User $user)
     {   
-        $all = User::all();
-        $collect = collect($all);
-        $user = $collect->whereIn('id', auth()->user()->id);
-        return view('dashboard.viewakun',compact('user'));
+        return view('main.layout.profile',compact('user'));
     }
 
     /*

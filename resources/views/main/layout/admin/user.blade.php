@@ -46,9 +46,9 @@
                         <td scope="col">{{ $akun['email'] }}</td>
                         <td scope="col">{{ $akun['nip'] }}</td>
                         @if ( $akun['nip_id'] == true)
-                            <td scope="col" class="btn btn-success">Acc</td>
+                            <td scope="col" class="btn btn-success mt-2">Acc</td>
                         @else
-                            <td scope="col" class="btn btn-danger">Belum</td>
+                            <td scope="col" class="btn btn-danger mt-2">Belum</td>
                         @endif
                         <td scope="col">
                             <a href="/kelolaakun/{{ $akun['id'] }}" class="btn btn-warning">Edit</a>

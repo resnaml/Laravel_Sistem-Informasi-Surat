@@ -16,7 +16,7 @@
         <div class="row mt-2">
                     <div class="col">
                         <input type="date" name="tglawal" id="tglawal" class="form-control">
-                        <span>-</span>
+                        <span class="text-danger">* Tgl Surat</span>
                     </div>
                     
                     <div class="col">

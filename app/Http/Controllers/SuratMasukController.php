@@ -70,7 +70,7 @@ class SuratMasukController extends Controller
         $surats = [
             'surat' => $surat
         ];
-        $pdf = PDF::loadView('dashboard.surat.cetak_surat_tgl', $surats);
+        $pdf = PDF::loadView('main.utils.surat.cetak-bln', $surats);
         return $pdf->download('Laporan Surat PerBulan.pdf');
     }
 

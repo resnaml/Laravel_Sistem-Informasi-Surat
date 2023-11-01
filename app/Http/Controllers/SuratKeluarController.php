@@ -45,13 +45,10 @@ class SuratKeluarController extends Controller
     */
     public function create()
     {
-        $all = User::all();
-        $collect = collect($all);
-        $users = $collect->whereNotIn('id', auth()->user()->id);
-        $nips = Nip::all();
-        $jenissurats = jenissurat::all();
-        $sifat = Sifatsurat::all();
-        return view('main.surats.create', compact('jenissurats','sifat','users','nips'));
+        $users = User::all()->whereNotIn('id', auth()->user()->id);
+        $jenis = jenissurat::all()->map->only('id','namejenis');
+        $sifat = Sifatsurat::all()->map->only('id','namesifat');
+        return view('main.surats.create', compact('jenis','sifat','users'));
     }
     
     /*
@@ -71,7 +68,7 @@ class SuratKeluarController extends Controller
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['perihal'] = ($request->perihal);
         Suratkeluar::create($validatedData);
-        return redirect('/surats')->with('success','Surat Keluar berhasil terbuat !!!');
+        return redirect('/surats');
     }
 
     /*

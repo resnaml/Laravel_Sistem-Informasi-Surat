@@ -39,7 +39,7 @@ Route::get('/panduan', [DashboardController::class,'panduan']);
     Dashboard
 */
 Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth');
-Route::get('/dashboard/viewakun', [DashboardController::class,'ShowAkun'])->middleware('auth');
+Route::get('/profile/{user:username}', [DashboardController::class,'ShowAkun'])->middleware('auth');
 
 /*
     Surat Saya

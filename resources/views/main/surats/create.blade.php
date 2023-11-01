@@ -18,11 +18,11 @@
             <label for="jenissurat" class="form-label"><b>Jenis Surat </b></label>
             <select class="form-select text-center" name="jenissurat_id" id="jenissurat_id">
             <option selected disabled>-- Pilih Jenis Surat --</option>
-            @foreach ($jenissurats as $jenissurat)
-            @if(old('jenissurat_id') == $jenissurat->id)    
-            <option value="{{ $jenissurat->id }}">{{ $jenissurat->namejenis }}</option>
+            @foreach ($jenis as $jenis)
+            @if(old('jenissurat_id') == $jenis['id'])    
+            <option value="{{ $jenis['id'] }}">{{ $jenis['namejenis'] }}</option>
             @else
-            <option value="{{ $jenissurat->id }}">{{ $jenissurat->namejenis }}</option>
+            <option value="{{ $jenis['id'] }}">{{ $jenis['namejenis'] }}</option>
             @endif
             @endforeach
             </select>
@@ -33,10 +33,10 @@
                             <select class="form-select text-center" name="sifat_id">
                                 <option selected disabled>-- Pilih Sifat Surat --</option>
                                 @foreach ($sifat as $sifats)
-                                @if(old('sifat_id') == $sifats->id)    
-                                <option value="{{ $sifats->id }}">{{ $sifats->namesifat }}</option>
+                                @if(old('sifat_id') == $sifats['id'])    
+                                <option value="{{ $sifats['id'] }}">{{ $sifats['namesifat'] }}</option>
                                 @else
-                                <option value="{{ $sifats->id }}">{{ $sifats->namesifat }}</option>
+                                <option value="{{ $sifats['id'] }}">{{ $sifats['namesifat'] }}</option>
                                 @endif
                                 @endforeach
                             </select>

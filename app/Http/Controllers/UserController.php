@@ -13,9 +13,6 @@ class UserController extends Controller
     */
     public function index()
     {
-        // $s = User::all()->map->only('id','username','email','nip','nip_id');
-        // dd($s);
-
         return view('main.layout.admin.user',[
             'user' => User::all()->map->only('id','username','email','nip','nip_id')
             // ->filter(request(['search']))->paginate(10)->withQueryString()
@@ -27,10 +24,9 @@ class UserController extends Controller
     */
     public function edit(User $user)
     {
-        return view('dashboard.user.edit',[
-            'akun' => $user,
-            // 'user' => User::whereNull('nip_id')->get(),
-            'nips' => Nip::all()
+        return view('main.layout.admin.user-edit',[
+            'user' => $user,
+            'nips' => Nip::all()->map->only('id','nama_lengkap')
         ]);
     }
 
