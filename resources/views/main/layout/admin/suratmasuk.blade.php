@@ -47,7 +47,7 @@
                     @break
 
                     @endswitch
-                    <td>{{ $surat['pembuat'] }}</td>
+                    <td><b>{{ $surat['pembuat'] }}</b></td>
                     <td>{{ $surat['created_at'] }}</td>
                     <td>
                         <a href="/suratmasuk/{{ $surat['title'] }}" class="d-inline btn btn-info">Setujui Surat</a>

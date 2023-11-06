@@ -5,10 +5,6 @@ use App\Models\Disposisisurat;
 use App\Models\Suratkeluar;
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Str;
-// use Illuminate\Support\Facades\Validator;
-// use Illuminate\Validation\Rule;
-
 class DisposisiController extends Controller
 {
     /*
@@ -34,7 +30,7 @@ class DisposisiController extends Controller
         }
 
         Disposisisurat::create($validatedData);
-        return redirect('/suratmasuk')->with('warning','Surat berhasil telah di proses');
+        return redirect('/suratmasuk');
     }
 
     /*
@@ -42,9 +38,8 @@ class DisposisiController extends Controller
     */
     function indexDisposisi()
     {
-        $suratkeluar = Suratkeluar::where('acc_admin', 1)->where('print_surat', 1)->where('disposisi_isi', 0)->with('disposisi')->orderBy('id','ASC')->get();
-        $jumlah = $suratkeluar->count();
-        return view('main.layout.kepala.index',compact('suratkeluar','jumlah'));
+        $suratkeluar = Suratkeluar::DisposisiKepala();
+        return view('main.layout.kepala.index',compact('suratkeluar'));
     }
 
 

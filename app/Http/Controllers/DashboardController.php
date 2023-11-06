@@ -8,8 +8,6 @@ use App\Models\Suratkeluar;
 use Barryvdh\DomPDF\Facade\PDF;
 use Carbon\Carbon;
 
-use Dflydev\DotAccessData\Data;
-
 class DashboardController extends Controller
 {
     /* 

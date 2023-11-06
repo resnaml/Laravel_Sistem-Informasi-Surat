@@ -15,8 +15,8 @@
                     <thead>
                         <tr>
                                 <thead class="table table-primary">
-                                <th scope="col">No</th>
-                                <th scope="col">Kode Surat</th>
+                                <th>No</th>
+                                <th>Kode Surat</th>
                                 <th>Action</th>
                             </thead>
                         </tr>
@@ -25,10 +25,9 @@
                         <tbody>
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $surat->full_number }}</td>
+                                <td>{{ $surat['full_number'] }}</td>
                             <td>
-                                <a href="/diposisi/{{ $surat->id }}" class="d-inline btn btn-info">Disposisi</a>
-                                
+                                <a href="/diposisi/{{ $surat['id'] }}" class="d-inline btn btn-info">Disposisi</a>
                             </td>
                             </tr>
                         </tbody>

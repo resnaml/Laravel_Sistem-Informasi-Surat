@@ -38,8 +38,26 @@ class Suratkeluar extends Model
             });
     }
 
-    // protected $fillable= ['no_surat_keluar','tgl_surat_keluar','lampiran','perihal','penerima_surat','sifat_id','jenissurat_id'];
+    public function scopePersetujuan($query){
+        return $query->with('sifatsurat','jenissurat')->where('acc_admin', false)->get()->map(function($q){
+            return [
+                'id' => $q->id,
+                'title' => $q->full_number,
+                'created_at' => $q->created_at->diffForHumans(),
+                'sifat' => $q->sifatsurat->namesifat,
+                'pembuat' => $q->user->username
+            ];
+        });
+    }
 
+    public function scopeDisposisiKepala($query){
+        return $query->where('acc_admin', 1)->where('print_surat', 1)->where('disposisi_isi', 0)->get()->map(function($q){
+            return [
+                'id' => $q->id,
+                'full_number' => $q->full_number
+            ];
+        });
+    }
 
 
     public function jenissurat()
@@ -63,16 +81,6 @@ class Suratkeluar extends Model
     {
         return $this->belongsTo(User::class,'kepada');
     }
-
-    // public function sluggable(): array
-    // {
-    //     return [
-    //         'no_surat_keluar' => [
-    //             'source' => ['jenissurat_id.kodesurat'],
-    //             'separator' => '_' + 1
-    //         ]
-    //     ];
-    // }
 
     public static function boot()
     {

@@ -15,16 +15,7 @@ class SuratMasukController extends Controller
     */
     public function index()
     {
-        $suratmasuk = Suratkeluar::with('sifatsurat')->with('user')->where('acc_admin', 0)->get()->map(function($query){
-            return [
-                'id' => $query->id,
-                'title' => $query->full_number,
-                'created_at' => $query->created_at->diffForHumans(),
-                'sifat' => $query->sifatsurat->namesifat,
-                'pembuat' => $query->user->username
-                ];
-        });
-        
+        $suratmasuk = Suratkeluar::persetujuan();
         return view('main.layout.admin.suratmasuk', compact('suratmasuk'));
     }
 
