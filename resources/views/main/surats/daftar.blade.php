@@ -27,37 +27,37 @@
                     <tbody>
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $surat->full_number }}</td>
-                            <td>{{ date('d/m/Y', strtotime($surat->tgl_surat_keluar)) }}</td>
-                            <td>{{ $surat->kepada_id['username'] }}</td>
-                            <td>{{ $surat->user->username }}</td>
+                            <td>{{ $surat['title'] }}</td>
+                            <td>{{ $surat['tgl'] }}</td>
+                            <td>{{ $surat['kepada'] }}</td>
+                            <td>{{ $surat['pembuat'] }}</td>
                             
-                            @if ($surat->status == 'Diterima')
+                            @if ($surat['status'] == 'Diterima')
                             <td>
-                                <span class="d-inline btn btn-success">{{ $surat->status }}</span>
+                                <span class="d-inline btn btn-success">{{ $surat['status'] }}</span>
                                 </td>
                             <td>
                             @endif
             
-                            @if ($surat->status == 'Ditolak')
+                            @if ($surat['status'] == 'Ditolak')
                             <td>
-                                <span class="d-inline btn btn-danger">{{ $surat->status }}</span>
+                                <span class="d-inline btn btn-danger">{{ $surat['status'] }}</span>
                                 </td>
                             <td>
                             @endif
             
-                            @if ($surat->status == 'Proses')
+                            @if ($surat['status'] == 'Proses')
                             <td>
-                                <span class="d-inline btn btn-warning">{{ $surat->status }}</span>
+                                <span class="d-inline btn btn-warning">{{ $surat['status'] }}</span>
                             </td>
                             
                             <td>
                             @endif
-                                @if ($surat->status == 'Ditolak')
-                                <a href="/surats/{{ $surat->id }}" class="d-inline btn btn-warning">Lihat</a>
+                                @if ($surat['status'] == 'Ditolak')
+                                <a href="/surats/{{ $surat['id'] }}" class="d-inline btn btn-warning">Lihat</a>
                                 @endif
                                 
-                                <form action="/surats/{{ $surat->id }}" method="post" class="d-inline">
+                                <form action="/surats/{{ $surat['id'] }}" method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
                                     <button class="d-inline btn btn-danger" onclick="return confirm('Apakah kamu yakin untuk hapus data ??')">Hapus</button>

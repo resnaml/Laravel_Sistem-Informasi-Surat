@@ -22,9 +22,18 @@ class SuratKeluarController extends Controller
     */
     public function index()
     {
-        return view('main.surats.daftar', [
-            'suratkeluar' => Suratkeluar::where('user_id', auth()->user()->id)->get()
-        ]);
+        $suratkeluar = Suratkeluar::with(['sifatsurat','jenissurat'])->where('user_id', auth()->user()->id)->get()->map(function($q){
+            return [
+                "title" => $q->full_number,
+                "tgl" => date('d/m/Y', strtotime($q->tgl_surat_keluar)),
+                "kepada" => $q->kepada_id['username'],
+                "pembuat" => $q->user->username,
+                "status" => $q->status,
+                "id" => $q->id
+            ];
+        });
+        
+        return view('main.surats.daftar', compact('suratkeluar'));
     }
 
     /* 
