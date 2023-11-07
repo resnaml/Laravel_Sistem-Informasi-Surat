@@ -49,7 +49,11 @@ class DisposisiController extends Controller
     function diposisiCreate(Suratkeluar $suratkeluar)
     {
         return view('main.layout.kepala.disposisi', [
-            'surat' => $suratkeluar
+            'title' => $suratkeluar->full_number,
+            'pembuat' => $suratkeluar->user->username,
+            'jenis' => $suratkeluar->jenissurat['namejenis'],
+            "tgl" => date('d/m/Y', strtotime($suratkeluar->tgl_surat_keluar)),
+            'id' => $suratkeluar->id
         ]);
     }
 

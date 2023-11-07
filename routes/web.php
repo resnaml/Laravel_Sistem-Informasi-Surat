@@ -26,11 +26,6 @@ use App\Http\Controllers\jenissuratController;
 /*
     Interface Web
 */
-
-// Route::get('/test', function () {
-//     return view('main.surats.daftar');
-// });
-
 Route::get('/', [DashboardController::class,'home']);
 Route::get('/about', [DashboardController::class,'about']);
 Route::get('/panduan', [DashboardController::class,'panduan']);

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\jenissurat;
-use App\Models\Sifatsurat;
 use App\Models\Suratkeluar;
 use Barryvdh\DomPDF\Facade\PDF;
 use Illuminate\Http\Request;
@@ -25,7 +23,13 @@ class SuratMasukController extends Controller
     public function edit(Suratkeluar $suratkeluar)
     {
         return view('main.layout.admin.persetujuan', [
-            'surat' => $suratkeluar
+            'title' => $suratkeluar->full_number,
+            'jenis' => $suratkeluar->jenissurat['namejenis'],
+            'sifat' => $suratkeluar->sifatsurat['namesifat'],
+            'tgl' => $suratkeluar->tgl_surat_keluar,
+            'pembuat' => $suratkeluar->user->username,
+            'id' => $suratkeluar->id,
+            'print' => $suratkeluar->print_surat
         ]);
     }
     

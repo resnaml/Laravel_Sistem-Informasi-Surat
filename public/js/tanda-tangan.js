@@ -4,3 +4,6 @@ var sign = $('#sign').signature({ syncField:'#asd', syncFormat:'PNG' });
             sign.signature('clear');
             $('#signature').val('');
         });
+
+$('#hide1').hide();
+$('#hide2').hide();

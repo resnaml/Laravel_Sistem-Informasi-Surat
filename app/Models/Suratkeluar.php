@@ -39,7 +39,7 @@ class Suratkeluar extends Model
     }
 
     public function scopePersetujuan($query){
-        return $query->with('sifatsurat','jenissurat')->where('acc_admin', false)->get()->map(function($q){
+        return $query->with('sifatsurat','jenissurat')->where('acc_admin', 0)->get()->map(function($q){
             return [
                 'id' => $q->id,
                 'title' => $q->full_number,
@@ -51,7 +51,7 @@ class Suratkeluar extends Model
     }
 
     public function scopeDisposisiKepala($query){
-        return $query->where('acc_admin', 1)->where('print_surat', 1)->where('disposisi_isi', 0)->get()->map(function($q){
+        return $query->where('acc_admin', 1)->where('print_surat', 1)->where('disposisi_isi', 0)->latest()->get()->map(function($q){
             return [
                 'id' => $q->id,
                 'full_number' => $q->full_number

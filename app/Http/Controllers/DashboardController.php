@@ -16,7 +16,7 @@ class DashboardController extends Controller
     
     public function index(User $user)
     {
-        $suratKeluarCount = Suratkeluar::where('acc_admin', 0)->get()->count();
+        $suratKeluarCount = Suratkeluar::persetujuan()->count();
         
         $disposisi = Suratkeluar::where('print_surat', 1)->where('disposisi_isi', 0)->get()->count();
 

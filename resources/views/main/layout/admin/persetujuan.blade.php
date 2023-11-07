@@ -3,36 +3,42 @@
 @section('container')
 <div class="container-fluid">
 
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4 container-fluid col-8">
+        
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">DataTables</h6>
         </div>
 
         <div class="card-body text-center">
-            <h4> {{ $surat->full_number }}</h4>
-        </div>
+            <h5> 
+                <b>
+                    {{ $title }}
+                </b>
+            </h5>
 
-        <div class="container-fluid text-center col-5">
+            <hr class="divider col-5">
 
-            <hr class="divider">
+            <h5>{{ $jenis }}</h5>
 
-            <label class="label"><b>Jenis Surat</b></label>
-            <h4>{{ $surat->jenissurat['namejenis'] }}</h4>
-                <hr class="divider">
-            <label class="form-label"><b>Sifat Surat</b></label>
-            <h4>{{ $surat->sifatsurat['namesifat'] }}</h4>
-                <hr class="divider">
-            <label class="form-label"><b>Tgl Surat</b></label>
-            <h4>{{ $surat->tgl_surat_keluar }}</h4>
-                <hr class="divider">
-            <label class="form-label"><b>Pembuat Surat</b></label>
-            <h4>{{ $surat->user->username }}</h4>
-                <hr class="divider">
-                <div class="container mt-3">
-                    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-bookmark-check"></i> Setujui Surat</button>
-                
-                    <a class="btn btn-warning mb-3" href="/suratmasuk"><i class="bi bi-arrow-left-square"></i> Kembali</a>
-                </div>
+            <hr class="divider col-4">
+
+            <h5>{{ $sifat }}</h5>
+
+            <hr class="divider col-3">
+
+            <h5>{{ $tgl }}</h5>
+
+            <hr class="divider col-2">
+
+            <h5>{{ $pembuat }}</h5>
+
+            <hr class="divider col-1">
+            
+            <div class="container mt-3">
+                <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-bookmark-check"></i> Setujui Surat</button>
+            
+                <a class="btn btn-warning mb-3" href="/suratmasuk"><i class="bi bi-arrow-left-square"></i> Kembali</a>
+            </div>
         </div>
         
         
@@ -47,7 +53,7 @@
 
                 <div class="card-body">
                     <div class="container col-lg-8">
-                        <form method="POST" action="/suratmasuk/{{ $surat->full_number }}">
+                        <form method="POST" action="/suratmasuk/{{ $id }}">
                                 @method('POST')
                                 @csrf
                                 
@@ -71,7 +77,7 @@
                                 
                         <div class="mb-3 mt-4 text-center border border-dark rounded" id="checkbox">
                             <div class="mt-3 mb-3">
-                                            <input class="form-check-input" type="checkbox" value="1" name="print_surat"{{ $surat->print_surat || old('print_surat', 0) === 1 ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="checkbox" value="1" name="print_surat"{{ $print || old('print_surat', 0) === 1 ? 'checked' : '' }}>
                                             <label class="form-check-label">Setujui Surat</label>
                             </div>
                         </div>
