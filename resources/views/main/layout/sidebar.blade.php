@@ -24,7 +24,6 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Surats"
             aria-expanded="true" aria-controls="Surats">
-            <i class="fas fa-fw fa-cog"></i>
             <span>Surats</span>
         </a>
         <div id="Surats" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -42,15 +41,11 @@
     <hr class="sidebar-divider">
 
     @can('admin')
-    <div class="sidebar-heading">
-        Admin
-    </div>
 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span> - </span>
+            <span> Admin </span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">

@@ -6,7 +6,7 @@
     <div class="card shadow mb-4 container-fluid col-8">
         
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables</h6>
+            <h5 class="m-1 text-center font-weight-bold text-primary">Data Surat</h5>
         </div>
 
         <div class="card-body text-center">
@@ -39,9 +39,8 @@
             
                 <a class="btn btn-warning mb-3" href="/suratmasuk"><i class="bi bi-arrow-left-square"></i> Kembali</a>
             </div>
+
         </div>
-        
-        
         
         <div class="modal fade" id="exampleModal" tabindex="-1"  aria-hidden="true">
             <div class="modal-dialog">
@@ -53,10 +52,10 @@
 
                 <div class="card-body">
                     <div class="container col-lg-8">
-                        <form method="POST" action="/suratmasuk/{{ $id }}">
+                        <form method="POST" action="/suratmasuk/{{ $title }}">
                                 @method('POST')
                                 @csrf
-                                
+                        
                         <div class="mb-2 mt-2 text-center">
                                     <label for="status disposisi" class="form-label"><b>Status Disposisi</b></label>
                                     <select onchange="handelOnChangeEvent(this.value)" required class="form-control text-center" name="status" id="status">

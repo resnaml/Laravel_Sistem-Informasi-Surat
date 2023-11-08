@@ -14,7 +14,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $suratme }}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i class="fa fa-envelope-open fa-4x text-gray-500" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $disposisi }}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        <i class="fa fa-pencil fa-4x text-gray-500" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $suratallCount }}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <i class="fa fa-envelope-square fa-4x text-gray-500" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $userCount }}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <i class="fa fa-users fa-4x text-gray-500" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        <i class="fa fa-file-archive-o fa-4x text-gray-500" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $suratKeluarCount }}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        <i class="fa fa-check-square-o fa-4x text-gray-500" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -133,7 +133,7 @@
                 <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        <i class="fa fa-bar-chart" aria-hidden="true"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                         aria-labelledby="dropdownMenuLink">
@@ -169,7 +169,7 @@
                 <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        <i class="fa fa-pie-chart" aria-hidden="true"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                         aria-labelledby="dropdownMenuLink">

@@ -11,6 +11,7 @@ use App\Http\Controllers\PengarsipanController;
 use App\Http\Controllers\SifatsuratController;
 use App\Http\Controllers\SuratKeluarController;
 use App\Http\Controllers\jenissuratController;
+use App\Models\Suratkeluar;
 
 /*
 |--------------------------------------------------------------------------
@@ -118,7 +119,7 @@ Route::put('/diposisi/{suratkeluar}/edit', [DisposisiController::class, 'disposi
 /*
     --Surat Keluar Route-- 
 */
-Route::resource('/surats', SuratKeluarController::class)->middleware('auth')->except('edit');
+Route::resource('/surats', SuratKeluarController::class)->middleware('auth');
 
 Route::get('/dashboard/suratkeluarcetak', [SuratKeluarController::class, 'cetakSurat'])->middleware('auth');
 Route::get('/dashboard/suratkeluar{suratkeluar}.pdf', [SuratKeluarController::class, 'pdfExport'])->middleware('auth');

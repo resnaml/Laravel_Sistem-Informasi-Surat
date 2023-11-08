@@ -85,7 +85,7 @@ class SuratKeluarController extends Controller
     */
     public function show(Suratkeluar $suratkeluar)
     {
-        return view('dashboard.suratkeluar.show',[
+        return view('main.surats.show',[
             'surat' => $suratkeluar
         ]);
     }

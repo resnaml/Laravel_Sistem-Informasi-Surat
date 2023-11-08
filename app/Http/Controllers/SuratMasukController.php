@@ -28,7 +28,6 @@ class SuratMasukController extends Controller
             'sifat' => $suratkeluar->sifatsurat['namesifat'],
             'tgl' => $suratkeluar->tgl_surat_keluar,
             'pembuat' => $suratkeluar->user->username,
-            'id' => $suratkeluar->id,
             'print' => $suratkeluar->print_surat
         ]);
     }

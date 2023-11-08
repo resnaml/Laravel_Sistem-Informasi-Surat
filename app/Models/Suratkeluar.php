@@ -64,14 +64,17 @@ class Suratkeluar extends Model
     {
         return $this->belongsTo(jenissurat::class,'jenissurat_id');
     }
+
     public function sifatsurat()
     {
         return $this->belongsTo(Sifatsurat::class,'sifat_id');
     }
+
     public function user()
     {
         return $this->belongsTo(User::class,'user_id');
     }
+
     public function disposisi()
     {
         return $this->hasOne(Disposisisurat::class,'disposisi_id');
