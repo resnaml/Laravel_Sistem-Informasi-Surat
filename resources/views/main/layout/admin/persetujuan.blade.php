@@ -104,7 +104,7 @@
     </div>
 </div>
 
-    <script src="/js/disposisi.js"></script>
+    <script src={{ asset("/js/disposisi.js") }}></script>
 
 </div>
 @endsection

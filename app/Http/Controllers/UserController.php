@@ -59,8 +59,18 @@ class UserController extends Controller
     */
     public function indexNip()
     {
-        return view('dashboard.user.nip' ,[
-            'nips' => Nip::all()
+        return view('main.layout.admin.pegawai' ,[
+            'nips' => Nip::all()->map(function($akun){
+                return [
+                    "nip" => $akun->nip_kode,
+                    "nama" => $akun->nama_lengkap,
+                    "jabatan" => $akun->jabatan,
+                    "alamat" => $akun->alamat,
+                    "telepon" => $akun->telepon,
+                    "tgl" => date('d-M-Y', strtotime($akun->tgl_lahir)),
+                    "id" => $akun->id
+                ];
+            })
         ]);
     }
 

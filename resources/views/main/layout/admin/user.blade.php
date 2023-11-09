@@ -3,10 +3,8 @@
 @section('container')
 <div class="container-fluid">
 
-    <h1 class="h3 mb-2 text-gray-800">Daftar User</h1>
-
     <div class="d-flex">
-        <div class=" mb-2 mt-3">
+        <div class=" mb-2">
             <form action="/kelolaakun">
             <div class="d-flex mr-3">
                 <input class="form-control" name="search" type="search" placeholder="Cari User...">
@@ -15,14 +13,14 @@
             </div>
             </form>
         </div>
-        <div class="mb-1 mt-2">
-            <a class="btn btn-primary mt-2 mb-2" href="/kelolaakun/nip"><i class="bi bi-people-fill"></i></i> Daftar Pegawai</a>
+        <div class="mb-1">
+            <a class="btn btn-primary mb-2" href="/kelolaakun/nip"><i class="bi bi-people-fill"></i></i> Daftar Pegawai</a>
         </div>
     </div>
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables</h6>
+            <h5 class="m-0 font-weight-bold text-primary">Daftar User</h5>
         </div>
 
         <div class="card-body">
@@ -42,15 +40,15 @@
                     <tbody>
                         <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td scope="col">{{ $akun['username'] }}</td>
-                        <td scope="col">{{ $akun['email'] }}</td>
-                        <td scope="col">{{ $akun['nip'] }}</td>
+                        <td>{{ $akun['username'] }}</td>
+                        <td>{{ $akun['email'] }}</td>
+                        <td>{{ $akun['nip'] }}</td>
                         @if ( $akun['nip_id'] == true)
-                            <td scope="col" class="btn btn-success mt-2">Acc</td>
+                            <td class="btn btn-success mt-2">Acc</td>
                         @else
-                            <td scope="col" class="btn btn-danger mt-2">Belum</td>
+                            <td class="btn btn-danger mt-2">Belum</td>
                         @endif
-                        <td scope="col">
+                        <td>
                             <a href="/kelolaakun/{{ $akun['id'] }}" class="btn btn-warning">Edit</a>
                             <form action="/kelolaakun/{{ $akun['id'] }}" method="POST" class="d-inline">
                                 @method('delete')

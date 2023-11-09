@@ -4,7 +4,6 @@
 <div class="container-fluid">
 
     <div class="row mb-3">
-        <h3 class="text-gray-800">Data Arsip</h3>
         <a class="btn btn-success ml-3 mb-2" href="/pengarsipan/create">Buat Arsip</a>
     </div>
 
@@ -19,7 +18,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $berguna }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            <i class="fa fa-envelope-square fa-4x text-gray-500" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -36,7 +35,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $penting }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            <i class="fa fa-envelope-square fa-4x text-gray-500" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -53,7 +52,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $vital }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            <i class="fa fa-envelope-square fa-4x text-gray-500" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -70,18 +69,17 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $dinamis }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            <i class="fa fa-envelope-square fa-4x text-gray-500" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables</h6>
+            <h5 class="m-0 font-weight-bold text-primary">Data Arsip</h5>
         </div>
 
         <form method="GET" action="/pengarsipan/cari-arsip"
@@ -90,7 +88,7 @@
             @if (request('kode_arsip'))
                         <input type="hidden" name="kode_arsip" value="{{ request('kode_arsip') }}">
             @endif
-            <input type="text" name="search" class="form-control bg-light border-0 small" placeholder="Search for..."  value="{{ request('search') }}">
+            <input type="text" name="search" class="form-control bg-light border-0 small" placeholder="Cari Data..."  value="{{ request('search') }}">
             <div class="input-group-append">
                 <button class="btn btn-primary" type="submit">
                     Cari
