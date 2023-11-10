@@ -11,7 +11,6 @@ use App\Http\Controllers\PengarsipanController;
 use App\Http\Controllers\SifatsuratController;
 use App\Http\Controllers\SuratKeluarController;
 use App\Http\Controllers\jenissuratController;
-use App\Models\Suratkeluar;
 
 /*
 |--------------------------------------------------------------------------

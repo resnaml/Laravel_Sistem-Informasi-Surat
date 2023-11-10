@@ -18,7 +18,7 @@ class DashboardController extends Controller
     {
         $suratKeluarCount = Suratkeluar::persetujuan()->count();
         
-        $disposisi = Suratkeluar::where('print_surat', 1)->where('disposisi_isi', 0)->get()->count();
+        $disposisi = Suratkeluar::DisposisiKepala()->count();
 
         $suratme = Suratkeluar::where('kepada',  auth()->user()->id)->where('disposisi_isi', 1)->get()->count();
         
@@ -73,7 +73,7 @@ class DashboardController extends Controller
     public function hapusSurat(Suratkeluar $suratkeluar)
     {
         Suratkeluar::destroy($suratkeluar->id);
-        return redirect('/suratsaya')->with('danger','Data surat keluar berhasil terhapus !!!');
+        return redirect('/surats');
     }
 
     /*
@@ -81,7 +81,7 @@ class DashboardController extends Controller
     */
     public function home()
     {
-        return view('home',[
+        return view('front-end.home',[
             "title" => "home"
         ]);
     }
@@ -91,7 +91,7 @@ class DashboardController extends Controller
     */
     public function about()
     {
-        return view('about',[
+        return view('front-end.about',[
             "title" => "about",
             "name" => "Resna Mulya",
             "email" => "resnamulyal@gmail.com"
@@ -103,7 +103,7 @@ class DashboardController extends Controller
     */
     public function panduan()
     {
-        return view('panduan',[
+        return view('front-end.panduan',[
             "title" => "panduan"
         ]);
     }    

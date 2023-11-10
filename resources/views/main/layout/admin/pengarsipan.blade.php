@@ -3,12 +3,12 @@
 @section('container')
 <div class="container-fluid">
 
-    <div class="row mb-3">
+    <div class="row mb-2">
         <a class="btn btn-success ml-3 mb-2" href="/pengarsipan/create">Buat Arsip</a>
     </div>
 
     <div class="row">
-        <div class="col-xl-3 col-md-6 mb-4">
+        <div class="col-xl-3 col-md-6 mb-2">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -18,14 +18,14 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $berguna }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fa fa-envelope-square fa-4x text-gray-500" aria-hidden="true"></i>
+                            <i class="fa fa-file-text-o fa-4x text-gray-500" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-xl-3 col-md-6 mb-4">
+        <div class="col-xl-3 col-md-6 mb-2">
             <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -35,14 +35,14 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $penting }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fa fa-envelope-square fa-4x text-gray-500" aria-hidden="true"></i>
+                            <i class="fa fa-floppy-o fa-4x text-gray-500" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-xl-3 col-md-6 mb-4">
+        <div class="col-xl-3 col-md-6 mb-2">
             <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -52,14 +52,14 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $vital }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fa fa-envelope-square fa-4x text-gray-500" aria-hidden="true"></i>
+                            <i class="fa fa-files-o fa-4x text-gray-500" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-xl-3 col-md-6 mb-4">
+        <div class="col-xl-3 col-md-6 mb-2">
             <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -69,7 +69,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $dinamis }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fa fa-envelope-square fa-4x text-gray-500" aria-hidden="true"></i>
+                            <i class="fa fa-file-archive-o fa-4x text-gray-500" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
         </div>
     </div>
 
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-2">
         <div class="card-header py-3">
             <h5 class="m-0 font-weight-bold text-primary">Data Arsip</h5>
         </div>
