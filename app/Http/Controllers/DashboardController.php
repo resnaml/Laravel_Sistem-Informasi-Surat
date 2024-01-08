@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Pengarsipan;
 use App\Models\User;
 use App\Models\Suratkeluar;
-use Barryvdh\DomPDF\Facade\PDF;
 use Carbon\Carbon;
 
 class DashboardController extends Controller
@@ -14,7 +13,7 @@ class DashboardController extends Controller
         Halaman Dashboard     
     */
     
-    public function index(User $user)
+    public function index()
     {
         $suratKeluarCount = Suratkeluar::persetujuan()->count();
         
@@ -41,40 +40,12 @@ class DashboardController extends Controller
     /* 
         Halaman Show Akun
     */
-    public function ShowAkun(User $user)
+    public function profileKu()
     {   
-        return view('main.layout.profile',compact('user'));
+        return view('main.layout.profile');
     }
 
-    /*
-        Surat Saya
-    */ 
-    public function suratSaya()
-    {
-
-        $suratkeluar = Suratkeluar::where('kepada', auth()->user()->id)->where('disposisi_isi' , 1)->get();
-        return view('main.surats.surat-saya',compact('suratkeluar'));
-    }
-
-    /*
-        Buka Surat Generate PDF
-    */
-    public function bukaSuratPDF(Suratkeluar $suratkeluar)
-    {
-        $surats = [
-            'surat' => $suratkeluar
-        ];
-        return PDF::loadView('dashboard.mypdf', $surats)->setPaper('a4')->download('Suratku.pdf');
-    }
-
-    /*
-        Hapus Surat Saya
-    */
-    public function hapusSurat(Suratkeluar $suratkeluar)
-    {
-        Suratkeluar::destroy($suratkeluar->id);
-        return redirect('/surats');
-    }
+    
 
     /*
         Halaman Front End Home

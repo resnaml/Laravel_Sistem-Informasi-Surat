@@ -26,6 +26,9 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
 
             $table->foreignId('nip_id')->nullable()->constrained('nips')->onDelete('cascade');
+
+            
+
         });
     }
 

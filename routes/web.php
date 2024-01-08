@@ -11,6 +11,7 @@ use App\Http\Controllers\PengarsipanController;
 use App\Http\Controllers\SifatsuratController;
 use App\Http\Controllers\SuratKeluarController;
 use App\Http\Controllers\jenissuratController;
+use App\Http\Controllers\SuratController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,19 +31,6 @@ Route::get('/', [DashboardController::class,'home']);
 Route::get('/about', [DashboardController::class,'about']);
 Route::get('/panduan', [DashboardController::class,'panduan']);
 
-/*
-    Dashboard
-*/
-Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth');
-Route::get('/profile/{user:username}', [DashboardController::class,'ShowAkun'])->middleware('auth');
-
-/*
-    Surat Saya
-*/
-Route::get('/suratsaya', [DashboardController::class,'suratSaya'])->middleware('auth');
-Route::get('/suratsaya{suratkeluar:full_number}', [DashboardController::class, 'bukaSuratPDF'])->middleware('auth');
-Route::delete('/suratsaya{suratkeluar}', [DashboardController::class, 'hapusSurat'])->middleware('auth');
-
 /* 
     --Login Route-- 
 */ 
@@ -55,6 +43,20 @@ Route::post('/logout', [LoginController::class, 'logout']);
 */
 Route::post('/register', [RegisterController::class,'store']);
 Route::get('/register', [RegisterController::class,'index'])->middleware('guest');
+
+/*
+    Dashboard
+*/
+Route::controller(DashboardController::class)->middleware('auth')->group(function (){
+    Route::get('/dashboard', 'index');
+    Route::get('/dashboard/profile', 'profileKu');
+});
+
+Route::controller(SuratController::class)->middleware('auth')->group(function (){
+    Route::get('/suratsaya', 'suratSaya');
+    Route::get('/suratsaya{suratkeluar:full_number}', 'bukaSuratPDF');
+    Route::delete('/suratsaya{suratkeluar}', 'hapusSurat');
+});
 
 /*
     --Sifat Surat Route-- 

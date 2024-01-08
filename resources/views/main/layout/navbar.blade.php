@@ -61,7 +61,7 @@
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                 aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="/profile/{{ auth()->user()->username }}">
+                <a class="dropdown-item" href="/dashboard/profile">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     Profile
                 </a>

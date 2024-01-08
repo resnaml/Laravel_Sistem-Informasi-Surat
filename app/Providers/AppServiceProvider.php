@@ -2,11 +2,12 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Pagination\Paginator;
 use App\Models\User;
+use App\Models\Suratkeluar;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
-// use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 
 
@@ -39,6 +40,8 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('kepala', function(User $user) {
             return $user->is_kepala;
         });
+
+        view()->share('jmlDiposisi', Suratkeluar::DisposisiKepala()->count());
 
         // Schema::defaultStringLength(191);
     }

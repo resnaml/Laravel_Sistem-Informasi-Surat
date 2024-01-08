@@ -9,14 +9,14 @@
             </div>
     
             <div class="card-body text-center">
-                <h4>Username : <b>{{ $user['username'] }}</b></h4>
-                <h4>Email : <b>{{ $user['email'] }}</b></h4>
-                <h4>Nip : <b>{{ $user['nip'] }}</b></h4>
+                <h4>Username : <b>{{ auth()->user()->username }}</b></h4>
+                <h4>Email : <b>{{ auth()->user()->email }}</b></h4>
+                <h4>Nip : <b>{{ auth()->user()->nip  }}</b></h4>
                 <h4>
-                    {!! $user->is_admin == true ? '<span class="btn btn-success">Admin</span>' :   '<span class="btn btn-warning">Not Admin</span>'!!}
+                    {!! auth()->user()->is_admin == true ? '<span class="btn btn-success">Admin</span>' :   '<span class="btn btn-warning">Not Admin</span>'!!}
                 </h4>
                 <h4>
-                    {!! $user->is_Kepala == true ? '<span class="btn btn-success">Kepala</span>' :   '<span class="btn btn-warning">Not Kepala</span>'!!}
+                    {!! auth()->user()->is_Kepala == true ? '<span class="btn btn-success">Kepala</span>' :   '<span class="btn btn-warning">Not Kepala</span>'!!}
                 </h4>
             </div>
         </div>

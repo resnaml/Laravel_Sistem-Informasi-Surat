@@ -15,7 +15,7 @@
     <li class="nav-item active">
         <a class="nav-link" href="/dashboard">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Dashboard </span></a>
     </li>
 
     <hr class="sidebar-divider">
@@ -71,13 +71,16 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
             aria-expanded="true" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>-</span>
+                Disposisi
+                <span class="position-absolute ml-2 top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{ $jmlDiposisi }}
+                </span>
+            </button> 
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Kepala Component:</h6>
-                <a class="collapse-item" href="/diposisi">Disposisi Surat</a>
+                <a class="collapse-item" href="/diposisi">Disposisi Surat </a>
             </div>
         </div>
     </li>
